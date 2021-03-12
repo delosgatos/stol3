@@ -1,14 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\uikit\\dist",
-    "\\uikit\\dist\\css",
-    "\\uikit\\dist\\js",
-    "\\uikit\\src",
-    "\\uikit\\src\\js",
-    "\\uikit\\src\\less",
-    "\\uikit\\src\\less\\components"
+    "\\makeup",
+    "\\makeup\\assets",
+    "\\makeup\\css"
   ],
-  "SelectedNode": "\\uikit",
+  "SelectedNode": "\\makeup\\webpack.config.js",
   "PreviewInSolutionExplorer": false
 }
