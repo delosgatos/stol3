@@ -4,11 +4,23 @@ module.exports = {
       rules: [
         {
           test: /\.(scss|css)$/i,
+          exclude: /node_modules/,
           use: [
-            "style-loader",
-            "css-loader"
-          ],
+            {
+              loader: 'style-loader',
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+              }
+            },
+            {
+              loader: 'postcss-loader'
+            }
+          ]
         },
       ],
+        
     },
   };
