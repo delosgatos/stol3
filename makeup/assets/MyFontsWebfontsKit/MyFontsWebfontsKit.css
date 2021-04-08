@@ -1,0 +1,28 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 4027295, 2021-03-16T05:27:23-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: HelveticaMonospacedW1G-Rg by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/helvetica-monospaced/w1g-regular/
+ * Copyright: Copyright &amp;#x00A9; 2010 Linotype Corp., www.linotype.com. All rights reserved. This font software may not be reproduced, modified, disclosed or transferred without the express written approval of Linotype Corp. Helvetica is a trademark of Linotype Corp. r
+ * 
+ * 
+ * 
+ * © 2021 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3d739f");
+  
+@font-face {
+  font-family: "HelveticaMonospacedW1G-Rg";
+  src: url('webFonts/HelveticaMonospacedW1GRg/font.woff2') format('woff2'), url('webFonts/HelveticaMonospacedW1GRg/font.woff') format('woff');
+}
+

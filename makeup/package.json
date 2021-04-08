@@ -1,0 +1,38 @@
+{
+  "name": "makeup",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "bundle.js",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.0",
+    "extract-loader": "^5.1.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^1.3.9",
+    "node-sass": "^5.0.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss": "^8.2.7",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.0",
+    "postcss-loader": "^5.1.0",
+    "sass-loader": "^11.0.1",
+    "scss-loader": "^0.0.1",
+    "style-loader": "^2.0.0",
+    "tailwindcss": "^2.0.4",
+    "webpack": "^5.24.4",
+    "webpack-cli": "^4.5.0"
+  },
+  "scripts": {
+    "build:dev": "webpack",
+    "build:production": "cross-env NODE_ENV=production webpack",
+    "start": "webpack --watch",
+    "css": "webpack --config webpack.css.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,40 @@
+html,
+body {
+  overflow-x: hidden;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.stol {
+  &-section {
+    @apply relative border-b border-gray-900 border-solid;
+    &__feature {
+      // feature specific
+    }
+  }
+  &-tag-white {
+    @apply inline-flex px-3 mb-3 rounded-full bg-white text-gray-900 text-ttag border border-gray-900 border-solid;
+    &:hover {
+      @apply bg-gray-900 text-white;
+    }
+  }
+  &-teaser {
+    @apply flex flex-col pb-3 space-y-6 lg:flex-row lg:border lg:border-gray-900 lg:pb-0 lg:h-80;
+    &-image {
+      @apply relative w-full h-56 bg-center bg-cover lg:w-1/2 lg:h-auto;
+    }
+    &-content {
+      @apply flex flex-col items-start justify-end px-3 space-y-5 text-gray-900 lg:w-1/2 lg:h-auto lg:pb-10 lg:pt-13;
+    }
+  }
+}
+
+button.showed {
+  @apply block bg-gray-900 text-white;
+  & > i {
+    @apply hidden;
+  }
+  & > i.hidden {
+    @apply block;
+  }
+}

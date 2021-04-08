@@ -1,93 +1,812 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/components/effect-cube/effect-cube.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    <title>S-T-O-L.COM - MOBILE - MAIN</title>
+  </head>
+  <body class="antialiased text-gray-900" @click="toggleActive = !toggleActive">
+    <!--
+    <div style="position:absolute;top:0;left:0;z-index:0;opacity:0.5;"><img src="images/iphone.png"></div>
+    -->
+    <nav class="z-50 flex flex-wrap items-center justify-between w-full navbar-expand-lg">
+      <div class="flex flex-wrap items-center justify-between w-full mx-auto">
+        <div class="relative flex flex-row items-center justify-between w-full text-xl leading-none xl:px-10">
+          <button class="block w-12 bg-transparent outline-none cursor-pointer focus:outline-none md:order-3 xl:w-24 xl:-mr-8 xl:-ml-6" type="button" data-show="#searchbar">
+            <i class="hidden py-3 icon-close xl:py-9"></i>
+            <i class="py-1 icon-search"></i>
+          </button>
+          <a class="inline-block py-4 lg:order-1 xl:py-6.5" href="/"><img class="lg:h-11" src="images/logo.svg"></a>
+          <button class="block w-12 bg-transparent outline-none cursor-pointer focus:outline-none md:order-4 xl:hidden" type="button" data-show="#main-menu">
+            <i class="hidden py-3 icon-close xl:py-9"></i>
+            <i class="py-1 icon-menu"></i>
+          </button>          
+          <button class="hidden block w-12 bg-transparent outline-none cursor-pointer focus:outline-none md:order-4 xl:w-24 xl:-mr-10 xl:block" type="button" data-show="#xl-menu">
+            <i class="hidden py-3 icon-close xl:py-9"></i>
+            <i class="py-1 icon-menu"></i>
+          </button>
+          <div id="main-menu" class="absolute z-10 flex flex-col flex-grow hidden w-full px-3 py-5 pb-8 text-white bg-gray-900 xl:relative top-12 xl:bg-transparent xl:shadow-none xl:text-gray-900 xl:w-auto xl:order-2 xl:py-0 xl:pl-12 xl:pr-8 xl:top-0 xl:block xl:items-center">
+            <span class="block mt-6 mb-2 text-sm text-gray-500 uppercase xl:hidden">Рубрики</span>
+            <ul class="flex flex-col flex-wrap w-full mb-6 uppercase text-mh2 list-unstyled whitespace-nowrap xl:flex-row xl:m-0 xl:text-dh3 xl:justify-between">
+              <li class="flex-initial py-3"><a class="hover:text-gray-600" href="#church">Церковь</a></li>
+              <li class="flex-initial py-3"><a class="hover:text-gray-600" href="#russian">Русская жизнь</a></li>
+              <li class="flex-initial py-3"><a class="hover:text-gray-600" href="#culture">Культура</a></li>
+              <li class="flex-initial py-3"><a class="hover:text-gray-600" href="#rememberance">Трудная память</a></li>
+              <li class="flex-initial py-3"><a class="hover:text-gray-600" href="#society">Общество и ценности</a></li>
+            </ul>
+            <div id="xl-menu" class="xl:hidden xl:absolute xl:bg-gray-900 xl:text-white xl:-right-36 xl:px-8 xl:w-80 xl:top-18">
+              <ul class="flex flex-col flex-auto w-full pt-6 pb-2 mr-auto space-y-6 leading-normal uppercase list-none text-mh2">
+                <li class=""><a class="hover:text-gray-600" href="#projects"></i> спецпроекты</a></li>
+                <li class=""><a class="hover:text-gray-600" href="#foto"></i> фотороекты</a></li>
+                <li class=""><a class="hover:text-gray-600" href="#events"></i> события</a></li>
+                <li class=""><a class="hover:text-gray-600" href="#review">новостной обзор</a></li>
+                <li class=""><a class="hover:text-gray-600" href="#stol">что такое стол?</a></li>
+                <li class=""><a class="hover:text-gray-600" href="#contacts">контакты</a></li>
+                <li class=""><a class="hover:text-gray-600" href="#support">поддержать</a></li>
+              </ul>
+              <div class="stol-tags-block">
+                <a href="#" class="stol-tag-white">стол недели</a>
+                <a href="#" class="stol-tag-white">календарь</a>
+                <a href="#" class="stol-tag-white">фотоистории</a>
+                <a href="#" class="stol-tag-white">русские картинки</a>
+                <a href="#" class="stol-tag-white">словарь</a>
+              </div>
+              <div class="mt-6 mb-6">
+                <span class="block mt-6 mb-2 text-sm text-white uppercase text-opacity-60">мы в соцсетях</span>
+                <ul class="flex flex-row flex-wrap w-full list-unstyled">
+                  <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#telegram">telegram</a></li>
+                  <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#facebook">facebook</a></li>
+                  <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#vkontakte">vkontakte</a></li>
+                  <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#instagram">instagram</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div id="searchbar" class="absolute z-10 items-center flex-grow hidden w-full p-0 text-white bg-gray-900 top-12 xl:top-24 text-mh3 xl:text-dh3">
+          <input class="block w-full py-4 pl-3 pr-10 uppercase bg-gray-900 xl:py-9" />
+          <i class="absolute p-2 top-3 right-2 icon-search xl:px-3 xl:py-5 xl:text-2xl"></i>
+        </div>
+      </div>
+    </nav>
+    <main class="relative z-1">
 
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Helvetica+Monospaced+W1G&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-    <link href="main.css" rel="stylesheet" />
-    <title>Document</title>
-</head>
+      <!-- SECTION - FEATURE -->
+      <section class="w-full pb-3 stol-section stol-section__feature" x-data="{swiper: null}"
+          x-init="swiper = new Swiper($refs.container, {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            on: {
+              'slideChange' : function (sw){
+                this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
+              }
+            },
+            
+          });"
+      >
+        <div class="w-full">
+          <div class="swiper-container" x-ref="container">
+            <div class="swiper-wrapper">
+              <!-- START: S L I D E S -->
+              <div class="swiper-slide">
+                <div class="flex flex-col">
+                  <div class="flex-shrink-0">
+                    <!-- START: T E A S E R -->
+                    <div class="stol-teaser">
+                      <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-fmd.jpg)">
+                        <span class="absolute inline-flex px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">культура</span>
+                      </a>
+                      <div class="stol-teaser-content">
+                        <a href="#article1" class="leading-7 uppercase text-mh1">главный материал,<br>если заголовок будет<br>в три строки</a>
+                        <a href="#article1" class="text-base leading-5">«Стол» — это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </a>
+                        <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">выбор редакции 10.02.2021</p>
+                        <div class="stol-tags-block" class="leading-3 text-center">
+                          <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи длинный</a>
+                          <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex flex-col">
+                  <div class="flex-shrink-0">
+                    <!-- START: T E A S E R -->
+                    <div class="flex flex-col pb-3 space-y-6 stol-teaser">
+                      <a href="#article2" class="relative w-full h-56 bg-gray-300 bg-center bg-cover" style="background-image:url(images/image-bw-2.jpg)">
+                        <span class="inline-flex px-2.5 py-2 bg-white rounded-full absolute top-5 left-3 text-xs leading-3 text-center text-gray-900">церковь</span>
+                      </a>
+                      <div class="flex flex-col items-start justify-end px-3 space-y-5 text-gray-900 stol-teaser-content">
+                        <a href="#article2" style="font-size: 1.37em;" class="text-2xl leading-7 uppercase">еще один материал в фичере, строк на глаз как получится</a>
+                        <a href="#article2" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base leading-5">One caveat to the multiple-backgrounds technique is that the opacities will multiply rather than add together.  </a>
+                        <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">выбор редакции 12.03.2021</p>
+                        <div class="stol-tags-block" class="leading-3 text-center">
+                          <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи длинный</a>
+                          <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex flex-col">
+                  <div class="flex-shrink-0">
+                    <!-- START: T E A S E R -->
+                    <div class="flex flex-col pb-3 space-y-6 stol-teaser">
+                      <a href="#article3" class="relative w-full h-56 bg-gray-300 bg-center bg-cover" style="background-image:url(images/image-bw-1.jpg)">
+                        <span class="inline-flex px-2.5 py-2 bg-white rounded-full absolute top-5 left-3 text-xs leading-3 text-center text-gray-900">общество</span>
+                      </a>
+                      <div class="flex flex-col px-3 space-y-5 text-gray-900 stol-teaser-content">
+                        <a href="#article3"p style="font-size: 1.37em;" class="text-2xl leading-7 uppercase">третий материал в фичере и все, хватит</a>
+                        <a href="#article3" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base leading-5">Материал развития и побуждающее начало его реализации даются извне, но это побуждающее начало может действовать, очевидно, лишь сообразно с собственною природой организма. </a>
+                        <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">выбор редакции 10.02.2021</p>
+                        <div class="stol-tags-block" class="leading-3 text-center">
+                          <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи длинный</a>
+                          <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div x-ref="controls" class="flex flex-row w-full px-3 py-6 stol-teaser-controls">
+          <p class="flex-none w-20 text-sm leading-tight uppercase"><span x-ref="counter">1</span> / 3</p>
+          <div class="flex-grow"></div>
+          <div style="font-size: 0.52em" class="flex flex-none w-24 text-xs -mr-7"><i @click="swiper.slidePrev()" class="flex-1 cursor-pointer stol-arrow-prev icon-arrow-left"></i><i @click="swiper.slideNext()" class="flex-1 cursor-pointer stol-arrow-next icon-arrow-right"></i></div>
+        </div>
+      </section>
 
-<body>
-    <div class="v311_106">
-        <div class="name"></div>
-        <div class="v311_115">
-            <div class="v311_116"></div>
-            <div class="v311_117"></div>
-            <div class="v311_118"></div>
-            <div class="v311_119"></div>
-            <div class="v311_120"></div>
-            <div class="v311_121"></div>
-            <div class="v311_122"></div>
+      <!-- SECTION - OPINIONS -->
+      <section class="w-full px-3 pb-5 space-y-6 stol-section stol-section__opinions pt-11" x-data="{swiper: null}"
+        x-init="swiper = new Swiper($refs.container, {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 0,
+          breakpoints: {
+            640: { slidesPerView: 1, spaceBetween: 0},
+            768: { slidesPerView: 2, spaceBetween: 0},
+            1024: {slidesPerView: 3, spaceBetween: 0},
+          },
+        });"
+      >
+        <!-- SECTION TITLE -->
+        <h6 style="font-size: 1.37em;" class="w-full text-2xl leading-7 uppercase">мнения</h6>
+        <div class="swiper-container" x-ref="container">
+          <div class="swiper-wrapper">
+            <a href="#opinion1" class="flex flex-row flex-wrap w-full swiper-slide">
+              <img src="images/image-face.jpg" class="relative flex-auto inline-block mr-5 bg-center bg-cover rounded-full w-11" />
+              <div class="flex-auto flex-grow inline-block space-y-2">
+                <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base font-bold leading-4 uppercase">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                <p style="font-size: 0.9em;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">Имя и фамилия автора</p>
+              </div>
+            </a>
+            <a href="#opinion2" class="flex flex-row flex-wrap w-full swiper-slide">
+              <img src="images/image-face.jpg" class="relative flex-auto inline-block mr-5 bg-center bg-cover rounded-full w-11" />
+              <div class="flex-auto flex-grow inline-block space-y-2">
+                <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base font-bold leading-4 uppercase">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                <p style="font-size: 0.9em;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">Имя и фамилия автора</p>
+              </div>
+            </a>
+            <a href="#opinion3" class="flex flex-row flex-wrap w-full swiper-slide">
+              <img src="images/image-face.jpg" class="relative flex-auto inline-block mr-5 bg-center bg-cover rounded-full w-11" />
+              <div class="flex-auto flex-grow inline-block space-y-2">
+                <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base font-bold leading-4 uppercase">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                <p style="font-size: 0.9em;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">Имя и фамилия автора</p>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="v311_123">
-            <div class="v311_124"></div>
-            <div class="name"></div>
-        </div>
-        <div class="v311_126">
-            <div class="name"></div>
-            <div class="name"></div>
-            <div class="name"></div>
-        </div>
-        <div class="name"></div><span class="v311_171">поддержать
-            стол</span>
-        <div class="v311_172">
-            <div class="v311_173"></div>
-            <div class="v311_174"></div>
-            <div class="v311_175"></div><span class="v311_176">+2</span><span class="v311_177">тег статьи
-                длинный</span><span class="v311_178">тег статьи</span>
-        </div>
-        <div class="v311_179">
-            <div class="v311_180"></div>
-            <div class="v311_181"></div>
-            <div class="v311_182"></div><span class="v311_183">+2</span><span class="v311_184">тег статьи
-                длинный</span><span class="v311_185">тег статьи</span>
-        </div><span class="v311_257">спецпроекты</span><span class="v311_258">спецпроект</span><span
-            class="v311_259">другой спецпроект</span><span class="v311_260">Описание новости примерно в пять строк, хотя
-            зачем пять, можно в три или две</span><span class="v311_261">Описание новости примерно в пять строк, хотя
-            зачем пять, можно в три или две</span><span class="v311_262">21.08.2021</span><span
-            class="v311_263">21.08.2021</span><span class="v311_264">«Стол» – это пространство для встреч, творчества,
-            размышления и сотрудничества всех, кто хочет искать и находить смыслы. </span>
-        <div class="v311_265"></div>
-        <div class="v311_433"></div>
-        <div class="v311_435"></div><span class="v311_266">Ольга</span><span class="v311_434">фамилия</span><span
-            class="v311_436">e-mail</span>
-        <div class="v311_281"></div><span class="v311_282">Рассылка</span><span class="v311_283">Преимущество подписки
-            на рассылку. Например, в две строки.</span>
-        <div class="v311_284"></div>
-        <div class="v311_285"></div><span class="v311_286">подписаться</span><span
-            class="v311_287">paramonova94@gmail.com</span><span class="v311_288">рубрики</span><span
-            class="v311_289">Русская жизнь</span><span class="v311_290">Церковь</span><span class="v311_291">Трудная
-            память</span><span class="v311_292">Общество и ценности</span><span class="v311_293">Культура</span><span
-            class="v311_294">мы в соцсетях</span><span class="v311_295">instagram</span><span
-            class="v311_296">facebook</span><span class="v311_297">vkontakte</span><span
-            class="v311_298">telegram</span><span class="v311_299">контакты редакции</span><span
-            class="v311_300">hello@s-t-o-l.com</span><span class="v311_301">8 (499) 267-31-90</span><span
-            class="v311_302">Учредитель и главный редактор – А.А. Васенёв</span><span class="v311_303">Использования
-            материалов издания s-t-o-l.com разрешено только с предварительного согласия правообладателей.
-            Все права на картинки и тексты принадлежат их авторам.</span><span class="v311_304">Свидетельство о
-            регистрации ЭЛ № ФС 77 - 63013 от 10.09.2015 выдано Роскомнадзором.</span><span class="v311_305">2014-2021 ©
-            s-t-o-l.com</span><span class="v311_306">16+</span><span class="v311_332">все спецпроекты</span>
-        <div class="v311_333">
-            <div class="v311_334"></div>
-            <div class="v311_335"></div>
-        </div>
-        <div class="v311_343">
-            <div class="v311_344"></div>
-            <div class="v311_345"></div>
-        </div>
-        <div class="v311_346">
-            <div class="v311_347"></div>
-            <div class="v311_348"></div>
-            <div class="v311_349"></div>
-        </div><span class="v311_430">нажимая кнопку вы даете свое согласие на обработку персональных данных</span><span
-            class="v311_437">нажимая кнопку вы соглашаетесь с офертой и даете свое согласие на обработку персональных
-            данных</span>
-        <div class="v311_438"></div><span class="v311_439">продолжить</span>
-        <div class="v311_442"><span class="v311_440">назад</span>
-            <div class="v311_441"></div>
-        </div>
-    </div>
-</body>
 
+        <div x-ref="controls" class="flex flex-row w-full py-6 stol-teaser-controls">
+          <a href="#all-opinions" class="flex-none w-40 text-sm leading-tight uppercase">ВСЕ МНЕНИЯ</a>
+          <div class="flex-grow"></div>
+          <div style="font-size: 0.52em" class="flex flex-none w-24 text-xs -mr-7"><i @click="swiper.slidePrev()" class="flex-1 cursor-pointer stol-arrow-prev icon-arrow-left"></i><i @click="swiper.slideNext()" class="flex-1 cursor-pointer stol-arrow-next icon-arrow-right"></i></div>
+        </div>
+      </section>
+
+      <!-- SECTION - ARTICLES 0 -->
+      <section class="w-full px-3 pb-5 space-y-6 stol-section stol-section__articles pt-11">
+        <h6 style="font-size: 1.37em;" class="w-full text-2xl leading-none uppercase">материалы</h6>
+        <div class="stol-tags-block" class="text-center">
+          <a href="#" class="inline-flex px-2 py-1 mb-3 text-xs border border-gray-900 rounded-full">тег статьи длинный</a>
+          <a href="#" class="inline-flex px-2 py-1 mb-3 text-xs border border-gray-900 rounded-full">тег статьи</a>
+          <a href="#" class="inline-flex px-2 py-1 mb-3 text-xs border border-gray-900 rounded-full">тег статьи</a>
+          <a href="#" class="inline-flex px-2 py-1 mb-3 text-xs border border-gray-900 rounded-full">тег статьи длинный</a>
+          <a href="#" class="inline-flex px-2 py-1 mb-3 text-xs border border-gray-900 rounded-full">+8</a>
+        </div>
+        <div class="stol-article-list" class="">
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 bg-orange-600 stol-teaser pb-7 mb-9 bg-opacity-60">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-bw-1.jpg)">
+              <span class="absolute inline-flex items-center justify-center px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">
+                  культура
+              </span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.5px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-8.jpg)">
+              <span class="absolute inline-flex items-center justify-center px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">
+                  культура
+              </span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">спецматериал</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-bw-2.jpg)">
+              <span class="absolute inline-flex px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">культура</span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="bg-gray-900 text-white inline-flex px-2.5 py-1.5 border rounded-full border-gray-900 text-xs">тег-тема</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+          <!-- START: PROMO -->
+          <div style="height:500px;" class="flex items-center mb-8 bg-gray-300 stol-promo h-80">
+            <span class="w-full text-center">ПРОМО</span>
+          </div>
+          <!-- END: T E A S E R -->
+        </div>
+      </section>
+
+      <!-- SECTION - NEWS-REVIEW -->
+      <section class="w-full px-3 stol-section stol-section__news pt-11 pb-7 space-y-7" x-data="{swiper: null}"
+        x-init="swiper = new Swiper($refs.container, {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 0,
+          breakpoints: {
+            640: { slidesPerView: 1, spaceBetween: 0},
+            768: { slidesPerView: 2, spaceBetween: 0},
+            1024: {slidesPerView: 3, spaceBetween: 0},
+          },
+        });"
+      >
+        <!-- SECTION TITLE -->
+        <h6 style="font-size: 1.37em;" class="w-full text-2xl leading-7 uppercase">Новостной обзор</h6>
+        <div class="swiper-container" x-ref="container">
+          <div class="swiper-wrapper">
+            <a href="#news-review1" class="flex flex-row flex-wrap w-full swiper-slide">
+              <div class="flex-auto flex-grow inline-block space-y-4">
+                <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base uppercase">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                <p style="font-size: 0.9em;" class="text-sm italic text-gray-900 font-lightitalic text-opacity-60">10.02.2021</p>
+              </div>
+            </a>
+            <a href="#news-review2" class="flex flex-row flex-wrap w-full swiper-slide">
+              <div class="flex-auto flex-grow inline-block space-y-4">
+                <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base uppercase">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                <p style="font-size: 0.9em;" class="text-sm italic leading-tight text-gray-900 font-lightitalic text-opacity-60">20.03.2021</p>
+              </div>
+            </a>
+            <a href="#news-review" class="flex flex-row flex-wrap w-full swiper-slide">
+              <div class="flex-auto flex-grow inline-block space-y-4">
+                <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base uppercase">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                <p style="font-size: 0.9em;" class="text-sm italic leading-tight text-gray-900 font-lightitalic text-opacity-60">01.04.2021</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div x-ref="controls" class="flex flex-row w-full py-4 stol-teaser-controls">
+          <a href="#all-reviews" class="flex-none w-40 text-sm leading-tight uppercase">ВСЕ ОБЗОРЫ</a>
+          <div class="flex-grow"></div>
+          <div style="font-size: 0.52em" class="flex flex-none w-24 text-xs -mr-7"><i @click="swiper.slidePrev()" class="flex-1 cursor-pointer stol-arrow-prev icon-arrow-left"></i><i @click="swiper.slideNext()" class="flex-1 cursor-pointer stol-arrow-next icon-arrow-right"></i></div>
+        </div>
+      </section>
+
+      <!-- SECTION - ARTICLES 1 -->
+      <section class="w-full px-3 pb-2 space-y-6 stol-section stol-section__articles pt-11">
+        <div class="stol-article-list" class="">
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-8.jpg)">
+              <span class="absolute inline-flex items-center justify-center px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">культура</span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">спецматериал</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-bw-2.jpg)">
+              <span class="absolute inline-flex px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">культура</span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="bg-gray-900 text-white inline-flex px-2.5 py-1.5 border rounded-full border-gray-900 text-xs">тег-тема</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+        </div>      
+      </section>
+
+      <!-- SECTION - INSET 1 -->
+      <section class="w-full px-3 pb-8 space-y-4 stol-section stol-section__inset pt-11">
+        <h6 style="font-size: 1.37em;" class="w-full text-2xl leading-7 uppercase"><span class="text-orange-600">словарь:</span><br/>Q – «Теория QАnon»</h6>
+        <div class="flex-auto flex-grow inline-block">
+          <p style="font-size: 0.83em; line-height: 1.4em;" class="text-base">Самая опасная конспирология</p>
+        </div>
+        <div x-ref="controls" class="flex flex-row w-full py-3 stol-teaser-controls">
+          <a href="#all-reviews" class="flex-none w-40 text-sm leading-tight uppercase">ПОДРОБНЕЕ <i style="font-size: 0.52rem" class="text-xs icon-arrow-right"></i></a>
+        </div>
+      </section>
+
+      <!-- SECTION - ARTICLES 2 -->
+      <section class="w-full px-3 pb-5 space-y-6 stol-section stol-section__articles pt-11">
+        <div class="stol-article-list" class="">
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-8.jpg)">
+              <span class="absolute inline-flex items-center justify-center px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">
+                  культура
+              </span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">спецматериал</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-bw-2.jpg)">
+              <span class="absolute inline-flex px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">культура</span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="bg-gray-900 text-white inline-flex px-2.5 py-1.5 border rounded-full border-gray-900 text-xs">тег-тема</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+        </div>
+      </section>
+
+      <!-- SECTION - INSET 2 -->
+      <section class="w-full px-3 pb-8 space-y-4 stol-section stol-section__inset pt-11">
+        <h6 style="font-size: 1.37em;" class="w-full text-2xl leading-7 uppercase"><span class="text-orange-600">стол недели:</span><br/>стол михаила булгакова</h6>
+        <div class="flex-auto flex-grow inline-block">
+            <p style="font-size: 0.83em; line-height: 1.4em;" class="text-base">Ко дню рождения автора «Мастера и Маргариты»</p>
+        </div>
+        <div x-ref="controls" class="flex flex-row w-full py-3 stol-teaser-controls">
+            <a href="#all-reviews" class="flex-none w-40 text-sm leading-tight uppercase">ПОДРОБНЕЕ <i style="font-size: 0.52rem" class="text-xs icon-arrow-right"></i></a>
+        </div>
+      </section>
+
+      <!-- SECTION - ARTICLES 3 -->
+      <section class="w-full px-3 pb-5 space-y-6 stol-section stol-section__articles pt-11">
+        <div class="stol-article-list" class="">
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-8.jpg)">
+              <span class="absolute inline-flex items-center justify-center px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">культура</span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">спецматериал</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-bw-2.jpg)">
+              <span class="absolute inline-flex px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">культура</span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="bg-gray-900 text-white inline-flex px-2.5 py-1.5 border rounded-full border-gray-900 text-xs">тег-тема</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+        </div>    
+      </section>
+
+      <!-- SECTION - NEWS-REVIEW -->
+      <section class="w-full px-3 stol-section stol-section__events pt-11 pb-7 space-y-7" x-data="{swiper: null}"
+        x-init="swiper = new Swiper($refs.container, {
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 0,
+          breakpoints: {
+            640: { slidesPerView: 1, spaceBetween: 0},
+            768: { slidesPerView: 2, spaceBetween: 0},
+            1024: {slidesPerView: 3, spaceBetween: 0},
+          },
+        });">
+        <!-- SECTION TITLE -->
+        <h6 style="font-size: 1.37em;" class="w-full text-2xl leading-7 uppercase">События</h6>
+        <div class="swiper-container" x-ref="container">
+          <div class="swiper-wrapper">
+            <a href="#news-review1" class="flex flex-row flex-wrap w-full swiper-slide">
+            <div class="flex-auto flex-grow inline-block space-y-4">
+              <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base uppercase">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+              <p style="font-size: 0.9em;" class="text-sm italic text-gray-900 font-lightitalic text-opacity-60">10.02.2021</p>
+            </div>
+            </a>
+            <a href="#news-review2" class="flex flex-row flex-wrap w-full swiper-slide">
+            <div class="flex-auto flex-grow inline-block space-y-4">
+              <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base uppercase">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+              <p style="font-size: 0.9em;" class="text-sm italic leading-tight text-gray-900 font-lightitalic text-opacity-60">20.03.2021</p>
+            </div>
+            </a>
+            <a href="#news-review" class="flex flex-row flex-wrap w-full swiper-slide">
+            <div class="flex-auto flex-grow inline-block space-y-4">
+              <p style="font-size: 0.9em; line-height: 1.4em;" class="text-base uppercase">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+              <p style="font-size: 0.9em;" class="text-sm italic leading-tight text-gray-900 font-lightitalic text-opacity-60">01.04.2021</p>
+            </div>
+            </a>
+          </div>
+        </div>
+
+        <div x-ref="controls" class="flex flex-row w-full py-4 stol-teaser-controls">
+          <a href="#all-reviews" class="flex-none w-40 text-sm leading-tight uppercase">ВСЕ СОБЫТИЯ</a>
+          <div class="flex-grow"></div>
+          <div style="font-size: 0.52em" class="flex flex-none w-24 text-xs -mr-7"><i @click="swiper.slidePrev()" class="flex-1 cursor-pointer stol-arrow-prev icon-arrow-left"></i><i @click="swiper.slideNext()" class="flex-1 cursor-pointer stol-arrow-next icon-arrow-right"></i></div>
+        </div>
+      </section>
+
+      <section class="w-full px-3 pb-5 space-y-6 stol-section stol-section__articles pt-11">
+        <div class="stol-article-list" class="">
+          <!-- START: T E A S E R -->
+          <div class="flex flex-col space-y-6 stol-teaser pb-7 mb-9">
+            <a href="#article1" class="relative w-full bg-center bg-cover h-72" style="background-image:url(images/image-8.jpg)">
+              <span class="absolute inline-flex items-center justify-center px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">культура</span>
+            </a>
+            <div class="flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+              <a href="#article1" class="text-lg leading-6 uppercase">материал заголовок</a>
+              <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">10.02.2021</p>
+              <div class="stol-tags-block" class="leading-3 text-center">
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">спецматериал</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                <a href="#" class="inline-flex px-2.5 py-1 border rounded-full border-gray-900 text-xs">+2</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+          <!-- START: T E A S E R -->
+          <div style="height:500px" class="flex items-center bg-blue-400 stol-promo h-80 mb-9">
+            <div style="height:280px;" class="flex flex-col space-y-6">
+              <a href="#telegram" class="relative w-20 h-20 mx-auto bg-center bg-cover" style="background-image:url(images/logos_telegram.png)"></a>
+              <div class="flex flex-col px-3 px-10 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+                <a href="#article1" class="flex-auto w-full text-lg leading-6 text-center text-white uppercase">подписывайтесь на наш telegram-канал</a>
+                <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="flex-auto w-full text-base text-center text-white">Может еще какой-то подзаголовок в две строки</a>
+              </div>
+            </div>
+          </div>
+          <!-- END: T E A S E R -->
+        </div>
+        <a style="font-size: 0.9em;" href="#all-articles" class="block w-full py-3 leading-6 text-center text-white bg-gray-900 px-9">ВСЕ МАТЕРИАЛЫ</a>   
+      </section>
+
+      <section class="w-full pb-3 stol-section stol-section__feature pt-11" x-data="{swiper: null}"
+            x-init="swiper = new Swiper($refs.container, {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            on: {
+                'slideChange' : function (sw){
+                this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
+                }
+            },
+            breakpoints: {
+              640: { slidesPerView: 1, spaceBetween: 0},
+              768: { slidesPerView: 2, spaceBetween: 0},
+              1024: {slidesPerView: 3, spaceBetween: 0},
+            },
+            });"
+        >
+          <div class="px-3">
+            <h6 style="font-size: 1.37em;" class="w-full pb-6 text-2xl leading-7 uppercase">Спецпроекты</h6>
+            <div class="-mx-3 swiper-container" x-ref="container">
+              <div class="swiper-wrapper">
+                <!-- START: S L I D E S -->
+                <div class="swiper-slide">
+                  <div class="flex flex-col">
+                    <div class="flex-shrink-0 px-3">
+                      <!-- START: T E A S E R -->
+                      <div class="flex flex-col pb-3 space-y-6 stol-teaser">
+                        <a href="#article1" class="relative w-full h-40 bg-center bg-cover" style="background-image:url(images/image-reds.jpg)">
+                          <span class="absolute inline-flex px-2 py-2 text-xs leading-3 text-center text-gray-900 bg-white rounded-full top-5 left-3">
+                            культура
+                          </span>
+                        </a>
+                        <div class="flex flex-col items-start justify-end space-y-5 text-gray-900 stol-teaser-content">
+                          <a href="#article1" style="font-size: 1.37em;" class="text-2xl leading-7 uppercase">главный материал,<br>если заголовок будет<br>в три строки</a>
+                          <a href="#article1" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base leading-5">«Стол» — это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </a>
+                          <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">выбор редакции 10.02.2021</p>
+                          <div class="stol-tags-block" class="leading-3 text-center">
+                            <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">
+                              тег статьи длинный
+                            </a>
+                            <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">
+                              тег статьи
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END: T E A S E R -->
+                    </div>
+                  </div>
+                </div>
+                <!-- NEXT SLIDE -->
+                <div class="swiper-slide">
+                  <div class="flex flex-col">
+                    <div class="flex-shrink-0 px-3">
+                      <!-- START: T E A S E R -->
+                      <div class="flex flex-col pb-3 space-y-6 stol-teaser">
+                        <a href="#article2" class="relative w-full h-40 bg-gray-300 bg-center bg-cover" style="background-image:url(images/image-8.jpg)">
+                          <span class="inline-flex px-2.5 py-2 bg-white rounded-full absolute top-5 left-3 text-xs leading-3 text-center text-gray-900">церковь</span>
+                        </a>
+                        <div class="flex flex-col items-start justify-end space-y-5 text-gray-900 stol-teaser-content">
+                          <a href="#article2" style="font-size: 1.37em;" class="text-2xl leading-7 uppercase">еще один материал в фичере, строк на глаз как получится</a>
+                          <a href="#article2" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base leading-5">One caveat to the multiple-backgrounds technique is that the opacities will multiply rather than add together.  </a>
+                          <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">выбор редакции 12.03.2021</p>
+                          <div class="stol-tags-block" class="leading-3 text-center">
+                            <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи длинный</a>
+                            <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END: T E A S E R -->
+                    </div>
+                  </div>
+                </div>
+                <!-- NEXT SLIDE -->
+                <div class="swiper-slide">
+                  <div class="flex flex-col">
+                      <div class="flex-shrink-0 px-3">
+                        <!-- START: T E A S E R -->
+                        <div class="flex flex-col pb-3 space-y-6 stol-teaser">
+                            <a href="#article3" class="relative w-full h-40 bg-gray-300 bg-center bg-cover" style="background-image:url(images/image-bw-1.jpg)">
+                              <span class="inline-flex px-2.5 py-2 bg-white rounded-full absolute top-5 left-3 text-xs leading-3 text-center text-gray-900">общество</span>
+                            </a>
+                            <div class="flex flex-col space-y-5 text-gray-900 stol-teaser-content">
+                              <a href="#article3"p style="font-size: 1.37em;" class="text-2xl leading-7 uppercase">третий материал в фичере и все, хватит</a>
+                              <a href="#article3" style="font-size: 0.9em;letter-spacing: -0.8px;line-height: 1.5em;" class="text-base leading-5">Материал развития и побуждающее начало его реализации даются извне, но это побуждающее начало может действовать, очевидно, лишь сообразно с собственною природой организма. </a>
+                              <p style="font-size: 0.9em;letter-spacing: -0.8px;" class="text-sm italic leading-tight font-lightitalic text-opacity-60">выбор редакции 10.02.2021</p>
+                              <div class="stol-tags-block" class="leading-3 text-center">
+                                <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи длинный</a>
+                                <a href="#" class="inline-flex px-2 py-1.5 border rounded-full border-gray-900 text-xs">тег статьи</a>
+                              </div>
+                            </div>
+                        </div>
+                        <!-- END: T E A S E R -->      
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div x-ref="controls" class="flex flex-row w-full px-3 py-6 stol-teaser-controls">
+            <p class="flex-none w-20 text-sm leading-tight uppercase"><span x-ref="counter">1</span> / 3</p>
+            <div class="flex-grow"></div>
+            <div style="font-size: 0.52em" class="flex flex-none w-24 text-xs -mr-7"><i @click="swiper.slidePrev()" class="flex-1 cursor-pointer stol-arrow-prev icon-arrow-left"></i><i @click="swiper.slideNext()" class="flex-1 cursor-pointer stol-arrow-next icon-arrow-right"></i></div>
+          </div>
+        </section>
+
+        <section class="w-full px-3 pb-20 space-y-4 stol-section stol-section__inset pt-11">
+          <h6 style="font-size: 1.37em;" class="w-full text-2xl leading-7 uppercase"><span class="text-orange-600">поддержать</span><br/>стол</h6>
+          <div class="flex-auto flex-grow inline-block">
+            <p style="font-size: 0.83em; line-height: 1.4em;" class="text-base">«Стол» – это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </p>
+          </div>
+          <div class="relative">
+            <input class="w-full px-2 italic leading-6 text-gray-900 bg-gray-200 h-11 text-opacity-60" placeholder="сумма" />
+          </div>
+          <div class="stol-tags-block" class="leading-3 text-center">
+            <a href="#" class="inline-flex px-2 py-1 text-xs border border-gray-900 rounded-full">100 ₽</a>
+            <a href="#" class="inline-flex px-2 py-1 text-xs border border-gray-900 rounded-full">200 ₽</a>
+            <a href="#" class="inline-flex px-2 py-1 text-xs border border-gray-900 rounded-full">500 ₽</a>
+            <a href="#" class="inline-flex px-2 py-1 text-xs border border-gray-900 rounded-full">1000 ₽</a>
+          </div>
+          <div class="flex uppercase">
+            <span class="pr-3">Ежемесячно</span>
+            <div class="flex items-center w-10 h-5 p-1 duration-300 ease-in-out bg-gray-300 rounded-full" :class="{ 'bg-green-400': toggleActive}">
+              <div class="w-4 h-4 duration-300 ease-in-out transform bg-gray-900 rounded-full shadow-md" :class="{ 'translate-x-6': toggleActive,}"></div>
+            </div>
+            <span class="pl-3">Разово</span>
+          </div>
+          <a style="font-size: 0.9em;" href="#all-articles" class="block w-full py-3 leading-6 text-center text-white bg-gray-900 px-9">Продолжить</a>     
+        </section>
+    </main>
+ 
+    <footer class="relative py-20 text-white bg-gray-900">
+      <div class="container px-3 mx-auto">
+        <div class="flex flex-col w-full space-y-6">
+          <h5 class="text-xl leading-7 text-white uppercase">Рассылка</h5>
+          <h6 class="text-sm leading-tight text-white">
+              Преимущество подписки на рассылку. Например, в две строки.
+          </h6>
+          <div class="relative">
+              <input class="w-full px-2 italic leading-6 text-white bg-gray-700 h-11 text-opacity-60" placeholder="сумма" />
+          </div>
+          <a  style="font-size: 0.9em;" href="#all-articles" class="block w-full py-3 leading-6 text-center text-gray-900 uppercase bg-white px-9">Подписаться</a>  
+          <p class="text-sm leading-tight text-white text-opacity-60">
+              нажимая кнопку вы даете свое согласие на обработку персональных данных
+          </p>
+        </div>
+        <div class="flex flex-wrap">
+          <div class="w-full lg:w-3/12">
+            <div class="mt-6 mb-6">
+              <span class="block mb-2 text-sm text-white uppercase text-opacity-60">Рубрики</span>
+              <ul class="flex flex-row flex-wrap w-full list-unstyled whitespace-nowrap">
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#church">Церковь</a></li>
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#russian">Русская жизнь</a></li>
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#culture">Культура</a></li>
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#rememberance">Трудная память</a></li>
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#society">Общество и ценности</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="w-full lg:w-3/12">
+            <div class="mt-6 mb-6">
+              <span class="block mt-6 mb-2 text-sm text-white uppercase text-opacity-60">мы в соцсетях</span>
+              <ul class="flex flex-row flex-wrap w-full list-unstyled">
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#telegram">telegram</a></li>
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#facebook">facebook</a></li>
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#vkontakte">vkontakte</a></li>
+                <li class="flex-initial pr-5"><a class="text-sm text-white hover:text-gray-900" href="#instagram">instagram</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="w-full lg:w-3/12">
+            <div class="mt-6 mb-6">
+              <span class="block mt-6 mb-2 text-sm text-white uppercase text-opacity-60">контакты редакции</span>
+              <ul class="flex flex-row flex-wrap w-full list-unstyled">
+                <li class="flex-1"><a class="text-sm text-white hover:text-gray-900" href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
+                <li class="flex-1"><a class="text-sm text-white hover:text-gray-900" href="tel:+74992673190">8 (499) 267-31-90</a></li>
+                <li class="flex-initial w-full"><span class="text-sm text-white">Учредитель и главный редактор – А.А. Васенёв</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="w-full lg:w-3/12">
+            <div class="mt-6 mb-6">
+              <span class="block mt-6 mb-2 text-sm text-white">Использования материалов издания s-t-o-l.com разрешено только с предварительного согласия правообладателей. 
+                Все права на картинки и тексты принадлежат их авторам.</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center md:justify-between">
+          <div class="w-full md:w-4/12">
+            <div class="py-1 text-sm text-white uppercase text-opacity-60">2014-2021 © s-t-o-l.com</div>
+            <div class="py-1 text-sm text-white uppercase text-opacity-60">16+</div>
+            <div class="py-1 text-sm text-white text-opacity-60 ">Свидетельство о регистрации ЭЛ № ФС 77 - 63013 от 10.09.2015 выдано Роскомнадзором.</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>
+    var showClickElements = document.querySelectorAll('[data-show]');
+    var showClickHandler = function(switcher, state){
+      if (state == 'on') {
+        if (!switcher.classList.contains('showed')) {
+          switcher.classList.add('showed');
+        }
+      } else if (state == 'off') {
+        switcher.classList.remove('showed');
+      } else {
+        switcher.classList.toggle('showed');
+      }
+      var collapseSelector = switcher.getAttribute('data-show');
+      console.log(collapseSelector);
+      var el = document.querySelector(collapseSelector);
+      console.log('SWITCHER', switcher, 'CONTROLLED', el);
+      if (!el.classList.contains('hidden') && window.innerWidth > 1280) {
+        if (state == 'on') {
+          switcher.classList.remove('xl:hidden');
+        } else if (state == 'off') {
+          if (!switcher.classList.contains('showed')) {
+            el.classList.add("xl:hidden");
+          }
+        } else {
+          el.classList.toggle("xl:hidden");
+        }
+      } else{
+        if (state == 'on') {
+          switcher.classList.remove('hidden');
+        } else if (state == 'off') {
+          if (!switcher.classList.contains('showed')) {
+            el.classList.add("hidden");
+          }
+        } else {
+          el.classList.toggle("hidden");
+        }
+      }
+    }
+    showClickElements.forEach(function(el){
+      el.addEventListener('click', function(e){
+        showClickElements.forEach(function(el){
+          if(el == e.currentTarget){
+            return;
+          }
+          showClickHandler(el, 'off');
+        });
+        showClickHandler(e.currentTarget);
+      });
+    });
+  </script>
 </html>

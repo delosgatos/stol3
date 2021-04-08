@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../cc"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "makeup"
+	}
+}
