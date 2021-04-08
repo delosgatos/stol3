@@ -12,19 +12,37 @@ body {
       // feature specific
     }
   }
-  &-tag-white {
-    @apply inline-flex px-3 mb-3 rounded-full bg-white text-gray-900 text-ttag border border-gray-900 border-solid;
-    &:hover {
-      @apply bg-gray-900 text-white;
+  &-tag {
+    @apply inline-flex px-2 py-1.5 mb-3 border rounded-full border-gray-900 text-xs;
+    &-label {
+      @apply inline-flex px-2.5 py-2 bg-white rounded-full absolute top-5 left-3 text-xs leading-3 text-center text-gray-900;
+    }
+    &-white {
+      @apply inline-flex px-3 mb-3 rounded-full bg-white text-gray-900 text-ttag border border-gray-900 border-solid;
+      &:hover {
+        @apply bg-gray-900 text-white;
+      }
     }
   }
   &-teaser {
-    @apply flex flex-col pb-3 space-y-6 lg:flex-row lg:border lg:border-gray-900 lg:pb-0 lg:h-80;
+    @apply flex flex-col space-y-6 pb-7 mb-9;
     &-image {
-      @apply relative w-full h-56 bg-center bg-cover lg:w-1/2 lg:h-auto;
+      @apply relative w-full bg-center bg-cover h-72;
     }
     &-content {
-      @apply flex flex-col items-start justify-end px-3 space-y-5 text-gray-900 lg:w-1/2 lg:h-auto lg:pb-10 lg:pt-13;
+      @apply flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900;
+    }
+    &__feature {
+      @apply pb-3 lg:flex-row lg:border lg:border-gray-900 lg:pb-0 lg:h-80;
+      .stol-teaser-image {
+        @apply h-56 lg:w-1/2 lg:h-auto;
+      }
+      .stol-teaser-content {
+        @apply lg:w-1/2 lg:h-auto lg:pb-10 lg:pt-13;
+      }
+    }
+    &-controls {
+      @apply flex flex-row w-full px-3 py-6;
     }
   }
 }
