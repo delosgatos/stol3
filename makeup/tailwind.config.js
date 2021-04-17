@@ -37,6 +37,7 @@ module.exports = {
         },
       },
       fontSize: {
+        xxs:  ['0.52em'],
         base: ['0.9em',{letterSpacing: '-0.8px', lineHeight: '1.5em'}],
         dh1:  ['36px', {lineHeight:'1.3em'}],
         d:    ['16px', {lineHeight:'1.48em'}],
@@ -54,7 +55,7 @@ module.exports = {
 
         mh1:  ['22px', {lineHeight:'1.3em'}],
         mh2:  ['18px', {lineHeight:'1.2em'}],
-        mh3:  ['14px', {lineHeight:'1.44em'}],
+        mh3:  ['14px', {lineHeight:'1.44em', lineHeight: '1rem'}],
         m:    ['14px', {lineHeight:'1.49em'}],
         mcap: ['14px', {lineHeight:'1.48em'}],
       },

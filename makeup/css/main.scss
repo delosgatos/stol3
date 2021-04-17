@@ -6,11 +6,36 @@ body {
 }
 
 .stol {
+
+  // S E C T I O N S
   &-section {
-    @apply relative border-b border-gray-900 border-solid;
+    @apply w-full px-3 pt-11 relative border-b border-gray-900 border-solid space-y-6;
     &__feature {
-      // feature specific
+      @apply pb-3 space-y-0;
     }
+    &__top {
+      @apply px-0 pt-0;
+    }
+    &__opinions {
+      @apply pb-5;
+    }
+    &__articles {
+      @apply pb-5;
+    }
+    &__news {
+      @apply pb-7 space-y-7;
+    }
+    &__inset {
+      @apply pb-8 space-y-4;
+    }
+    &__events {
+      @apply pb-7 space-y-7;
+    }
+  }
+
+  // T A G S
+  &-tags-block {
+    @apply leading-3 text-left;
   }
   &-tag {
     @apply inline-flex px-2 py-1.5 mb-3 border rounded-full border-gray-900 text-xs;
@@ -23,7 +48,12 @@ body {
         @apply bg-gray-900 text-white;
       }
     }
+    &__special {
+      @apply text-white bg-gray-900;
+    }
   }
+
+  // T E A S E R
   &-teaser {
     @apply flex flex-col space-y-6 pb-7 mb-9;
     &-image {
@@ -32,17 +62,72 @@ body {
     &-content {
       @apply flex flex-col items-start justify-end px-3 space-y-4 text-gray-900 border-gray-900;
     }
+    &-title {
+      @apply uppercase text-mh1;
+    }
+    &-text {
+      @apply text-base;
+    }
+    &-date {
+      @apply text-mcap italic text-gray-900 text-opacity-60;
+    }
     &__feature {
-      @apply pb-3 lg:flex-row lg:border lg:border-gray-900 lg:pb-0 lg:h-80;
+      @apply pb-0 md:flex-row md:border md:border-gray-900 md:pb-0 md:h-80;
       .stol-teaser-image {
-        @apply h-56 lg:w-1/2 lg:h-auto;
+        @apply h-56 md:w-1/2 md:h-auto;
       }
       .stol-teaser-content {
-        @apply lg:w-1/2 lg:h-auto lg:pb-10 lg:pt-13;
+        @apply md:w-1/2 md:h-auto md:pb-10 md:pt-13;
       }
     }
-    &-controls {
-      @apply flex flex-row w-full px-3 py-6;
+    &__special {
+      @apply bg-orange-600 bg-opacity-60;
+    }
+    &-news {
+      @apply flex flex-row flex-wrap w-full; 
+      &-content {
+        @apply flex-auto flex-grow inline-block space-y-4;
+      }
+    }
+  }
+
+  // C O N T R O L S
+  &-controls {
+    @apply flex flex-row w-full py-3;
+    &-title {
+      @apply flex-none w-40 text-mh3 leading-tight uppercase;
+    }
+    &-counter {
+      @apply flex-none w-20 text-sm leading-tight uppercase;
+    }
+    &-arrows{
+      @apply flex flex-none w-24 text-xxs -mr-7 -mt-2;
+    }
+    &-arrow{
+      @apply flex-initial relative cursor-pointer w-7 h-7 p-0 mx-1 border rounded-full border-gray-900;
+      &:before {
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        width: auto;
+      }
+    }
+  }
+
+  // O P I N I O N S
+  &-opinion {
+    @apply flex flex-row flex-wrap w-full pt-1;
+    &-image {
+      @apply relative flex-initial inline-block mr-5 bg-center bg-cover rounded-full w-18;
+    }
+    &-content {
+      @apply flex-1 flex-grow inline-block space-y-2;
+    }
+    &-title {
+      @apply pt-1 uppercase text-mh3;
     }
   }
 }
