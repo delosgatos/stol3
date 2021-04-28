@@ -43,6 +43,7 @@ module.exports = {
         dcap: ['16px', {lineHeight:'144%'}],
         dh2:  ['22px', {lineHeight:'140%'}],
         dh3:  ['16px', {lineHeight:'144%'}],
+        dtext:['16px', {lineHeight:'148%'}],
         dtag: ['14px', {lineHeight:'1em'}],
 
         th1:  ['26px', {lineHeight:'130%'}],
@@ -116,6 +117,11 @@ module.exports = {
         'screen-3/2': '150%',
         'right-column': '365px',
         'main-column': 'calc(100% - 365px)',
+      },
+      maxWidth: {
+        '8xl': '90rem' /* 1440px */,
+        '9xl': '100rem' /* 1600px */,
+        '10xl': '120rem' /* 1920px */,
       },
       height: {
         mtop: '223px',

@@ -9,6 +9,8 @@ module.exports = {
       'postcss-combine-media-query': {},
       'postcss-discard-duplicates': {},
       'postcss-combine-duplicated-selectors': {},*/
+      'tailwindcss-important': {},
+      'postcss-important': {},
       tailwindcss: {},
     }
 }

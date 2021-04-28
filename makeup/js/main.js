@@ -1,3 +1,6 @@
+var isXl = function(){
+  return window.innerWidth > 1280;
+}
 var showClickElements = document.querySelectorAll('[data-show]');
 var showClickHandler = function (switcher, state) {
   if (state == 'on') {
@@ -12,7 +15,7 @@ var showClickHandler = function (switcher, state) {
   var collapseSelector = switcher.getAttribute('data-show');
   var el = document.querySelector(collapseSelector);
   console.log('SWITCHER', switcher, 'CONTROLLED', el);
-  if (!el.classList.contains('hidden') && window.innerWidth > 1280) {
+  if (!el.classList.contains('hidden') && isXl()) {
     console.log('XL SWITCH');
     if (state == 'on') {
       switcher.classList.remove('xl:hidden');
@@ -46,3 +49,15 @@ showClickElements.forEach(function (el) {
     showClickHandler(e.currentTarget);
   });
 });
+
+if(isXl()) {
+  var movingElements = document.querySelectorAll('[data-moveto]');
+  movingElements.forEach(function(el){
+    var movetoSelector = el.dataset['moveto'];
+    var container = document.querySelector(movetoSelector);
+    if(!container) {
+      return;
+    }
+    container.appendChild(el);
+  });
+}

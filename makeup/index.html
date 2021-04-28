@@ -17,691 +17,694 @@
     <!--
     <div style="position:absolute;top:0;left:0;z-index:0;opacity:0.5;"><img src="images/iphone.png"></div>
     -->
-    <nav class="z-50 flex flex-wrap items-center justify-between w-full border-b border-gray-900 navbar-expand-lg">
-      <div class="flex flex-wrap items-center justify-between w-full mx-auto">
-        <div class="relative flex flex-row items-center justify-between w-full text-xl leading-none xl:px-10">
-          <button class="block w-12 bg-transparent outline-none cursor-pointer focus:outline-none md:order-3 md:w-18.5 md:h-18.5 xl:h-auto xl:w-24 xl:-mr-8 xl:-ml-6" type="button" data-show="#searchbar">
-            <i class="hidden py-3 icon-close xl:py-9"></i>
-            <i class="py-1 icon-search"></i>
-          </button>
-          <a class="inline-block py-4 md:py-6 md:ml-5 md:flex-1 lg:order-1 xl:py-6.5" href="/"><img class="md:h-6.5 lg:h-11" src="images/logo.svg"></a>
-          <button class="block w-8 bg-transparent outline-none cursor-pointer focus:outline-none md:order-4 md:w-18.5 md:h-18.5 xl:w-24 xl:-mr-10 xl:hidden" type="button" data-show="#main-menu">
-            <i class="hidden py-3 icon-close xl:py-9"></i>
-            <i class="py-1 icon-menu"></i>
-          </button>          
-          <button class="hidden w-8 bg-transparent outline-none cursor-pointer focus:outline-none md:order-4 xl:w-24 xl:-mr-10 xl:block" type="button" data-use="xl" data-show="#xl-menu">
-            <i class="hidden py-3 icon-close xl:py-9"></i>
-            <i class="py-1 icon-menu"></i>
-          </button>
-          <div id="main-menu" class="flex hidden stol-menu">
-            <div class="stol-menu-rubrics-wrapper" x-data={show:false,hide:true}>
-              <a href="#" class="pb-3 stol-menu-rubrics-title" 
-                  @click.prevent="show=!show;hide=!hide">Рубрики 
-                    <i :class="{ 'transform rotate-180': show }" 
-                        class="inline-block icon-arrow-down"></i></a>
-              <ul :class="{ 'stol-menu-rubrics__hidden': hide }"  
-                  class="hidden w-full -mt-3 overflow-hidden transition-all stol-menu-rubrics"
-                  x-transition:enter="transition ease-out duration-300" 
-                  x-transition:enter-start="transform h-0" 
-                  x-transition:enter-end="transform h-full" 
-                  x-transition:leave="transition ease-in duration-300" 
-                  x-transition:leave-start="transform " 
-                  x-transition:leave-end="transform ">
-                <li><a href="#church">Церковь</a></li>
-                <li><a href="#russian">Русская жизнь</a></li>
-                <li><a href="#culture">Культура</a></li>
-                <li><a href="#rememberance">Трудная память</a></li>
-                <li><a href="#society">Общество и ценности</a></li>
-              </ul>
-            </div>
-            <div id="xl-menu" class="stol-menu-xl xl:hidden">
-              <div class="stol-menu-xl-items">
-                <ul class="stol-menu-xl-items-block">
-                  <li><a href="#projects"></i> спецпроекты</a></li>
-                  <li><a href="#foto"></i> фотопроекты</a></li>
-                  <li><a href="#events"></i> события</a></li>
-                  <li><a href="#review">новостной обзор</a></li>
-                </ul>
-                <ul class="stol-menu-xl-items-block">
-                  <li><a href="#stol">что такое стол?</a></li>
-                  <li><a href="#contacts">контакты</a></li>
-                  <li><a href="#support">поддержать</a></li>
+    <div class="stol">
+      <nav class="z-50 flex flex-wrap items-center justify-between w-full border-b border-gray-900 navbar-expand-lg">
+        <div class="relative flex flex-wrap items-center justify-between w-full mx-auto">
+          <div class="relative flex flex-row items-center justify-between w-full text-xl leading-none xl:px-10">
+            <button class="block w-12 bg-transparent outline-none cursor-pointer focus:outline-none md:order-3 md:w-18.5 md:h-18.5 xl:h-auto xl:w-24 xl:-mr-8 xl:-ml-6" type="button" data-show="#searchbar">
+              <i class="hidden py-3 icon-close xl:py-9"></i>
+              <i class="py-1 icon-search"></i>
+            </button>
+            <a class="inline-block py-4 md:py-6 md:ml-5 md:flex-1 lg:order-1 xl:py-6.5" href="/"><img class="md:h-6.5 lg:h-11" src="images/logo.svg"></a>
+            <button class="block w-8 bg-transparent outline-none cursor-pointer focus:outline-none md:order-4 md:w-18.5 md:h-18.5 xl:w-24 xl:-mr-10 xl:hidden" type="button" data-show="#main-menu">
+              <i class="hidden py-3 icon-close xl:py-9"></i>
+              <i class="py-1 icon-menu"></i>
+            </button>          
+            <button class="hidden w-8 bg-transparent outline-none cursor-pointer focus:outline-none md:order-4 xl:w-24 xl:-mr-10 xl:block" type="button" data-use="xl" data-show="#xl-menu">
+              <i class="hidden py-3 icon-close xl:py-9"></i>
+              <i class="py-1 icon-menu"></i>
+            </button>
+            <div id="main-menu" class="flex hidden stol-menu">
+              <div class="stol-menu-rubrics-wrapper" x-data={show:false,hide:true}>
+                <a href="#" class="pb-3 stol-menu-rubrics-title" 
+                    @click.prevent="show=!show;hide=!hide">Рубрики 
+                      <i :class="{ 'transform rotate-180': show }" 
+                          class="inline-block icon-arrow-down"></i></a>
+                <ul :class="{ 'stol-menu-rubrics__hidden': hide }"  
+                    class="hidden w-full -mt-3 overflow-hidden transition-all stol-menu-rubrics"
+                    x-transition:enter="transition ease-out duration-300" 
+                    x-transition:enter-start="transform h-0" 
+                    x-transition:enter-end="transform h-full" 
+                    x-transition:leave="transition ease-in duration-300" 
+                    x-transition:leave-start="transform " 
+                    x-transition:leave-end="transform ">
+                  <li><a href="#church">Церковь</a></li>
+                  <li><a href="#russian">Русская жизнь</a></li>
+                  <li><a href="#culture">Культура</a></li>
+                  <li><a href="#rememberance">Трудная память</a></li>
+                  <li><a href="#society">Общество и ценности</a></li>
                 </ul>
               </div>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag-white">стол недели</a>
-                <a href="#" class="stol-tag-white">календарь</a>
-                <a href="#" class="stol-tag-white">фотоистории</a>
-                <a href="#" class="stol-tag-white">русские картинки</a>
-                <a href="#" class="stol-tag-white">словарь</a>
-              </div>
-              <div class="stol-menu-social">
-                <ul class="stol-menu-social-items">
-                  <li><a href="#telegram">telegram</a></li>
-                  <li><a href="#facebook">facebook</a></li>
-                  <li><a href="#vkontakte">vkontakte</a></li>
-                  <li><a href="#instagram">instagram</a></li>
-                </ul>
+              <div id="xl-menu" class="stol-menu-xl xl:hidden">
+                <div class="stol-menu-xl-items">
+                  <ul class="stol-menu-xl-items-block">
+                    <li><a href="#projects"></i> спецпроекты</a></li>
+                    <li><a href="#foto"></i> фотопроекты</a></li>
+                    <li><a href="#events"></i> события</a></li>
+                    <li><a href="#review">новостной обзор</a></li>
+                  </ul>
+                  <ul class="stol-menu-xl-items-block">
+                    <li><a href="#stol">что такое стол?</a></li>
+                    <li><a href="#contacts">контакты</a></li>
+                    <li><a href="#support">поддержать</a></li>
+                  </ul>
+                </div>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag-white">стол недели</a>
+                  <a href="#" class="stol-tag-white">календарь</a>
+                  <a href="#" class="stol-tag-white">фотоистории</a>
+                  <a href="#" class="stol-tag-white">русские картинки</a>
+                  <a href="#" class="stol-tag-white">словарь</a>
+                </div>
+                <div class="stol-menu-social">
+                  <ul class="stol-menu-social-items">
+                    <li><a href="#telegram">telegram</a></li>
+                    <li><a href="#facebook">facebook</a></li>
+                    <li><a href="#vkontakte">vkontakte</a></li>
+                    <li><a href="#instagram">instagram</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div id="searchbar" class="hidden stol-search">
-          <input />
-          <i class="icon-search"></i>
-          <div class="stol-tags-block">
-            <a href="#" class="stol-tag-white">стол недели</a>
-            <a href="#" class="stol-tag-white">календарь</a>
-            <a href="#" class="stol-tag-white">фотоистории</a>
-            <a href="#" class="stol-tag-white">русские картинки</a>
-            <a href="#" class="stol-tag-white">+3</a>
+          
+          <div id="searchbar" class="hidden stol-search">
+            <input />
+            <i class="icon-search"></i>
+            <div class="stol-tags-block">
+              <a href="#" class="stol-tag-white">стол недели</a>
+              <a href="#" class="stol-tag-white">календарь</a>
+              <a href="#" class="stol-tag-white">фотоистории</a>
+              <a href="#" class="stol-tag-white">русские картинки</a>
+              <a href="#" class="stol-tag-white">+3</a>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <main class="relative z-1">
+      </nav>
+      <main class="relative z-1">
 
-      <!-- SECTION - TOP FEATURE -->
-      <section class="stol-section stol-section-feature stol-section__top" x-data="{swiper: null}"
+        <!-- SECTION - TOP FEATURE -->
+        <section class="stol-section stol-section-feature stol-section__top" x-data="{swiper: null}"
+            x-init="swiper = new Swiper($refs.container, {
+              loop: true,
+              slidesPerView: 1,
+              spaceBetween: 30,
+              effect: 'flip',
+              grabCursor: true,
+              pagination: {
+                el: '.stol-controls-pagination',
+                clickable: true,
+              },
+              on: {
+                'slideChange' : function (sw){
+                  this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
+                }
+              },
+              
+            });"
+        >
+          <div class="order-2 w-full">
+            <div class="swiper-container" x-ref="container">
+              <div class="swiper-wrapper">
+                <!-- START: S L I D E S -->
+                <div class="swiper-slide">
+                  <div class="flex flex-col">
+                    <div class="flex-shrink-0">
+                      <!-- START: T E A S E R -->
+                      <div class="stol-teaser">
+                        <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-fmd.jpg)">
+                          <span class="stol-tag-label">культура</span>
+                        </a>
+                        <div class="stol-teaser-content">
+                          <a href="#article1" class="stol-teaser-title">главный материал,<br>если заголовок будет<br>в три строки</a>
+                          <a href="#article1" class="stol-teaser-text">«Стол» — это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </a>
+                          <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
+                          <div class="stol-tags-block">
+                            <a href="#" class="stol-tag">тег статьи длинный</a>
+                            <a href="#" class="stol-tag">тег статьи</a>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END: T E A S E R -->
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex flex-col">
+                    <div class="flex-shrink-0">
+                      <!-- START: T E A S E R -->
+                      <div class="stol-teaser">
+                        <a href="#article2" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
+                          <span class="stol-tag-label">церковь</span>
+                        </a>
+                        <div class="stol-teaser-content">
+                          <a href="#article2" class="stol-teaser-title">еще один материал в фичере, строк на глаз как получится</a>
+                          <a href="#article2" class="stol-teaser-text">One caveat to the multiple-backgrounds technique is that the opacities will multiply rather than add together.  </a>
+                          <p class="stol-teaser-date">выбор редакции 12.03.2021</p>
+                          <div class="stol-tags-block">
+                            <a href="#" class="stol-tag">тег статьи длинный</a>
+                            <a href="#" class="stol-tag">тег статьи</a>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END: T E A S E R -->
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="flex flex-col">
+                    <div class="flex-shrink-0">
+                      <!-- START: T E A S E R -->
+                      <div class="stol-teaser">
+                        <a href="#article3" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                          <span class="stol-tag-label">общество</span>
+                        </a>
+                        <div class="stol-teaser-content">
+                          <a href="#article3" class="stol-teaser-title">третий материал в фичере и все, хватит</a>
+                          <a href="#article3" class="stol-teaser-text">Материал развития и побуждающее начало его реализации даются извне, но это побуждающее начало может действовать, очевидно, лишь сообразно с собственною природой организма. </a>
+                          <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
+                          <div class="stol-tags-block">
+                            <a href="#" class="stol-tag">тег статьи длинный</a>
+                            <a href="#" class="stol-tag">тег статьи</a>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- END: T E A S E R -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div x-ref="controls" class="stol-controls">
+            <p class="stol-controls-counter"><span x-ref="counter">1</span> / 3</p>
+            <div class="flex-grow"></div>
+            <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left-sm"></i><div class="stol-controls-pagination"></div><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right-sm"></i></div>
+          </div>
+        </section>
+
+        <!-- SECTION - OPINIONS -->
+        <section class="stol-section stol-section-opinions" x-data="{swiper: null}"
           x-init="swiper = new Swiper($refs.container, {
             loop: true,
             slidesPerView: 1,
-            spaceBetween: 30,
-            effect: 'flip',
-            grabCursor: true,
-            pagination: {
-              el: '.stol-controls-pagination',
-              clickable: true,
-            },
-            on: {
-              'slideChange' : function (sw){
-                this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
-              }
-            },
-            
-          });"
-      >
-        <div class="order-2 w-full">
-          <div class="swiper-container" x-ref="container">
-            <div class="swiper-wrapper">
-              <!-- START: S L I D E S -->
-              <div class="swiper-slide">
-                <div class="flex flex-col">
-                  <div class="flex-shrink-0">
-                    <!-- START: T E A S E R -->
-                    <div class="stol-teaser">
-                      <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-fmd.jpg)">
-                        <span class="stol-tag-label">культура</span>
-                      </a>
-                      <div class="stol-teaser-content">
-                        <a href="#article1" class="stol-teaser-title">главный материал,<br>если заголовок будет<br>в три строки</a>
-                        <a href="#article1" class="stol-teaser-text">«Стол» — это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </a>
-                        <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
-                        <div class="stol-tags-block">
-                          <a href="#" class="stol-tag">тег статьи длинный</a>
-                          <a href="#" class="stol-tag">тег статьи</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- END: T E A S E R -->
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="flex flex-col">
-                  <div class="flex-shrink-0">
-                    <!-- START: T E A S E R -->
-                    <div class="stol-teaser">
-                      <a href="#article2" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
-                        <span class="stol-tag-label">церковь</span>
-                      </a>
-                      <div class="stol-teaser-content">
-                        <a href="#article2" class="stol-teaser-title">еще один материал в фичере, строк на глаз как получится</a>
-                        <a href="#article2" class="stol-teaser-text">One caveat to the multiple-backgrounds technique is that the opacities will multiply rather than add together.  </a>
-                        <p class="stol-teaser-date">выбор редакции 12.03.2021</p>
-                        <div class="stol-tags-block">
-                          <a href="#" class="stol-tag">тег статьи длинный</a>
-                          <a href="#" class="stol-tag">тег статьи</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- END: T E A S E R -->
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="flex flex-col">
-                  <div class="flex-shrink-0">
-                    <!-- START: T E A S E R -->
-                    <div class="stol-teaser">
-                      <a href="#article3" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
-                        <span class="stol-tag-label">общество</span>
-                      </a>
-                      <div class="stol-teaser-content">
-                        <a href="#article3" class="stol-teaser-title">третий материал в фичере и все, хватит</a>
-                        <a href="#article3" class="stol-teaser-text">Материал развития и побуждающее начало его реализации даются извне, но это побуждающее начало может действовать, очевидно, лишь сообразно с собственною природой организма. </a>
-                        <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
-                        <div class="stol-tags-block">
-                          <a href="#" class="stol-tag">тег статьи длинный</a>
-                          <a href="#" class="stol-tag">тег статьи</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- END: T E A S E R -->
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div x-ref="controls" class="stol-controls">
-          <p class="stol-controls-counter"><span x-ref="counter">1</span> / 3</p>
-          <div class="flex-grow"></div>
-          <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left-sm"></i><div class="stol-controls-pagination"></div><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right-sm"></i></div>
-        </div>
-      </section>
-
-      <!-- SECTION - OPINIONS -->
-      <section class="stol-section stol-section-opinions" x-data="{swiper: null}"
-        x-init="swiper = new Swiper($refs.container, {
-          loop: true,
-          slidesPerView: 1,
-          spaceBetween: 0,
-          breakpoints: {
-            640: { slidesPerView: 1, spaceBetween: 0},
-            768: { slidesPerView: 2, spaceBetween: 0},
-            1024: {slidesPerView: 3, spaceBetween: 0},
-          },
-        });"
-      >
-        <!-- SECTION TITLE -->
-        <h6 class="stol-section-title">мнения</h6>
-        <div class="swiper-container" x-ref="container">
-          <div class="swiper-wrapper">
-            <a href="#opinion1" class="stol-opinion swiper-slide">
-              <img src="images/image-face.jpg" class="stol-opinion-image" />
-              <div class="stol-opinion-content">
-                <p class="stol-opinion-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
-                <p class="stol-teaser-date">Имя и фамилия автора</p>
-              </div>
-            </a>
-            <a href="#opinion2" class="stol-opinion swiper-slide">
-              <img src="images/image-face.jpg" class="stol-opinion-image" />
-              <div class="stol-opinion-content">
-                <p class="stol-opinion-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
-                <p class="stol-teaser-date">Имя и фамилия автора</p>
-              </div>
-            </a>
-            <a href="#opinion3" class="stol-opinion swiper-slide">
-              <img src="images/image-face.jpg" class="stol-opinion-image" />
-              <div class="stol-opinion-content">
-                <p class="stol-opinion-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
-                <p class="stol-teaser-date">Имя и фамилия автора</p>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div x-ref="controls" class="stol-controls">
-          <a href="#all-opinions" class="stol-controls-title">ВСЕ МНЕНИЯ <i class="icon-arrow-right-long"></i></a>
-          <div class="flex-grow"></div>
-          <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
-        </div>
-      </section>
-
-      <!-- SECTION - ARTICLES 0 -->
-      <section class="stol-section stol-section-articles">
-        <h6 class="stol-section-title">материалы</h6>
-        <div class="stol-tags-block">
-          <a href="#" class="stol-tag">тег статьи длинный</a>
-          <a href="#" class="stol-tag">тег статьи</a>
-          <a href="#" class="stol-tag">тег статьи</a>
-          <a href="#" class="stol-tag">тег статьи длинный</a>
-          <a href="#" class="stol-tag">+8</a>
-        </div>
-        <div class="stol-article-list">
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser stol-teaser__special">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">спецматериал</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag stol-tag__special">тег-тема</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: PROMO -->
-          <div style="min-height:500px;" class="flex items-center mb-8 bg-gray-300 stol-promo">
-            <span class="w-full text-center">ПРОМО</span>
-          </div>
-          <!-- END: PROMO -->
-
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser stol-teaser__special stol-xl-show">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser stol-xl-show">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-        </div>
-      </section>
-
-      <!-- SECTION - NEWS-REVIEW -->
-      <section class="stol-section stol-section-news stol-section__right-fixed" x-data="{swiper: null}"
-        x-init="swiper = new Swiper($refs.container, {
-          loop: true,
-          slidesPerView: 1,
-          spaceBetween: 0,
-          breakpoints: {
-            640: { slidesPerView: 1, spaceBetween: 0},
-            768: { slidesPerView: 2, spaceBetween: 0},
-            1024: {slidesPerView: 3, spaceBetween: 0},
-          },
-        });"
-      >
-        <!-- SECTION TITLE -->
-        <h6 class="stol-section-title">Новостной обзор</h6>
-        <div class="swiper-container" x-ref="container">
-          <div class="swiper-wrapper">
-            <a href="#news-review1" class="stol-teaser-news swiper-slide">
-              <div class="stol-teaser-news-content">
-                <p class="uppercase stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                <p class="stol-teaser-date">10.02.2021</p>
-              </div>
-            </a>
-            <a href="#news-review2" class="stol-teaser-news swiper-slide">
-              <div class="stol-teaser-news-content">
-                <p class="uppercase stol-teaser-text">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
-                <p class="stol-teaser-date">20.03.2021</p>
-              </div>
-            </a>
-            <a href="#news-review" class="stol-teaser-news swiper-slide">
-              <div class="stol-teaser-news-content">
-                <p class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                <p class="stol-teaser-date">01.04.2021</p>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div x-ref="controls" class="stol-controls">
-          <a href="#all-reviews" class="stol-controls-title">ВСЕ ОБЗОРЫ <i class="icon-arrow-right-long"></i></a>
-          <div class="flex-grow"></div>
-          <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
-        </div>
-      </section>
-
-      <!-- SECTION - ARTICLES 1 -->
-      <section class="stol-section stol-section-articles">
-        <div class="stol-article-list">
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">спецматериал</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="text-white bg-gray-900 stol-tag">тег-тема</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser stol-xl-show">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-        </div>      
-      </section>
-
-      <!-- SECTION - INSET 1 -->
-      <section class="stol-section stol-section-inset">
-        <h6 class="stol-section-title"><span class="text-orange-600">словарь:</span><br/>Q – «Теория QАnon»</h6>
-        <p class="stol-section-text">Самая опасная конспирология</p>
-        <div x-ref="controls" class="stol-controls">
-          <a href="#all-reviews" class="stol-controls-title">ПОДРОБНЕЕ <i class="icon-arrow-right-long"></i></a>
-        </div>
-      </section>
-
-      <!-- SECTION - ARTICLES 2 -->
-      <section class="stol-section stol-section-articles">
-        <div class="stol-article-list">
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">спецматериал</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
-              <span class="stol-tag-label">zкультура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag stol-tag__special">тег-тема</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser stol-xl-show">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-        </div>
-      </section>
-
-      <!-- SECTION - INSET 2 -->
-      <section class="stol-section stol-section-inset">
-        <h6 class="stol-section-title"><span class="text-orange-600">стол недели:</span><br/>стол михаила булгакова</h6>
-        <p class="stol-section-text">Ко дню рождения автора «Мастера и Маргариты»</p>
-        <div x-ref="controls" class="stol-controls">
-            <a href="#all-reviews" class="stol-controls-title">ПОДРОБНЕЕ <i class="icon-arrow-right-long"></i></a>
-        </div>
-      </section>
-
-      <!-- SECTION - ARTICLES 3 -->
-      <section class="stol-section stol-section-articles">
-        <div class="stol-article-list">
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">спецматериал</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag stol-tag__special">тег-тема</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser stol-xl-show">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-        </div>    
-      </section>
-
-      <!-- SECTION - NEWS-REVIEW -->
-      <section class="stol-section stol-section-news stol-section__right-fixed" x-data="{swiper: null}"
-        x-init="swiper = new Swiper($refs.container, {
-          loop: true,
-          slidesPerView: 1,
-          spaceBetween: 0,
-          breakpoints: {
-            640: { slidesPerView: 1, spaceBetween: 0},
-            768: { slidesPerView: 2, spaceBetween: 0},
-            1280: {slidesPerView: 3, spaceBetween: 0, direction: 'vertical'},
-          },
-        });"
-      >
-        <!-- SECTION TITLE -->
-        <h6 class="w-full stol-section-title">События</h6>
-        <div class="swiper-container" x-ref="container">
-          <div class="swiper-wrapper">
-            <a href="#event1" class="stol-teaser-news swiper-slide">
-              <div class="stol-teaser-news-content">
-                <p class="tol-teaser-text">Описание события #1 примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                <p class="stol-teaser-date">10.02.2021</p>
-              </div>
-            </a>
-            <a href="#event2" class="stol-teaser-news swiper-slide">
-              <div class="stol-teaser-news-content">
-                <p class="stol-teaser-text">ДЛИННЫЙ ЗАГОЛОВОК<br>СОБЫТИЯ В ДВЕ СТРОКИ</p>
-                <p class="stol-teaser-date">20.03.2021</p>
-              </div>
-            </a>
-            <a href="#event3" class="stol-teaser-news swiper-slide">
-              <div class="stol-teaser-news-content">
-                <p class="stol-teaser-text">Описание события #2 примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                <p class="stol-teaser-date">01.04.2021</p>
-              </div>
-            </a>
-            <a href="#event4" class="stol-teaser-news swiper-slide">
-              <div class="stol-teaser-news-content">
-                <p class="stol-teaser-text">Описание события #3 примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                <p class="stol-teaser-date">01.04.2021</p>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <div x-ref="controls" class="stol-controls">
-          <a href="#all-events" class="stol-controls-title">ВСЕ СОБЫТИЯ <i class="icon-arrow-right-long"></i></a>
-          <div class="flex-grow"></div>
-          <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
-        </div>
-      </section>
-
-      <section class="order-11 stol-section stol-section-articles stol-section__noborder">
-        <div class="stol-article-list">
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">спецматериал</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div class="stol-teaser stol-xl-show">
-            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
-              <span class="stol-tag-label">культура</span>
-            </a>
-            <div class="stol-teaser-content">
-              <a href="#article1" class="stol-teaser-title">материал заголовок</a>
-              <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
-              <p class="stol-teaser-date">10.02.2021</p>
-              <div class="stol-tags-block">
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">тег статьи</a>
-                <a href="#" class="stol-tag">+2</a>
-              </div>
-            </div>
-          </div>
-          <!-- END: T E A S E R -->
-          <!-- START: T E A S E R -->
-          <div style="min-height:500px;" class="flex flex-col items-center justify-center space-y-6 bg-blue-400 stol-promo mb-9">
-              <a href="#telegram" class="relative w-20 h-20 mx-auto bg-center bg-cover" style="background-image:url(images/logos_telegram.png)"></a>
-              <div class="flex flex-col px-10 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
-                <a href="#article1" class="flex-auto w-full text-lg leading-6 text-center text-white uppercase">подписывайтесь на наш telegram-канал</a>
-                <a href="#article1" class="flex-auto w-full text-base text-center text-white">Может еще какой-то подзаголовок в две строки</a>
-              </div>
-          </div>
-          <!-- END: T E A S E R -->
-        </div>
-        <a href="#all-articles" class="block w-full py-3 leading-6 text-center text-white bg-gray-900 px-9 md:text-ttext md:-mx-5 md:w-auto">ВСЕ МАТЕРИАЛЫ</a>   
-      </section>
-
-      <!-- SECTION: SPECIAL -->
-      <section class="order-12 overflow-hidden stol-section stol-section-feature" x-data="{swiper: null}"
-            x-init="swiper = new Swiper($refs.container, {
-            loop: true,
-            slidesPerView: 2,
             spaceBetween: 0,
             breakpoints: {
-              640: { slidesPerView: 2, spaceBetween: 0},
+              640: { slidesPerView: 1, spaceBetween: 0},
               768: { slidesPerView: 2, spaceBetween: 0},
-              1024: {slidesPerView: 2, spaceBetween: 0},
+              1024: {slidesPerView: 3, spaceBetween: 0},
             },
-            });"
+          });"
         >
+          <!-- SECTION TITLE -->
+          <h6 class="stol-section-title">мнения</h6>
+          <div class="swiper-container" x-ref="container">
+            <div class="swiper-wrapper">
+              <a href="#opinion1" class="stol-opinion swiper-slide">
+                <img src="images/image-face.jpg" class="stol-opinion-image" />
+                <div class="stol-opinion-content">
+                  <p class="stol-opinion-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                  <p class="stol-teaser-date">Имя и фамилия автора</p>
+                </div>
+              </a>
+              <a href="#opinion2" class="stol-opinion swiper-slide">
+                <img src="images/image-face.jpg" class="stol-opinion-image" />
+                <div class="stol-opinion-content">
+                  <p class="stol-opinion-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                  <p class="stol-teaser-date">Имя и фамилия автора</p>
+                </div>
+              </a>
+              <a href="#opinion3" class="stol-opinion swiper-slide">
+                <img src="images/image-face.jpg" class="stol-opinion-image" />
+                <div class="stol-opinion-content">
+                  <p class="stol-opinion-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                  <p class="stol-teaser-date">Имя и фамилия автора</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div x-ref="controls" class="stol-controls">
+            <a href="#all-opinions" class="stol-controls-title">ВСЕ МНЕНИЯ <i class="icon-arrow-right-long"></i></a>
+            <div class="flex-grow"></div>
+            <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
+          </div>
+        </section>
+
+        <!-- SECTION - ARTICLES 0 -->
+        <section class="stol-section stol-section-articles">
+          <h6 class="stol-section-title">материалы</h6>
+          <div class="stol-tags-block">
+            <a href="#" class="stol-tag">тег статьи длинный</a>
+            <a href="#" class="stol-tag">тег статьи</a>
+            <a href="#" class="stol-tag">тег статьи</a>
+            <a href="#" class="stol-tag">тег статьи длинный</a>
+            <a href="#" class="stol-tag">+8</a>
+          </div>
+          <div class="stol-article-list">
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser stol-teaser__special">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">спецматериал</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag stol-tag__special">тег-тема</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: PROMO -->
+            <div style="min-height:500px;" class="flex items-center mb-8 bg-gray-300 stol-promo">
+              <span class="w-full text-center">ПРОМО</span>
+            </div>
+            <!-- END: PROMO -->
+
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser stol-teaser__special stol-xl-show">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser stol-xl-show">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+          </div>
+        </section>
+
+        <!-- SECTION - NEWS-REVIEW -->
+        <section data-moveto="#right-column" class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
+          x-init="swiper = new Swiper($refs.container, {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            autoHeight: true,
+            breakpoints: {
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2, spaceBetween: 0},
+              1280:{ slidesPerView: 3, spaceBetween: 0, direction: 'vertical' },
+            },
+          });"
+        >
+          <!-- SECTION TITLE -->
+          <h6 class="stol-section-title">Новостной обзор</h6>
+          <div class="swiper-container" x-ref="container">
+            <div class="swiper-wrapper">
+              <a href="#news-review1" class="stol-teaser-news swiper-slide">
+                <div class="stol-teaser-news-content">
+                  <p class="uppercase stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                  <p class="stol-teaser-date">10.02.2021</p>
+                </div>
+              </a>
+              <a href="#news-review2" class="stol-teaser-news swiper-slide">
+                <div class="stol-teaser-news-content">
+                  <p class="uppercase stol-teaser-text">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                  <p class="stol-teaser-date">20.03.2021</p>
+                </div>
+              </a>
+              <a href="#news-review" class="stol-teaser-news swiper-slide">
+                <div class="stol-teaser-news-content">
+                  <p class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                  <p class="stol-teaser-date">01.04.2021</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div x-ref="controls" class="stol-controls">
+            <a href="#all-reviews" class="stol-controls-title">ВСЕ ОБЗОРЫ <i class="icon-arrow-right-long"></i></a>
+            <div class="flex-grow"></div>
+            <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
+          </div>
+        </section>
+
+        <!-- SECTION - ARTICLES 1 -->
+        <section class="stol-section stol-section-articles">
+          <div class="stol-article-list">
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">спецматериал</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="text-white bg-gray-900 stol-tag">тег-тема</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser stol-xl-show">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+          </div>      
+        </section>
+
+        <!-- SECTION - INSET 1 -->
+        <section class="stol-section stol-section-inset">
+          <h6 class="stol-section-title"><span class="text-orange-600">словарь:</span><br/>Q – «Теория QАnon»</h6>
+          <p class="stol-section-text">Самая опасная конспирология</p>
+          <div x-ref="controls" class="stol-controls">
+            <a href="#all-reviews" class="stol-controls-title">ПОДРОБНЕЕ <i class="icon-arrow-right-long"></i></a>
+          </div>
+        </section>
+
+        <!-- SECTION - ARTICLES 2 -->
+        <section class="stol-section stol-section-articles">
+          <div class="stol-article-list">
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">спецматериал</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
+                <span class="stol-tag-label">zкультура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag stol-tag__special">тег-тема</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser stol-xl-show">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+          </div>
+        </section>
+
+        <!-- SECTION - INSET 2 -->
+        <section class="stol-section stol-section-inset">
+          <h6 class="stol-section-title"><span class="text-orange-600">стол недели:</span><br/>стол михаила булгакова</h6>
+          <p class="stol-section-text">Ко дню рождения автора «Мастера и Маргариты»</p>
+          <div x-ref="controls" class="stol-controls">
+              <a href="#all-reviews" class="stol-controls-title">ПОДРОБНЕЕ <i class="icon-arrow-right-long"></i></a>
+          </div>
+        </section>
+
+        <!-- SECTION - ARTICLES 3 -->
+        <section class="stol-section stol-section-articles">
+          <div class="stol-article-list">
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">спецматериал</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag stol-tag__special">тег-тема</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser stol-xl-show">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+          </div>    
+        </section>
+
+        <!-- SECTION - NEWS-REVIEW -->
+        <section data-moveto="#right-column" class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
+          x-init="swiper = new Swiper($refs.container, {
+            loop: true,
+            slidesPerView: 3,
+            spaceBetween: 0,
+            freeMode: true,
+            breakpoints: {
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2, spaceBetween: 0},
+              1280:{ slidesPerView: 3, spaceBetween: 0, direction: 'vertical'},
+            },
+          });"
+        >
+          <!-- SECTION TITLE -->
+          <h6 class="w-full stol-section-title">События</h6>
+          <div class="swiper-container" x-ref="container">
+            <div class="swiper-wrapper">
+              <a href="#event1" class="stol-teaser-news swiper-slide">
+                <div class="stol-teaser-news-content">
+                  <p class="stol-teaser-text">Описание события #1 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                  <p class="stol-teaser-date">10.02.2021</p>
+                </div>
+              </a>
+              <a href="#event2" class="stol-teaser-news swiper-slide">
+                <div class="stol-teaser-news-content">
+                  <p class="stol-teaser-text">ДЛИННЫЙ ЗАГОЛОВОК<br>СОБЫТИЯ В ДВЕ СТРОКИ</p>
+                  <p class="stol-teaser-date">20.03.2021</p>
+                </div>
+              </a>
+              <a href="#event3" class="stol-teaser-news swiper-slide">
+                <div class="stol-teaser-news-content">
+                  <p class="stol-teaser-text">Описание события #2 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                  <p class="stol-teaser-date">01.04.2021</p>
+                </div>
+              </a>
+              <a href="#event4" class="stol-teaser-news swiper-slide">
+                <div class="stol-teaser-news-content">
+                  <p class="stol-teaser-text">Описание события #3 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                  <p class="stol-teaser-date">01.04.2021</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div x-ref="controls" class="stol-controls">
+            <a href="#all-events" class="stol-controls-title">ВСЕ СОБЫТИЯ <i class="icon-arrow-right-long"></i></a>
+            <div class="flex-grow"></div>
+            <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
+          </div>
+        </section>
+
+        <section class="stol-section stol-section-articles stol-section__noborder">
+          <div class="stol-article-list">
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">спецматериал</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div class="stol-teaser stol-xl-show">
+              <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                <span class="stol-tag-label">культура</span>
+              </a>
+              <div class="stol-teaser-content">
+                <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                <p class="stol-teaser-date">10.02.2021</p>
+                <div class="stol-tags-block">
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">+2</a>
+                </div>
+              </div>
+            </div>
+            <!-- END: T E A S E R -->
+            <!-- START: T E A S E R -->
+            <div style="min-height:500px;" class="flex flex-col items-center justify-center space-y-6 bg-blue-400 stol-promo mb-9">
+                <a href="#telegram" class="relative w-20 h-20 mx-auto bg-center bg-cover" style="background-image:url(images/logos_telegram.png)"></a>
+                <div class="flex flex-col px-10 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
+                  <a href="#article1" class="flex-auto w-full text-lg leading-6 text-center text-white uppercase">подписывайтесь на наш telegram-канал</a>
+                  <a href="#article1" class="flex-auto w-full text-base text-center text-white">Может еще какой-то подзаголовок в две строки</a>
+                </div>
+            </div>
+            <!-- END: T E A S E R -->
+          </div>
+          <a href="#all-articles" class="block w-full py-3 leading-6 text-center text-white bg-gray-900 px-9 md:text-ttext md:-mx-5 md:w-auto">ВСЕ МАТЕРИАЛЫ</a>   
+        </section>
+
+        <!-- SECTION: SPECIAL -->
+        <section class="overflow-hidden stol-section stol-section-feature" x-data="{swiper: null}"
+              x-init="swiper = new Swiper($refs.container, {
+              loop: true,
+              slidesPerView: 2,
+              spaceBetween: 0,
+              breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 0},
+                768: { slidesPerView: 2, spaceBetween: 0},
+                1024: {slidesPerView: 2, spaceBetween: 0},
+              },
+              });"
+          >
           <div class="stol-section-wrapper">
             <h6 class="stol-section-title stol-section-title__lonely">Спецпроекты</h6>
             <div class="-mx-3 swiper-container" x-ref="container">
@@ -791,19 +794,19 @@
           </div>
         </section>
 
-      <!-- SECTION: PHOTO -->
-      <section class="order-12 stol-section stol-section-foto" x-data="{swiper: null}"
-            x-init="swiper = new Swiper($refs.container, {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 0,
-            breakpoints: {
-              640: { slidesPerView: 1, spaceBetween: 0},
-              768: { slidesPerView: 1, spaceBetween: 0},
-              1024: {slidesPerView: 1, spaceBetween: 0},
-            },
-            });"
-        >
+        <!-- SECTION: PHOTO -->
+        <section class="stol-section stol-section-foto" x-data="{swiper: null}"
+              x-init="swiper = new Swiper($refs.container, {
+              loop: true,
+              slidesPerView: 1,
+              spaceBetween: 0,
+              breakpoints: {
+                640: { slidesPerView: 1, spaceBetween: 0},
+                768: { slidesPerView: 1, spaceBetween: 0},
+                1024: {slidesPerView: 1, spaceBetween: 0},
+              },
+              });"
+          >
           <h6 class="stol-section-title stol-section-title__lonely">Фотопроекты</h6>
           <div class="-mx-3 swiper-container" x-ref="container">
             <div class="swiper-wrapper">
@@ -894,7 +897,7 @@
         </section>
 
         <!-- SECTION: DONATION -->
-        <section class="order-12 pb-20 stol-section stol-section-donation">
+        <section class="pb-20 stol-section stol-section-donation">
           <div class="stol-section-block">
             <h6 class="stol-section-title"><span class="text-orange-600">поддержать</span><br/>стол</h6>
             <p class="stol-section-text">«Стол» – это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </p>
@@ -922,85 +925,86 @@
             <a href="#all-articles" class="block w-full py-3 leading-6 text-center text-white bg-gray-900 text-mcap px-9">Продолжить</a>     
           </div>
         </section>
-    </main>
+      </main>
 
-    <!-- RIGHT COLUMN -->
-    <aside class="stol-xl-show">
-      <!-- SECTION - XL-PROMO -->
-      <section class="stol-section stol-section__right-fixed stol-xl-show">
-        <div class="flex items-center -my-5 h-dtop stol-promo -mt-11">
-          <span class="w-full text-center">ПРОМО</span>
-        </div>
-      </section>
-      <!-- END: PROMO -->
-    </aside>
+      <!-- RIGHT COLUMN -->
+      <aside class="stol-xl-show" id="right-column">
+        <!-- SECTION - XL-PROMO -->
+        <section class="stol-section stol-xl-show stol-section__right-column">
+          <div class="flex items-center w-full h-dtop -mt-11">
+            <span class="w-full text-center">ПРОМО</span>
+          </div>
+        </section>
+        <!-- END: PROMO -->
+      </aside>
 
-    <!-- FOOTER -->
-    <footer class="stol-footer">
-      <div class="container px-3 mx-auto md:grid md:grid-cols-2 md:gap-13 xl:grid-cols-none">
-        <div class="flex flex-col w-full space-y-6 xl:hidden">
-          <h5 class="leading-7 text-white uppercase text-mh1">Рассылка</h5>
-          <h6 class="leading-tight text-white text-mtext">
-              Преимущество подписки на рассылку. Например, в две строки.
-          </h6>
-          <div class="relative">
-              <input class="w-full px-2 italic leading-6 text-white bg-gray-700 text-mcap h-11" placeholder="e-mail" />
+      <!-- FOOTER -->
+      <footer class="stol-footer">
+        <div class="container px-3 mx-auto md:grid md:grid-cols-2 md:gap-13 xl:grid-cols-none">
+          <div class="flex flex-col w-full space-y-6 xl:hidden">
+            <h5 class="leading-7 text-white uppercase text-mh1">Рассылка</h5>
+            <h6 class="leading-tight text-white text-mtext">
+                Преимущество подписки на рассылку. Например, в две строки.
+            </h6>
+            <div class="relative">
+                <input class="w-full px-2 italic leading-6 text-white bg-gray-700 text-mcap h-11" placeholder="e-mail" />
+            </div>
+            <a href="#all-articles" class="block w-full py-3 leading-6 text-center text-gray-900 uppercase bg-white text-mcap px-9">Подписаться</a>  
+            <p class="pb-10 italic leading-tight text-white text-mcap text-opacity-60">
+                нажимая кнопку вы даете свое согласие на обработку персональных данных
+            </p>
           </div>
-          <a href="#all-articles" class="block w-full py-3 leading-6 text-center text-gray-900 uppercase bg-white text-mcap px-9">Подписаться</a>  
-          <p class="pb-10 italic leading-tight text-white text-mcap text-opacity-60">
-              нажимая кнопку вы даете свое согласие на обработку персональных данных
-          </p>
+          <div class="flex flex-wrap">
+            <div class="w-full xl:w-3/12">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">Рубрики</span>
+                <ul class="nowrap">
+                  <li><a href="#church">Церковь</a></li>
+                  <li><a href="#russian">Русская жизнь</a></li>
+                  <li><a href="#culture">Культура</a></li>
+                  <li><a href="#rememberance">Трудная память</a></li>
+                  <li><a href="#society">Общество и ценности</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full xl:w-3/12">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">мы в соцсетях</span>
+                <ul>
+                  <li><a href="#telegram">telegram</a></li>
+                  <li><a href="#facebook">facebook</a></li>
+                  <li><a href="#vkontakte">vkontakte</a></li>
+                  <li><a href="#instagram">instagram</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full xl:w-3/12">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">контакты редакции</span>
+                <ul>
+                  <li class="flex-1"><a href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
+                  <li class="flex-1"><a href="tel:+74992673190">8 (499) 267-31-90</a></li>
+                  <li class="w-full"><span class="text-white text-mtext">Учредитель и главный редактор – А.А. Васенёв</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full xl:w-3/12">
+              <div class="stol-footer-block">
+                <span class="block text-white text-mtext">Использования материалов издания s-t-o-l.com разрешено только с предварительного согласия правообладателей. 
+                  Все права на картинки и тексты принадлежат их авторам.</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center justify-center md:justify-between">
+            <div class="w-full md:w-4/12 xl:w-full stol-footer-block">
+              <div class="py-1 text-sm text-white uppercase text-opacity-60">2014-2021 © s-t-o-l.com</div>
+              <div class="py-1 text-sm text-white uppercase text-opacity-60">16+</div>
+              <div class="pt-6 text-sm text-white text-opacity-60 ">Свидетельство о регистрации ЭЛ № ФС 77 - 63013 от 10.09.2015 выдано Роскомнадзором.</div>
+            </div>
+          </div>
         </div>
-        <div class="flex flex-wrap">
-          <div class="w-full xl:w-3/12">
-            <div class="stol-footer-block">
-              <span class="stol-footer-block-title">Рубрики</span>
-              <ul class="nowrap">
-                <li><a href="#church">Церковь</a></li>
-                <li><a href="#russian">Русская жизнь</a></li>
-                <li><a href="#culture">Культура</a></li>
-                <li><a href="#rememberance">Трудная память</a></li>
-                <li><a href="#society">Общество и ценности</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="w-full xl:w-3/12">
-            <div class="stol-footer-block">
-              <span class="stol-footer-block-title">мы в соцсетях</span>
-              <ul>
-                <li><a href="#telegram">telegram</a></li>
-                <li><a href="#facebook">facebook</a></li>
-                <li><a href="#vkontakte">vkontakte</a></li>
-                <li><a href="#instagram">instagram</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="w-full xl:w-3/12">
-            <div class="stol-footer-block">
-              <span class="stol-footer-block-title">контакты редакции</span>
-              <ul>
-                <li class="flex-1"><a href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
-                <li class="flex-1"><a href="tel:+74992673190">8 (499) 267-31-90</a></li>
-                <li class="w-full"><span class="text-white text-mtext">Учредитель и главный редактор – А.А. Васенёв</span></li>
-              </ul>
-            </div>
-          </div>
-          <div class="w-full xl:w-3/12">
-            <div class="stol-footer-block">
-              <span class="block text-white text-mtext">Использования материалов издания s-t-o-l.com разрешено только с предварительного согласия правообладателей. 
-                Все права на картинки и тексты принадлежат их авторам.</span>
-            </div>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center justify-center md:justify-between">
-          <div class="w-full md:w-4/12 xl:w-full stol-footer-block">
-            <div class="py-1 text-sm text-white uppercase text-opacity-60">2014-2021 © s-t-o-l.com</div>
-            <div class="py-1 text-sm text-white uppercase text-opacity-60">16+</div>
-            <div class="pt-6 text-sm text-white text-opacity-60 ">Свидетельство о регистрации ЭЛ № ФС 77 - 63013 от 10.09.2015 выдано Роскомнадзором.</div>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </body>
   <script src="js/main.js"></script>
 </html>
