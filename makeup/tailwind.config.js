@@ -113,7 +113,7 @@ module.exports = {
         '4xl': '2rem',
       },
       width: {
-        dmenu: '440px',
+        'dmenu': '440px',
         'screen-3/2': '150%',
         'right-column': '365px',
         'main-column': 'calc(100% - 365px)',
@@ -139,6 +139,8 @@ module.exports = {
         mfoto: '294px',
         tfoto: '487px',
         dfoto: '674px',
+
+        rslide:'420px',
       },
       flex: {
         full: '2 1 100%',

@@ -61,3 +61,13 @@ if(isXl()) {
     container.appendChild(el);
   });
 }
+document.addEventListener('DOMContentLoaded', function() {
+  var Sticky = new hcSticky('#right-wrapper', {
+    stickTo: '#right-column',
+    responsive: {
+      980: {
+        disable: true
+      }
+    }
+  });
+});
