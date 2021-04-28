@@ -1,48 +1,23 @@
 const path = require('path');
 module.exports = {
     mode: 'development',
-    entry: ['./css/index.scss'],
+    entry: ['./src/tailwind.css'],
     output: {
        path: path.resolve(__dirname, '')
     },
     module: {
       rules: [
         {
-          test:/index.scss$/,
+          test:/tailwind.css$/,
             use: [
               {
                 loader: 'file-loader',
                 options: {
                   name: 'css/[name].css',
-                  compact: false,
-                  query: {
-                    compact: false
-                  }
                 }
               },
               {
-                loader: 'postcss-loader',
-                // postcssOptions?, execute?, sourceMap?, implementation? 
-                options: {
-                }
-              },
-              {
-                loader: 'extract-loader',
-                options: {
-                  compact: false,
-                  query: {
-                    compact: false
-                  }
-                }
-              },
-              {
-                loader: 'css-loader?-url',
-                  // url?, import?, modules?, sourceMap?, importLoaders?, esModule? 
-              },
-              {
-                loader: 'sass-loader',
-                options: {
-                }
+                loader: 'postcss-loader'
               }
             ]
         },

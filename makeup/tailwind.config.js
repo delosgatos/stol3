@@ -27,37 +27,44 @@ module.exports = {
     extend: {
       colors: {
         gray: {
-          910: 'rgba(31,31,31,0.9)',
-          900: 'rgba(31,31,31,1)',
-          300: 'rgba(235,235,235,1)'
+          900: '#1f1f1f',
+          200: '#ebebeb'
         },
         orange: {
-          900: 'rgba(255,75,0, 1)',
-          600: 'rgba(255,75,0, 0.6)',
+          900: '#FF4b00',
+          600: '#FF9366',
         },
       },
       fontSize: {
         xxs:  ['0.52em'],
         base: ['0.9em',{letterSpacing: '-0.8px', lineHeight: '1.5em'}],
-        dh1:  ['36px', {lineHeight:'1.3em'}],
-        d:    ['16px', {lineHeight:'1.48em'}],
-        dcap: ['16px', {lineHeight:'1.44em'}],
-        dh2:  ['22px', {lineHeight:'1.40em'}],
-        dh3:  ['16px', {lineHeight:'1.44em'}],
+        dh1:  ['36px', {lineHeight:'130%'}],
+        d:    ['16px', {lineHeight:'148%'}],
+        dcap: ['16px', {lineHeight:'144%'}],
+        dh2:  ['22px', {lineHeight:'140%'}],
+        dh3:  ['16px', {lineHeight:'144%'}],
         dtag: ['14px', {lineHeight:'1em'}],
 
-        th1:  ['26px', {lineHeight:'1.30em'}],
-        th2:  ['18px', {lineHeight:'1.20em'}],
-        th3:  ['14px', {lineHeight:'1.44em'}],
-        t:    ['14px', {lineHeight:'1.48em'}],
-        tcap: ['14px', {lineHeight:'1.49em'}],
+        th1:  ['26px', {lineHeight:'130%'}],
+        th2:  ['18px', {lineHeight:'120%'}],
+        th3:  ['14px', {lineHeight:'144%'}],
+        t:    ['14px', {lineHeight:'148%'}],
+        tcap: ['14px', {lineHeight:'149%'}],
         ttag: ['12px', {lineHeight:'28px'}],
+        ttext:['14px', {lineHeight:'148%'}],
+        th0:['32px', {lineHeight:'138%'}],
 
-        mh1:  ['22px', {lineHeight:'1.3em'}],
-        mh2:  ['18px', {lineHeight:'1.2em'}],
-        mh3:  ['14px', {lineHeight:'1.44em', lineHeight: '1rem'}],
-        m:    ['14px', {lineHeight:'1.49em'}],
-        mcap: ['14px', {lineHeight:'1.48em'}],
+        mh1:  ['22px', {lineHeight:'130%'}],
+        mh2:  ['18px', {lineHeight:'120%'}],
+        'mh2.5':['16px', {lineHeight:'148%'}],
+        mh3:  ['14px', {lineHeight:'144%'}],
+        m:    ['14px', {lineHeight:'149%'}],
+        mcap: ['14px', {lineHeight:'148%'}],
+        mtag: ['12px', {lineHeight:'100%'}],
+        mtext: ['14px',{lineHeight:'149%'}],
+        
+        t10: ['10px', {lineHeight:'100%'}],
+        't8.5': ['8.5px', {lineHeight:'100%'}],
       },
       spacing: {
         4.5: '1.125rem',
@@ -67,6 +74,7 @@ module.exports = {
         15: '3.75rem',
         17: '4.25rem',
         18: '4.5rem',
+        18.5: '4.625rem',
         19: '4.75rem',
         21: '5.25rem',
         22: '5.5rem',
@@ -74,8 +82,14 @@ module.exports = {
         25: '6.25rem',
         26: '6.5rem',
         27: '6.75rem',
+        34: '8.5rem',
         128: '32rem',
         144: '36rem',
+        '1/5': '20%',
+        '1/6': '16.67%',
+        '1/7': '14.29%',
+        '1/8': '12.5%',
+        'xl-head': '96px',
       },
       lineHeight: {
         11: '2.75rem',
@@ -96,7 +110,34 @@ module.exports = {
       },
       borderRadius: {
         '4xl': '2rem',
-      }
+      },
+      width: {
+        dmenu: '440px',
+        'screen-3/2': '150%',
+        'right-column': '365px',
+        'main-column': 'calc(100% - 365px)',
+      },
+      height: {
+        mtop: '223px',
+        ttop: '460px',
+        dtop: '567px',
+        
+        mteas: '294px',
+        tteas: '400px',
+        dteas: '316px',
+        
+        mfeat: '214px',
+        tfeat: '214px',
+        dfeat: '300px',
+
+        mfoto: '294px',
+        tfoto: '487px',
+        dfoto: '674px',
+      },
+      flex: {
+        full: '2 1 100%',
+        0: '0 1 0%',
+      },
     },
   },
   variants: {

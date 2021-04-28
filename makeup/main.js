@@ -10,13 +10,13 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./css/index.scss":
-/*!************************!*\
-  !*** ./css/index.scss ***!
-  \************************/
+/***/ "./src/tailwind.css":
+/*!**************************!*\
+  !*** ./src/tailwind.css ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"css/index.css\");\n\n//# sourceURL=webpack://s-t-o-l.com/./css/index.scss?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + \"css/tailwind.css\");\n\n//# sourceURL=webpack://s-t-o-l.com/./src/tailwind.css?");
 
 /***/ })
 
@@ -92,7 +92,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./css/index.scss"](0, __webpack_exports__, __webpack_require__);
+/******/ 	__webpack_modules__["./src/tailwind.css"](0, __webpack_exports__, __webpack_require__);
 /******/ 	
 /******/ })()
 ;

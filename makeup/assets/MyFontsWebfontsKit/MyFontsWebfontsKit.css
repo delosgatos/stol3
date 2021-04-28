@@ -23,6 +23,6 @@
   
 @font-face {
   font-family: "HelveticaMonospacedW1G-Rg";
-  src: url('webFonts/HelveticaMonospacedW1GRg/font.woff2') format('woff2'), url('webFonts/HelveticaMonospacedW1GRg/font.woff') format('woff');
+  src: url('./webFonts/HelveticaMonospacedW1GRg/font.woff2') format('woff2'), url('./webFonts/HelveticaMonospacedW1GRg/font.woff') format('woff');
 }
 

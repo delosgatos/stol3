@@ -64,6 +64,9 @@
 .icon-phone:before { content: '\e806'; } /* '' */
 .icon-arrow-left-sm:before { content: '\e807'; } /* '' */
 .icon-arrow-right-sm:before { content: '\e808'; } /* '' */
+.icon-arrow-right-long:before { content: '\e809'; } /* '' */
+.icon-arrow-down:before { content: '\e80a'; } /* '' */
+.icon-arrow-up:before { content: '\e80b'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */

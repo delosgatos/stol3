@@ -1,9 +1,9 @@
 @import url("//hello.myfonts.net/count/3d739f");
-@import url('https://unpkg.com/swiper/swiper-bundle.min.css');
+@import '../assets/swiper/swiper-bundle.min.css'; /*url('https://unpkg.com/swiper/swiper-bundle.min.css');*/
 @import '../assets/fontello/stolicon-embedded';
 @font-face {
   font-family: "HelveticaMonospacedW1G-Rg";
   src: url('../assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff2') format('woff2'), url('../assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff') format('woff');
 }
-@import 'tailwind';
+/*@import 'tailwind';*/
 @import 'main';
