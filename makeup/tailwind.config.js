@@ -45,6 +45,7 @@ module.exports = {
         dh2:  ['22px', {lineHeight:'140%'}],
         dh3:  ['16px', {lineHeight:'144%'}],
         dtag: ['14px', {lineHeight:'18px'}],
+        dtext:['18px',{lineHeight:'154%'}],
 
         th0:  ['32px', {lineHeight:'138%'}],
         th1:  ['26px', {lineHeight:'130%'}],
@@ -53,6 +54,7 @@ module.exports = {
         t:    ['14px', {lineHeight:'148%'}],
         tcap: ['14px', {lineHeight:'149%'}],
         ttag: ['12px', {lineHeight:'16px'}],
+        ttext:['16px',{lineHeight:'154%'}],
 
         mh0:  ['22px', {lineHeight:'130%'}],
         mh1:  ['22px', {lineHeight:'130%'}],
@@ -62,6 +64,8 @@ module.exports = {
         m:    ['14px', {lineHeight:'149%'}],
         mcap: ['14px', {lineHeight:'148%'}],
         mtag: ['12px', {lineHeight:'14px'}],
+
+        mtext:['16px',{lineHeight:'154%'}],
         
         t10: ['10px', {lineHeight:'100%'}],
         't8.5': ['8.5px', {lineHeight:'100%'}],
@@ -93,14 +97,16 @@ module.exports = {
         '1/6': '16.67%',
         '1/7': '14.29%',
         '1/8': '12.5%',
-        'xl-head': '96px',
         'auto': 'auto',
-        '137px': '137px',
         '4px': '4px',
         '5px': '5px',
         '6px': '6px',
         '7px': '7px',
         '8px': '8px',
+        '9px': '9px',
+        'sm-head': '47px',
+        'xl-head': '96px',
+        '137px': '137px',
       },
       lineHeight: {
         11: '2.75rem',
@@ -127,12 +133,17 @@ module.exports = {
         'screen-3/2': '150%',
         'right-column': '365px',
         'main-column': 'calc(100% - 365px)',
+        'full+6': 'calc(100% + 1.5rem)',
+        'full+10': 'calc(100% + 2.5rem)',
       },
       maxWidth: {
         '8xl': '90rem' /* 1440px */,
         '9xl': '100rem' /* 1600px */,
         '10xl': '120rem' /* 1920px */,
         'xl-button': '289px',
+      },
+      maxHeight: {
+        'none': 'none',
       },
       height: {
         mtop: '223px',

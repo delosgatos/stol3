@@ -1,168 +1,6 @@
-html, body {
-  overflow-x: hidden;
-  padding: 0px !important;
-  margin: 0px !important;
-}
-a {
-  @apply hover:text-orange-900;
-}
-
-button.showed {
-  @apply block bg-gray-900 text-white;
-  & > i {
-    @apply hidden;
-  }
-  & > i.hidden {
-    @apply block;
-  }
-}
-.h0{ @apply text-mh0 md:text-th0 xl:text-dh0; }
-.h1{ @apply text-mh1 md:text-th1 xl:text-dh1; }
-.h2{ @apply text-mh2 md:text-th2 xl:text-dh2; }
-.h3{ @apply text-mh3 md:text-th3 xl:text-dh3; }
-.text{ @apply text-m md:text-t xl:text-d; }
-.cap{ @apply text-mcap md:text-tcap xl:text-dcap; }
-
 .stol {
-  @apply mx-auto xl:max-w-8xl flex flex-col;
-  &-menu {
-    @apply absolute z-20 flex-col flex-grow w-full px-3 py-5 pb-8 text-white bg-gray-900 top-12 md:top-18.5 md:px-5 xl:relative xl:bg-transparent xl:shadow-none xl:text-gray-900 xl:w-auto xl:order-2 xl:py-0 xl:pl-16 xl:pr-8 xl:top-0 xl:block xl:items-center;
-    a {
-      @apply hover:text-gray-600;
-    }
-    &-button {
-      @apply w-12 bg-transparent outline-none cursor-pointer focus:outline-none md:w-18.5 md:h-18.5 xl:w-xl-head xl:h-xl-head;
-      .icon-close{
-        @apply py-3 xl:py-9;
-      }
-      [class^="icon-"], [class*=" icon-"] {
-        @apply xl:text-dh2;
-        &::before {
-          margin-top: 0.2em;
-        }
-      }
-    }
-    &-rubrics {
-      @apply flex flex-row flex-wrap w-full mb-2 whitespace-nowrap md:flex-col md:text-t xl:flex-row xl:m-0 xl:text-dh3 xl:justify-between;
-      li {
-        @apply flex-initial py-2 mr-5 text-m md:text-t xl:text-d xl:uppercase xl:-mb-1.5;
-      }
-      &-title {
-        @apply block mt-6 mb-2 uppercase md:mt-2 xl:hidden;
-        i {
-          @apply text-xxs relative -top-1 h-2;
-        }
-      }
-      &__hidden {
-        @apply hidden md:flex;
-      }
-      &-wrapper {
-        @apply md:w-1/3 xl:w-auto md:absolute xl:relative;
-      }
-    }
-    &-xl {
-      @apply xl:absolute xl:bg-gray-900 xl:text-white xl:-right-137px xl:w-dmenu xl:top-16 xl:px-10 xl:py-20;
-      &-items {
-        @apply w-full pt-2 pb-8 mr-auto space-y-6 md:space-y-0 md:w-2/3 md:float-right md:grid md:grid-cols-2 xl:grid-cols-none xl:flex-col xl:float-none xl:w-auto xl:space-y-6 xl:pb-0;
-        &-block {
-          @apply flex flex-col flex-auto w-full space-y-6 leading-normal uppercase text-mh2 md:text-th2 xl:text-dh2;
-        }
-      }
-    }
-    .stol-tags-block {
-      @apply pt-2 md:flex-1 md:w-full md:clear-both md:pt-10 xl:py-4;
-    }
-    &-social{
-      @apply my-6 md:mt-8 md:mb-0 xl:mt-6;
-      &-title{
-        @apply block mt-6 mb-2 text-t text-white uppercase text-opacity-60 md:text-t xl:text-d;
-      }
-      &-items{
-        @apply flex flex-row flex-wrap w-full;
-        li {
-          @apply flex-initial pr-5;
-          a {
-            @apply text-m inline-block pb-4 md:text-t xl:text-d;
-          }
-        }
-      }
-    }
-  }
-  &-search{
-    @apply absolute z-40 items-center flex-grow w-full p-0 text-white bg-gray-900 top-12 text-mh3 md:text-th3 md:top-18.5 xl:top-xl-head xl:text-dh3;
-    input {
-      @apply block w-full py-4 pl-3 pr-10 uppercase bg-gray-900 focus:outline-none xl:pt-7 xl:pb-5 xl:text-3xl;
-    }
-    .icon-search {
-      @apply absolute p-2 top-3 right-2 xl:px-3 xl:py-5 xl:text-2xl;
-    }
-    .stol-tags-block {
-      @apply bg-white w-full p-5 m-0 pt-1.5 pb-5 xl:pt-3 xl:pb-7;
-      .stol-tag-white {
-      }
-    }
-  }
-  // T A G S
-  &-tags-block:not([hidden]) {
-    @apply leading-3 flex flex-wrap -mb-3.5 xl:-mb-2.5;
-  }
-  &-tag {
-    @apply tracking-tighter flex-initial inline-flex px-3 py-1.5 mr-2 whitespace-nowrap border rounded-full border-gray-900 text-mtag mb-3.5 xl:mb-2.5 md:text-ttag md:pb-1 xl:text-dtag xl:pt-7px xl:pb-5px xl:px-4;
-    
-    margin-right: 0.5rem;
-    white-space: nowrap;
-    &-label {
-      @apply tracking-tight flex-initial inline-flex px-2.5 py-2 bg-white rounded-full absolute top-5 left-3 leading-3 text-center text-gray-900 text-mtag md:text-ttag xl:text-dtag xl:pt-8px xl:pb-6px xl:px-4;
-    }
-    &-white {
-      @apply tracking-tight flex-initial inline-flex px-3 rounded-full bg-white text-gray-900 border border-gray-900 border-solid text-mtag leading-6 md:text-ttag md:leading-6 xl:text-dtag xl:leading-9 xl:px-4;
-      @apply hover:bg-gray-900 hover:text-white;
-    }
-    &-hidden {
-      @apply hidden;
-    }
-    &__special {
-      @apply text-white bg-gray-900;
-    }
-  }
-
-
-  // M A I N
-
-  &-content {
-    @apply xl:flex xl:flex-row transition-all;
-  }
-  main {
-    @apply relative xl:w-main-column; /*xl:flex xl:flex-row xl:flex-wrap; */
-  }
-  &-right {
-    &-column {
-      @apply xl:w-right-column;
-      .stol-section {
-        @apply xl:px-9 xl:pb-13;
-      }
-    }
-    &-wrapper {
-      @apply xl:flex xl:flex-col;
-    }
-  }
-
   // S E C T I O N S 
-
   &-section {
-    @apply relative w-full px-3 pt-11 relative border-b border-gray-900 border-solid space-y-6 md:px-5 xl:border-r xl:flex-initial xl:pt-17.5;
-    .stol-tags-block:not([hidden]) {
-      @apply mt-6 pb-3.5;
-    }
-    &-title {
-      @apply uppercase text-mh1 md:text-th1 md:pb-0 xl:text-dh1;
-      &__lonely{
-        @apply md:pb-10;
-      }
-    }
-    &-text {
-      @apply text-m md:text-t xl:text-d;
-    }
     &-projects {
       @apply pb-3 space-y-0;
       .stol-section-wrapper {
@@ -228,51 +66,11 @@ button.showed {
         }
       }
     }
-    &__noborder {
-      @apply border-b-0;
-    }
-    &__right-column {
-      @apply xl:border-r-0;
-    }
   }
 
   // T E A S E R
   
   &-teaser {
-    @apply flex flex-col space-y-6 mb-9;
-    &-image {
-      @apply relative w-full bg-center bg-cover h-mteas md:h-tteas xl:h-dteas;
-    }
-    &-content {
-      @apply flex flex-col items-start px-3 space-y-4 text-gray-900 border-gray-900;
-    }
-    &-title {
-      @apply uppercase text-mh2 md:text-th2 xl:text-dh2;
-    }
-    &-text {
-      @apply text-m md:text-t xl:text-d;
-    }
-    &-date {
-      @apply text-mcap italic text-gray-900 text-opacity-60 md:text-tcap xl:text-dcap;
-    }
-    &-news {
-      @apply flex flex-row flex-wrap w-full md:pr-1/7 xl:pr-0 xl:h-28; 
-      &-content {
-        @apply flex-auto flex-grow inline-block space-y-4 uppercase;
-        .stol-teaser-text {
-          @apply xl:text-dh3;
-        }
-      }
-    }
-    .stol-tags-block:not([hidden]) {
-      @apply xl:mb-0 xl:pb-0;
-    }
-    .stol-article-list & {
-      @apply md:space-y-5;
-      &-content {
-        @apply md:px-5;
-      }
-    }
     // SECTIONS DECORATORS
     .stol-section-projects & {
       @apply pb-0;
@@ -302,7 +100,7 @@ button.showed {
       }
     }
     .stol-section-top & {
-      @apply pb-0 md:flex-row md:border-0 md:pb-0 md:my-0 md:space-y-0;
+      @apply pb-0 mb-0 md:flex-row md:border-0 md:pb-0 md:my-0 md:space-y-0;
       &-title {
         @apply text-mh1 md:text-th1 xl:text-dh1;
       }
@@ -313,55 +111,14 @@ button.showed {
         @apply md:w-1/2 md:h-auto md:pb-16 md:pt-13 md:px-5;
       }
     }
-    &__special {
-      @apply bg-orange-600 bg-opacity-60 pb-5;
-    }
   }
 
   // O P I N I O N S
   &-opinion {
-    @apply flex flex-row flex-wrap w-full pt-1;
-    &-image {
-      @apply relative flex-initial inline-block mr-5 w-16 md:w-18 xl:w-19;
-      img {
-        @apply w-full rounded-full object-cover;
-      }
-    }
-    &-content {
-      @apply flex-1 flex-grow inline-block space-y-2;
-    }
-    &-title {
-      @apply pt-1 uppercase text-mh3 md:text-th3 xl:text-dh3;
-    }
   }
 
   // C O N T R O L S
   &-controls {
-    @apply flex flex-row w-full py-3;
-    &-title {
-      @apply flex-none w-40 text-mh3 leading-tight uppercase whitespace-nowrap md:text-th3 xl:text-dh3;
-      .icon-arrow-right-long {
-        @apply text-t8.5 relative -top-0.5;
-      }
-    }
-    &-counter {
-      @apply flex-none w-20 text-sm leading-tight uppercase;
-    }
-    &-arrows {
-      @apply flex flex-none w-24 text-xxs -mr-7 -mt-2;
-    }
-    &-arrow {
-      @apply flex-initial relative cursor-pointer w-7 h-7 p-0 mx-1 border rounded-full border-gray-900 xl:border-0;
-      &:before {
-        transform: translate(-50%, -50%);
-        left: 50%;
-        top: 50%;
-        position: absolute;
-        margin: 0;
-        padding: 0;
-        width: auto;
-      }
-    }
     .stol-section-top & {
       &:not([hidden]) {
         @apply absolute z-10 px-3 top-44 block md:relative md:top-0 md:flex md:w-1/2 md:justify-between md:float-right md:-mt-16 md:p-5;
@@ -376,13 +133,7 @@ button.showed {
         @apply hidden md:block;
       }
       &-pagination {
-        @apply flex-auto flex justify-center items-center md:hidden;
-        .swiper-pagination-bullet{
-          @apply mx-2 bg-white bg-opacity-80;
-          &-active{
-            @apply bg-opacity-100;
-          }
-        }
+        @apply flex md:hidden;
       }
     }
     .stol-section-inset & {
@@ -396,72 +147,4 @@ button.showed {
 
   }
 
-  &-article-list {
-    @apply md:flex md:flex-wrap md:grid md:grid-cols-2 md:gap-x-5 xl:grid-cols-3;
-  }
-
-  &-promo {
-    @apply p-5 w-full;
-  }
-  
-  &-footer {
-    @apply relative py-20 text-white bg-gray-900;
-    a {
-      @apply text-m text-white hover:text-gray-900 md:text-t xl:text-d;
-    }
-    &-block {
-      @apply my-4 md:mt-0 md:mb-8 text-m text-white md:text-t xl:text-d;
-      &-title {
-        @apply block mb-5 text-white uppercase text-mh3 text-opacity-60 md:text-th3 xl:text-dh3;
-      }
-      ul {
-        @apply flex flex-row flex-wrap w-full;
-        li {
-          @apply flex-initial pr-5 mb-3;
-          &.flex-col {
-            @apply flex-1;
-          }
-        }
-        &.nowrap {
-          li {
-            @apply whitespace-nowrap;
-          }
-        }
-      }
-    }
-    .white-opacity{
-      @apply text-white text-opacity-60;
-    }
-  }
-
-  &-xl-show {
-    @apply hidden xl:flex;
-    &-block{
-      @apply hidden xl:block;
-    }
-  }
-  &-xl-hide {
-    @apply flex xl:hidden;
-    &-block{
-      @apply block xl:hidden;
-    }
-  }
-
-}
-
-.swiper-wrapper{
-  @apply transition-all;
-  .swiper-slide {
-    @apply bg-white;
-  }
-}
-
-body.stop-scrolling {
-  @apply overflow-hidden;
-  .stol-content {
-    @apply filter grayscale-md blur-1 opacity-50;
-    * {
-      @apply pointer-events-none;
-    }
-  }
 }

@@ -1,0 +1,126 @@
+.stol {
+    &-breadcrumb {
+        @extend .cap;
+        @apply italic tracking-tighter text-gray-600 text-opacity-80;
+        a {
+            @apply inline-block;
+        }
+        i {
+            @apply inline-block w-3.5 text-xxs md:w-4;
+        }
+    }
+    &-article {
+        @apply relative w-full px-3 pt-3 relative border-b border-gray-900 border-solid space-y-6;
+        @apply md:px-5 xl:flex-initial;
+        &-head {
+            @apply pt-3 md:grid md:grid-cols-2 md:gap-8;
+            .stol-tags-block:not([hidden]) {
+                @apply mt-6;
+            }
+            &-block {
+                &>h1 {
+                    @extend .h1;
+                    @apply uppercase my-4;
+                }
+                &>p {
+                    font-family: Inter, Helvetica, Arial, sans-serif;
+                    @extend .text;
+                    @apply my-6;
+                }
+            }
+        }
+        &-gallery {
+            @apply -mx-3 w-full+6 relative md:mx-0 md:w-full;
+            .stol-teaser {
+                @apply mb-0;
+                &-content {
+                    @apply hidden;
+                }
+            }
+            // C O N T R O L S
+            .stol-controls {
+                &:not([hidden]) {
+                    @apply px-3 pt-5 relative;
+                }
+                &-pagination {
+                    @apply hidden;
+                }
+            }
+            &__fullsreen {
+                .stol-teaser {
+                    &-content {
+                        @apply flex;
+                    }
+                }
+            }
+        }
+        &-content {
+            h1 {
+                @extend .h1;
+                @apply my-4 uppercase;
+            }
+            h2 {
+                @extend .h2;
+                @apply my-4 uppercase;
+            }
+            h3 {
+                @extend .h3;
+                @apply my-4 uppercase;
+            }
+            p {
+                @extend .text;
+                font-family: Inter, Helvetica, Arial, sans-serif;
+                @apply my-2.5 xl:my-3;
+            }
+            address{
+                @extend .cap;
+                @apply text-gray-600 italic py-4;
+            }
+            img, .stol-article-video {
+                @apply my-4 -mx-3 w-full+6 max-w-none md:mx-0 md:w-full;
+                & + address {
+                    @apply pt-0 w-full text-center;
+                }
+            }
+            blockquote {
+                @extend .h3;
+                @apply mt-8 mb-4 uppercase;
+                & + address {
+                    @apply pt-0;
+                }
+            }
+        }
+        &-inset {
+            @apply my-6 -mx-3 px-3 py-6 w-full+6 bg-gray-100 border-gray-900 border-b border-t md:-mx-5 md:w-full+10 md:px-5;
+            &-title {
+                @extend .cap;
+                @apply text-gray-900 text-opacity-60 italic mb-5;
+            }
+            .stol-teaser {
+                @apply mb-0;
+                .stol-tag {
+                    @apply bg-white;
+                }
+            }
+            &:last-child {
+                @apply mb-0 pb-0;
+            }
+        }
+        &-promo {
+            @apply py-6;
+        }
+        &-share {
+            @extend .h2;
+            @apply uppercase mt-7;
+        }
+        &-social {
+            @apply my-3 mb-7;
+        }
+        &-editor {
+            @apply text-dcap;
+        }
+        &-tags-block {
+            @apply pb-10;
+        }
+    }
+}

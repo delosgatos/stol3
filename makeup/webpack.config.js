@@ -55,7 +55,7 @@ module.exports = {
                 }
             }, */         
             {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                test: /\.(woff(2)?|ttf|eot|svg)(\?[\d\w#]+)?$/,
                 use: [
                     {
                         loader: 'file-loader',

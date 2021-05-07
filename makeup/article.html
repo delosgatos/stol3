@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png" />
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="dist/css/main.css" />
+    <title>S-T-O-L.COM - ARTICLE</title>
+  </head>
+  <body class="antialiased text-gray-900">
+    <!--
+    <div style="position:absolute;top:0;left:0;z-index:0;opacity:0.5;"><img src="images/iphone.png"></div>
+    -->
+    <div class="stol" id="stol">
+      <!-- HEADER -->
+      <header class="relative z-50 flex flex-wrap items-center justify-between w-full bg-white border-b border-gray-900 navbar-expand-lg">
+        <nav class="relative flex flex-row items-center justify-between w-full xl:px-10">
+          <button class="block stol-menu-button md:order-3 xl:-mr-8 xl:-ml-6" type="button" data-show="#searchbar">
+            <i class="hidden icon-close"></i>
+            <i class="py-1 icon-search"></i>
+          </button>
+          <a class="inline-block py-4 md:py-6 md:ml-5 md:flex-1 xl:order-1 xl:py-6.5 xl:ml-0 xl:mt-0.5" href="/"><img class="transition-all md:h-6.5 xl:max-w-none xl:h-9" src="images/logo.svg"></a>
+          <button class="block stol-menu-button md:order-4 xl:-mr-10 xl:hidden" type="button" data-show="#main-menu">
+            <i class="hidden icon-close"></i>
+            <i class="py-1 icon-menu"></i>
+          </button>          
+          <button class="hidden stol-menu-button md:order-4 xl:-mr-10 xl:block" type="button" data-use="xl" data-show="#xl-menu">
+            <i class="hidden icon-close"></i>
+            <i class="py-1 icon-menu"></i>
+          </button>
+          <!-- MAIN MENU -->
+          <div id="main-menu" class="flex hidden stol-menu">
+            <div class="stol-menu-rubrics-wrapper" x-data={show:false,hide:true}>
+              <a href="#" class="pb-3 stol-menu-rubrics-title" 
+                  @click.prevent="show=!show;hide=!hide">Рубрики 
+                    <i :class="{ 'transform rotate-180': show }" 
+                        class="inline-block icon-arrow-down"></i></a>
+              <ul :class="{ 'stol-menu-rubrics__hidden': hide }"  
+                  class="hidden w-full -mt-3 overflow-hidden transition-all stol-menu-rubrics"
+                  x-transition:enter="transition ease-out duration-300" 
+                  x-transition:enter-start="transform h-0" 
+                  x-transition:enter-end="transform h-full" 
+                  x-transition:leave="transition ease-in duration-300" 
+                  x-transition:leave-start="transform " 
+                  x-transition:leave-end="transform ">
+                <li><a href="#church">Церковь</a></li>
+                <li><a href="#russian">Русская жизнь</a></li>
+                <li><a href="#culture">Культура</a></li>
+                <li><a href="#rememberance">Трудная память</a></li>
+                <li><a href="#society">Общество и ценности</a></li>
+              </ul>
+            </div>
+            <!-- MENU FOR XL MODE -->
+            <div id="xl-menu" class="stol-menu-xl xl:hidden">
+              <div class="stol-menu-xl-items">
+                <ul class="stol-menu-xl-items-block">
+                  <li><a href="#projects"></i> спецпроекты</a></li>
+                  <li><a href="#foto"></i> фотопроекты</a></li>
+                  <li><a href="#events"></i> события</a></li>
+                  <li><a href="#review">новостной обзор</a></li>
+                </ul>
+                <ul class="stol-menu-xl-items-block">
+                  <li><a href="#stol">что такое стол?</a></li>
+                  <li><a href="#contacts">контакты</a></li>
+                  <li><a href="#support">поддержать</a></li>
+                </ul>
+              </div>
+              <div class="stol-tags-block">
+                <a href="#" class="stol-tag-white">стол недели</a>
+                <a href="#" class="stol-tag-white">календарь</a>
+                <a href="#" class="stol-tag-white">фотоистории</a>
+                <a href="#" class="stol-tag-white">русские картинки</a>
+                <a href="#" class="stol-tag-white">словарь</a>
+              </div>
+              <div class="stol-menu-social">
+                <ul class="stol-menu-social-items">
+                  <li><a href="#telegram">telegram</a></li>
+                  <li><a href="#facebook">facebook</a></li>
+                  <li><a href="#vkontakte">vkontakte</a></li>
+                  <li><a href="#instagram">instagram</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- SEARCH BAR -->
+        <div id="searchbar" class="hidden stol-search" x-data="{label:''}">
+          <input x-model="label" />
+          <i class="icon-search"></i>
+          <div class="stol-tags-block">
+            <a @click.prevent="{label=$event.target.innerText}" href="#" class="stol-tag-white">стол недели</a>
+            <a @click.prevent="{label=$event.target.innerText}" href="#" class="stol-tag-white">календарь</a>
+            <a @click.prevent="{label=$event.target.innerText}" href="#" class="stol-tag-white">фотоистории</a>
+            <a @click.prevent="{label=$event.target.innerText}" href="#" class="stol-tag-white">русские картинки</a>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- MAIN CONTENT -->
+
+      <div class="stol-content">
+        <main class="relative z-1">
+          <!-- SECTION - TOP FEATURE -->
+          <article class="stol-article">
+            <section class="stol-article-head">
+                <div id="article-head-content" class="stol-article-head-block">
+                  <h1>Фальк, смерть и чёрный британский юмор</h1>
+                  <p>«Стол» представляет новые выставки и самые значимые премьеры следующей недели.</p>
+                  <div class="hidden stol-breadcrumb md:block">
+                    <a href="/">главная</a>
+                    <i class="icon-arrow-right-sm"></i>
+                    <a href="#rubric">рубрика</a>
+                  </div>
+                </div>
+                <div class="stol-article-head-block">
+                  <a href="#opinion3" class="stol-opinion">
+                      <div  class="stol-opinion-image">
+                          <img src="images/v204_217.png" />
+                      </div>
+                      <div class="stol-opinion-content">
+                          <p class="stol-opinion-title">Имя и фамилия автора</p>
+                          <p class="stol-teaser-date">06.04.2021</p>
+                      </div>
+                  </a>
+                  <div class="stol-tags-block js-collapsible-tags">
+                      <a href="#" class="stol-tag">спецматериал</a>
+                      <a href="#" class="stol-tag">тег статьи</a>
+                      <a href="#" class="stol-tag">мегатег статьи</a>
+                      <a href="#" class="stol-tag">бомба-тег статьи</a>
+                  </div>
+                  <div class="pt-6 stol-breadcrumb md:hidden">
+                    <a href="/">главная</a>
+                    <i class="icon-arrow-right-sm"></i>
+                    <a href="#rubric">рубрика</a>
+                  </div>
+                </div>
+            </section>
+            <section class="stol-article-gallery" x-data="{swiper: null}"
+                x-init="swiper = new Swiper($refs.container, {
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    effect: 'flip',
+                    grabCursor: true,
+                    autoHeight: true,
+                    pagination: {
+                    el: '.stol-controls-pagination',
+                    clickable: true,
+                    },
+                    on: {
+                    'slideChange' : function (sw){
+                        this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
+                    }
+                    },
+                });"
+            >
+                <div class="order-2 w-full">
+                  <div class="swiper-container" x-ref="container">
+                    <div class="swiper-wrapper">
+                      <!-- START: S L I D E S -->
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-fmd.jpg)"></a>
+                            <div class="stol-teaser-content">
+                                <a href="#article1" class="stol-teaser-title">главный материал,<br>если заголовок будет<br>в три строки</a>
+                                <a href="#article1" class="stol-teaser-text">«Стол» — это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </a>
+                                <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
+                                <div class="stol-tags-block js-collapsible-tags">
+                                  <a href="#" class="stol-tag">тег статьи</a>
+                                  <a href="#" class="stol-tag">стол</a>
+                                  <a href="#" class="stol-tag">пространство для встреч</a>
+                                  <a href="#" class="stol-tag">главный материал</a>
+                                  <a href="#" class="stol-tag">смыслы</a>
+                                  <a href="#" class="stol-tag">приветствие</a>
+                                  <a href="#" class="stol-tag">материал</a>
+                                  <a href="#" class="stol-tag">размышления</a>
+                                  <a href="#" class="stol-tag">главред</a>
+                                </div>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <a href="#article2" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)"></a>
+                            <div class="stol-teaser-content">
+                                <a href="#article2" class="stol-teaser-title">еще один материал в фичере, строк на глаз как получится</a>
+                                <a href="#article2" class="stol-teaser-text">One caveat to the multiple-backgrounds technique is that the opacities will multiply rather than add together.  </a>
+                                <p class="stol-teaser-date">выбор редакции 12.03.2021</p>
+                                <div class="stol-tags-block js-collapsible-tags">
+                                  <a href="#" class="stol-tag">еще один материал</a>
+                                  <a href="#" class="stol-tag">фичер</a>
+                                  <a href="#" class="stol-tag">бэкграунд</a>
+                                </div>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <a href="#article3" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)"></a>
+                            <div class="stol-teaser-content">
+                                <a href="#article3" class="stol-teaser-title">третий материал в фичере и все, хватит</a>
+                                <a href="#article3" class="stol-teaser-text">Материал развития и побуждающее начало его реализации даются извне, но это побуждающее начало может действовать, очевидно, лишь сообразно с собственною природой организма. </a>
+                                <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
+                                <div class="stol-tags-block js-collapsible-tags">
+                                  <a href="#" class="stol-tag">третий материал</a>
+                                  <a href="#" class="stol-tag">тег статьи длинный</a>
+                                  <a href="#" class="stol-tag">тег статьи</a>
+                                  <a href="#" class="stol-tag">общество</a>
+                                  <a href="#" class="stol-tag">развитие</a>
+                                </div>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div x-ref="controls" class="stol-controls">
+                  <p class="stol-controls-counter"><span x-ref="counter">1</span> / 3</p>
+                  <a href="#all-specials" class="stol-controls-title">ВСЕ СПЕЦПРОЕКТЫ <i class="icon-arrow-right-long"></i></a>
+                  <div class="flex-grow"></div>
+                  <div class="stol-controls-arrows">
+                    <i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left-sm"></i>
+                    <div class="stol-controls-pagination"></div>
+                    <i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right-sm"></i>
+                  </div>
+                </div>
+            </section>
+
+            <section class="stol-article-content">
+                <h2>«Роберт Фальк» в Новой Третьяковке</h2>
+                <p>На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был в ряду «ниспровергателей» традиций, то затем оказался их хранителем и проводником. Он прошёл через этапы неопримитивизма, сезаннизма и кубизма, а в начале 1920-х обратился к старым мастерам, став посредником между европейской живописью и русским авангардом 1910–1920-х годов.</p>
+                <p>Первые годы советской власти принесли Роберту Фальку признание и известность. В 1918–1921 годах он служил в Московской коллегии по делам искусства и художественной промышленности отдела изобразительных искусств Наркомата просвещения РСФСР, был одним из организаторов Государственных свободных художественных мастерских, много преподавал. Тогда же его назначили деканом Высших художественных курсов (ВХУТЕМАС).</p>
+                <blockquote>«Чтобы нам гордиться нашим отечеством, надо прежде всего воспитывать в сегодняшнем человеке русскость, которая стремительно убывает»</blockquote><address>Ольга Парамонова</address>
+                <p>Ему было позволено то, о чём и не могли мечтать другие советские граждане. В 1928 году Роберт Фальк оправился в командировку в Париж — изучать классическое наследие. Вместо запланированных шести месяцев он прожил во Франции почти девять лет, объездив практически все французские провинции.</p>
+                <p>Более того, власти выпустили к нему во Францию его семью и сына – 17-летнего болезненно юношу Валеру, замечательного художника, которому требовалось учиться на родине импрессионизма. Чем было вызвано такое особое расположение советской власти к художнику – неизвестно.</p>
+                <p>В 1937 году Фальки вернулись на родину. Все ждали ареста, но его не последовало – более того, в 1939 году состоялись две персональные выставки художника.</p>
+                <p>После начала войны Фальк эвакуировался в Башкирию, затем в Среднюю Азию. Он занимался живописью, преподавал в средней школе историю, географию и немецкий язык, затем стал работать в Узбекском художественном техникуме в Самарканде.</p>
+                <p>В послевоенные годы оказалось, что творчество Роберта Фалька не соответствует сложившимся к тому времени канонам советского изобразительного искусства. Неоднократно художника критиковали, обвиняя в формализме, упадничестве, и «уходе от проблем советского народа». До конца жизни Роберт Фальк практически не выставлялся, продолжая рисовать для себя. Также он преподавал в Московском институте прикладного и декоративного искусства.</p>
+                <p>Роберт Фальк умер 1 октября 1958 года в Москве.</p>
+                <img src="images/v147_364.png" />
+                <address>Фото: источник</address>
+                <h2>Кукольный спектакль Тимура Бекмамбетова</h2>
+                <p>Любитель блокбастеров Тимур Бекмамбетов дебютирует в театре постановкой кукольного спектакля о любимом фольклорном персонаже мусульманского Востока Ходже Насреддине.</p>
+                <p>«Я очень много лет мечтал рассказать историю этого персонажа, талантливого и парадоксального, который всё переворачивает с ног на голову, – говорит режиссер. – Но поскольку мир и так перевернут, то у Ходжи Насреддина в итоге все оказывается на своих местах. Мы создали образ легендарного трикстера восточной цивилизации, и у нас вышла пьеса о свободе, любви и правах человека, в общем, о проблемах и чаяниях всех времен вплоть до сегодняшнего дня».</p>
+                <div class="stol-article-inset">
+                  <div class="stol-article-inset-title">материалы по теме</div>
+                  <div class="stol-teaser">
+                      <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                      <span class="stol-tag-label">культура</span>
+                      </a>
+                      <div class="stol-teaser-content">
+                      <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                      <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <a href="#" class="stol-tag">спецматериал</a>
+                          <a href="#" class="stol-tag">тег статьи</a>
+                          <a href="#" class="stol-tag">моя профессия</a>
+                          <a href="#" class="stol-tag">интервью</a>
+                          <a href="#" class="stol-tag">люди</a>
+                          <a href="#" class="stol-tag">лицо дня</a>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+                <p>Любитель блокбастеров Тимур Бекмамбетов дебютирует в театре постановкой кукольного спектакля о любимом фольклорном персонаже мусульманского Востока Ходже Насреддине.</p>
+                <p>«Я очень много лет мечтал рассказать историю этого персонажа, талантливого и парадоксального, который всё переворачивает с ног на голову, – говорит режиссер. – Но поскольку мир и так перевернут, то у Ходжи Насреддина в итоге все оказывается на своих местах. Мы создали образ легендарного трикстера восточной цивилизации, и у нас вышла пьеса о свободе, любви и правах человека, в общем, о проблемах и чаяниях всех времен вплоть до сегодняшнего дня».</p>
+                <div class="stol-article-video">
+                  <iframe width="100%" height="240" src="https://www.youtube.com/embed/lp24VmYuKME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <address>Видео описание</address>
+                <p>Ему было позволено то, о чём и не могли мечтать другие советские граждане. В 1928 году Роберт Фальк оправился в командировку в Париж — изучать классическое наследие. Вместо запланированных шести месяцев он прожил во Франции почти девять лет, объездив практически все французские провинции.</p>
+                <p>Более того, власти выпустили к нему во Францию его семью и сына – 17-летнего болезненно юношу Валеру, замечательного художника, которому требовалось учиться на родине импрессионизма. Чем было вызвано такое особое расположение советской власти к художнику – неизвестно.</p>
+                <p>октября 1958 года в Москве.</p>
+                <div class="stol-article-promo">
+                    <div class="flex items-center justify-center text-center bg-gray-300" style="min-height:500px;"><span>PROMO</span></div>
+                </div>
+                <p>В 1937 году Фальки вернулись на родину. Все ждали ареста, но его не последовало – более того, в 1939 году состоялись две персональные выставки художника.</p>
+                <p>После начала войны Фальк эвакуировался в Башкирию, затем в Среднюю Азию. Он занимался живописью, преподавал в средней школе историю, географию и немецкий язык, затем стал работать в Узбекском художественном техникуме в Самарканде.</p>
+                <p>В послевоенные годы оказалось, что творчество Роберта Фалька не соответствует сложившимся к тому времени канонам советского изобразительного искусства. Неоднократно художника критиковали, обвиняя в формализме, упадничестве, и «уходе от проблем советского народа». До конца жизни Роберт Фальк практически не выставлялся, продолжая рисовать для себя. Также он преподавал в Московском институте прикладного и декоративного искусства.</p>
+                <p>Роберт Фальк умер 1 октября 1958 года в Москве.</p>
+                <div class="stol-article-inset">
+                <div class="stol-article-inset-title">материалы по теме</div>
+                <div class="stol-teaser">
+                    <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                    <span class="stol-tag-label">культура</span>
+                    </a>
+                    <div class="stol-teaser-content">
+                    <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                    <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                    <p class="stol-teaser-date">10.02.2021</p>
+                    <div class="stol-tags-block js-collapsible-tags">
+                        <a href="#" class="stol-tag">спецматериал</a>
+                        <a href="#" class="stol-tag">тег статьи</a>
+                        <a href="#" class="stol-tag">моя профессия</a>
+                        <a href="#" class="stol-tag">интервью</a>
+                        <a href="#" class="stol-tag">люди</a>
+                        <a href="#" class="stol-tag">лицо дня</a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <p>Ему было позволено то, о чём и не могли мечтать другие советские граждане. В 1928 году Роберт Фальк оправился в командировку в Париж — изучать классическое наследие. Вместо запланированных шести месяцев он прожил во Франции почти девять лет, объездив практически все французские провинции.</p>
+                <p>Более того, власти выпустили к нему во Францию его семью и сына – 17-летнего болезненно юношу Валеру, замечательного художника, которому требовалось учиться на родине импрессионизма. Чем было вызвано такое особое расположение советской власти к художнику – неизвестно.</p>
+                <p>В 1937 году Фальки вернулись на родину. Все ждали ареста, но его не последовало – более того, в 1939 году состоялись две персональные выставки художника.</p>
+                <p>После начала войны Фальк эвакуировался в Башкирию, затем в Среднюю Азию. Он занимался живописью, преподавал в средней школе историю, географию и немецкий язык, затем стал работать в Узбекском художественном техникуме в Самарканде.</p>
+                <p>В послевоенные годы оказалось, что творчество Роберта Фалька не соответствует сложившимся к тому времени канонам советского изобразительного искусства. Неоднократно художника критиковали, обвиняя в формализме, упадничестве, и «уходе от проблем советского народа». До конца жизни Роберт Фальк практически не выставлялся, продолжая рисовать для себя. Также он преподавал в Московском институте прикладного и декоративного искусства.</p>
+                <p>Роберт Фальк умер 1 октября 1958 года в Москве.</p>
+                <div class="stol-article-video">
+                    <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Bn_j-bMhG3v/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="13" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/Bn_j-bMhG3v/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;"> View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/Bn_j-bMhG3v/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Медиапроект Стол (@s_t_o_l)</a></p></div></blockquote> <script async src="//www.instagram.com/embed.js"></script>
+                </div>
+                <address>Видео описание</address>
+                <p>Ему было позволено то, о чём и не могли мечтать другие советские граждане. В 1928 году Роберт Фальк оправился в командировку в Париж — изучать классическое наследие. Вместо запланированных шести месяцев он прожил во Франции почти девять лет, объездив практически все французские провинции.</p>
+                <p>Более того, власти выпустили к нему во Францию его семью и сына – 17-летнего болезненно юношу Валеру, замечательного художника, которому требовалось учиться на родине импрессионизма. Чем было вызвано такое особое расположение советской власти к художнику – неизвестно.</p>
+                <address class="stol-article-editor">Редактор: Ольга Парамонова</address>
+                <div class="stol-article-share">
+                    поделиться:
+                    <div class="stol-article-social">
+                      <script src="https://yastatic.net/share2/share.js"></script>
+                      <div class="ya-share2" data-curtain data-size="l" data-shape="round" data-color-scheme="whiteblack" data-services="vkontakte,facebook,telegram,whatsapp"></div>
+                    </div>
+                </div>
+                <div class="stol-tags-block stol-article-tags-block js-collapsible-tags">
+                  <a href="#" class="stol-tag">тег статьи длинный</a>
+                  <a href="#" class="stol-tag">тег статьи</a>
+                  <a href="#" class="stol-tag">хранители наследия</a>
+                  <a href="#" class="stol-tag">стол из прошлого</a>
+                  <a href="#" class="stol-tag">возрождение традиций</a>
+                  <a href="#" class="stol-tag">покаяние</a>
+                  <a href="#" class="stol-tag">Пасха</a>
+                  <a href="#" class="stol-tag">советское</a>
+                  <a href="#" class="stol-tag">трудная память</a>
+                  <a href="#" class="stol-tag">усадьбы</a>
+                  <a href="#" class="stol-tag">честь и достоинство</a>
+                  <a href="#" class="stol-tag">кровавый террор</a>
+                </div>
+                <div class="stol-article-inset">
+                  <div class="stol-article-inset-title">читайте также</div>
+                  <div class="stol-teaser">
+                      <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                      <span class="stol-tag-label">культура</span>
+                      </a>
+                      <div class="stol-teaser-content">
+                        <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                        <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                        <p class="stol-teaser-date">10.02.2021</p>
+                        <div class="stol-tags-block js-collapsible-tags">
+                            <a href="#" class="stol-tag">спецматериал</a>
+                            <a href="#" class="stol-tag">тег статьи</a>
+                            <a href="#" class="stol-tag">моя профессия</a>
+                            <a href="#" class="stol-tag">интервью</a>
+                            <a href="#" class="stol-tag">люди</a>
+                            <a href="#" class="stol-tag">лицо дня</a>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+            </section>
+          </article>
+
+          <!-- SECTION: SPECIAL -->
+          <section class="overflow-hidden stol-section stol-section-projects stol-section__feature" x-data="{swiper: null}"
+                x-init="swiper = new Swiper($refs.container, {
+                loop: true,
+                slidesPerView: 2,
+                spaceBetween: 20,
+                });"
+            >
+            <div class="stol-section-wrapper">
+              <h6 class="stol-section-title stol-section-title__lonely">Спецпроекты</h6>
+              <div class="px-5 swiper-container" x-ref="container">
+                <div class="swiper-wrapper">
+                  <!-- START: S L I D E S -->
+                  <div class="swiper-slide">
+                    <!-- START: T E A S E R -->
+                    <div class="stol-teaser">
+                      <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-reds.jpg)">
+                        <span class="stol-tag-label">
+                          культура
+                        </span>
+                      </a>
+                      <div class="stol-teaser-content">
+                        <a href="#article1" class="stol-teaser-title">главный материал,<br>если заголовок будет<br>в три строки</a>
+                        <a href="#article1" class="stol-teaser-text">«Стол» — это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </a>
+                        <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
+                        <div class="stol-tags-block js-collapsible-tags">
+                          <a href="#" class="stol-tag">тег статьи длинный</a>
+                          <a href="#" class="stol-tag">тег статьи</a>
+                          <a href="#" class="stol-tag">культурный шок</a>
+                          <a href="#" class="stol-tag">деградация</a>
+                          <a href="#" class="stol-tag">нравы</a>
+                          <a href="#" class="stol-tag">регионы</a>
+                          <a href="#" class="stol-tag">сточилка</a>
+                          <a href="#" class="stol-tag">деньги и власть</a>
+                          <a href="#" class="stol-tag">люди</a>
+                          <a href="#" class="stol-tag">лица</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                  <!-- NEXT SLIDE -->
+                  <div class="swiper-slide">
+                    <!-- START: T E A S E R -->
+                    <div class="stol-teaser">
+                      <a href="#article2" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                        <span class="stol-tag-label">церковь</span>
+                      </a>
+                      <div class="stol-teaser-content">
+                        <a href="#article2" class="stol-teaser-title">еще один материал в фичере, строк на глаз как получится</a>
+                        <a href="#article2" class="stol-teaser-text">One caveat to the multiple-backgrounds technique is that the opacities will multiply rather than add together.  </a>
+                        <p class="stol-teaser-date">выбор редакции 12.03.2021</p>
+                        <div class="stol-tags-block js-collapsible-tags">
+                          <a href="#" class="stol-tag">тег статьи длинный</a>
+                          <a href="#" class="stol-tag">тег статьи</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                  <!-- NEXT SLIDE -->
+                  <div class="swiper-slide">
+                    <!-- START: T E A S E R -->
+                    <div class="stol-teaser">
+                        <a href="#article3" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                          <span class="stol-tag-label">общество</span>
+                        </a>
+                        <div class="stol-teaser-content">
+                          <a href="#article3" class="stol-teaser-title">третий материал в фичере и все, хватит</a>
+                          <a href="#article3" class="stol-teaser-text">Материал развития и побуждающее начало его реализации даются извне, но это побуждающее начало может действовать, очевидно, лишь сообразно с собственною природой организма. </a>
+                          <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
+                          <div class="stol-tags-block js-collapsible-tags">
+                            <a href="#" class="stol-tag">тег статьи длинный</a>
+                            <a href="#" class="stol-tag">тег статьи</a>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div x-ref="controls" class="stol-controls">
+              <a href="#all-specials" class="stol-controls-title">ВСЕ СПЕЦПРОЕКТЫ <i class="icon-arrow-right-long"></i></a>
+              <div class="flex-grow"></div>
+              <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
+            </div>
+          </section>
+
+
+          <!-- SECTION - ARTICLES 3 -->
+          <section class="stol-section stol-section-articles stol-xl-hide">
+            <div class="stol-article-list">
+              <!-- START: T E A S E R -->
+              <div class="stol-teaser">
+                <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                  <span class="stol-tag-label">культура</span>
+                </a>
+                <div class="stol-teaser-content">
+                  <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                  <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                  <p class="stol-teaser-date">10.02.2021</p>
+                  <div class="stol-tags-block js-collapsible-tags">
+                    <a href="#" class="stol-tag">спецматериал</a>
+                    <a href="#" class="stol-tag">тег статьи</a>
+                    <a href="#" class="stol-tag">мегатег статьи</a>
+                    <a href="#" class="stol-tag">бомба-тег статьи</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END: T E A S E R -->
+              <!-- START: T E A S E R -->
+              <div class="stol-teaser">
+                <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
+                  <span class="stol-tag-label">культура</span>
+                </a>
+                <div class="stol-teaser-content">
+                  <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                  <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                  <p class="stol-teaser-date">10.02.2021</p>
+                  <div class="stol-tags-block js-collapsible-tags">
+                    <a href="#" class="stol-tag stol-tag__special">тег-тема</a>
+                    <a href="#" class="stol-tag">тег статьи</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END: T E A S E R -->
+              <!-- START: T E A S E R -->
+              <div class="stol-teaser stol-xl-show">
+                <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                  <span class="stol-tag-label">культура</span>
+                </a>
+                <div class="stol-teaser-content">
+                  <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                  <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                  <p class="stol-teaser-date">10.02.2021</p>
+                  <div class="stol-tags-block js-collapsible-tags">
+                    <a href="#" class="stol-tag">тег статьи</a>
+                    <a href="#" class="stol-tag">тег статьи</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END: T E A S E R -->
+            </div>    
+          </section>
+
+
+          <!-- SECTION: DONATION -->
+          <section class="pb-20 stol-section stol-section-donation">
+            <div class="stol-section-block">
+              <h6 class="stol-section-title"><span class="text-orange-600">поддержать</span><br/>стол</h6>
+              <p class="stol-section-text">«Стол» – это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </p>
+            </div>
+            <div class="stol-section-block" x-data="{price:''}">
+              <div class="relative">
+                <input class="stol-donation-input" placeholder="сумма" x-model="price" />
+              </div>
+              <div class="stol-tags-block">
+                <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="100">100 ₽</a>
+                <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="200">200 ₽</a>
+                <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="500">500 ₽</a>
+                <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="1000">1000 ₽</a>
+              </div>
+              <div class="flex uppercase" x-data="{toggleActive:false}">
+                <span class="pr-3">Ежемесячно</span>
+                <div @click="toggleActive = !toggleActive" 
+                    class="relative flex w-10 h-5 py-0.5 px-1 duration-300 ease-in-out bg-gray-300 rounded-full items-center cursor-pointer" 
+                    :class="{'bg-green-400': toggleActive}">
+                  <div class="w-4 h-4 duration-300 ease-in-out transform bg-gray-900 rounded-full shadow-md" 
+                      :class="{'translate-x-4': toggleActive}"></div>
+                </div>
+                <span class="pl-3">Разово</span>
+              </div>
+              <a href="#all-articles" class="stol-donation-button">Продолжить</a>     
+            </div>
+          </section>
+        </main>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="stol-right-column stol-xl-show-block" id="right-column">
+          <div class="stol-right-wrapper" id="right-wrapper">
+            <!-- SECTION - XL-PROMO -->
+            <section class="stol-section stol-section__right-column h-dtop1">
+              <div class="flex items-center w-full h-full -mt-11">
+                <span class="w-full text-center">ПРОМО</span>
+              </div>
+            </section>
+            <!-- END: PROMO -->
+          </div>
+        </aside>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="stol-footer">
+        <div class="px-3 mx-auto md:px-5 md:grid md:grid-cols-2 md:gap-13 xl:gap-0 xl:grid-cols-none">
+          <div data-moveto="#right-wrapper" class="flex flex-col w-full space-y-6 xl:p-9 xl:pt-11">
+            <h5 class="leading-7 uppercase text-mh1 md:text-th1 xl:text-dh1">Рассылка</h5>
+            <h6 class="leading-tight text-m md:text-t xl:text-d">
+                Преимущество подписки на рассылку. Например, в две строки.
+            </h6>
+            <div class="relative">
+                <input class="w-full px-2 pt-1 italic leading-6 bg-gray-700 text-mcap h-11 focus:outline-none focus:not-italic xl:bg-gray-300 xl:text-gray-900 " placeholder="e-mail" />
+            </div>
+            <a href="#all-articles" class="block w-full py-3 leading-6 text-center text-gray-900 uppercase bg-white text-mcap px-9 md:text-tcap xl:text-dcap xl:bg-gray-900 xl:text-white xl:pt-4.5">Подписаться</a>  
+            <p class="pb-10 italic leading-tight text-mcap white-opacity md:text-tcap xl:text-dcap xl:text-gray-500 xl:pb-0">
+                нажимая кнопку вы даете свое согласие на обработку персональных данных
+            </p>
+          </div>
+          <div class="flex flex-wrap xl:grid xl:grid-cols-4 xl:gap-13">
+            <div class="w-full">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">Рубрики</span>
+                <ul class="nowrap">
+                  <li><a href="#church">Церковь</a></li>
+                  <li><a href="#russian">Русская жизнь</a></li>
+                  <li><a href="#culture">Культура</a></li>
+                  <li><a href="#rememberance">Трудная память</a></li>
+                  <li><a href="#society">Общество и ценности</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">мы в соцсетях</span>
+                <ul>
+                  <li><a href="#telegram">telegram</a></li>
+                  <li><a href="#facebook">facebook</a></li>
+                  <li><a href="#vkontakte">vkontakte</a></li>
+                  <li><a href="#instagram">instagram</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">контакты редакции</span>
+                <ul>
+                  <li class="flex-1"><a class="whitespace-nowrap" href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
+                  <li class="flex-1"><a class="whitespace-nowrap" href="tel:+74992673190">8 (499) 267-31-90</a></li>
+                  <li class="w-full"><span class="text-white text-m">Учредитель и главный редактор — <span class="whitespace-nowrap">А.А. Васенёв</span></span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="w-full">
+              <div class="stol-footer-block">
+                <span class="block">Использования материалов издания <span class="whitespace-nowrap">s-t-o-l.com</span> разрешено только с предварительного согласия правообладателей. 
+                  Все права на картинки и тексты принадлежат их авторам.</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center justify-center md:justify-between md:w-full md:col-span-2">
+            <div class="w-full stol-footer-block md:grid md:grid-cols-2 md:gap-13 xl:grid-cols-4">
+              <div class="pb-6 white-opacity">
+                <p class="py-1 uppercase">2014-2021 © s-t-o-l.com</p>
+                <p class="py-1 uppercase">16+</p>
+              </div>
+              <div class="white-opacity xl:col-span-3">Свидетельство о регистрации ЭЛ № ФС 77 — 63013 от 10.09.2015 выдано Роскомнадзором.</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <script src="assets/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/hc-sticky.js"></script>
+  <script src="js/alpine.min.js"></script>
+  <script src="js/main.js"></script>
+</html>

@@ -1,0 +1,14 @@
+.stol {
+  &-xl-show {
+    @apply hidden xl:flex;
+    &-block{
+      @apply hidden xl:block;
+    }
+  }
+  &-xl-hide {
+    @apply flex xl:hidden;
+    &-block{
+      @apply block xl:hidden;
+    }
+  }
+}

@@ -5,5 +5,20 @@
   font-family: "HelveticaMonospacedW1G-Rg";
   src: url('../assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff2') format('woff2'), url('../assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff') format('woff');
 }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 /*@import 'tailwind';*/
+@import 'common';
+.stol {
+  @import 'parts/tags';
+  @import 'parts/section';
+  @import 'parts/teaser';
+  @import 'parts/opinion';
+  @import 'parts/controls';
+}
+@import 'header';
 @import 'main';
+@import 'article';
+@import 'footer';
+@import 'addons';
+@import 'override';

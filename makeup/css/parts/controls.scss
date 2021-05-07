@@ -1,0 +1,37 @@
+&-controls {
+    @apply flex flex-row w-full py-3;
+    &-title {
+      @apply flex-none w-40 text-mh3 leading-tight uppercase whitespace-nowrap;
+      @apply md:text-th3 xl:text-dh3;
+      .icon-arrow-right-long {
+        @apply text-t8.5 relative -top-0.5;
+      }
+    }
+    &-counter {
+      @apply flex-none w-20 text-sm leading-tight uppercase;
+    }
+    &-arrows {
+      @apply flex flex-none w-24 text-xxs -mr-7 -mt-2;
+    }
+    &-arrow {
+      @apply flex-initial relative cursor-pointer w-7 h-7 p-0 mx-1 border rounded-full border-gray-900 transition-all xl:border-0;
+      &:before {
+          @apply transition-all transform -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 absolute m-0 p-0 w-auto;
+      }
+      &:hover {
+          @apply transform scale-105;
+          &:before {
+            @apply text-orange-600;
+          }
+      }
+    }
+    &-pagination {
+      @apply flex-auto flex justify-center items-center hidden;
+      .swiper-pagination-bullet{
+        @apply mx-2 bg-white bg-opacity-80;
+        &-active{
+          @apply bg-opacity-100;
+        }
+      }
+    }
+}

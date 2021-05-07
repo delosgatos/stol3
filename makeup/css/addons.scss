@@ -1,0 +1,19 @@
+.swiper-wrapper{
+  @apply transition-all;
+  .swiper-slide {
+    @apply bg-white;
+  }
+  a.swiper-slide {
+    @apply transition-colors;
+  }
+}
+
+body.stop-scrolling {
+  @apply overflow-hidden;
+  .stol-content {
+    @apply filter grayscale-md blur-1 opacity-50;
+    * {
+      @apply pointer-events-none;
+    }
+  }
+}
