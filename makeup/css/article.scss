@@ -101,10 +101,10 @@
             .stol-teaser {
                 @apply mb-0 md:flex-row;
                 &-image {
-                    @apply h-auto w-1/3;
+                    @apply md:h-auto md:w-1/3;
                 }
                 &-content:not([hidden]) {
-                    @apply mt-10;
+                    @apply md:mt-10;
                 }
                 &-date {
                     @apply md:hidden;
@@ -115,6 +115,11 @@
             }
             &:last-child {
                 @apply mb-0;
+            }
+        }
+        &-video {
+            iframe {
+                @apply h-mvideo md:h-tvideo xl:h-dvideo;
             }
         }
         &-promo {

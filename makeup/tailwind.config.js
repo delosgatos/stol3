@@ -164,6 +164,10 @@ module.exports = {
         dfoto: '674px',
 
         rslide:'420px',
+        
+        mvideo: '180px',
+        tvideo: '410px',
+        dvideo: '570px',
       },
       flex: {
         full: '2 1 100%',
