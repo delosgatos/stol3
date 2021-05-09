@@ -55,7 +55,6 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
- 
 .icon-arrow-left:before { content: '\e800'; } /* '' */
 .icon-arrow-right:before { content: '\e801'; } /* '' */
 .icon-menu:before { content: '\e802'; } /* '' */
@@ -69,6 +68,7 @@
 .icon-arrow-down:before { content: '\e80a'; } /* '' */
 .icon-arrow-up:before { content: '\e80b'; } /* '' */
 .icon-fullscreen:before { content: '\e80c'; } /* '' */
+.icon-i:before { content: '\e80d'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */
