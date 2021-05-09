@@ -168,6 +168,9 @@ module.exports = {
         mvideo: '180px',
         tvideo: '410px',
         dvideo: '570px',
+        mgal: '214px',
+        tgal: '487px',
+        dgal: '676px',
       },
       flex: {
         full: '2 1 100%',

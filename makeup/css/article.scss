@@ -33,6 +33,9 @@
             @apply -mx-3 w-full+6 relative md:mx-0 md:w-full;
             .stol-teaser {
                 @apply mb-0;
+                &-image {
+                    @apply h-mgal md:h-tgal xl:h-dgal;
+                }
                 &-content {
                     @apply hidden;
                 }
@@ -44,6 +47,10 @@
                 }
                 &-pagination {
                     @apply hidden;
+                }
+                a.address{
+                    @extend .cap;
+                    @apply text-gray-600 italic;
                 }
             }
             &__fullsreen {
