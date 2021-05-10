@@ -933,7 +933,7 @@
 
       <!-- FOOTER -->
       <footer class="stol-footer">
-        <div class="px-3 mx-auto md:px-5 md:grid md:grid-cols-2 md:gap-13 xl:gap-0 xl:grid-cols-none">
+        <div class="stol-footer-wrapper">
           <div data-moveto="#right-wrapper" class="flex flex-col w-full space-y-6 xl:p-9 xl:pt-11">
             <h5 class="leading-7 uppercase text-mh1 md:text-th1 xl:text-dh1">Рассылка</h5>
             <h6 class="leading-tight text-m md:text-t xl:text-d">
@@ -1000,6 +1000,15 @@
         </div>
       </footer>
     </div>
+
+    <div x-data="{pushSubscribePopup: true}" x-show="pushSubscribePopup" class="absolute z-50 flex-col items-start p-5 pr-8 mx-auto my-4 text-red-600 bg-white border border-gray-900 rounded shadow-lg max-w-modal top-14 left-10">
+        <a @click="pushSubscribePopup=false" class="absolute text-xs right-2 top-2" href="#"><i class="icon-close"></i></a>
+        <p class="pb-4 text-gray-900 text-m simpletext">
+          Предложение подписаться<br> на пуш-уведомления в браузере?
+        </p>
+        <a href="#subscribe" @click="pushSubscribePopup=false" class="px-4 pt-2.5 pb-1.5 text-xs text-white uppercase bg-gray-900">Подписаться</a>
+    </div>
+    
   </body>
   <script src="assets/swiper/swiper-bundle.min.js"></script>
   <script src="assets/hc-sticky.js"></script>

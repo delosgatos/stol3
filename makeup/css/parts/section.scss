@@ -1,6 +1,6 @@
 &-section {
     @apply relative w-full px-3 pt-11 relative border-b border-gray-900 border-solid space-y-6;
-    @apply md:px-5 xl:border-r xl:flex-initial xl:pt-17.5;
+    @apply md:px-5 xl:border-r xl:flex-initial xl:pt-17.5 xl:pl-10 xl:pr-5;
     .stol-tags-block:not([hidden]) {
         @apply mt-6 pb-3.5;
     }
@@ -17,6 +17,6 @@
         @apply border-b-0;
     }
     &__right-column {
-        @apply xl:border-r-0;
+        @apply xl:border-r-0 xl:pl-8 xl:pr-10;
     }
 }

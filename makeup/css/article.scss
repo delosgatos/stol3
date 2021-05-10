@@ -10,20 +10,20 @@
         }
     }
     &-article {
-        @apply relative w-full px-3 pt-3 relative border-b border-gray-900 border-solid space-y-6;
-        @apply md:px-5 xl:flex-initial;
+        @apply relative w-full px-3 pt-6 relative space-y-6;
+        @apply md:px-5 xl:pt-18 xl:flex-initial xl:border-r xl:border-gray-900 xl:border-solid;
         &-head {
-            @apply pt-3 md:grid md:grid-cols-2 md:gap-8;
+            @apply pt-0 md:pb-12 md:grid md:grid-cols-2 md:gap-8;
             .stol-tags-block:not([hidden]) {
-                @apply mt-6;
+                @apply mt-6 xl:mt-8;
             }
             &-block {
                 &>h1 {
                     @extend .h1;
-                    @apply uppercase my-4;
+                    @apply uppercase my-4 md:mt-0;
                 }
                 &>p {
-                    font-family: Inter, Helvetica, Arial, sans-serif;
+                    @extend .simpletext;
                     @extend .text;
                     @apply my-6;
                 }

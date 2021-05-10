@@ -1,6 +1,9 @@
 .stol {
   &-footer {
     @apply relative py-20 text-white bg-gray-900;
+    &-wrapper {
+      @apply px-3 mx-auto md:px-5 md:grid md:grid-cols-2 md:gap-13 xl:px-10 xl:gap-0 xl:grid-cols-none
+    }
     a {
       @apply text-m text-white hover:text-gray-900 md:text-t xl:text-d;
     }
