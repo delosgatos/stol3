@@ -14,9 +14,9 @@
       @apply flex flex-none w-24 text-xxs -mr-7 -mt-2;
     }
     &-arrow {
-      @apply flex-initial relative cursor-pointer w-7 h-7 p-0 mx-1 border rounded-full border-gray-900 transition-all xl:border-0;
+      @apply flex-initial relative cursor-pointer flex items-center justify-center w-7 h-7 p-0 mx-1 border rounded-full border-gray-900 transition-all xl:border-0;
       &:before {
-          @apply transition-all transform -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 absolute m-0 p-0 w-auto;
+          @apply transition-all flex-0 m-0 p-0 w-auto;
       }
       &:hover {
           @apply transform scale-105;
