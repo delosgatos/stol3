@@ -14,11 +14,16 @@
       @apply text-m md:text-t xl:text-d;
     }
     &-date {
-      @apply text-mcap italic text-gray-900 text-opacity-60;
-      @apply md:text-tcap xl:text-dcap;
+      @extend .stol-subtext;
     }
     &-news {
       @apply flex flex-row flex-wrap w-full md:pr-1/7 xl:pr-0 xl:h-28; 
+      &-text {
+        @apply uppercase text-m md:text-t xl:text-d;
+      }
+      &-date {
+        @extend .stol-teaser-date;
+      }
       &-content {
         @apply flex-auto flex-grow inline-block space-y-4 uppercase;
         .stol-teaser-text {
@@ -36,6 +41,6 @@
       }
     }
     &__special {
-      @apply bg-orange-600 bg-opacity-60 pb-5;
+      @apply bg-orange-600 bg-opacity-60 pb-5 hover:bg-orange-900 bg-opacity-100;
     }
 }

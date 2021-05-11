@@ -5,17 +5,20 @@
       @apply px-3 mx-auto md:px-5 md:grid md:grid-cols-2 md:gap-13 xl:px-10 xl:gap-0 xl:grid-cols-none
     }
     a {
-      @apply text-m text-white hover:text-gray-900 md:text-t xl:text-d;
+      @extend .text;
+      @apply text-white hover:text-gray-900;
     }
     &-block {
-      @apply my-4 md:mt-0 md:mb-8 text-m text-white md:text-t xl:text-d;
+      @extend .text;
+      @apply my-4 md:mt-0 md:mb-8 text-white;
       &-title {
-        @apply block mb-5 text-white uppercase text-mh3 text-opacity-60 md:text-th3 xl:text-dh3;
+        @extend .h3;
+        @apply nowrap block mb-5 text-white uppercase text-opacity-60;
       }
       ul {
-        @apply flex flex-row flex-wrap w-full;
+        @apply flex flex-row flex-wrap w-full xl:flex xl:flex-col;
         li {
-          @apply flex-initial pr-5 mb-3;
+          @apply flex-initial pr-5 mb-3 nowrap;
           &.flex-col {
             @apply flex-1;
           }

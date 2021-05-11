@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'stolicon';
-  src: url('../font/stolicon.eot?20690579');
+/*   src: url('../font/stolicon.eot?20690579');
   src: url('../font/stolicon.eot?20690579#iefix') format('embedded-opentype'),
        url('../font/stolicon.woff2?20690579') format('woff2'),
        url('../font/stolicon.woff?20690579') format('woff'),
        url('../font/stolicon.ttf?20690579') format('truetype'),
-       url('../font/stolicon.svg?20690579#stolicon') format('svg');
+       url('../font/stolicon.svg?20690579#stolicon') format('svg'); */
   font-weight: normal;
   font-style: normal;
 }

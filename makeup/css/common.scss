@@ -17,10 +17,19 @@ a {
 .p{ @apply text-m md:text-t xl:text-d; }
 .text{@apply text-mtext md:text-ttext xl:text-dtext;}
 .cap{ @apply text-mcap md:text-tcap xl:text-dcap; }
+.graytext { @apply text-gray-900 text-opacity-60; }
 
 .stol {
   @apply mx-auto xl:max-w-8xl flex flex-col;
 
+  &-vivid {
+    @apply text-orange-900;
+  }
+  &-subtext {
+    @extend .cap;
+    @extend .graytext;
+    @apply italic;
+  }
   // M A I N
 
   &-content {
