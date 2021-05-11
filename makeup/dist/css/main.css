@@ -2854,12 +2854,12 @@ a{
 .stol-breadcrumb i {
   display:inline-block;
   font-size:0.52em;
-  width:0.875rem;
+  width:1.125rem;
 }
 
 @media (min-width: 768px){
   .stol-breadcrumb i{
-    width:1rem
+    width:1.25rem
   }
 }
 
