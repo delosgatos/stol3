@@ -10,6 +10,7 @@
       @apply uppercase text-mh2 md:text-th2 xl:text-dh2;
     }
     &-text {
+      @extend .simpletext;
       @apply text-m md:text-t xl:text-d;
     }
     &-date {

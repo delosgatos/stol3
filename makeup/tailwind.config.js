@@ -107,6 +107,12 @@ module.exports = {
         'sm-head': '47px',
         'xl-head': '96px',
         '137px': '137px',
+        
+        'h-teaser-img': '180px',
+
+        mgal:           '214px',
+        tgal:           '487px',
+        dgal:           '676px',
       },
       lineHeight: {
         11: '2.75rem',
@@ -169,12 +175,14 @@ module.exports = {
         mvideo:         '180px',
         tvideo:         '410px',
         dvideo:         '570px',
+
         mgal:           '214px',
         tgal:           '487px',
         dgal:           '676px',
       },
       flex: {
         full: '2 1 100%',
+        fix: '0 0 auto',
         0: '0 1 0%',
       },
       blur: {

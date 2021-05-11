@@ -34,4 +34,7 @@
         }
       }
     }
+    &-fullscreen {
+      @apply absolute z-50 flex items-center justify-center text-white bg-gray-700 border border-white rounded-full -top-11 right-3 bg-opacity-60 w-7 h-7;
+    }
 }

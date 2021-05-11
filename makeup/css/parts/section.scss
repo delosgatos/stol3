@@ -11,6 +11,7 @@
         }
     }
     &-text {
+        @extend .simpletext;
         @apply text-m md:text-t xl:text-d;
     }
     &__noborder {

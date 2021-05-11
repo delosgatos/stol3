@@ -3,6 +3,9 @@ html, body {
   padding: 0px !important;
   margin: 0px !important;
 }
+body {
+  @apply antialiased text-gray-900 relative;
+}
 a {
   @apply transition-all duration-300 hover:text-orange-900;
 }
@@ -36,6 +39,12 @@ a {
     &-wrapper {
       @apply xl:flex xl:flex-col;
     }
+  }
+
+  &-button-more {
+    @extend .cap;
+    @apply block w-full py-3 leading-6 text-center text-white bg-gray-900 px-9;
+    @apply md:-mx-5 md:w-auto xl:pt-4 xl:-ml-10 xl:-mr-5;
   }
 
   &-article-list {
