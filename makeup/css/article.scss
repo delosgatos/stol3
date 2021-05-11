@@ -1,12 +1,12 @@
 .stol {
     &-breadcrumb {
-        @extend .cap;
-        @apply italic tracking-tighter text-gray-600 text-opacity-80;
+        @extend .stol-subtext;
+        @apply tracking-tighter;
         a {
             @apply inline-block;
         }
         i {
-            @apply inline-block w-4.5 text-xxs md:w-5;
+            @apply inline-block text-center w-6 text-xxs md:w-7;
         }
     }
     &-article {
