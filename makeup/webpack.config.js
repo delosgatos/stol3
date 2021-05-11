@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 //const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 //const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+const devMode = process.env.NODE_ENV !== 'production';
+
 module.exports = {
     entry: {
         main: ['./src/index.js']
@@ -17,7 +19,7 @@ module.exports = {
     externals: {
         jquery: 'jQuery'
     },
-    mode: 'development',
+    mode: devMode ? 'development' : 'production',
     plugins: [
         // Notify when build succeeds
         //new WebpackNotifierPlugin({ alwaysNotify: true }),
@@ -61,7 +63,8 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                           name: '[name].[ext]',
-                          outputPath: 'dist/font/'
+                          outputPath: './dist/font/',
+                          useRelativePath: true
                         }
                     }
                 ]
@@ -69,16 +72,21 @@ module.exports = {
             {
                 // Extract any SCSS content and minimize
                 test: /\.scss$/,
-                use: [                       
-                    MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader', options: { importLoaders: 1 } },                    
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../../'
+                        }
+                    },
+                    { loader: 'css-loader', options: { sourceMap: devMode, importLoaders: 2 } },                    
                     {
                         loader: 'postcss-loader',
-                        options: { sourceMap: true }     
+                        options: { sourceMap: devMode}     
                     },                   
                     {
                         loader: 'sass-loader',
-                        options: { sourceMap: true }
+                        options: { sourceMap: devMode }
                     }                  
                 ]
             },

@@ -797,7 +797,7 @@ button.swiper-pagination-bullet{
 @font-face {
   font-family: "HelveticaMonospacedW1G-Rg";
 
-  src: url(/dist/font/font.woff2) format("woff2"), url(/dist/font/font.woff) format("woff");
+  src: url(../../dist/font/font.woff2) format("woff2"), url(../../dist/font/font.woff) format("woff");
 }
 
 /*@import 'tailwind';*/
