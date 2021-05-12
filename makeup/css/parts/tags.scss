@@ -2,14 +2,14 @@
     @apply leading-3 flex flex-wrap -mb-3.5 xl:-mb-2.5;
 }
 &-tag {
-    @apply tracking-tighter flex-initial inline-flex px-3 py-1.5 mr-2 whitespace-nowrap border rounded-full border-gray-900 text-mtag mb-2.5 transition-all bg-white bg-opacity-0;
+    @apply tracking-tighter flex-initial inline-flex px-3 py-1.5 pb-1 mr-2 whitespace-nowrap border rounded-full border-gray-900 text-mtag mb-2.5 transition-all bg-white bg-opacity-0;
     @apply md:text-ttag md:pb-1 xl:text-dtag xl:pt-7px xl:pb-5px xl:px-4 xl:mb-2.5;
     &-label {
         @apply tracking-tight flex-initial inline-flex px-2.5 py-2 bg-white rounded-full absolute top-5 left-3 leading-3 text-center text-gray-900 text-mtag;
         @apply md:text-ttag xl:text-dtag xl:pt-8px xl:pb-6px xl:px-4;
     }
     &-white {
-        @apply tracking-tight flex-initial inline-flex px-3 mr-2 whitespace-nowrap rounded-full bg-white text-gray-900 border border-gray-900 border-solid text-mtag mb-3.5 transition-all leading-6;
+        @apply tracking-tight flex-initial inline-flex px-3 mr-2 pt-0.5 whitespace-nowrap rounded-full bg-white text-gray-900 border border-gray-900 border-solid text-mtag mb-3.5 transition-all leading-7;
         @apply md:text-ttag md:leading-6 xl:text-dtag xl:leading-9 xl:px-4 xl:mb-2.5;
         @apply hover:bg-gray-900 hover:text-white;
     }
