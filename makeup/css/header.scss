@@ -1,5 +1,4 @@
-.stol {
-  &-menu {
+&-menu {
     @apply absolute z-20 flex-col flex-grow w-full px-3 py-5 pb-8 text-white bg-gray-900 top-12;
     @apply md:top-18.5 md:px-5;
     @apply xl:relative xl:bg-transparent xl:shadow-none xl:text-gray-900 xl:w-auto xl:order-2 xl:py-0 xl:pl-16 xl:pr-8 xl:top-0 xl:block xl:items-center;
@@ -82,8 +81,8 @@
         }
       }
     }
-  }
-  &-search{
+}
+&-search {
     @apply absolute z-40 items-center flex-grow w-full p-0 text-white bg-gray-900 top-12 text-mh3 md:text-th3 md:top-18.5 xl:top-xl-head xl:text-dh3;
     input {
       @apply block w-full py-4 pl-3 pr-10 uppercase bg-gray-900 focus:outline-none xl:pt-7 xl:pb-5 xl:text-3xl;
@@ -96,6 +95,4 @@
       .stol-tag-white {
       }
     }
-  }
-
 }

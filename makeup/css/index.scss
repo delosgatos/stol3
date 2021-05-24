@@ -15,10 +15,11 @@
   @import 'parts/teaser';
   @import 'parts/opinion';
   @import 'parts/controls';
+  @import 'header';
+  @import 'main';
+  @import 'article';
+  @import 'list';
+  @import 'footer';
 }
-@import 'header';
-@import 'main';
-@import 'article';
-@import 'footer';
 @import 'addons';
 @import 'override';

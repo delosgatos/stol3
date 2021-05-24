@@ -17,7 +17,18 @@ a {
 .p{ @apply text-m md:text-t xl:text-d; }
 .text{@apply text-mtext md:text-ttext xl:text-dtext;}
 .cap{ @apply text-mcap md:text-tcap xl:text-dcap; }
-.graytext { @apply text-gray-900 text-opacity-60; }
+.graytext { @apply text-gray-900 text-opacity-50; }
+
+.x-pad {
+  @apply px-3 md:px-5 xl:pl-10 xl:pr-8;
+  &__m0 {
+    @apply px-0 md:px-5 xl:pl-10 xl:pr-8;
+  }
+}
+.-x-pad {
+  @apply -mx-3 md:-mx-5 xl:-ml-10 xl:-mr-8;
+  @apply w-full+6 md:w-full+10 xl:w-full+18;
+}
 
 .stol {
   @apply mx-auto xl:max-w-8xl flex flex-col;
@@ -40,7 +51,7 @@ a {
   }
   &-right {
     &-column {
-      @apply xl:w-right-column;
+      @apply border-l border-gray-900 -ml-w-hair -mr-w-hair xl:w-right-column;
       .stol-section {
         @apply xl:px-9 xl:pb-13;
       }
@@ -52,7 +63,7 @@ a {
 
   &-button-more {
     @extend .cap;
-    @apply block w-full py-3 leading-6 text-center text-white bg-gray-900 px-9;
+    @apply my-6 block w-full pt-3.5 pb-2.5 text-center text-white bg-gray-900 px-9;
     @apply md:-mx-5 md:w-auto xl:pt-4 xl:-ml-10 xl:-mr-5;
   }
 

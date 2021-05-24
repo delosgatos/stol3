@@ -113,6 +113,8 @@ module.exports = {
         mgal:           '214px',
         tgal:           '487px',
         dgal:           '676px',
+        'w-hair':         '0.05vw',
+        'h-hair':         '0.05vh',
       },
       lineHeight: {
         11: '2.75rem',
@@ -141,6 +143,9 @@ module.exports = {
         'main-column':  'calc(100% - 365px)',
         'full+6':       'calc(100% + 1.5rem)',
         'full+10':      'calc(100% + 2.5rem)',
+        'full+18':      'calc(100% + 4.5rem)',
+        'img-long-d':   '171px',
+        'img-long-t':   '181px',
       },
       maxWidth: {
         '8xl':          '90rem'   /* 1440px */,
@@ -179,6 +184,10 @@ module.exports = {
         mgal:           '214px',
         tgal:           '487px',
         dgal:           '676px',
+
+        'img-long-d':  '166px',
+        'img-long-t':  '176px',
+        'img-long-m':  '294px',
       },
       flex: {
         full: '2 1 100%',
@@ -196,7 +205,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      'margin': ['last'],
+      'padding': ['last'],
+    },
   },
   plugins: [],
 }

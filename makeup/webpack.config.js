@@ -1,9 +1,9 @@
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-//const WebpackNotifierPlugin = require('webpack-notifier');
+const WebpackNotifierPlugin = require('webpack-notifier');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 //const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-//const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -15,14 +15,14 @@ module.exports = {
         filename: '[name].bundle.js',
         publicPath: path.resolve(__dirname, '/')
     },
-    watch: false,
+    watch: true,
     externals: {
         jquery: 'jQuery'
     },
     mode: devMode ? 'development' : 'production',
     plugins: [
         // Notify when build succeeds
-        //new WebpackNotifierPlugin({ alwaysNotify: true }),
+        new WebpackNotifierPlugin({ alwaysNotify: true }),
 
         // Extract any CSS from any javascript file to process it as LESS/SASS using a loader
         new MiniCssExtractPlugin({filename: "css/[name].css"}),
@@ -31,17 +31,17 @@ module.exports = {
         // new OptimizeCSSAssetsPlugin({}),
 
         // Use BrowserSync plugin for file changes. I.e. if a CSS/SASS/LESS file changes, the changes will be injected directly in the browser with no page load
-        /* new BrowserSyncPlugin({
+        new BrowserSyncPlugin({
             proxy: 'localhost',
             open: 'external',
             host: 'localhost',
             port: 3000,
             files: ['./css/index.css', './js/index.js']
         }, 
-            {
-                // disable reload from the webpack plugin since browser-sync will handle CSS injections and JS reloads
-                reload: false
-            })*/
+        {
+            // disable reload from the webpack plugin since browser-sync will handle CSS injections and JS reloads
+            reload: true
+        }),
     ],
     module: {
         rules: [

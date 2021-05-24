@@ -1,5 +1,4 @@
-.stol {
-  &-footer {
+&-footer {
     @apply relative py-20 text-white bg-gray-900;
     &-wrapper {
       @apply px-3 mx-auto md:px-5 md:grid md:grid-cols-2 md:gap-13 xl:px-10 xl:gap-0 xl:grid-cols-none
@@ -33,5 +32,4 @@
     .white-opacity{
       @apply text-white text-opacity-60;
     }
-  }
 }
