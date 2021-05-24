@@ -29,7 +29,7 @@
       }
     }
     &-rubrics {
-      @apply flex flex-row flex-wrap w-full;
+      @apply flex flex-row flex-wrap w-full -mt-3 overflow-hidden transition-all;
       @apply mb-2 whitespace-nowrap md:flex-col md:text-t;
       @apply xl:flex-row xl:m-0 xl:text-dh3 xl:justify-between;
       li {
@@ -40,7 +40,7 @@
         }
       }
       &-title {
-        @apply block mt-6 mb-2 uppercase md:mt-2 xl:hidden;
+        @apply pb-3 block mt-6 mb-2 uppercase md:mt-2 xl:hidden;
         i {
           @apply text-xxs relative -top-1 h-2;
         }

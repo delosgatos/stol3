@@ -10,13 +10,12 @@
 /*@import 'tailwind';*/
 @import 'common';
 .stol {
-  @import 'parts/tags';
   @import 'parts/section';
+  @import 'parts/tags';
   @import 'parts/teaser';
-  @import 'parts/opinion';
+  @import 'parts/author';
   @import 'parts/controls';
   @import 'header';
-  @import 'main';
   @import 'article';
   @import 'list';
   @import 'footer';

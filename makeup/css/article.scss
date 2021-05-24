@@ -110,12 +110,10 @@
         }
         h2 {
             @extend .h2;
-            @extend .stol-article-text;
             @apply my-4 uppercase;
         }
         h3 {
             @extend .h3;
-            @extend .stol-article-text;
             @apply my-4 uppercase;
         }
         p {
@@ -200,5 +198,9 @@
     }
     &-tags-block {
         @apply pb-10;
+    }
+
+    &__static {
+        @apply border-b border-gray-900 p-0 pb-10 md:pb-13 xl:pb-16;
     }
 }

@@ -90,7 +90,11 @@ module.exports = {
         25: '6.25rem',
         26: '6.5rem',
         27: '6.75rem',
+        32.5: '8.125rem',
+        33: '8.25rem',
         34: '8.5rem',
+        34.5: '8.62 5rem',
+        35: '8.75rem',
         128: '32rem',
         144: '36rem',
         '1/5': '20%',
@@ -109,6 +113,13 @@ module.exports = {
         '137px': '137px',
         
         'h-teaser-img': '180px',
+
+        'img-long-w-d':   '171px',
+        'img-long-w-t':   '181px',
+
+        'img-long-h-d':  '166px',
+        'img-long-h-t':  '176px',
+        'img-long-h-m':  '294px',
 
         mgal:           '214px',
         tgal:           '487px',
@@ -144,8 +155,6 @@ module.exports = {
         'full+6':       'calc(100% + 1.5rem)',
         'full+10':      'calc(100% + 2.5rem)',
         'full+18':      'calc(100% + 4.5rem)',
-        'img-long-d':   '171px',
-        'img-long-t':   '181px',
       },
       maxWidth: {
         '8xl':          '90rem'   /* 1440px */,
@@ -157,6 +166,9 @@ module.exports = {
       maxHeight: {
         'none':         'none',
       },
+      minHeight: {
+        'promo':         '500px',
+      },
       height: {
         mtop:           '223px',
         ttop:           '460px',
@@ -167,11 +179,11 @@ module.exports = {
         tteas:          '400px',
         dteas:          '316px',
         
-        mfeat:          '214px',
+        mfeat:          '180px',
         tfeat:          '214px',
         dfeat:          '300px',
 
-        mfoto:          '294px',
+        mfoto:          '214px',
         tfoto:          '487px',
         dfoto:          '674px',
 
@@ -185,9 +197,6 @@ module.exports = {
         tgal:           '487px',
         dgal:           '676px',
 
-        'img-long-d':  '166px',
-        'img-long-t':  '176px',
-        'img-long-m':  '294px',
       },
       flex: {
         full: '2 1 100%',

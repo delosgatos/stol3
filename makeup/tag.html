@@ -34,7 +34,7 @@
           <!-- MAIN MENU -->
           <div id="main-menu" class="flex hidden stol-menu">
             <div class="stol-menu-rubrics-wrapper" x-data={show:false,hide:true}>
-              <a href="#" class="pb-3 stol-menu-rubrics-title" 
+              <a href="#" class="stol-menu-rubrics-title" 
                   @click.prevent="show=!show;hide=!hide">Рубрики 
                     <i :class="{ 'transform rotate-180': show }" 
                         class="inline-block icon-arrow-down"></i></a>
@@ -116,7 +116,7 @@
                     </ul>
                 </div>
                 
-                <div class="stol-list-wrapper">
+                <div class="stol-list-content">
                     <div class="stol-teaser stol-teaser__long">
                         <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
                             
@@ -238,7 +238,7 @@
             <!-- SECTION: DONATION -->
             <section class="stol-section stol-section-donation">
                 <div class="stol-section-block">
-                <h6 class="stol-section-title"><span class="text-orange-900">поддержать</span><br/>стол</h6>
+                <h6 class="stol-section-title"><span class="stol-vivid">поддержать</span><br/>стол</h6>
                 <p class="stol-section-text">«Стол» – это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </p>
                 </div>
                 <div class="stol-section-block" x-data="{price:''}">
@@ -251,8 +251,8 @@
                     <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="500">500 ₽</a>
                     <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="1000">1000 ₽</a>
                 </div>
-                <div class="flex uppercase" x-data="{toggleActive:false}">
-                    <span class="pr-3">Ежемесячно</span>
+                <div class="stol-donation-plan" x-data="{toggleActive:false}">
+                    <span class="stol-donation-plan-label">Ежемесячно</span>
                     <div @click="toggleActive = !toggleActive" 
                         class="relative flex w-10 h-5 py-0.5 px-1 duration-300 ease-in-out bg-gray-300 rounded-full items-center cursor-pointer" 
                         :class="{'bg-orange-600': toggleActive}">
@@ -316,7 +316,7 @@
 
               <div x-ref="controls" class="stol-controls">
                 <a href="#all-reviews" class="stol-controls-title">ВСЕ ОБЗОРЫ <i class="icon-arrow-right-long"></i></a>
-                <div class="flex-grow"></div>
+                <div class="stol-controls-divider"></div>
                 <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
               </div>
             </section>
@@ -366,7 +366,7 @@
 
             <div x-ref="controls" class="stol-controls">
               <a href="#all-events" class="stol-controls-title">ВСЕ СОБЫТИЯ <i class="icon-arrow-right-long"></i></a>
-              <div class="flex-grow"></div>
+              <div class="stol-controls-divider"></div>
               <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
             </div>
           </section>

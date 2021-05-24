@@ -34,7 +34,7 @@
           <!-- MAIN MENU -->
           <div id="main-menu" class="flex hidden stol-menu">
             <div class="stol-menu-rubrics-wrapper" x-data={show:false,hide:true}>
-              <a href="#" class="pb-3 stol-menu-rubrics-title" 
+              <a href="#" class="stol-menu-rubrics-title" 
                   @click.prevent="show=!show;hide=!hide">Рубрики 
                     <i :class="{ 'transform rotate-180': show }" 
                         class="inline-block icon-arrow-down"></i></a>
@@ -198,7 +198,7 @@
             </div>
             <div x-ref="controls" class="stol-controls">
               <p class="stol-controls-counter"><span x-ref="counter">1</span> / 3</p>
-              <div class="flex-grow"></div>
+              <div class="stol-controls-divider"></div>
               <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left-sm"></i><div class="stol-controls-pagination"></div><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right-sm"></i></div>
             </div>
           </section>
@@ -253,7 +253,7 @@
 
             <div x-ref="controls" class="stol-controls">
               <a href="#all-opinions" class="stol-controls-title">ВСЕ МНЕНИЯ <i class="icon-arrow-right-long"></i></a>
-              <div class="flex-grow"></div>
+              <div class="stol-controls-divider"></div>
               <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
             </div>
           </section>
@@ -333,8 +333,10 @@
               </div>
               <!-- END: T E A S E R -->
               <!-- START: PROMO -->
-              <div style="min-height:500px;" class="flex items-center mb-8 bg-gray-300 stol-promo">
-                <span class="w-full text-center">ПРОМО</span>
+              <div class="stol-promo-wrapper">
+                <a href="#promo" class="stol-promo">
+                  <span class="stol-promo-title">ПРОМО</span>
+                </a>
               </div>
               <!-- END: PROMO -->
 
@@ -419,7 +421,7 @@
 
             <div x-ref="controls" class="stol-controls">
               <a href="#all-reviews" class="stol-controls-title">ВСЕ ОБЗОРЫ <i class="icon-arrow-right-long"></i></a>
-              <div class="flex-grow"></div>
+              <div class="stol-controls-divider"></div>
               <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
             </div>
           </section>
@@ -664,7 +666,7 @@
 
             <div x-ref="controls" class="stol-controls">
               <a href="#all-events" class="stol-controls-title">ВСЕ СОБЫТИЯ <i class="icon-arrow-right-long"></i></a>
-              <div class="flex-grow"></div>
+              <div class="stol-controls-divider"></div>
               <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
             </div>
           </section>
@@ -704,11 +706,11 @@
               </div>
               <!-- END: T E A S E R -->
               <!-- START: T E A S E R -->
-              <div style="min-height:500px;" class="flex flex-col items-center justify-center space-y-6 bg-blue-400 stol-promo mb-9">
-                  <a href="#telegram" class="relative w-20 h-20 mx-auto bg-center bg-cover" style="background-image:url(images/logos_telegram.png)"></a>
-                  <div class="flex flex-col px-10 space-y-4 text-gray-900 border-gray-900 stol-teaser-content">
-                    <a href="article.html" class="flex-auto w-full text-lg leading-6 text-center text-white uppercase">подписывайтесь на наш telegram-канал</a>
-                    <a href="article.html" class="flex-auto w-full text-base text-center text-white">Может еще какой-то подзаголовок в две строки</a>
+              <a href="#telegram" class="flex flex-col items-center justify-center space-y-6 bg-blue-400 stol-promo mb-9">
+                  <div class="stol-promo-logo" style="background-image:url(images/logos_telegram.png)"></div>
+                  <div class="stol-teaser-content">
+                    <a href="article.html" class="stol-promo-title">подписывайтесь на наш telegram-канал</a>
+                    <a href="article.html" class="stol-promo-text">Может еще какой-то подзаголовок в две строки</a>
                   </div>
               </div>
               <!-- END: T E A S E R -->
@@ -800,7 +802,7 @@
             </div>
             <div x-ref="controls" class="stol-controls">
               <a href="#all-specials" class="stol-controls-title">ВСЕ СПЕЦПРОЕКТЫ <i class="icon-arrow-right-long"></i></a>
-              <div class="flex-grow"></div>
+              <div class="stol-controls-divider"></div>
               <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
             </div>
           </section>
@@ -881,7 +883,7 @@
             </div>
             <div x-ref="controls" class="stol-controls">
               <a href="#all-specials" class="stol-controls-title">ВСЕ ФОТОПРОЕКТЫ <i class="icon-arrow-right-long"></i></a>
-              <div class="flex-grow"></div>
+              <div class="stol-controls-divider"></div>
               <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
             </div>
           </section>
@@ -902,8 +904,8 @@
                 <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="500">500 ₽</a>
                 <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="1000">1000 ₽</a>
               </div>
-              <div class="flex uppercase" x-data="{toggleActive:false}">
-                <span class="pr-3">Ежемесячно</span>
+              <div class="stol-donation-plan" x-data="{toggleActive:false}">
+                <span class="stol-donation-plan-label">Ежемесячно</span>
                 <div @click="toggleActive = !toggleActive" 
                     class="transition-all relative flex w-10 h-5 py-0.5 px-1 duration-300 ease-in-out bg-gray-300 rounded-full items-center cursor-pointer" 
                     :class="{'bg-orange-600': toggleActive}">
