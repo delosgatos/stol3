@@ -1,3 +1,15 @@
+&-head {
+  @apply relative z-50 flex flex-wrap items-center justify-between w-full bg-white border-b border-gray-900;
+  &-nav {
+    @apply relative flex flex-row items-center justify-between w-full xl:px-10;
+  }
+  &-logo {
+    @apply inline-block py-4 md:py-6 md:ml-5 md:flex-1 xl:order-1 xl:py-6.5 xl:ml-0 xl:mt-0.5;
+    img {
+      @apply transition-all md:h-6.5 xl:max-w-none xl:h-9;
+    }
+  }
+}
 &-menu {
     @apply absolute z-20 flex-col flex-grow w-full px-3 py-5 pb-8 text-white bg-gray-900 top-12;
     @apply md:top-18.5 md:px-5;

@@ -1,3 +1,6 @@
+Spruce.store('slide', {
+  resize: true
+});
 var isXl = function(){
   return window.innerWidth > 1280;
 };
@@ -265,6 +268,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+var resizeListener = function(element, callback){
+  new ResizeObserver(callback).observe(element);
+};
+
 var ct = new collapsibleTags('js-collapsible-tags', 'stol-tag', 'stol-tag-hidden');
 window.onload = function(){
   ct.init();

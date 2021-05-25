@@ -1,3 +1,6 @@
+&-article-list {
+    @apply w-full md:flex md:flex-wrap md:grid md:grid-cols-2 md:gap-x-5 xl:grid-cols-3;
+}
 &-list {
     @apply relative w-full pt-6 space-y-6;
     @apply md:pt-16;

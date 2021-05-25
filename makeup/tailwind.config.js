@@ -124,6 +124,8 @@ module.exports = {
         mgal:           '214px',
         tgal:           '487px',
         dgal:           '676px',
+
+
         'w-hair':         '0.05vw',
         'h-hair':         '0.05vh',
       },
@@ -168,13 +170,18 @@ module.exports = {
       },
       minHeight: {
         'promo':         '500px',
-      },
-      height: {
         mtop:           '223px',
         ttop:           '460px',
         dtop:           '567px',
         dtop1:          '568px',
+      },
+      height: {
         
+        mtop:           '223px',
+        ttop:           '460px',
+        dtop:           '567px',
+        dtop1:          '568px',
+
         mteas:          '294px',
         tteas:          '400px',
         dteas:          '316px',

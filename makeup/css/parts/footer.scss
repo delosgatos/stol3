@@ -5,7 +5,10 @@
     }
     a {
       @extend .text;
-      @apply text-white hover:text-gray-900;
+      @apply text-white;
+      &:hover {
+        @extend .stol-vivid;
+      }
     }
     &-block {
       @extend .text;

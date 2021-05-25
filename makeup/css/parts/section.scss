@@ -1,13 +1,14 @@
 &-section {
-    @apply relative w-full px-3 pt-11 relative border-b border-gray-900 border-solid space-y-6;
-    @apply md:px-5 xl:border-r xl:flex-initial xl:pt-17.5 xl:pl-10 xl:pr-5;
+    @extend .x-pad;
+    @apply relative w-full pt-11 relative border-b border-gray-900 border-solid space-y-6;
+    @apply xl:border-r xl:flex-initial xl:pt-17.5;
     .stol-tags-block:not([hidden]) {
         @apply mt-6 pb-3.5;
     }
     &-title {
         @apply uppercase text-mh1 md:text-th1 md:pb-0 xl:text-dh1;
         &__lonely{
-            @apply pb-8 md:pb-10;
+            @apply pb-8;
         }
     }
     &-text {
@@ -28,12 +29,15 @@
         .stol-section-wrapper {
             @apply px-3 w-screen-3/2 md:px-0 md:w-full;
             .swiper-container {
-                
+                @apply px-5 md:px-0;
             }
         }
     }
     &-top {
         @apply p-0 space-y-auto;
+        &-slider {
+            @apply order-2 w-full;
+        }
         .stol-section-wrapper {
             @apply px-3 w-screen-3/2 md:px-0 md:w-full;
             .swiper-container {
@@ -78,7 +82,7 @@
         .stol-section-block {
             @apply space-y-6 mb-6;
         }
-        .stol-donation{
+        .stol-donation {
             &-input{
                 @extend .stol-input
             }
@@ -91,9 +95,42 @@
             &-plan {
                 @apply flex uppercase;
                 &-label {
-                    @apply pr-3;
+                    &-l {
+                        @apply pr-3;
+                    }
+                    &-r {
+                        @apply pl-3;
+                    }
+                }
+                &-switch {
+                    @apply transition-all relative flex w-10 h-5 py-0.5 px-1 duration-300 ease-in-out bg-gray-300 rounded-full items-center cursor-pointer;
+                    &-pin {
+                        @apply w-4 h-4 duration-300 ease-in-out transform bg-gray-900 rounded-full shadow-md;
+                    }
+                    &__active.stol-donation-plan-switch {
+                        @extend .stol-vivid-light-bg;
+                        .stol-donation-plan-switch-pin {
+                            @apply translate-x-4;
+                        }
+                    }
                 }
             }
+        }
+    }
+
+    &-subscribe {
+        &-input {
+            @extend .cap;
+            @apply w-full px-2 pt-1 italic leading-6 bg-gray-700 h-11;
+            @apply xl:bg-gray-200 xl:text-gray-900;
+            &:focus {
+                @apply outline-none not-italic;
+            }
+        }
+        &-button {
+            @extend .cap;
+            @apply block w-full py-3 leading-6 text-center text-gray-900 uppercase bg-white px-9;
+            @apply xl:bg-gray-900 xl:text-white xl:pt-4.5;
         }
     }
 

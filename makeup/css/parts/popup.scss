@@ -1,0 +1,17 @@
+&-popup {
+    @apply absolute z-50 flex-col items-start p-5 pr-8 mx-auto my-4 text-red-600 bg-white border border-gray-900 rounded shadow-lg top-14 left-10;
+    @apply xl:flex;
+    &-close {
+        @apply absolute text-xs right-2 top-2;
+    }
+    &-button {
+        @apply px-4 pt-2.5 pb-1.5 text-xs text-white uppercase bg-gray-900;
+    }
+    &-text {
+        @extend .simpletext;
+        @apply pb-4 text-gray-900 text-m;
+    }
+    &__push {
+        @apply max-w-modal;
+    }
+}

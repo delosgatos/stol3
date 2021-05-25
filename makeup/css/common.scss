@@ -5,6 +5,7 @@ html, body {
 }
 body {
   @apply antialiased text-gray-900 relative;
+  font-family: HelveticaMonospacedW1G-Rg, sans-serif;
 }
 a {
   @apply transition-all duration-300 hover:text-orange-900;
@@ -15,11 +16,17 @@ a {
 .h2{ @apply text-mh2 md:text-th2 xl:text-dh2; }
 .h3{ @apply text-mh3 md:text-th3 xl:text-dh3; }
 .p{ @apply text-m md:text-t xl:text-d; }
-.text{@apply text-mtext md:text-ttext xl:text-dtext;}
+.text{ @apply text-mtext md:text-ttext xl:text-dtext; }
 .cap{ @apply text-mcap md:text-tcap xl:text-dcap; }
 .graytext { @apply text-gray-900 text-opacity-50; }
-.hidden { display: none; }
-
+.autoheight{ height: auto !important; }
+.block-m { display: block; }
+.hidden-m { display: none; }
+@media (min-width: 768px) { .block-t {display: block;} }
+@media (min-width: 768px) { .hidden-t {display: none;} }
+@media (min-width: 1280px) { .block-d {display: block;} }
+@media (min-width: 1280px) { .hidden-d {display: none;} }
+[x-cloak] { display: none; }
 .x-pad {
   @apply px-3 md:px-5 xl:pl-10 xl:pr-8;
   &__m0 {
@@ -32,10 +39,19 @@ a {
 }
 
 .stol {
-  @apply mx-auto xl:max-w-8xl flex flex-col;
+  @apply mx-auto max-w-10xl flex flex-col;
 
   &-vivid {
     @apply text-orange-900;
+    &-bg {
+      @apply bg-orange-900;
+    }
+    &-light {
+      @apply text-orange-600;
+      &-bg {
+        @apply bg-orange-600;
+      }
+    }
   }
   &-subtext {
     @extend .cap;
@@ -75,54 +91,6 @@ a {
     }
   }
 
-  &-article-list {
-    @apply md:flex md:flex-wrap md:grid md:grid-cols-2 md:gap-x-5 xl:grid-cols-3;
-  }
-
-  &-promo {
-    @apply min-h-promo py-20 px-6 w-full flex flex-col space-y-6 items-center justify-center h-full mb-8 bg-gray-300;
-    @apply md:px-10;
-    &-logo {
-      @apply relative w-20 h-20 mx-auto bg-center bg-cover;
-    }
-    &-content {
-      @apply flex flex-col space-y-4 text-gray-900 border-gray-900;
-    }
-    &-title {
-      @apply flex-initial w-full text-lg leading-6 text-center text-white uppercase;
-    }
-    &-text {
-      @apply flex-initial w-full text-base text-center text-white;
-    }
-    &-wrapper {
-      @extend .x-pad;
-      @apply md:px-0 xl:px-0;
-    }
-    &__telegram {
-      @apply bg-blue-400;
-    }
-  }
-
-  &-subscribe {
-    @apply py-25 px-6 w-full flex flex-col space-y-6 items-center justify-center h-full mb-8 bg-orange-900;
-    @apply md:px-10;
-    &-content {
-      @apply space-y-7 text-gray-900 flex flex-col;
-    }
-    &-title {
-      @extend .h1;
-      @apply flex-initial w-full uppercase;
-    }
-    &-text {
-      @extend .p;
-      @apply flex-initial w-full;
-    }
-    &-wrapper {
-      @extend .x-pad;
-      @apply md:px-0 xl:px-0;
-    }
-  }
-  
   &-input{
     @apply w-full px-2 italic leading-6 text-gray-900 bg-gray-200 h-11 pt-1 focus:outline-none;
   }
