@@ -62,7 +62,7 @@ a {
   // M A I N
 
   &-content {
-    @apply xl:flex xl:flex-row transition-all;
+    @apply xl:flex xl:flex-row transition-all relative;
   }
   main {
     @apply relative xl:w-main-column; /*xl:flex xl:flex-row xl:flex-wrap; */
@@ -89,7 +89,7 @@ a {
     -webkit-text-stroke: 0.3px rgba(0,0,0,0.8);
     &-more {
       @extend .stol-button;
-      @apply md:w-auto md:-mx-5 xl:pt-4 xl:-ml-10 xl:-mr-5
+      @apply md:w-auto md:-mx-5 xl:pt-4 xl:-ml-10 xl:-mr-8
     }
   }
 

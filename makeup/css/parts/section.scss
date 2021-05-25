@@ -124,6 +124,15 @@
     }
 
     &-subscribe {
+        @apply flex flex-col w-full space-y-6 xl:p-9 xl:pt-11;
+        &-title {
+            @extend .h1;
+            @apply leading-7 uppercase;
+        }
+        &-subtitle {
+            @extend .p;
+            @apply leading-tight;
+        }
         &-input {
             @extend .cap;
             @apply w-full px-2 pt-1 italic leading-6 bg-gray-700 h-11;
@@ -138,8 +147,9 @@
             @apply xl:bg-gray-900 xl:text-white xl:pt-4.5;
         }
         &-text {
-            @apply pb-10 italic leading-tight text-mcap white-opacity; 
-            @apply md:text-tcap xl:text-dcap xl:text-gray-500 xl:pb-0;
+            @extend .cap;
+            @apply pb-10 italic leading-tight white-opacity; 
+            @apply xl:text-gray-500 xl:pb-0;
         }
     }
 
