@@ -14,6 +14,7 @@
     @apply absolute z-20 flex-col flex-grow w-full px-3 py-5 pb-8 text-white bg-gray-900 top-12;
     @apply md:top-18.5 md:px-5;
     @apply xl:relative xl:bg-transparent xl:shadow-none xl:text-gray-900 xl:w-auto xl:order-2 xl:py-0 xl:pl-16 xl:pr-8 xl:top-0 xl:block xl:items-center;
+    -webkit-text-stroke: 0.2px rgba(0,0,0,0.8);
     a {
       @apply hover:text-gray-600;
     }

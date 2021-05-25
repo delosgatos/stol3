@@ -1,6 +1,3 @@
-Spruce.store('slide', {
-  resize: true
-});
 var isXl = function(){
   return window.innerWidth > 1280;
 };

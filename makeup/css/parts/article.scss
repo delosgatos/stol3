@@ -26,6 +26,9 @@
                 @extend .p;
                 @apply my-6;
             }
+            .stol-button {
+                @apply max-w-l-button;
+            }
         }
     }
     &-gallery {
@@ -97,6 +100,16 @@
                         }
                     }
                 }
+            }
+        }
+    }
+    &-block {
+        @extend .x-pad;
+        @apply py-5 md:grid md:grid-cols-2 md:space-y-0 md:pt-0 md:-mt-4;
+        ul {
+            @apply flex;
+            li {
+                @apply mr-3;
             }
         }
     }

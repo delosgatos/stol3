@@ -84,7 +84,8 @@ a {
 
   &-button {
     @extend .cap;
-    @apply block w-full pt-3.5 pb-2.5 text-center text-white bg-gray-900 px-9 uppercase my-6;
+    @apply block w-full pt-3.5 pb-2.5 text-center text-white bg-gray-900 px-9 uppercase my-6 tracking-wide;
+    -webkit-text-stroke: 0.3px rgba(0,0,0,0.8);
     &-more {
       @extend .stol-button;
       @apply md:w-auto md:-mx-5 xl:pt-4 xl:-ml-10 xl:-mr-5
