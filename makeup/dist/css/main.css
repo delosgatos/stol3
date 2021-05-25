@@ -1399,7 +1399,14 @@ a{
 }
 
 .stol-section-top{
-  padding:0px
+  padding:0px;
+  padding-bottom:0.75rem
+}
+
+@media (min-width: 768px){
+  .stol-section-top{
+    padding-bottom:0px
+  }
 }
 
 .stol-section-top-slider {
@@ -2309,7 +2316,6 @@ a{
 .stol-teaser{
   display:flex;
   flex-direction:column;
-  height:100%;
   margin-bottom:2.25rem;
   padding-bottom:0.25rem
 }
@@ -2461,16 +2467,15 @@ a{
   }
 }
 
-.stol-teaser:hover {
-  --tw-bg-opacity:1;
-  background-color:rgba(243, 244, 246, var(--tw-bg-opacity));
-}
-
 @media (min-width: 768px){
   .stol-article-list .stol-teaser > :not([hidden]) ~ :not([hidden]){
     --tw-space-y-reverse:0;
     margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))
+  }
+
+  .stol-article-list .stol-teaser{
+    height:100%
   }
 }
 
@@ -2557,6 +2562,17 @@ a{
 @media (min-width: 768px){
   .stol-teaser__long .stol-teaser-date, .stol-teaser__long .stol-teaser-news-date{
     display:inline-block
+  }
+}
+
+.stol-section-articles .stol-teaser:hover{
+  --tw-bg-opacity:1;
+  background-color:rgba(243, 244, 246, var(--tw-bg-opacity))
+}
+
+@media (min-width: 768px){
+  .stol-section-articles .stol-teaser{
+    height:100%
   }
 }
 
@@ -4540,6 +4556,7 @@ a{
     flex-wrap:wrap;
     -moz-column-gap:1.25rem;
          column-gap:1.25rem;
+    row-gap:1.25rem;
     grid-template-columns:repeat(2, minmax(0, 1fr))
   }
 }

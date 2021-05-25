@@ -1,5 +1,5 @@
 &-teaser {
-    @apply flex flex-col space-y-6 mb-9 pb-1 h-full;
+    @apply flex flex-col space-y-6 mb-9 pb-1;
     &-image {
       @apply relative w-full bg-center bg-cover h-mteas md:h-tteas xl:h-dteas;
     }
@@ -39,11 +39,8 @@
         }
       }
     }
-    &:hover {
-      @apply bg-gray-100;
-    }
     .stol-article-list & {
-      @apply md:space-y-5;
+      @apply md:space-y-5 md:h-full;
       &-content {
         @apply md:px-5;
       }
@@ -82,6 +79,9 @@
     }
 
     // SECTIONS DECORATORS
+    .stol-section-articles & {
+      @apply md:h-full hover:bg-gray-100;
+    }
     .stol-section-projects & {
       @apply pb-0;
       &-image {

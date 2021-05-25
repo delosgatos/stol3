@@ -39,7 +39,7 @@
         }
     }
     &-top {
-        @apply p-0 space-y-auto;
+        @apply p-0 space-y-auto pb-3 md:pb-0;
         &-slider {
             @apply order-2 w-full;
         }
