@@ -21,14 +21,19 @@
     }
     &-news {
       @apply flex flex-row flex-wrap w-full md:pr-1/7 xl:pr-0 xl:h-28; 
+      &-title {
+        @extend .p;
+        @apply uppercase;
+      }
       &-text {
-        @apply uppercase text-m md:text-t xl:text-d;
+        @extend .simpletext;
+        @extend .p;
       }
       &-date {
         @extend .stol-teaser-date;
       }
       &-content {
-        @apply flex-auto flex-grow inline-block space-y-4 uppercase;
+        @apply flex-auto flex-grow inline-block space-y-4;
         .stol-teaser-text {
           @apply xl:text-dh3;
         }

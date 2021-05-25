@@ -37,8 +37,29 @@
             @extend .x-pad;
         }
     }
+    .stol-teaser {
+        &-news {
+            @apply h-auto;
+            &-title {
+                @extend .h2;
+            }
+            &-date {
+                &-soon {
+                    @extend .tag;
+                    @extend .stol-vivid-bg;
+                    @apply text-white rounded-full py-1.5 px-2 pr-3 not-italic;
+                }
+            }
+        }
+    }
     .stol-button-more:not([hidden]) {
         @apply mx-3 w-auto mt-8 md:mx-0 md:w-full xl:mx-0;
+    }
+    &__lined {
+        @apply border-b border-gray-900 pb-3;
+    }
+    &__mb {
+        @apply mb-12;
     }
     &__adaptive {
         @apply space-y-5;

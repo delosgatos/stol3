@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png" />
     <link rel="stylesheet" href="css/tailwind.css" />
     <link rel="stylesheet" href="dist/css/main.css?3" />
-    <title>S-T-O-L.COM - Авторы</title>
+    <title>S-T-O-L.COM - RUBRICA</title>
   </head>
   <body>
     <!--
@@ -39,7 +39,7 @@
                     <i :class="{ 'transform rotate-180': show }" 
                         class="inline-block icon-arrow-down"></i></a>
               <ul :class="{ 'stol-menu-rubrics__hidden': hide }"  
-                  class="stol-menu-rubrics hidden"
+                  class="hidden stol-menu-rubrics"
                   x-transition:enter="transition ease-out duration-300" 
                   x-transition:enter-start="transform h-0" 
                   x-transition:enter-end="transform h-full" 
@@ -105,137 +105,120 @@
       <div class="stol-content">
         <main>
 
-            
-            <section class="stol-list stol-list__adaptive">
+            <section class="stol-list stol-list__2cols stol-list__notags">
 
-                <div class="stol-list-head">
-                    <h1>Мнения (<span class="stol-list-count">3506</span>)</h1>
-                    <div class="stol-list-head-filter"><input class="stol-input" placeholder="введите имя автора" /></div>
+                <div class="stol-list-head stol-list__lined stol-list__mb">
+                    <h1>События (<span class="stol-list-count">3506</span>)</h1>
                     <ul class="stol-list-menu">
-                        <li><a href="#">актуальные (<span>2679</span>)</a></li>
-                        <li><a href="#">популярные (<span>574</span>)</a></li>
-                        <li><a href="#">популярные авторы (<span>74</span>)</a></li>
+                        <li><a href="#">будущие (<span>2679</span>)</a></li>
+                        <li><a href="#">прошедшие (<span>574</span>)</a></li>
                     </ul>
                 </div>
                 
-                <div class="stol-list-content stol-list-content__inner stol-section-authors__big">
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
+                <div class="stol-list-content">
+                    <a href="#event1" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</h3>
+                          <p class="stol-teaser-news-text">Описание события #1 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date"><span class="stol-teaser-news-date-soon">через два дня</span> 10.02.2021</p>
                         </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
+                      </a>
+                      <a href="#event2" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</h3>
+                          <p class="stol-teaser-news-text">ДЛИННЫЙ текст<br>СОБЫТИЯ В ДВЕ СТРОКИ</p>
+                          <p class="stol-teaser-news-date"><span class="stol-teaser-news-date-soon">через неделю</span> 20.03.2021</p>
                         </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
+                      </a>
+                      <a href="#event3" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в две строки</h3>
+                          <p class="stol-teaser-news-text">Описание события #2 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">01.04.2021</p>
                         </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
+                      </a>
+                      <a href="#event4" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в две строки</h3>
+                          <p class="stol-teaser-news-text">Описание события #3 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">01.04.2021</p>
                         </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
+                      </a>
+                    <a href="#event1" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</h3>
+                          <p class="stol-teaser-news-text">Описание события #1 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">10.02.2021</p>
                         </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
+                      </a>
+                      <a href="#event2" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</h3>
+                          <p class="stol-teaser-news-text">ДЛИННЫЙ текст<br>СОБЫТИЯ В ДВЕ СТРОКИ</p>
+                          <p class="stol-teaser-news-date">20.03.2021</p>
                         </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
+                      </a>
+                      <a href="#event3" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в две строки</h3>
+                          <p class="stol-teaser-news-text">Описание события #2 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">01.04.2021</p>
                         </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
+                      </a>
+                      <a href="#event4" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                            <h3 class="stol-teaser-news-title">Описание новости примерно в две строки</h3>
+                          <p class="stol-teaser-news-text">Описание события #3 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">01.04.2021</p>
                         </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
+                      </a>
+                      <a href="#event3" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в две строки</h3>
+                          <p class="stol-teaser-news-text">Описание события #2 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">01.04.2021</p>
                         </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
+                      </a>
+                      <a href="#event4" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в две строки</h3>
+                          <p class="stol-teaser-news-text">Описание события #3 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">01.04.2021</p>
                         </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
+                      </a>
+                    <a href="#event1" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</h3>
+                          <p class="stol-teaser-news-text">Описание события #1 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">10.02.2021</p>
                         </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
+                      </a>
+                      <a href="#event2" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</h3>
+                          <p class="stol-teaser-news-text">ДЛИННЫЙ текст<br>СОБЫТИЯ В ДВЕ СТРОКИ</p>
+                          <p class="stol-teaser-news-date">20.03.2021</p>
                         </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
+                      </a>
+                      <a href="#event3" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                          <h3 class="stol-teaser-news-title">Описание новости примерно в две строки</h3>
+                          <p class="stol-teaser-news-text">Описание события #2 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">01.04.2021</p>
                         </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
+                      </a>
+                      <a href="#event4" class="stol-teaser-news">
+                        <div class="stol-teaser-news-content">
+                            <h3 class="stol-teaser-news-title">Описание новости примерно в две строки</h3>
+                          <p class="stol-teaser-news-text">Описание события #3 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                          <p class="stol-teaser-news-date">01.04.2021</p>
                         </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
-                        </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
-                        </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
-                        </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
-                        </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
-                        </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
-                        </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
-                        </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
-                        </div>
-                    </a>
-                    <a href="#author" class="stol-author">
-                        <div  class="stol-author-image">
-                        <img src="images/v204_217.png" />
-                        </div>
-                        <div class="stol-author-content">
-                        <p class="stol-author-title">Имя И Фамилия человека в две строки</p>
-                        <p class="stol-teaser-date">позиция / должность</p>
-                        </div>
-                    </a>
-                    
+                      </a>
                 </div>
-
-                <a href="#all-articles" class="stol-button-more">ЗАГРУЗИТЬ ЕЩЕ</a> 
-                
+                <a href="#all-articles" class="stol-button-more">ЗАГРУЗИТЬ ЕЩЕ</a>  
             </section>
 
-
-            <section class="stol-section-relative stol-section__gray">
+            <section class="stol-section-relative">
                 <div class="stol-section-relative-title">читайте также</div>
                 <div class="stol-teaser">
                     <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)"></a>
@@ -245,7 +228,7 @@
                     </div>
                 </div>
             </section>
-
+            
             <!-- SECTION: DONATION -->
             <section class="stol-section stol-section-donation">
                 <div class="stol-section-block">
@@ -330,56 +313,6 @@
                 <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
               </div>
             </section>
-
-            <!-- SECTION - NEWS-REVIEW -->
-            <section class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
-            x-init="swiper = new Swiper($refs.container, {
-              loop: true,
-              slidesPerView: 1,
-              spaceBetween: 0,
-              breakpoints: {
-                768: { slidesPerView: 2, spaceBetween: 0},
-                1280:{ slidesPerView: 3, spaceBetween: 0, direction: 'vertical'},
-              },
-            });"
-          >
-            <!-- SECTION TITLE -->
-            <h6 class="w-full stol-section-title">События</h6>
-            <div class="swiper-container" x-ref="container">
-              <div class="swiper-wrapper">
-                <a href="#event1" class="stol-teaser-news swiper-slide">
-                  <div class="stol-teaser-news-content">
-                    <p class="stol-teaser-news-title">Описание события #1 примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                    <p class="stol-teaser-news-date">10.02.2021</p>
-                  </div>
-                </a>
-                <a href="#event2" class="stol-teaser-news swiper-slide">
-                  <div class="stol-teaser-news-content">
-                    <p class="stol-teaser-news-title">ДЛИННЫЙ ЗАГОЛОВОК<br>СОБЫТИЯ В ДВЕ СТРОКИ</p>
-                    <p class="stol-teaser-news-date">20.03.2021</p>
-                  </div>
-                </a>
-                <a href="#event3" class="stol-teaser-news swiper-slide">
-                  <div class="stol-teaser-news-content">
-                    <p class="stol-teaser-news-title">Описание события #2 примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                    <p class="stol-teaser-news-date">01.04.2021</p>
-                  </div>
-                </a>
-                <a href="#event4" class="stol-teaser-news swiper-slide">
-                  <div class="stol-teaser-news-content">
-                    <p class="stol-teaser-news-title">Описание события #3 примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                    <p class="stol-teaser-news-date">01.04.2021</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <div x-ref="controls" class="stol-controls">
-              <a href="#all-events" class="stol-controls-title">ВСЕ СОБЫТИЯ <i class="icon-arrow-right-long"></i></a>
-              <div class="stol-controls-divider"></div>
-              <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
-            </div>
-          </section>
 
           </div>
         </aside>

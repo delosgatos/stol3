@@ -23,7 +23,8 @@
 }
 
 &-subscribe {
-    @apply py-25 px-6 w-full flex flex-col space-y-6 items-center justify-center h-full mb-8 bg-orange-900;
+    @extend .stol-vivid-light-bg;
+    @apply py-25 px-6 w-full flex flex-col space-y-6 items-center justify-center h-full mb-8;
     @apply md:px-10;
     &-content {
       @apply space-y-7 text-gray-900 flex flex-col;

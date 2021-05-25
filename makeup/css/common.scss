@@ -16,6 +16,7 @@ a {
 .h2{ @apply text-mh2 md:text-th2 xl:text-dh2; }
 .h3{ @apply text-mh3 md:text-th3 xl:text-dh3; }
 .p{ @apply text-m md:text-t xl:text-d; }
+.tag{ @apply text-mtag md:text-ttag xl:text-dtag; }
 .text{ @apply text-mtext md:text-ttext xl:text-dtext; }
 .cap{ @apply text-mcap md:text-tcap xl:text-dcap; }
 .graytext { @apply text-gray-900 text-opacity-50; }
