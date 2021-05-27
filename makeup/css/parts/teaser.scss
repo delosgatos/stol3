@@ -1,10 +1,10 @@
 &-teaser {
-    @apply flex flex-col space-y-6 mb-9 pb-1;
+    @apply flex flex-col space-y-6 mb-9 pb-1 transition-all;
     &-image {
       @apply relative w-full bg-center bg-cover h-mteas md:h-tteas xl:h-dteas;
     }
     &-content {
-      @apply flex flex-col items-start px-3 space-y-4 text-gray-900 border-gray-900;
+      @apply flex flex-col items-start px-3 space-y-4 text-gray-900 border-gray-900 transition-all;
       .stol-tags-block:not([hidden]) {
         @apply -mb-2.5 md:-mb-2.5 xl:-mb-2.5 xl:mb-0 xl:pb-0;
       }
@@ -70,11 +70,6 @@
           &-date {
               @apply md:inline-block;
           }
-        }
-        .stol-tags-block:not([hidden]) {
-            .stol-tag {
-              
-            }
         }
     }
 

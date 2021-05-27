@@ -18,18 +18,18 @@
       <!-- HEADER -->
       <header class="stol-head">
         <nav class="stol-head-nav">
-          <button class="block stol-menu-button md:order-3 xl:-mr-8 xl:-ml-6" type="button" data-show="#searchbar">
+          <button class="block stol-menu-button stol-menu-button__search" type="button" data-show="#searchbar">
             <i class="hidden icon-close"></i>
-            <i class="py-1 icon-search"></i>
+            <i class="icon-search"></i>
           </button>
           <a class="stol-head-logo" href="index.html"><img src="images/logo.svg"></a>
-          <button class="block stol-menu-button md:order-4 xl:-mr-10 xl:hidden" type="button" data-show="#main-menu">
+          <button class="block stol-menu-button stol-menu-button__menu" type="button" data-show="#main-menu">
             <i class="hidden icon-close"></i>
-            <i class="py-1 icon-menu"></i>
+            <i class="icon-menu"></i>
           </button>          
-          <button class="hidden stol-menu-button md:order-4 xl:-mr-10 xl:block" type="button" data-use="xl" data-show="#xl-menu">
+          <button class="hidden stol-menu-button stol-menu-button__xlmenu" type="button" data-use="xl" data-show="#xl-menu">
             <i class="hidden icon-close"></i>
-            <i class="py-1 icon-menu"></i>
+            <i class="icon-menu"></i>
           </button>
           <!-- MAIN MENU -->
           <div id="main-menu" class="flex hidden stol-menu">
@@ -39,13 +39,7 @@
                     <i :class="{ 'transform rotate-180': show }" 
                         class="inline-block icon-arrow-down"></i></a>
               <ul :class="{ 'stol-menu-rubrics__hidden': hide }"  
-                  class="hidden stol-menu-rubrics"
-                  x-transition:enter="transition ease-out duration-300" 
-                  x-transition:enter-start="transform h-0" 
-                  x-transition:enter-end="transform h-full" 
-                  x-transition:leave="transition ease-in duration-300" 
-                  x-transition:leave-start="transform " 
-                  x-transition:leave-end="transform ">
+                  class="hidden stol-menu-rubrics">
                 <li><a href="#church">Церковь</a></li>
                 <li><a href="#russian">Русская жизнь</a></li>
                 <li><a href="#culture">Культура</a></li>
@@ -265,13 +259,13 @@
         <!-- RIGHT COLUMN -->
         <aside class="stol-right-column stol-xl-show-block" id="right-column">
           <div class="stol-right-wrapper" id="right-wrapper">
-            <!-- SECTION - XL-PROMO -->
-            <section class="stol-section stol-section__right-column h-dtop1">
-              <div class="flex items-center w-full h-full -mt-11">
-                <span class="w-full text-center">ПРОМО</span>
+            <!-- START: PROMO -->
+              <div class="stol-promo-wrapper">
+                <a href="#promo" class="stol-promo stol-promo__white">
+                  <span class="stol-promo-title">ПРОМО</span>
+                </a>
               </div>
-            </section>
-            <!-- END: PROMO -->
+              <!-- END: PROMO -->
 
             <!-- SECTION - NEWS-REVIEW -->
             <section class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"

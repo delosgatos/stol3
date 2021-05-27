@@ -28,6 +28,7 @@ a {
 @media (min-width: 1280px) { .block-d {display: block;} }
 @media (min-width: 1280px) { .hidden-d {display: none;} }
 [x-cloak] { display: none; }
+[data-href] { @apply cursor-pointer transition-all; }
 .x-pad {
   @apply px-3 md:px-5 xl:pl-10 xl:pr-8;
   &__m0 {

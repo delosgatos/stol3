@@ -17,6 +17,12 @@
       @extend .x-pad;
       @apply md:px-0 xl:px-0;
     }
+    &__white {
+      @apply bg-white border-b border-gray-900;
+      .stol-promo-title {
+        @apply text-gray-900;
+      }
+    }
     &__telegram {
       @apply bg-blue-400;
     }

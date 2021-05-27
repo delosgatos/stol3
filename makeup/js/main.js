@@ -251,6 +251,22 @@ collapsibleTags.prototype = {
   }
 }
 
+var addListeners = function(){
+  var links = document.querySelectorAll('[data-href]');
+  [].forEach.call(links, function(link) {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var url = el.dataset['href'];
+      if (el.dataset['target']) {
+        window.open(url, '_blank').focus();
+      } else {
+        window.location.assign(url);
+      }
+    });
+  });
+}
+addListeners();
+
 window.addEventListener('optimizedResize', function(e) {
   console.log('RESIZE', window.innerWidth+' x '+window.innerHeight);
   movingElements.update();
