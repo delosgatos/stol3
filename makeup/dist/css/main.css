@@ -829,7 +829,7 @@ a{
   transition-duration:300ms
 }
 
-.simpletext, .stol-section-text, .stol-section > .stol-section-author-content:not([hidden]) > p, .stol-teaser-text, .stol-teaser-news-text, .stol-article-head-block > p, .stol-list-head > p, .stol-popup-text {
+.simpletext, .stol-section-text, .stol-section > .stol-section-author-content:not([hidden]) > p, .stol-teaser-text, .stol-teaser-news-text, .stol-article-head-block > p, .stol-article-content > ul, .stol-article-content > ol, .stol-article-content > ul > li > ul, .stol-article-content > ul > li > ol, .stol-article-content > ol > li > ul, .stol-article-content > ol > li > ol, .stol-article-content table tr td, .stol-list-head > p, .stol-popup-text, .stol-popup-content > p, .stol-popup-content > ul, .stol-popup-content > ol, .stol-popup-content > ul > li > ul, .stol-popup-content > ul > li > ol, .stol-popup-content > ol > li > ul, .stol-popup-content > ol > li > ol, .stol-popup-content table tr td {
   font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
@@ -852,77 +852,77 @@ a{
   }
 }
 
-.h1, .stol-section-title, .stol-section-subscribe-title, .stol-section-article-head .stol-section-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > h1, .stol-subscribe-title, .stol-article-head-block > h1, .stol-article-content h1, .stol-list-head > h1 {
+.h1, .stol-section-title, .stol-section-subscribe-title, .stol-section-article-head .stol-section-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > h1, .stol-subscribe-title, .stol-article-head-block > h1, .stol-article-content h1, .stol-list-head > h1, .stol-popup-content > h1 {
   font-size:22px;
   line-height:130%;
 }
 
 @media (min-width: 768px){
-  .h1, .stol-section-title, .stol-section-subscribe-title, .stol-section-article-head .stol-section-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > h1, .stol-subscribe-title, .stol-article-head-block > h1, .stol-article-content h1, .stol-list-head > h1{
+  .h1, .stol-section-title, .stol-section-subscribe-title, .stol-section-article-head .stol-section-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > h1, .stol-subscribe-title, .stol-article-head-block > h1, .stol-article-content h1, .stol-list-head > h1, .stol-popup-content > h1{
     font-size:26px;
     line-height:130%
   }
 }
 
 @media (min-width: 1280px){
-  .h1, .stol-section-title, .stol-section-subscribe-title, .stol-section-article-head .stol-section-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > h1, .stol-subscribe-title, .stol-article-head-block > h1, .stol-article-content h1, .stol-list-head > h1{
+  .h1, .stol-section-title, .stol-section-subscribe-title, .stol-section-article-head .stol-section-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > h1, .stol-subscribe-title, .stol-article-head-block > h1, .stol-article-content h1, .stol-list-head > h1, .stol-popup-content > h1{
     font-size:36px;
     line-height:130%
   }
 }
 
-.h2, .stol-section-subtitle, .stol-article-content h2, .stol-article-share, .stol-list-menu, .stol-list .stol-teaser-news-title {
+.h2, .stol-section-subtitle, .stol-article-content h2, .stol-article-share, .stol-list-menu, .stol-list .stol-teaser-news-title, .stol-popup-content > h2:not([hidden]) {
   font-size:18px;
   line-height:120%;
 }
 
 @media (min-width: 768px){
-  .h2, .stol-section-subtitle, .stol-article-content h2, .stol-article-share, .stol-list-menu, .stol-list .stol-teaser-news-title{
+  .h2, .stol-section-subtitle, .stol-article-content h2, .stol-article-share, .stol-list-menu, .stol-list .stol-teaser-news-title, .stol-popup-content > h2:not([hidden]){
     font-size:18px;
     line-height:120%
   }
 }
 
 @media (min-width: 1280px){
-  .h2, .stol-section-subtitle, .stol-article-content h2, .stol-article-share, .stol-list-menu, .stol-list .stol-teaser-news-title{
+  .h2, .stol-section-subtitle, .stol-article-content h2, .stol-article-share, .stol-list-menu, .stol-list .stol-teaser-news-title, .stol-popup-content > h2:not([hidden]){
     font-size:22px;
     line-height:140%
   }
 }
 
-.h3, .stol-article-content h3, .stol-article-content blockquote, .stol-footer-block-title {
+.h3, .stol-article-content h3, .stol-article-content table tr th, .stol-article-content blockquote, .stol-footer-block-title, .stol-popup-content > h3, .stol-popup-content table tr th {
   font-size:14px;
   line-height:144%;
 }
 
 @media (min-width: 768px){
-  .h3, .stol-article-content h3, .stol-article-content blockquote, .stol-footer-block-title{
+  .h3, .stol-article-content h3, .stol-article-content table tr th, .stol-article-content blockquote, .stol-footer-block-title, .stol-popup-content > h3, .stol-popup-content table tr th{
     font-size:14px;
     line-height:144%
   }
 }
 
 @media (min-width: 1280px){
-  .h3, .stol-article-content h3, .stol-article-content blockquote, .stol-footer-block-title{
+  .h3, .stol-article-content h3, .stol-article-content table tr th, .stol-article-content blockquote, .stol-footer-block-title, .stol-popup-content > h3, .stol-popup-content table tr th{
     font-size:16px;
     line-height:144%
   }
 }
 
-.p, .stol-section-subscribe-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > p, .stol-teaser-news-title, .stol-teaser-news-text, .stol-subscribe-text, .stol-article-head-block > p, .stol-list-head > p, .stol-footer a, .stol-footer-block {
+.p, .stol-section-subscribe-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > p, .stol-teaser-news-title, .stol-teaser-news-text, .stol-subscribe-text, .stol-article-head-block > p, .stol-list-head > p, .stol-footer a, .stol-footer-block, .stol-popup-content > p {
   font-size:14px;
   line-height:149%;
 }
 
 @media (min-width: 768px){
-  .p, .stol-section-subscribe-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > p, .stol-teaser-news-title, .stol-teaser-news-text, .stol-subscribe-text, .stol-article-head-block > p, .stol-list-head > p, .stol-footer a, .stol-footer-block{
+  .p, .stol-section-subscribe-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > p, .stol-teaser-news-title, .stol-teaser-news-text, .stol-subscribe-text, .stol-article-head-block > p, .stol-list-head > p, .stol-footer a, .stol-footer-block, .stol-popup-content > p{
     font-size:14px;
     line-height:148%
   }
 }
 
 @media (min-width: 1280px){
-  .p, .stol-section-subscribe-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > p, .stol-teaser-news-title, .stol-teaser-news-text, .stol-subscribe-text, .stol-article-head-block > p, .stol-list-head > p, .stol-footer a, .stol-footer-block{
+  .p, .stol-section-subscribe-subtitle, .stol-section > .stol-section-author-content:not([hidden]) > p, .stol-teaser-news-title, .stol-teaser-news-text, .stol-subscribe-text, .stol-article-head-block > p, .stol-list-head > p, .stol-footer a, .stol-footer-block, .stol-popup-content > p{
     font-size:16px;
     line-height:148%
   }
@@ -4307,6 +4307,47 @@ a{
   }
 }
 
+.stol-article-content > ul, .stol-article-content > ol {
+  padding-left:1.5rem;
+}
+
+.stol-article-content > ul > li > ul, .stol-article-content > ul > li > ol, .stol-article-content > ol > li > ul, .stol-article-content > ol > li > ol {
+  padding-left:1.5rem;
+}
+
+.stol-article-content ol {
+  list-style-type:decimal;
+}
+
+.stol-article-content ul {
+  list-style-type:disc;
+}
+
+.stol-article-content table {
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+
+.stol-article-content table tr {
+  --tw-border-opacity:1;
+  border-color:rgba(31, 31, 31, var(--tw-border-opacity));
+  border-bottom-width:1px;
+}
+
+.stol-article-content table tr:first-child, .stol-article-content table tr:last-child {
+  border-style:none;
+}
+
+.stol-article-content table tr th {
+  text-align:left;
+  text-transform:uppercase;
+}
+
+.stol-article-content table tr td {
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
+
 .stol-article-content address {
   padding-top:1rem;
   padding-bottom:1rem;
@@ -5213,8 +5254,6 @@ a{
   top:3.5rem;
   --tw-shadow:0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  --tw-text-opacity:1;
-  color:rgba(220, 38, 38, var(--tw-text-opacity));
   z-index:50;
 }
 
@@ -5258,8 +5297,95 @@ a{
   color:rgba(31, 31, 31, var(--tw-text-opacity));
 }
 
+.stol-popup-content > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse:0;
+  margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))
+}
+
+.stol-popup-content > h1 {
+  padding-top:1.5rem;
+  text-transform:uppercase;
+}
+
+.stol-popup-content > h2:not([hidden]) {
+  margin-bottom:0px;
+  text-transform:uppercase;
+}
+
+.stol-popup-content > h3 {
+  text-transform:uppercase;
+}
+
+.stol-popup-content > ul, .stol-popup-content > ol {
+  padding-left:1.5rem;
+}
+
+.stol-popup-content > ul > li > ul, .stol-popup-content > ul > li > ol, .stol-popup-content > ol > li > ul, .stol-popup-content > ol > li > ol {
+  padding-left:1.5rem;
+}
+
+.stol-popup-content ol {
+  list-style-type:decimal;
+}
+
+.stol-popup-content ul {
+  list-style-type:disc;
+}
+
+.stol-popup-content table {
+  margin-top:1rem;
+  margin-bottom:1rem;
+}
+
+.stol-popup-content table tr {
+  --tw-border-opacity:1;
+  border-color:rgba(31, 31, 31, var(--tw-border-opacity));
+  border-bottom-width:1px;
+}
+
+.stol-popup-content table tr:first-child, .stol-popup-content table tr:last-child {
+  border-style:none;
+}
+
+.stol-popup-content table tr th {
+  text-align:left;
+  text-transform:uppercase;
+}
+
+.stol-popup-content table tr td {
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
+
 .stol-popup__push {
   max-width:298px;
+}
+
+.stol-popup__text {
+  --tw-border-opacity:1;
+  border-color:rgba(31, 31, 31, var(--tw-border-opacity));
+  border-width:1px;
+  padding:2.5rem;
+  position:fixed;
+  left: 50%;
+  top: 50%;
+  width: 90vw;
+  max-height: 90vh;
+  transform: translate(-50%, -50%);
+}
+
+.stol-popup__text .stol-popup-content {
+  overflow:auto;
+  padding-right:12.5%;
+}
+
+.stol-popup__text .stol-popup-close {
+  font-size:0.875rem;
+  line-height:1.25rem;
+  position:absolute;
+  top:0.75rem;
+  right:0.75rem;
 }
 
 .swiper-wrapper {

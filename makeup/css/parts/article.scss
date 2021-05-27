@@ -135,6 +135,42 @@
             font-family: Inter, Helvetica, Arial, sans-serif;
             @apply my-2.5 xl:my-3;
         }
+        & > ul, & > ol {
+            @extend .simpletext;
+            @apply pl-6;
+            & > li {
+                & > ul, & > ol {
+                    @extend .simpletext;
+                    @apply pl-6;
+                    & > li {
+        
+                    }
+                }
+            }
+        }
+        ol {
+            @apply list-decimal;
+        }
+        ul {
+            @apply list-disc;
+        }
+        table {
+            @apply my-4;
+            tr {
+                @apply border-b border-gray-900;
+                &:first-child, &:last-child { 
+                    @apply border-none;
+                }
+                th {
+                    @extend .h3;
+                    @apply uppercase text-left;
+                }
+                td {
+                    @extend .simpletext;
+                    @apply  py-4;
+                }
+            }
+        }
         address{
             @extend .stol-subtext;
             @apply py-4;

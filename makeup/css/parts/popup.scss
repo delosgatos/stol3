@@ -1,5 +1,5 @@
 &-popup {
-    @apply absolute z-50 flex-col items-start p-5 pr-8 mx-auto my-4 text-red-600 bg-white border border-gray-900 rounded shadow-lg top-14 left-10;
+    @apply absolute z-50 flex-col items-start p-5 pr-8 mx-auto my-4 bg-white border border-gray-900 rounded shadow-lg top-14 left-10;
     @apply xl:flex;
     &-close {
         @apply absolute text-xs right-2 top-2;
@@ -11,7 +11,78 @@
         @extend .simpletext;
         @apply pb-4 text-gray-900 text-m;
     }
+    &-content {
+        @apply space-y-6;
+        & > h1 {
+          @extend .h1;
+          @apply uppercase pt-6;
+        }
+        & > h2:not([hidden]) {
+            @extend .h2;
+            @apply uppercase mb-0;
+        }
+        & > h3 {
+            @extend .h3;
+            @apply uppercase;
+        }
+        & > p {
+            @extend .simpletext;
+            @extend .p;
+        }
+        & > ul, & > ol {
+            @extend .simpletext;
+            @apply pl-6;
+            & > li {
+                & > ul, & > ol {
+                    @extend .simpletext;
+                    @apply pl-6;
+                    & > li {
+        
+                    }
+                }
+            }
+        }
+        ol {
+            @apply list-decimal;
+        }
+        ul {
+            @apply list-disc;
+        }
+        table {
+            @apply my-4;
+            tr {
+                @apply border-b border-gray-900;
+                &:first-child, &:last-child { 
+                    @apply border-none;
+                }
+                th {
+                    @extend .h3;
+                    @apply uppercase text-left;
+                }
+                td {
+                    @extend .simpletext;
+                    @apply  py-4;
+                }
+            }
+        }
+    }
     &__push {
         @apply max-w-modal;
+    }
+    &__text {
+        @apply fixed border border-gray-900 p-10;
+        left:50%;
+        top:50%;
+        width: 90vw;
+        max-height: 90vh;
+        transform: translate(-50%, -50%);
+        .stol-popup { 
+            &-content {
+                @apply overflow-auto pr-1/8;
+            }
+            &-close {
+                @apply absolute text-sm right-3 top-3;
+            }
+        }
     }
 }
