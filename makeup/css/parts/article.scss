@@ -7,6 +7,12 @@
     i {
         @apply inline-block text-center w-6 text-xxs md:w-7;
     }
+    &__notmobile {
+        @apply hidden md:block;
+    }
+    &__mobile {
+        @apply pt-6 md:hidden;
+    }
 }
 &-article {
     @apply relative w-full px-3 pt-6 relative space-y-6;
@@ -45,7 +51,7 @@
                 @apply h-mgal md:h-tgal xl:h-dgal;
             }
             &-content {
-                @apply hidden;
+                @apply transition-all hidden;
             }
         }
         // C O N T R O L S
@@ -92,13 +98,40 @@
                         @apply text-white border-white;
                     } 
                     .stol-controls{
-                        &-fullscreen {
+                        &-gallery {
                             @apply hidden;
                         }
                         &-counter {
                             @apply text-white;
                         }
                     }
+                }
+            }
+        }
+        &__info, &__click {
+            .stol-teaser {
+                &-content {
+                    @apply absolute bottom-7 left-1/2 transform -translate-x-1/2 rounded-2xl; 
+                    @apply bg-white border-gray-900 py-2 px-4 overflow-y-auto;
+                    width: calc(100% - 100px);
+                    max-height: calc(100% - 3rem);
+                    & > p {
+                        @apply text-xxs md:text-xs;
+                    }
+                }
+            }
+        }
+        &__info {
+            .stol-teaser {
+                &-content {
+                    @apply hidden xl:flex;
+                }
+            }
+        }
+        &__click {
+            .stol-teaser {
+                &-content {
+                    @apply flex xl:hidden;
                 }
             }
         }

@@ -85,7 +85,7 @@
                     <i :class="{ 'icon-arrow-down__rotate': show }" 
                         class="icon-arrow-down"></i></a>
               <ul :class="{ 'stol-menu-rubrics__hidden': !show }"  
-                  class="hidden stol-menu-rubrics">
+                  class="stol-menu-rubrics">
                 <li><a href="#church">Церковь</a></li>
                 <li><a href="#russian">Русская жизнь</a></li>
                 <li><a href="#culture">Культура</a></li>
@@ -127,7 +127,7 @@
           </div>
         </nav>
         <!-- SEARCH BAR -->
-        <div id="searchbar" data-activeclass="stol-search__active" class="hidden stol-search" x-data="{label:''}">
+        <div id="searchbar" data-activeclass="stol-search__active" class="stol-search" x-data="{label:''}">
           <input x-model="label" />
           <i class="icon-search"></i>
           <div class="stol-tags-block">
@@ -283,7 +283,7 @@
                 <div id="article-head-content" class="stol-article-head-block">
                   <h1>Фальк, смерть и чёрный британский юмор</h1>
                   <p>«Стол» представляет новые выставки и самые значимые премьеры следующей недели.</p>
-                  <div class="hidden stol-breadcrumb md:block">
+                  <div class="stol-breadcrumb stol-breadcrumb__notmobile">
                     <a href="/">главная</a>
                     <i class="icon-arrow-right-sm"></i>
                     <a href="#rubric">рубрика</a>
@@ -305,7 +305,7 @@
                       <a href="#" class="stol-tag">мегатег статьи</a>
                       <a href="#" class="stol-tag">бомба-тег статьи</a>
                   </div>
-                  <div class="pt-6 stol-breadcrumb md:hidden">
+                  <div class="stol-breadcrumb stol-breadcrumb__mobile">
                     <a href="/">главная</a>
                     <i class="icon-arrow-right-sm"></i>
                     <a href="#rubric">рубрика</a>
@@ -316,7 +316,8 @@
                 x-bind:class="{'stol-article-gallery__full':full}" 
                 x-bind:full="$dispatch('changeFullscreen', { full: full })" 
                 class="stol-article-gallery" 
-                x-data="{swiper: null,full:false}"
+                :class="{'stol-article-gallery__info': info, 'stol-article-gallery__click': infoclick}"
+                x-data="{swiper: null, full:false, info:false, infoclick: false}"
                 x-init="swiper = new Swiper($refs.container, {
                     observer: true,
                     observeParents: true,
@@ -441,15 +442,18 @@
                     </div>
                   </div>
                 </div>
-                <div x-ref="controls" class="w-full stol-controls">
+                <div x-ref="controls" class="stol-controls">
                   <p class="stol-controls-counter"><span x-ref="counter">1</span> / 7</p>
-                  <a href="#all-specials" class="flex-auto text-center address">Фото: источник</a>
-                  <div class="flex-initial stol-controls-arrows">
+                  <a href="#all-specials" class="stol-subtext">Фото: источник</a>
+                  <div class="stol-controls-arrows">
                     <i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left-sm"></i>
                     <div class="stol-controls-pagination"></div>
                     <i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right-sm"></i>
                   </div>
-                  <a @click.prevent="full=true" href="#fullscreen" class="stol-controls-fullscreen"><i class="relative inline-block text-white flex-0 top-0.5 icon-fullscreen"></i></a>
+                  <div class="stol-controls-gallery">
+                    <a @mouseenter="info=true" @mouseleave="info=false" @click.prevent="infoclick=!infoclick" href="#info" class="stol-controls-info" :class="{'stol-controls-info__active':info,'stol-controls-info__click':infoclick,}"><i class="icon-i"></i></a>
+                    <a @click.prevent="full=true" href="#fullscreen" class="stol-controls-fullscreen"><i class="icon-fullscreen"></i></a>
+                  </div>
                 </div>
             </section>
 
@@ -497,9 +501,13 @@
                 <p>Ему было позволено то, о чём и не могли мечтать другие советские граждане. В 1928 году Роберт Фальк оправился в командировку в Париж — изучать классическое наследие. Вместо запланированных шести месяцев он прожил во Франции почти девять лет, объездив практически все французские провинции.</p>
                 <p>Более того, власти выпустили к нему во Францию его семью и сына – 17-летнего болезненно юношу Валеру, замечательного художника, которому требовалось учиться на родине импрессионизма. Чем было вызвано такое особое расположение советской власти к художнику – неизвестно.</p>
                 <p>октября 1958 года в Москве.</p>
-                <div class="stol-article-promo">
-                    <div class="flex items-center justify-center text-center bg-gray-300" style="min-height:500px;"><span>PROMO</span></div>
+                <!-- START: PROMO -->
+                <div class="stol-promo-wrapper">
+                  <a href="#promo" class="stol-promo">
+                    <span class="stol-promo-title">ПРОМО</span>
+                  </a>
                 </div>
+                <!-- END: PROMO -->
                 <p>В 1937 году Фальки вернулись на родину. Все ждали ареста, но его не последовало – более того, в 1939 году состоялись две персональные выставки художника.</p>
                 <p>После начала войны Фальк эвакуировался в Башкирию, затем в Среднюю Азию. Он занимался живописью, преподавал в средней школе историю, географию и немецкий язык, затем стал работать в Узбекском художественном техникуме в Самарканде.</p>
                 <p>В послевоенные годы оказалось, что творчество Роберта Фалька не соответствует сложившимся к тому времени канонам советского изобразительного искусства. Неоднократно художника критиковали, обвиняя в формализме, упадничестве, и «уходе от проблем советского народа». До конца жизни Роберт Фальк практически не выставлялся, продолжая рисовать для себя. Также он преподавал в Московском институте прикладного и декоративного искусства.</p>
@@ -580,7 +588,7 @@
           </article>
 
           <!-- SECTION: SPECIAL -->
-          <section class="overflow-hidden stol-section stol-section-projects stol-section__feature" x-data="{swiper: null}"
+          <section class="stol-section stol-section-projects stol-section__feature" x-data="{swiper: null}"
                 x-init="swiper = new Swiper($refs.container, {
                 loop: true,
                 slidesPerView: 2,

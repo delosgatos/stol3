@@ -84,7 +84,7 @@
                     <i :class="{ 'icon-arrow-down__rotate': show }" 
                         class="icon-arrow-down"></i></a>
               <ul :class="{ 'stol-menu-rubrics__hidden': !show }"  
-                  class="hidden stol-menu-rubrics">
+                  class="stol-menu-rubrics">
                 <li><a href="#church">Церковь</a></li>
                 <li><a href="#russian">Русская жизнь</a></li>
                 <li><a href="#culture">Культура</a></li>
@@ -126,7 +126,7 @@
           </div>
         </nav>
         <!-- SEARCH BAR -->
-        <div id="searchbar" data-activeclass="stol-search__active" class="hidden stol-search" x-data="{label:''}">
+        <div id="searchbar" data-activeclass="stol-search__active" class="stol-search" x-data="{label:''}">
           <input x-model="label" />
           <i class="icon-search"></i>
           <div class="stol-tags-block">

@@ -30,7 +30,7 @@
     // CUSTOM SECTIONS
     
     &-projects {
-        @apply pb-3 space-y-0;
+        @apply pb-3 space-y-0 overflow-hidden;
         .stol-section-wrapper {
             @apply px-3 w-screen-3/2 md:px-0 md:w-full;
             .swiper-container {
