@@ -11,34 +11,31 @@
     <title>S-T-O-L.COM - MAIN</title>
   </head>
   <body>
-    <!--
-    <div style="position:absolute;top:0;left:0;z-index:0;opacity:0.5;"><img src="images/iphone.png"></div>
-    -->
     <div class="stol" id="stol">
       <!-- HEADER -->
       <header class="stol-head">
         <nav class="stol-head-nav">
-          <button class="block stol-menu-button stol-menu-button__search" type="button" data-show="#searchbar">
-            <i class="hidden icon-close"></i>
+          <button class="block stol-menu-button stol-menu-button__search" type="button" data-activeclass="stol-menu-button__active" data-show="#searchbar">
+            <i class="icon-close"></i>
             <i class="icon-search"></i>
           </button>
           <a class="stol-head-logo" href="index.html"><img src="images/logo.svg"></a>
-          <button class="block stol-menu-button stol-menu-button__menu" type="button" data-show="#main-menu">
-            <i class="hidden icon-close"></i>
+          <button class="block stol-menu-button stol-menu-button__menu" type="button" data-activeclass="stol-menu-button__active" data-show="#main-menu">
+            <i class="icon-close"></i>
             <i class="icon-menu"></i>
-          </button>          
-          <button class="hidden stol-menu-button stol-menu-button__xlmenu" type="button" data-use="xl" data-show="#xl-menu">
-            <i class="hidden icon-close"></i>
+          </button>
+          <button class="stol-menu-button stol-menu-button__xlmenu" type="button" data-activeclass="stol-menu-button__active" data-use="xl" data-show="#xl-menu">
+            <i class="icon-close"></i>
             <i class="icon-menu"></i>
           </button>
           <!-- MAIN MENU -->
-          <div id="main-menu" class="flex hidden stol-menu">
-            <div class="stol-menu-rubrics-wrapper" x-data={show:false,hide:true}>
+          <div id="main-menu" class="stol-menu" data-activeclass="stol-menu__active">
+            <div class="stol-menu-rubrics-wrapper" x-data={show:false}>
               <a href="#" class="stol-menu-rubrics-title" 
-                  @click.prevent="show=!show;hide=!hide">Рубрики 
-                    <i :class="{ 'transform rotate-180': show }" 
-                        class="inline-block icon-arrow-down"></i></a>
-              <ul :class="{ 'stol-menu-rubrics__hidden': hide }"  
+                  @click.prevent="show=!show;">Рубрики 
+                    <i :class="{ 'icon-arrow-down__rotate': show }" 
+                        class="icon-arrow-down"></i></a>
+              <ul :class="{ 'stol-menu-rubrics__hidden': !show }"  
                   class="hidden stol-menu-rubrics">
                 <li><a href="#church">Церковь</a></li>
                 <li><a href="#russian">Русская жизнь</a></li>
@@ -48,7 +45,7 @@
               </ul>
             </div>
             <!-- MENU FOR XL MODE -->
-            <div id="xl-menu" class="stol-menu-xl xl:hidden">
+            <div id="xl-menu" class="stol-menu-xl" data-activeclass="stol-menu-xl__active">
               <div class="stol-menu-xl-items">
                 <ul class="stol-menu-xl-items-block">
                   <li><a href="#projects"></i> спецпроекты</a></li>
@@ -81,7 +78,7 @@
           </div>
         </nav>
         <!-- SEARCH BAR -->
-        <div id="searchbar" class="hidden stol-search" x-data="{label:''}">
+        <div id="searchbar" data-activeclass="stol-search__active" class="hidden stol-search" x-data="{label:''}">
           <input x-model="label" />
           <i class="icon-search"></i>
           <div class="stol-tags-block">
@@ -851,7 +848,7 @@
                         <div href="article.html" class="stol-promo-text">Может еще какой-то подзаголовок в две строки</div>
                     </div>
                 </a>
-            </div>
+              </div>
               <!-- END: TELEGRAM -->
 
             </div>
@@ -1074,7 +1071,10 @@
 
 
         <!-- P U S H   S U B S C R I B E   P O P U P -->
-        <div x-data="{pushSubscribePopup: true}" x-show="pushSubscribePopup" class="hidden stol-popup stol-popup__push">
+        <div x-data="{pushSubscribePopup: true}" 
+            :class="{'stol-popup__active':pushSubscribePopup}" 
+            data-activeclass="stol-popup__active"
+            class="stol-popup stol-popup__micro stol-popup__push">
           <a @click="pushSubscribePopup=false" class="stol-popup-close" href="#"><i class="icon-close"></i></a>
           <p class="stol-popup-text">
             Предложение подписаться<br> на пуш-уведомления в браузере?
@@ -1104,7 +1104,7 @@
           <div class="stol-footer-content">
             <div class="stol-footer-block-wrapper-1">
               <div class="stol-footer-block">
-                <h6 class="stol-footer-block-title">Рубрики</h6>
+                <span class="stol-footer-block-title">Рубрики</span>
                 <ul>
                   <li><a href="#church">Церковь</a></li>
                   <li><a href="#russian">Русская жизнь</a></li>
@@ -1116,7 +1116,7 @@
             </div>
             <div class="stol-footer-block-wrapper-2">
               <div class="stol-footer-block">
-                <h6 class="stol-footer-block-title">мы в соцсетях</h6>
+                <span class="stol-footer-block-title">мы в соцсетях</span>
                 <ul>
                   <li><a href="#telegram">telegram</a></li>
                   <li><a href="#facebook">facebook</a></li>
@@ -1127,19 +1127,18 @@
             </div>
             <div class="stol-footer-block-wrapper-3">
               <div class="stol-footer-block">
-                <h6 class="stol-footer-block-title">контакты редакции</h6>
+                <span class="stol-footer-block-title">контакты редакции</span>
                 <ul>
-                  <li><a href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
-                  <li><a href="tel:+74992673190">8 (499) 267-31-90</a></li>
-                  <li>Учредитель и главный редактор — <span>А.А. Васенёв</span></li>
+                  <li><a class="stol-nowrap" href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
+                  <li><a class="stol-nowrap" href="tel:+74992673190">8 (499) 267-31-90</a></li>
+                  <li>Учредитель и главный редактор — <span class="stol-nowrap">А.А. Васенёв</span></li>
                 </ul>
               </div>
             </div>
             <div class="stol-footer-block-wrapper-4">
               <div class="stol-footer-block">
-                <p x-data @click="window.dispatchEvent(new CustomEvent('textpopup'));" 
-                  class="block">Использования материалов издания <span>s-t-o-l.com</span> разрешено только с предварительного согласия правообладателей. 
-                  Все права на картинки и тексты принадлежат их авторам.</p>
+                <a href="#conditions" x-data @click.prevent="window.dispatchEvent(new CustomEvent('textpopup'));"  class="block">Использования материалов издания <span class="stol-nowrap">s-t-o-l.com</span> разрешено только с предварительного согласия правообладателей. 
+                  Все права на картинки и тексты принадлежат их авторам.</a>
               </div>
             </div>
           </div>
@@ -1149,7 +1148,7 @@
                 <p>2014-2021 © s-t-o-l.com</p>
                 <p>16+</p>
               </div>
-              <div class="stol-footer-block stol-footer-credits-block-2">Свидетельство о регистрации ЭЛ № ФС 77 — 63013 от 10.09.2015 выдано Роскомнадзором.</div>
+              <div class="stol-footer-credits-block-2">Свидетельство о регистрации ЭЛ № ФС 77 — 63013 от 10.09.2015 выдано Роскомнадзором.</div>
             </div>
           </div>
         </div>
@@ -1158,8 +1157,10 @@
 
 
     <!-- T E X T  P O P U P -->
-    <div x-data="{textPopup: false}" x-show="textPopup" class="hidden stol-popup stol-popup__text"
-        x-on:textpopup.window="textPopup=true">
+    <div x-data="{textPopup: false}" class="stol-popup stol-popup__huge stol-popup__text" 
+        :class="{'stol-popup__active': textPopup}"
+        data-activeclass="stol-popup__active" 
+        x-on:textpopup.window="textPopup=true;">
       <a @click="textPopup=false" class="stol-popup-close" href="#"><i class="icon-close"></i></a>
       <div class="stol-popup-content">
         <h1>Политика обработки персональных данных</h1>

@@ -11,41 +11,32 @@
     <title>S-T-O-L.COM - ARTICLE</title>
   </head>
   <body>
-    <!--
-    <div style="position:absolute;top:0;left:0;z-index:0;opacity:0.5;"><img src="images/iphone.png"></div>
-    -->
     <div class="stol" id="stol">
       <!-- HEADER -->
       <header class="stol-head">
         <nav class="stol-head-nav">
-          <button class="block stol-menu-button stol-menu-button__search" type="button" data-show="#searchbar">
-            <i class="hidden icon-close"></i>
+          <button class="block stol-menu-button stol-menu-button__search" type="button" data-activeclass="stol-menu-button__active" data-show="#searchbar">
+            <i class="icon-close"></i>
             <i class="icon-search"></i>
           </button>
           <a class="stol-head-logo" href="index.html"><img src="images/logo.svg"></a>
-          <button class="block stol-menu-button stol-menu-button__menu" type="button" data-show="#main-menu">
-            <i class="hidden icon-close"></i>
+          <button class="block stol-menu-button stol-menu-button__menu" type="button" data-activeclass="stol-menu-button__active" data-show="#main-menu">
+            <i class="icon-close"></i>
             <i class="icon-menu"></i>
-          </button>          
-          <button class="hidden stol-menu-button stol-menu-button__xlmenu" type="button" data-use="xl" data-show="#xl-menu">
-            <i class="hidden icon-close"></i>
+          </button>
+          <button class="stol-menu-button stol-menu-button__xlmenu" type="button" data-activeclass="stol-menu-button__active" data-use="xl" data-show="#xl-menu">
+            <i class="icon-close"></i>
             <i class="icon-menu"></i>
           </button>
           <!-- MAIN MENU -->
-          <div id="main-menu" class="flex hidden stol-menu">
-            <div class="stol-menu-rubrics-wrapper" x-data={show:false,hide:true}>
+          <div id="main-menu" class="stol-menu" data-activeclass="stol-menu__active">
+            <div class="stol-menu-rubrics-wrapper" x-data={show:false}>
               <a href="#" class="stol-menu-rubrics-title" 
-                  @click.prevent="show=!show;hide=!hide">Рубрики 
-                    <i :class="{ 'transform rotate-180': show }" 
-                        class="inline-block icon-arrow-down"></i></a>
-              <ul :class="{ 'stol-menu-rubrics__hidden': hide }"  
-                  class="stol-menu-rubrics hidden"
-                  x-transition:enter="transition ease-out duration-300" 
-                  x-transition:enter-start="transform h-0" 
-                  x-transition:enter-end="transform h-full" 
-                  x-transition:leave="transition ease-in duration-300" 
-                  x-transition:leave-start="transform " 
-                  x-transition:leave-end="transform ">
+                  @click.prevent="show=!show;">Рубрики 
+                    <i :class="{ 'icon-arrow-down__rotate': show }" 
+                        class="icon-arrow-down"></i></a>
+              <ul :class="{ 'stol-menu-rubrics__hidden': !show }"  
+                  class="hidden stol-menu-rubrics">
                 <li><a href="#church">Церковь</a></li>
                 <li><a href="#russian">Русская жизнь</a></li>
                 <li><a href="#culture">Культура</a></li>
@@ -54,7 +45,7 @@
               </ul>
             </div>
             <!-- MENU FOR XL MODE -->
-            <div id="xl-menu" class="stol-menu-xl xl:hidden">
+            <div id="xl-menu" class="stol-menu-xl" data-activeclass="stol-menu-xl__active">
               <div class="stol-menu-xl-items">
                 <ul class="stol-menu-xl-items-block">
                   <li><a href="#projects"></i> спецпроекты</a></li>
@@ -87,7 +78,7 @@
           </div>
         </nav>
         <!-- SEARCH BAR -->
-        <div id="searchbar" class="hidden stol-search" x-data="{label:''}">
+        <div id="searchbar" data-activeclass="stol-search__active" class="hidden stol-search" x-data="{label:''}">
           <input x-model="label" />
           <i class="icon-search"></i>
           <div class="stol-tags-block">
@@ -667,8 +658,21 @@
                 </div>
               </div>
               <!-- END: T E A S E R -->
+
+              <!-- START: TELEGRAM -->
+              <div class="stol-promo-wrapper">
+                <a href="telegram" class="stol-promo stol-promo__telegram">
+                    <div href="#telegram" class="stol-promo-logo" style="background-image:url(images/logos_telegram.png)"></div>
+                    <div class="stol-promo-content">
+                        <div href="article.html" class="stol-promo-title">подписывайтесь на наш telegram-канал</div>
+                        <div href="article.html" class="stol-promo-text">Может еще какой-то подзаголовок в две строки</div>
+                    </div>
+                </a>
+              </div>
+              <!-- END: TELEGRAM -->
+
               <!-- START: T E A S E R -->
-              <div class="stol-teaser">
+              <div class="stol-teaser stol-xl-hide">
                 <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
                   <span class="stol-tag-label">культура</span>
                 </a>
@@ -683,15 +687,7 @@
                 </div>
               </div>
               <!-- END: T E A S E R -->
-              <!-- START: T E A S E R -->
-              <a href="#telegram" class="flex flex-col items-center justify-center space-y-6 bg-blue-400 stol-xl-hide stol-promo mb-9">
-                <div class="stol-promo-logo" style="background-image:url(images/logos_telegram.png)"></div>
-                <div class="stol-teaser-content">
-                  <a href="#article1" class="stol-promo-title">подписывайтесь на наш telegram-канал</a>
-                  <a href="#article1" class="stol-promo-text">Может еще какой-то подзаголовок в две строки</a>
-                </div>
-              </div>
-              <!-- END: T E A S E R -->
+
             </div>
             <a href="#all-articles" class="stol-button-more">ЗАГРУЗИТЬ ЕЩЕ</a>  
           </section>
@@ -731,59 +727,61 @@
         <!-- RIGHT COLUMN -->
         <aside class="stol-right-column stol-xl-show-block" id="right-column">
           <div class="stol-right-wrapper" id="right-wrapper">
-            <!-- SECTION - XL-PROMO -->
-            <section class="stol-section stol-section__right-column h-dtop1">
-              <div class="flex items-center w-full h-full -mt-11">
-                <span class="w-full text-center">ПРОМО</span>
-              </div>
-            </section>
+            
+            <!-- START: PROMO -->
+            <div class="stol-promo-wrapper">
+              <a href="#promo" class="stol-promo stol-promo__white">
+                <span class="stol-promo-title">ПРОМО</span>
+              </a>
+            </div>
+            <!-- END: PROMO -->
 
-            <!-- SECTION - NEWS-REVIEW -->
-            <section class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
-              x-init="swiper = new Swiper($refs.container, {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 0,
-                breakpoints: {
-                  768: { slidesPerView: 2, spaceBetween: 0},
-                  1280:{ slidesPerView: 3, spaceBetween: 0, direction: 'vertical' },
-                },
-              });"
-            >
-              <!-- SECTION TITLE -->
-              <h6 class="stol-section-title">Актуальные новости</h6>
-              <div class="swiper-container" x-ref="container">
-                <div class="swiper-wrapper">
-                  <a href="#news-review1" class="stol-teaser-news swiper-slide">
-                    <div class="stol-teaser-news-content">
-                      <p class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                      <p class="stol-teaser-news-date">10.02.2021</p>
-                    </div>
-                  </a>
-                  <a href="#news-review2" class="stol-teaser-news swiper-slide">
-                    <div class="stol-teaser-news-content">
-                      <p class="stol-teaser-news-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
-                      <p class="stol-teaser-news-date">20.03.2021</p>
-                    </div>
-                  </a>
-                  <a href="#news-review" class="stol-teaser-news swiper-slide">
-                    <div class="stol-teaser-news-content">
-                      <p class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
-                      <p class="stol-teaser-news-date">01.04.2021</p>
-                    </div>
-                  </a>
-                </div>
+          <!-- SECTION - NEWS-REVIEW -->
+          <section class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
+            x-init="swiper = new Swiper($refs.container, {
+              loop: true,
+              slidesPerView: 1,
+              spaceBetween: 0,
+              breakpoints: {
+                768: { slidesPerView: 2, spaceBetween: 0},
+                1280:{ slidesPerView: 3, spaceBetween: 0, direction: 'vertical' },
+              },
+            });"
+          >
+            <!-- SECTION TITLE -->
+            <h6 class="stol-section-title">Актуальные новости</h6>
+            <div class="swiper-container" x-ref="container">
+              <div class="swiper-wrapper">
+                <a href="#news-review1" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                    <p class="stol-teaser-news-date">10.02.2021</p>
+                  </div>
+                </a>
+                <a href="#news-review2" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                    <p class="stol-teaser-news-date">20.03.2021</p>
+                  </div>
+                </a>
+                <a href="#news-review" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                    <p class="stol-teaser-news-date">01.04.2021</p>
+                  </div>
+                </a>
               </div>
+            </div>
 
-              <div x-ref="controls" class="stol-controls">
-                <a href="#all-reviews" class="stol-controls-title">ВСЕ ОБЗОРЫ <i class="icon-arrow-right-long"></i></a>
-                <div class="stol-controls-divider"></div>
-                <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
-              </div>
-            </section>
+            <div x-ref="controls" class="stol-controls">
+              <a href="#all-reviews" class="stol-controls-title">ВСЕ ОБЗОРЫ <i class="icon-arrow-right-long"></i></a>
+              <div class="stol-controls-divider"></div>
+              <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
+            </div>
+          </section>
 
-            <!-- SECTION - NEWS-REVIEW -->
-            <section class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
+          <!-- SECTION - NEWS-REVIEW -->
+          <section class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
             x-init="swiper = new Swiper($refs.container, {
               loop: true,
               slidesPerView: 1,
@@ -795,7 +793,7 @@
             });"
           >
             <!-- SECTION TITLE -->
-            <h6 class="w-full stol-section-title">События</h6>
+            <h6 class="stol-section-title">События</h6>
             <div class="swiper-container" x-ref="container">
               <div class="swiper-wrapper">
                 <a href="#event1" class="stol-teaser-news swiper-slide">
@@ -880,24 +878,24 @@
               <div class="stol-footer-block">
                 <span class="stol-footer-block-title">контакты редакции</span>
                 <ul>
-                  <li><a class="whitespace-nowrap" href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
-                  <li><a class="whitespace-nowrap" href="tel:+74992673190">8 (499) 267-31-90</a></li>
-                  <li>Учредитель и главный редактор — <span class="whitespace-nowrap">А.А. Васенёв</span></li>
+                  <li><a class="stol-nowrap" href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
+                  <li><a class="stol-nowrap" href="tel:+74992673190">8 (499) 267-31-90</a></li>
+                  <li>Учредитель и главный редактор — <span class="stol-nowrap">А.А. Васенёв</span></li>
                 </ul>
               </div>
             </div>
             <div class="stol-footer-block-wrapper-4">
               <div class="stol-footer-block">
-                <span class="block">Использования материалов издания <span class="whitespace-nowrap">s-t-o-l.com</span> разрешено только с предварительного согласия правообладателей. 
-                  Все права на картинки и тексты принадлежат их авторам.</span>
+                <a href="#conditions" x-data @click.prevent="window.dispatchEvent(new CustomEvent('textpopup'));"  class="block">Использования материалов издания <span class="stol-nowrap">s-t-o-l.com</span> разрешено только с предварительного согласия правообладателей. 
+                  Все права на картинки и тексты принадлежат их авторам.</a>
               </div>
             </div>
           </div>
           <div class="stol-footer-credits">
             <div class="stol-footer-credits-content">
-              <div class="pb-6 white-opacity">
-                <p class="py-1 uppercase">2014-2021 © s-t-o-l.com</p>
-                <p class="py-1 uppercase">16+</p>
+              <div class="stol-footer-credits-block-1">
+                <p>2014-2021 © s-t-o-l.com</p>
+                <p>16+</p>
               </div>
               <div class="stol-footer-credits-block-2">Свидетельство о регистрации ЭЛ № ФС 77 — 63013 от 10.09.2015 выдано Роскомнадзором.</div>
             </div>

@@ -11,35 +11,32 @@
     <title>S-T-O-L.COM - RUBRICA</title>
   </head>
   <body>
-    <!--
-    <div style="position:absolute;top:0;left:0;z-index:0;opacity:0.5;"><img src="images/iphone.png"></div>
-    -->
     <div class="stol" id="stol">
       <!-- HEADER -->
       <header class="stol-head">
         <nav class="stol-head-nav">
-          <button class="block stol-menu-button stol-menu-button__search" type="button" data-show="#searchbar">
-            <i class="hidden icon-close"></i>
+          <button class="block stol-menu-button stol-menu-button__search" type="button" data-activeclass="stol-menu-button__active" data-show="#searchbar">
+            <i class="icon-close"></i>
             <i class="icon-search"></i>
           </button>
           <a class="stol-head-logo" href="index.html"><img src="images/logo.svg"></a>
-          <button class="block stol-menu-button stol-menu-button__menu" type="button" data-show="#main-menu">
-            <i class="hidden icon-close"></i>
+          <button class="block stol-menu-button stol-menu-button__menu" type="button" data-activeclass="stol-menu-button__active" data-show="#main-menu">
+            <i class="icon-close"></i>
             <i class="icon-menu"></i>
-          </button>          
-          <button class="hidden stol-menu-button stol-menu-button__xlmenu" type="button" data-use="xl" data-show="#xl-menu">
-            <i class="hidden icon-close"></i>
+          </button>
+          <button class="stol-menu-button stol-menu-button__xlmenu" type="button" data-activeclass="stol-menu-button__active" data-use="xl" data-show="#xl-menu">
+            <i class="icon-close"></i>
             <i class="icon-menu"></i>
           </button>
           <!-- MAIN MENU -->
-          <div id="main-menu" class="flex hidden stol-menu">
-            <div class="stol-menu-rubrics-wrapper" x-data={show:false,hide:true}>
+          <div id="main-menu" class="stol-menu" data-activeclass="stol-menu__active">
+            <div class="stol-menu-rubrics-wrapper" x-data={show:false}>
               <a href="#" class="stol-menu-rubrics-title" 
-                  @click.prevent="show=!show;hide=!hide">Рубрики 
-                    <i :class="{ 'transform rotate-180': show }" 
-                        class="inline-block icon-arrow-down"></i></a>
-              <ul :class="{ 'stol-menu-rubrics__hidden': hide }"  
-                  class="stol-menu-rubrics hidden">
+                  @click.prevent="show=!show;">Рубрики 
+                    <i :class="{ 'icon-arrow-down__rotate': show }" 
+                        class="icon-arrow-down"></i></a>
+              <ul :class="{ 'stol-menu-rubrics__hidden': !show }"  
+                  class="hidden stol-menu-rubrics">
                 <li><a href="#church">Церковь</a></li>
                 <li><a href="#russian">Русская жизнь</a></li>
                 <li><a href="#culture">Культура</a></li>
@@ -48,7 +45,7 @@
               </ul>
             </div>
             <!-- MENU FOR XL MODE -->
-            <div id="xl-menu" class="stol-menu-xl xl:hidden">
+            <div id="xl-menu" class="stol-menu-xl" data-activeclass="stol-menu-xl__active">
               <div class="stol-menu-xl-items">
                 <ul class="stol-menu-xl-items-block">
                   <li><a href="#projects"></i> спецпроекты</a></li>
@@ -81,7 +78,7 @@
           </div>
         </nav>
         <!-- SEARCH BAR -->
-        <div id="searchbar" class="hidden stol-search" x-data="{label:''}">
+        <div id="searchbar" data-activeclass="stol-search__active" class="hidden stol-search" x-data="{label:''}">
           <input x-model="label" />
           <i class="icon-search"></i>
           <div class="stol-tags-block">
@@ -460,7 +457,7 @@
             });"
           >
             <!-- SECTION TITLE -->
-            <h6 class="w-full stol-section-title">События</h6>
+            <h6 class="stol-section-title">События</h6>
             <div class="swiper-container" x-ref="container">
               <div class="swiper-wrapper">
                 <a href="#event1" class="stol-teaser-news swiper-slide">
@@ -545,24 +542,24 @@
               <div class="stol-footer-block">
                 <span class="stol-footer-block-title">контакты редакции</span>
                 <ul>
-                  <li><a class="whitespace-nowrap" href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
-                  <li><a class="whitespace-nowrap" href="tel:+74992673190">8 (499) 267-31-90</a></li>
-                  <li>Учредитель и главный редактор — <span class="whitespace-nowrap">А.А. Васенёв</span></li>
+                  <li><a class="stol-nowrap" href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
+                  <li><a class="stol-nowrap" href="tel:+74992673190">8 (499) 267-31-90</a></li>
+                  <li>Учредитель и главный редактор — <span class="stol-nowrap">А.А. Васенёв</span></li>
                 </ul>
               </div>
             </div>
             <div class="stol-footer-block-wrapper-4">
               <div class="stol-footer-block">
-                <span class="block">Использования материалов издания <span class="whitespace-nowrap">s-t-o-l.com</span> разрешено только с предварительного согласия правообладателей. 
-                  Все права на картинки и тексты принадлежат их авторам.</span>
+                <a href="#conditions" x-data @click.prevent="window.dispatchEvent(new CustomEvent('textpopup'));"  class="block">Использования материалов издания <span class="stol-nowrap">s-t-o-l.com</span> разрешено только с предварительного согласия правообладателей. 
+                  Все права на картинки и тексты принадлежат их авторам.</a>
               </div>
             </div>
           </div>
           <div class="stol-footer-credits">
             <div class="stol-footer-credits-content">
-              <div class="pb-6 white-opacity">
-                <p class="py-1 uppercase">2014-2021 © s-t-o-l.com</p>
-                <p class="py-1 uppercase">16+</p>
+              <div class="stol-footer-credits-block-1">
+                <p>2014-2021 © s-t-o-l.com</p>
+                <p>16+</p>
               </div>
               <div class="stol-footer-credits-block-2">Свидетельство о регистрации ЭЛ № ФС 77 — 63013 от 10.09.2015 выдано Роскомнадзором.</div>
             </div>
