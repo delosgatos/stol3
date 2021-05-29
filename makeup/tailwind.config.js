@@ -183,6 +183,9 @@ module.exports = {
 
         'w-hair':         '0.05vw',
         'h-hair':         '0.05vh',
+        'galtext':        '300px',
+        'galctrl-w':      'calc(300px - 5rem)',
+        'galctrl-off':    'calc(100% - 300px + 2.5rem)',
       },
       lineHeight: {
         11: '2.75rem',
@@ -270,6 +273,7 @@ module.exports = {
         full: '2 1 100%',
         fix: '0 0 auto',
         0: '0 1 0%',
+        growonly: '1 0 auto',
       },
       blur: {
         1: '1px',

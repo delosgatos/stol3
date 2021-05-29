@@ -71,6 +71,7 @@
         }
         &__full {
             @apply absolute top-0 left-0 right-0 bottom-0 m-0 p-0 pt-0 w-auto bg-gray-900 z-50;
+            @apply xl:flex xl:flex-col justify-center xl:m-0;
             [x-ref=box]{
                 @apply pt-10;
             }
@@ -82,18 +83,26 @@
                             @apply text-xs text-white;
                         }
                     }
+                    &-content {
+                        @apply xl:m-0;
+                    }
                 }
                 &-teaser {
-                    @apply bg-gray-900;
+                    @apply bg-gray-900 xl:flex-row;
                     &-content:not([hidden]) {
                         @apply flex mt-16;
+                        @apply xl:px-10 xl:py-0 xl:m-0 xl:mt-28 xl:flex-growonly xl:w-galtext;
                     }
                     &-text:not([hidden]) {
                         @apply text-white
                     }
+                    &-date {
+                        @extend .graytext;
+                    }
                 }
                 &-controls:not([hidden]) {
-                    @apply absolute z-50 mt-10 top-mgal md:top-tgal xl:top-dgal;
+                    @apply absolute z-50 mt-10 top-mgal md:top-tgal;
+                    @apply xl:top-36 xl:relative xl:p-0 xl:m-0 xl:flex-initial xl:w-galctrl-w xl:ml-galctrl-off;
                     [class^="icon-"], [class*=" icon-"] {
                         @apply text-white border-white;
                     } 
@@ -104,6 +113,9 @@
                         &-counter {
                             @apply text-white;
                         }
+                    }
+                    .stol-subtext {
+                        @apply opacity-0;
                     }
                 }
             }
