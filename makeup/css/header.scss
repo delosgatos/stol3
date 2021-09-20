@@ -10,7 +10,7 @@
       @apply md:w-18.5 md:h-18.5 md:max-h-none;
       @apply xl:w-xl-head xl:h-xl-head;
       .icon-close{
-        @apply py-3 xl:py-9;
+        @apply py-3 xl:py-0;
       }
       [class^="icon-"], [class*=" icon-"] {
         @apply xl:text-dh2;
@@ -19,7 +19,7 @@
         }
       }
       &.showed {
-        @apply block bg-gray-900 text-white;
+        @apply block;
         & > i {
           @apply hidden;
         }

@@ -129,9 +129,20 @@
             @apply py-4;
         }
         img, .stol-article-video {
-            @apply my-4 -mx-3 w-full+6 max-w-none md:mx-0 md:w-full;
+            @extend .-x-pad;
+            @apply md:mx-0 md:w-auto xl:mx-0 xl:w-auto; // clear -x-pad on md, xl
+            @apply my-4 max-w-none md:max-w-full;
             & + address {
                 @apply pt-0 w-full text-center;
+            }
+        }
+        &-image-wrap { 
+            @extend .stol-subtext;
+            @extend .-x-pad;
+            @apply md:mx-0 md:w-auto xl:mx-0 xl:w-auto; // clear -x-pad on md, xl
+            @apply text-center max-w-none md:max-w-full; 
+            img, .stol-article-video {
+                @apply 
             }
         }
         blockquote {
