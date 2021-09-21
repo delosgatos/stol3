@@ -24,19 +24,16 @@ HTMLElement.prototype.getFullWidth = function(){
       };
       obj.addEventListener(type, func);
   };
-  /* init - you can init any event */
   throttle("resize", "optimizedResize");
 })();
 var ANTISCROLL = 'stop-scrolling';
 var bodyClasses = document.body.classList;
 var stopScroll = function(maxHeight) {
-  //console.log('ADD ANTISCROLL', rect);
   bodyClasses.add(ANTISCROLL);
   document.body.style.height = (maxHeight < window.innerHeight ? window.innerHeight : maxHeight) + 'px';
   document.body.style.overflow = 'hidden';
 };
 var resumeScroll = function() {
-  //console.log('REMOVE ANTISCROLL');
   bodyClasses.remove(ANTISCROLL);
   document.body.style.height = '';
   document.body.style.overflow = 'inherit';
@@ -44,59 +41,83 @@ var resumeScroll = function() {
 
 var showClickElements = document.querySelectorAll('[data-show]');
 var showClickHandler = function (switcher, state) {
-  // console.log('SHOW OR HIDE', switcher, state);
+  var switcherActiveClass = switcher.dataset['activeclass'];
   if (state == 'on') {
-    if (!switcher.classList.contains('showed')) {
-      switcher.classList.add('showed');
+    if (!switcher.classList.contains(switcherActiveClass)) {
+      switcher.classList.add(switcherActiveClass);
     }
   } else if (state == 'off') {
-    switcher.classList.remove('showed');
+    switcher.classList.remove(switcherActiveClass);
   } else {
-    switcher.classList.toggle('showed');
+    switcher.classList.toggle(switcherActiveClass);
   }
   var collapseSelector = switcher.getAttribute('data-show');
   var el = document.querySelector(collapseSelector);
-  //console.log('SWITCHER', switcher, 'CONTROLLED', el);
-  if (!el.classList.contains('hidden') && isXl()) {
-    //console.log('XL SWITCH');
+  var elActiveClass = el.dataset['activeclass'];
+  var switcherActiveClass = switcher.dataset['activeclass'];
+  if (elActiveClass) {
     if (state == 'on') {
-      //console.log('LINE 37');
-      switcher.classList.remove('xl:hidden');
+      el.classList.add(elActiveClass);
     } else if (state == 'off') {
-      if (!switcher.classList.contains('showed')) {
-        //console.log('LINE 41');
-        el.classList.add('xl:hidden');
+      if (!switcher.classList.contains(switcherActiveClass)) {
+        el.classList.remove(elActiveClass);
       }
     } else {
-      el.classList.toggle('xl:hidden');
-      if (!el.classList.contains('xl:hidden')) {
-        var input = el.querySelector('input');
-        if (input) {
-          input.focus();
-        }
+      el.classList.toggle(elActiveClass);
+    }
+    if (el.classList.contains(elActiveClass)) {
+      var input = el.querySelector('input');
+      if (input) {
+        input.focus();
       }
     }
-  } else if(switcher.getAttribute('data-use') != 'xl') {
-    if (state == 'on') {
-      // console.log('LINE 50');
-      switcher.classList.remove('hidden');
-    } else if (state == 'off') {
-      if (!switcher.classList.contains('showed')) {
-        // console.log('LINE 55');
-        el.classList.add('hidden');
+  } else {
+    if (!el.classList.contains('hidden') && isXl()) {
+      if (state == 'on') {
+        switcher.classList.remove('xl:hidden');
+      } else if (state == 'off') {
+        if (!switcher.classList.contains('showed')) {
+          el.classList.add('xl:hidden');
+        }
+      } else {
+        el.classList.toggle('xl:hidden');
+        if (!el.classList.contains('xl:hidden')) {
+          var input = el.querySelector('input');
+          if (input) {
+            input.focus();
+          }
+        }
       }
-    } else {
-      // console.log('LINE 60');
-      el.classList.toggle('hidden');
-      if (!el.classList.contains('hidden')) {
-        var input = el.querySelector('input');
-        if (input) {
-          input.focus();
+    } else if(switcher.getAttribute('data-use') != 'xl') {
+      if (state == 'on') {
+        switcher.classList.remove('hidden');
+      } else if (state == 'off') {
+        if (!switcher.classList.contains('showed')) {
+          el.classList.add('hidden');
+        }
+      } else {
+        el.classList.toggle('hidden');
+        if (!el.classList.contains('hidden')) {
+          var input = el.querySelector('input');
+          if (input) {
+            input.focus();
+          }
         }
       }
     }
   }
   return el;
+}
+var toggleModal = function (el) {
+  setTimeout(function() {
+    var rect = el.getBoundingClientRect();
+    var activeClass = el.dataset['activeclass'] || 'showed';
+    if (el.classList.contains(activeClass)) {
+      stopScroll(rect.bottom);
+    } else {
+      resumeScroll();
+    }
+  }, 0);
 }
 showClickElements.forEach(function (el) {
   el.addEventListener('click', function (e) {
@@ -107,12 +128,7 @@ showClickElements.forEach(function (el) {
       showClickHandler(el, 'off');
     });
     var dropdown = showClickHandler(e.currentTarget);
-    var rect = dropdown.getBoundingClientRect()
-    if (e.currentTarget.classList.contains('showed')) {
-      stopScroll(rect.bottom);
-    } else {
-      resumeScroll();
-    }
+    toggleModal(dropdown);
   });
 });
 
@@ -251,6 +267,22 @@ collapsibleTags.prototype = {
   }
 }
 
+var addListeners = function(){
+  var links = document.querySelectorAll('[data-href]');
+  [].forEach.call(links, function(link) {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var url = el.dataset['href'];
+      if (el.dataset['target']) {
+        window.open(url, '_blank').focus();
+      } else {
+        window.location.assign(url);
+      }
+    });
+  });
+}
+addListeners();
+
 window.addEventListener('optimizedResize', function(e) {
   console.log('RESIZE', window.innerWidth+' x '+window.innerHeight);
   movingElements.update();
@@ -265,6 +297,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+var resizeListener = function(element, callback){
+  new ResizeObserver(callback).observe(element);
+};
+
 var ct = new collapsibleTags('js-collapsible-tags', 'stol-tag', 'stol-tag-hidden');
 window.onload = function(){
   ct.init();

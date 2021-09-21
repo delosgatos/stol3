@@ -1,0 +1,45 @@
+// O P I N I O N S
+&-opinion {
+  @apply flex flex-row flex-wrap w-full pt-1;
+  &-image {
+    @apply relative flex-initial inline-block mr-5 w-16 md:w-18 xl:w-19;
+    img {
+      @apply w-full rounded-full object-cover;
+    }
+  }
+  &-content {
+    @apply flex-1 flex-grow inline-block space-y-2;
+  }
+  &-title {
+    @apply pt-1 uppercase text-mh3 md:text-th3 xl:text-dh3;
+  }
+}
+
+&-author {
+  @apply flex flex-row flex-wrap w-full pt-1;
+  &-image {
+    @apply relative flex-initial inline-block mr-5 w-16 md:w-18 xl:w-19;
+    img {
+      @apply w-full rounded-full object-cover;
+    }
+  }
+  &-content {
+    @apply flex-1 flex-grow inline-block space-y-2;
+  }
+  &-title {
+    @apply pt-1 uppercase text-mh3 md:text-th3 xl:text-dh3;
+  }
+  .stol-section-authors & {
+    
+  }
+  .stol-section-authors__big & {
+    @apply flex-col;
+    &-image {
+      @apply mb-6 w-32.5 xl:w-35;
+    }
+    &-content {
+      @apply space-y-3;
+    }
+  }
+
+}

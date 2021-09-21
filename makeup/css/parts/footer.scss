@@ -1,0 +1,80 @@
+&-footer {
+    @apply relative py-20 text-white bg-gray-900;
+    -webkit-text-stroke: 0.2px rgba(0,0,0,0.8);
+    &-wrapper {
+      @apply px-3 mx-auto md:px-5 md:grid md:grid-cols-2 md:gap-13 xl:px-10 xl:gap-0 xl:grid-cols-none
+    }
+    a {
+      @extend .p;
+      @apply text-white;
+      &:hover {
+        @extend .stol-vivid;
+      }
+    }
+    &-content {
+      @apply flex flex-wrap xl:grid xl:grid-cols-4 xl:gap-13;
+    }
+    &-block {
+      @extend .p;
+      @apply my-4 md:mt-0 md:mb-8 text-white;
+      &-wrapper {
+        &-1 { @apply w-full xl:order-4; }
+        &-2 { @apply w-full xl:order-3; }
+        &-3 { @apply w-full xl:order-2; }
+        &-4 { @apply w-full xl:order-1; }
+      }
+      &-title {
+        @extend .h3;
+        @apply nowrap block mb-5 text-white uppercase text-opacity-60;
+        li {
+          @apply flex-1;
+          &:last-child {
+            @apply w-full;
+          }
+        }
+      }
+      ul {
+        @apply flex flex-row flex-wrap w-full xl:flex xl:flex-col;
+        li {
+          @apply flex-initial pr-5 mb-3 nowrap;
+          &.flex-col {
+            @apply flex-1;
+          }
+        }
+        &.nowrap {
+          li {
+            @apply whitespace-nowrap;
+          }
+        }
+      }
+      &-1 { 
+        @apply stol-footer-credits-block-1;
+        p {
+          @apply py-1 uppercase;
+        }
+      }
+      &-2 { @apply white-opacity xl:col-span-3; }
+      & > span, & > a {
+      }
+    }
+    &-credits {
+      @apply flex flex-wrap items-center justify-center md:justify-between md:w-full md:col-span-2;
+      &-content {
+        @apply w-full md:grid md:grid-cols-2 md:gap-13 xl:grid-cols-4;
+      }
+      &-block{
+        &-1 {
+          @apply pb-6 white-opacity uppercase;
+          p {
+            @apply py-1;
+          }
+        }
+        &-2 {
+
+        }
+      }
+    }
+    .white-opacity{
+      @apply text-white text-opacity-60;
+    }
+}

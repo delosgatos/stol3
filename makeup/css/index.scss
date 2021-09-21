@@ -10,16 +10,17 @@
 /*@import 'tailwind';*/
 @import 'common';
 .stol {
-  @import 'parts/tags';
   @import 'parts/section';
+  @import 'parts/tags';
   @import 'parts/teaser';
-  @import 'parts/opinion';
+  @import 'parts/promo';
+  @import 'parts/author';
   @import 'parts/controls';
-  @import 'header';
-  @import 'main';
-  @import 'article';
-  @import 'list';
-  @import 'footer';
+  @import 'parts/header';
+  @import 'parts/article';
+  @import 'parts/list';
+  @import 'parts/footer';
+  @import 'parts/popup';
 }
 @import 'addons';
 @import 'override';

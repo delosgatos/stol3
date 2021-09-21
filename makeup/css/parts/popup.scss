@@ -1,0 +1,150 @@
+&-popup {
+    @apply fixed top-0 left-0 hidden z-50 flex-col items-start p-5 pr-8 bg-white border border-gray-900 shadow-lg;
+    @apply md:rounded md:top-h1/2 md:left-w1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2;
+    &-close {
+        @extend .h2;
+        @apply absolute right-3 top-3;
+    }
+    &-button {
+        @extend .stol-button;
+        @apply text-white bg-gray-900;
+    }
+    &-text {
+        @extend .simpletext;
+        @apply pb-4 text-m;
+    }
+    &-content, &-block {
+        & > h1 {
+          @extend .h1;
+          @apply uppercase pt-6;
+        }
+        & > h2:not([hidden]) {
+            @extend .h2;
+            @apply uppercase mb-0 mt-10;
+        }
+        & > h3 {
+            @extend .h3;
+            @apply uppercase;
+        }
+        & > p {
+            @extend .simpletext;
+            @extend .p;
+        }
+        & > ul, & > ol {
+            @extend .simpletext;
+            @apply pl-6 space-y-6;
+            & > li {
+                & > ul, & > ol {
+                    @extend .simpletext;
+                    @apply pl-6;
+                    & > li {
+        
+                    }
+                }
+            }
+        }
+        ol {
+            @apply list-decimal;
+        }
+        ul {
+            @apply list-disc;
+        }
+        table {
+            @apply my-4;
+            tr {
+                @apply border-b border-gray-900;
+                &:first-child, &:last-child { 
+                    @apply border-none;
+                }
+                th {
+                    @extend .h3;
+                    @apply uppercase text-left;
+                }
+                td {
+                    @extend .simpletext;
+                    @apply  py-4;
+                }
+            }
+        }
+    }
+    &-content {
+        @apply space-y-6 overflow-y-auto;
+    }
+    &-block {
+        @apply flex flex-col justify-between;
+    }
+    
+    &__active {
+        @apply flex;
+    }
+    
+    &__huge {
+        &.stol-popup {
+            @apply w-full h-h1 md:h-auto md:w-w9/10 md:h-h9/10;
+        }
+    }
+    &__mid {
+        @apply w-full h-auto min-h-screen max-w-4xl; 
+        @apply md:py-18 md:pl-10 md:pr-22 md:w-w8/10 md:min-h-mtop; 
+        @apply xl:w-w1/2 xl:py-16 xl:pl-11 xl:pr-28;
+        .stol-popup-content {
+            @apply flex flex-col justify-center flex-1 md:block md:relative left-0 right-0;
+        }
+    }
+    &__micro {
+        @apply max-w-modal;
+        .stol-popup{
+            &-close {
+                @apply absolute text-xs right-2 top-2;
+            }
+            &-button {
+                @apply text-xs my-0;
+            }
+        }
+    }
+    &__black {
+        @apply bg-black text-white;
+        .stol-popup {
+            &-button {
+                @apply text-gray-900 bg-white;
+            }
+        }
+        .stol-input {
+            @apply bg-gray-600 text-gray-100;
+        }
+    }
+    &__author {
+        .stol-popup-content {
+            @apply space-y-6 md:grid md:grid-cols-2 md:gap-15 xl:gap-25 space-y-2 md:space-y-0;
+            .stol-popup-block {
+                @apply space-y-3;
+                &>*:first-child {
+                    @apply pt-0 mt-0;
+                }
+                h1 {
+                    @apply font-normal;
+                }
+                &:last-child {
+                    @apply justify-center space-y-6;
+                }
+            }
+        }
+    }
+    &__push {
+        @apply top-14 left-10 transform-none;
+        &.stol-popup__active {
+            @apply hidden md:flex;
+        }
+    }
+    &__text {
+        @apply fixed border border-gray-900 p-10;
+        .stol-popup { 
+            &-content {
+                @apply overflow-auto pr-1/8;
+            }
+            &-close {
+                @apply absolute text-sm right-3 top-3;
+            }
+        }
+    }
+}
