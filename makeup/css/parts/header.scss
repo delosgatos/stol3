@@ -42,12 +42,15 @@
       @apply hidden md:order-4 xl:-mr-10 xl:block;
     }
     &__active {
-      @apply block bg-gray-900 text-white;
+      @apply block;
       [class^="icon-"], [class*=" icon-"] {
         @apply hidden;
       }
       .icon-close {
         @apply block;
+        &::before {
+          @apply mt-0;
+        }
       }
     }
   }

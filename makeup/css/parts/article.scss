@@ -223,9 +223,13 @@
             @extend .stol-subtext;
             @extend .-x-pad;
             @apply md:mx-0 md:w-auto xl:mx-0 xl:w-auto; // clear -x-pad on md, xl
-            @apply text-center max-w-none md:max-w-full; 
+            @apply mb-4 mt-10 text-center max-w-none table;
+            @apply md:max-w-full;
             img, .stol-article-video {
-                
+                @apply md:max-w-full md:max-h-tgal md:mx-0 xl:max-h-dgal;
+                & + address {
+                    @apply pt-4 w-full text-center;
+                }
             }
         }
         blockquote {
