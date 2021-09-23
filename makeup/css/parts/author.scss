@@ -8,7 +8,11 @@
     }
   }
   &-content {
-    @apply flex-1 flex-grow inline-block space-y-2;
+    @apply flex-1 flex-grow flex space-y-2 items-center flex-wrap;
+    & > :not([hidden]) ~ :not([hidden]) {
+      flex-basis: 100%;
+      margin: 0;
+    }
   }
   &-title {
     @apply pt-1 uppercase text-mh3 md:text-th3 xl:text-dh3;
