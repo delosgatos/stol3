@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="description" content="{{description}}">
+    <meta name="keywords" content="{{keywords}}">
+    
+    <meta name="analytics:title" content="{{title}}">
+    <meta name="analytics:keyw" content="{{keywords}}">
+    <meta name="analytics:rubric" content="{{rubric}}">
+    <meta name="analytics:tags" content="{{tags}}">
+    <meta name="analytics:site_domain" content="s-t-o-l.com">
+    <meta name="analytics:article_id" content="">
+    <meta name="analytics:url" content="{{current_url}}">
+    <meta name="analytics:p_ts" content="{{pts_id}}">
+    <meta name="analytics:author" content="{{author_id}}">
+    <meta name="analytics:isscroll" content="0">
+    
+    <link rel="author" href="https://s-t-o-l.com/">
+
+    <meta property="og:url" content="{{current_url}}">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="S-T-O-L.COM">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image" content="{{cover}}">
+    <meta property="og:image:width" content="{{cover_width}}">
+    <meta property="og:image:height" content="{{cover_height}}">
+    
+    <link rel="canonical" href="{{current_url}}">
+    <link rel="alternate" hreflang="ru" href="{{current_url}}">
+    <link rel="alternate" hreflang="x-default" href="{{current_url}}">
+    
+    <link rel="preconnect" href="{{cdn_url}}">
+    <link rel="dns-prefetch" href="{{cdn_url}}">
+    <link rel="alternate" type="application/rss+xml" href="{{rss_url}}">
+    <link rel="preload" as="image" href="{{cover}}" imagesrcset="{{cover_imageset}}">
+    
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="article:published_time" content="{{published_timestamp}}">
+    <meta property="article:modified_time" content="{{modified_timestamp}}">
+    <meta property="article:author" content="{{author_name}}">
+    <meta property="article:section" content="{{rubric}}">
+    <meta property="article:tag" content="{{tag1}}">
+    <meta property="article:tag" content="{{tag2}}">
+    <meta property="article:tag" content="{{tag3}}">
+    
+    <!--<link rel="amphtml" href="{{amp_url}}">-->
+
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon.png" />
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="dist/css/main.css?3" />
+
+    <title>S-T-O-L.COM - ARTICLE</title>
+  </head>
+  <body>
+    <div class="stol" id="stol">
+      <!-- HEADER -->
+      <header class="stol-head">
+        <nav class="stol-head-nav">
+          <button class="block stol-menu-button stol-menu-button__search" type="button" data-activeclass="stol-menu-button__active" data-show="#searchbar">
+            <i class="icon-close"></i>
+            <i class="icon-search"></i>
+          </button>
+          <a class="stol-head-logo" href="index.html"><img src="images/logo.svg"></a>
+          <button class="block stol-menu-button stol-menu-button__menu" type="button" data-activeclass="stol-menu-button__active" data-show="#main-menu">
+            <i class="icon-close"></i>
+            <i class="icon-menu"></i>
+          </button>
+          <button class="stol-menu-button stol-menu-button__xlmenu" type="button" data-activeclass="stol-menu-button__active" data-use="xl" data-show="#xl-menu">
+            <i class="icon-close"></i>
+            <i class="icon-menu"></i>
+          </button>
+          <!-- MAIN MENU -->
+          <div id="main-menu" class="stol-menu" data-activeclass="stol-menu__active">
+            <div class="stol-menu-rubrics-wrapper" x-data={show:false}>
+              <a href="#" class="stol-menu-rubrics-title" 
+                  @click.prevent="show=!show;">Рубрики 
+                    <i :class="{ 'icon-arrow-down__rotate': show }" 
+                        class="icon-arrow-down"></i></a>
+              <ul :class="{ 'stol-menu-rubrics__hidden': !show }"  
+                  class="stol-menu-rubrics">
+                <li><a href="#church">Церковь</a></li>
+                <li><a href="#russian">Русская жизнь</a></li>
+                <li><a href="#culture">Культура</a></li>
+                <li><a href="#rememberance">Трудная память</a></li>
+                <li><a href="#society">Общество и ценности</a></li>
+              </ul>
+            </div>
+            <!-- MENU FOR XL MODE -->
+            <div id="xl-menu" class="stol-menu-xl" data-activeclass="stol-menu-xl__active">
+              <div class="stol-menu-xl-items">
+                <ul class="stol-menu-xl-items-block">
+                  <li><a href="#projects"></i> спецпроекты</a></li>
+                  <li><a href="#foto"></i> фотопроекты</a></li>
+                  <li><a href="#events"></i> события</a></li>
+                  <li><a href="#review">актуальные новости</a></li>
+                </ul>
+                <ul class="stol-menu-xl-items-block">
+                  <li><a href="#stol">что такое стол?</a></li>
+                  <li><a href="#contacts">контакты</a></li>
+                  <li><a href="#support">поддержать</a></li>
+                </ul>
+              </div>
+              <div class="stol-tags-block">
+                <a href="#" class="stol-tag-white">стол недели</a>
+                <a href="#" class="stol-tag-white">календарь</a>
+                <a href="#" class="stol-tag-white">фотоистории</a>
+                <a href="#" class="stol-tag-white">русские картинки</a>
+                <a href="#" class="stol-tag-white">словарь</a>
+              </div>
+              <div class="stol-menu-social">
+                <ul class="stol-menu-social-items">
+                  <li><a href="#telegram">telegram</a></li>
+                  <li><a href="#facebook">facebook</a></li>
+                  <li><a href="#vkontakte">vkontakte</a></li>
+                  <li><a href="#instagram">instagram</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- SEARCH BAR -->
+        <div id="searchbar" data-activeclass="stol-search__active" class="stol-search" x-data="{label:''}">
+          <input x-model="label" />
+          <i class="icon-search"></i>
+          <div class="stol-tags-block">
+            <a @click.prevent="{label=$event.target.innerText}" href="#" class="stol-tag-white">стол недели</a>
+            <a @click.prevent="{label=$event.target.innerText}" href="#" class="stol-tag-white">календарь</a>
+            <a @click.prevent="{label=$event.target.innerText}" href="#" class="stol-tag-white">фотоистории</a>
+            <a @click.prevent="{label=$event.target.innerText}" href="#" class="stol-tag-white">русские картинки</a>
+          </div>
+          <div class="stol-list stol-list__notags stol-list__nolabel stol-list__long">
+
+            <div class="stol-list-content">
+              
+              <a href="article.html" class="stol-teaser">
+                  <div class="stol-teaser-image" style="background-image:url(images/v147_205.png)"></div>
+                  <div class="stol-teaser-content">
+                      <h3 class="stol-teaser-title">длинный заголовок материала, который будет на мобильном в три строки</h3>
+                      <p class="stol-teaser-text">65 лет назад Хрущёв прочитал доклад о развенчании культа личности Сталина. Почему и тогда, и сейчас многие обвиняют РПЦ в симпатиях</p>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <div data-href="tag.html" class="stol-tag">спецматериал</div>
+                          <div data-href="tag.html" class="stol-tag">тег статьи</div>
+                          <div data-href="tag.html" class="stol-tag">моя профессия</div>
+                          <div data-href="tag.html" class="stol-tag">интервью</div>
+                          <div data-href="tag.html" class="stol-tag">люди</div>
+                          <div data-href="tag.html" class="stol-tag">лицо дня</div>
+                      </div>
+                  </div>
+              </a>
+              <a href="article.html" class="stol-teaser">
+                  <div class="stol-teaser-image" style="background-image:url(images/v147_364.png)"></div>
+                  <div class="stol-teaser-content">
+                      <h3 class="stol-teaser-title">материал заголовок</h3>
+                      <p class="stol-teaser-text">65 лет назад Хрущёв прочитал доклад о развенчании культа личности Сталина. Почему и тогда, и сейчас многие обвиняют РПЦ в симпатиях</p>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <div data-href="tag.html" class="stol-tag">спецматериал</div>
+                          <div data-href="tag.html" class="stol-tag">тег статьи</div>
+                          <div data-href="tag.html" class="stol-tag">моя профессия</div>
+                          <div data-href="tag.html" class="stol-tag">интервью</div>
+                          <div data-href="tag.html" class="stol-tag">люди</div>
+                          <div data-href="tag.html" class="stol-tag">лицо дня</div>
+                      </div>
+                  </div>
+              </a>
+              <a href="article.html" class="stol-teaser">
+                  <div class="stol-teaser-image" style="background-image:url(images/v147_366.png)"></div>
+                  <div class="stol-teaser-content">
+                      <h3 class="stol-teaser-title">длинный заголовок материала, который будет на мобильном в три строки</h3>
+                      <p class="stol-teaser-text">65 лет назад Хрущёв прочитал доклад о развенчании культа личности Сталина. Почему и тогда, и сейчас многие обвиняют РПЦ в симпатиях. Описание новости примерно в пять строк, хотя зачем пять, хотя зачем пять, хотя зачем пять, хотя зачем пять, в две</p>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <div data-href="tag.html" class="stol-tag">спецматериал</div>
+                          <div data-href="tag.html" class="stol-tag">тег статьи</div>
+                          <div data-href="tag.html" class="stol-tag">моя профессия</div>
+                          <div data-href="tag.html" class="stol-tag">интервью</div>
+                          <div data-href="tag.html" class="stol-tag">люди</div>
+                          <div data-href="tag.html" class="stol-tag">лицо дня</div>
+                      </div>
+                  </div>
+              </a>
+              <a href="article.html" class="stol-teaser">
+                  <div class="stol-teaser-image" style="background-image:url(images/v147_370.png)"></div>
+                  <div class="stol-teaser-content">
+                      <h3 class="stol-teaser-title">материал заголовок</h3>
+                      <p class="stol-teaser-text">65 лет назад Хрущёв прочитал доклад о развенчании культа личности Сталина. Почему и тогда, и сейчас многие обвиняют РПЦ в симпатиях. Описание новости примерно в пять строк, хотя зачем пять, хотя зачем пять, хотя зачем пять, хотя зачем пять, в две</p>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <div data-href="tag.html" class="stol-tag">спецматериал</div>
+                          <div data-href="tag.html" class="stol-tag">тег статьи</div>
+                          <div data-href="tag.html" class="stol-tag">моя профессия</div>
+                          <div data-href="tag.html" class="stol-tag">интервью</div>
+                          <div data-href="tag.html" class="stol-tag">люди</div>
+                          <div data-href="tag.html" class="stol-tag">лицо дня</div>
+                      </div>
+                  </div>
+              </a>
+              <a href="article.html" class="stol-teaser">
+                  <div class="stol-teaser-image" style="background-image:url(images/v147_371.png)"></div>
+                  <div class="stol-teaser-content">
+                      <h3 class="stol-teaser-title">материал заголовок</h3>
+                      <p class="stol-teaser-text">65 лет назад Хрущёв прочитал доклад о развенчании культа личности Сталина. Почему и тогда, и сейчас многие обвиняют РПЦ в симпатиях</p>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <div data-href="tag.html" class="stol-tag">спецматериал</div>
+                          <div data-href="tag.html" class="stol-tag">тег статьи</div>
+                          <div data-href="tag.html" class="stol-tag">моя профессия</div>
+                          <div data-href="tag.html" class="stol-tag">интервью</div>
+                          <div data-href="tag.html" class="stol-tag">люди</div>
+                          <div data-href="tag.html" class="stol-tag">лицо дня</div>
+                      </div>
+                  </div>
+              </a>
+              <a href="article.html" class="stol-teaser">
+                  <div class="stol-teaser-image" style="background-image:url(images/v147_375.png)"></div>
+                  <div class="stol-teaser-content">
+                      <h3 class="stol-teaser-title">материал заголовок</h3>
+                      <p class="stol-teaser-text">65 лет назад Хрущёв прочитал доклад о развенчании культа личности Сталина. Почему и тогда, и сейчас многие обвиняют РПЦ в симпатиях</p>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <div data-href="tag.html" class="stol-tag">спецматериал</div>
+                          <div data-href="tag.html" class="stol-tag">тег статьи</div>
+                          <div data-href="tag.html" class="stol-tag">моя профессия</div>
+                          <div data-href="tag.html" class="stol-tag">интервью</div>
+                          <div data-href="tag.html" class="stol-tag">люди</div>
+                          <div data-href="tag.html" class="stol-tag">лицо дня</div>
+                      </div>
+                  </div>
+              </a>
+              <a href="article.html" class="stol-teaser">
+                  <div class="stol-teaser-image" style="background-image:url(images/v311_349.png)"></div>
+                  <div class="stol-teaser-content">
+                      <h3 class="stol-teaser-title">длинный заголовок материала, который будет на мобильном в три строки</h3>
+                      <p class="stol-teaser-text">65 лет назад Хрущёв прочитал доклад о развенчании культа личности Сталина. Почему и тогда, и сейчас многие обвиняют РПЦ в симпатиях. Описание новости примерно в пять строк, хотя зачем пять, хотя зачем пять, хотя зачем пять, хотя зачем пять, в две</p>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <div data-href="tag.html" class="stol-tag">спецматериал</div>
+                          <div data-href="tag.html" class="stol-tag">тег статьи</div>
+                          <div data-href="tag.html" class="stol-tag">моя профессия</div>
+                          <div data-href="tag.html" class="stol-tag">интервью</div>
+                          <div data-href="tag.html" class="stol-tag">люди</div>
+                          <div data-href="tag.html" class="stol-tag">лицо дня</div>
+                      </div>
+                  </div>
+              </a>
+              <a href="article.html" class="stol-teaser">
+                  <div class="stol-teaser-image" style="background-image:url(images/v147_366.png)"></div>
+                  <div class="stol-teaser-content">
+                      <h3 class="stol-teaser-title">материал заголовок</h3>
+                      <p class="stol-teaser-text">65 лет назад Хрущёв прочитал доклад о развенчании культа личности Сталина. Почему и тогда, и сейчас многие обвиняют РПЦ в симпатиях. Описание новости примерно в пять строк, хотя зачем пять, хотя зачем пять, хотя зачем пять, хотя зачем пять, в две</p>
+                      <p class="stol-teaser-date">10.02.2021</p>
+                      <div class="stol-tags-block js-collapsible-tags">
+                          <div data-href="tag.html" class="stol-tag">спецматериал</div>
+                          <div data-href="tag.html" class="stol-tag">тег статьи</div>
+                          <div data-href="tag.html" class="stol-tag">моя профессия</div>
+                          <div data-href="tag.html" class="stol-tag">интервью</div>
+                          <div data-href="tag.html" class="stol-tag">люди</div>
+                          <div data-href="tag.html" class="stol-tag">лицо дня</div>
+                      </div>
+                  </div>
+              </a>
+          </div>
+        </div>
+      </header>
+
+
+      <!-- MAIN CONTENT -->
+
+      <div class="stol-content">
+        <main>
+          <!-- SECTION - TOP FEATURE -->
+          <article class="stol-article">
+            <section class="stol-article-head">
+                <div id="article-head-content" class="stol-article-head-block">
+                  <h1>Фальк, смерть и чёрный британский юмор</h1>
+                  <p>«Стол» представляет новые выставки и самые значимые премьеры следующей недели.</p>
+                  <div class="stol-breadcrumb stol-breadcrumb__notmobile">
+                    <a href="/">главная</a>
+                    <i class="icon-arrow-right-sm"></i>
+                    <a href="#rubric">рубрика</a>
+                  </div>
+                </div>
+                <div class="stol-article-head-block">
+                  <a href="#opinion3" class="stol-opinion">
+                      <div  class="stol-opinion-image">
+                          <img src="images/v204_217.png" />
+                      </div>
+                      <div class="stol-opinion-content">
+                          <p class="stol-opinion-title">Имя и фамилия автора</p>
+                          <p class="stol-teaser-date">06.04.2021</p>
+                      </div>
+                  </a>
+                  <div class="stol-tags-block">
+                      <a href="#" class="stol-tag">спецматериал</a>
+                      <a href="#" class="stol-tag">тег статьи</a>
+                      <a href="#" class="stol-tag">мегатег статьи</a>
+                      <a href="#" class="stol-tag">бомба-тег статьи</a>
+                  </div>
+                  <div class="stol-breadcrumb stol-breadcrumb__mobile">
+                    <a href="/">главная</a>
+                    <i class="icon-arrow-right-sm"></i>
+                    <a href="#rubric">рубрика</a>
+                  </div>
+                </div>
+            </section>
+            <section 
+                x-bind:class="{'stol-article-gallery__full':full}" 
+                x-bind:full="$dispatch('changeFullscreen', { full: full })" 
+                class="stol-article-gallery" 
+                :class="{'stol-article-gallery__info': info, 'stol-article-gallery__click': infoclick}"
+                x-data="{swiper: null, full:false, info:false, infoclick: false}"
+                x-init="swiper = new Swiper($refs.container, {
+                    observer: true,
+                    observeParents: true,
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    effect: 'slide',
+                    grabCursor: true,
+                    autoHeight: true,
+                    pagination: {
+                    el: '.stol-controls-pagination',
+                    clickable: true,
+                  },
+                  on: {
+                    'slideChange' : function (sw){
+                        this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
+                        $dispatch('slideChange', { slide: sw.realIndex+1 });
+                    },
+                    'slideChangeTransitionEnd' : function (sw){
+                        $dispatch('slideChangeEnd', { slide: sw.realIndex+1 });
+                    }
+                  },
+                  breakpoints: {
+                    768:  {effect: 'flip'},
+                    1280: {effect: 'fade'},
+                  },
+                });"
+            >
+                <a @click.prevent="full=false" class="stol-article-gallery-close" href="#close"><i class="icon-close"></i></a>
+                <div @click.prevent="full=true" class="stol-article-gallery-content" x-ref="box">
+                  <div class="swiper-container" x-ref="container">
+                    <div class="swiper-wrapper">
+                      <!-- START: S L I D E S -->
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <div href="#article1" class="stol-teaser-image" style="background-image:url(images/v147_364.png)"></div>
+                            <div class="stol-teaser-content">
+                                <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                                <p class="stol-teaser-date">Фото: источник</p>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <div href="#article2" class="stol-teaser-image" style="background-image:url(images/v147_205.png)"></div>
+                            <div class="stol-teaser-content">
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-date">Фото: источник</p>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v147_173.png)"></div>
+                            <div class="stol-teaser-content">
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-date">Фото: источник</p>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v147_371.png)"></div>
+                            <div class="stol-teaser-content">
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-date">Фото: источник</p>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v147_373.png)"></div>
+                            <div class="stol-teaser-content">
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-date">Фото: источник</p>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v147_374.png)"></div>
+                            <div class="stol-teaser-content">
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-date">Фото: источник</p>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                      <div class="swiper-slide">
+                          <!-- START: T E A S E R -->
+                          <div class="stol-teaser">
+                            <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v311_345.png)"></div>
+                            <div class="stol-teaser-content">
+                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-date">Фото: источник</p>
+                            </div>
+                          </div>
+                          <!-- END: T E A S E R -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div x-ref="controls" class="stol-controls">
+                  <p class="stol-controls-counter"><span x-ref="counter">1</span> / 7</p>
+                  <a href="#all-specials" class="stol-subtext">Фото: источник</a>
+                  <div class="stol-controls-arrows">
+                    <i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left-sm"></i>
+                    <div class="stol-controls-pagination"></div>
+                    <i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right-sm"></i>
+                  </div>
+                  <div class="stol-controls-gallery">
+                    <a @mouseenter="info=true" @mouseleave="info=false" @click.prevent="infoclick=!infoclick" href="#info" class="stol-controls-info" :class="{'stol-controls-info__active':info,'stol-controls-info__click':infoclick,}"><i class="icon-i"></i></a>
+                    <a @click.prevent="full=true" href="#fullscreen" class="stol-controls-fullscreen"><i class="icon-fullscreen"></i></a>
+                  </div>
+                </div>
+            </section>
+
+            <section class="stol-article-content">
+                <i><span style="font-weight: 400;">«Стол» публикует выдержки из выступления Ольги Седаковой на круглом
+                        столе </span></i><span style="font-weight: 400;">«</span><i><span
+                        style="font-weight: 400;">Аскетика сегодня: принуждение или свобода?» и из предваряющего круглый
+                        стол интервью.</span></i>
+
+                <div class="stol-article-content-image-wrap">
+                    <img src="https://s-t-o-l.com/wp-content/uploads/2021/09/512_2295_i63.jpg">
+                    <address> Поэт Ольга Седакова. Фото: olgasedakova.com</address>
+                </div>
+
+                <i><span style="font-weight: 400;">&nbsp;</span></i>
+
+                <b>Наука тонкая и сложная</b>
+
+                <span style="font-weight: 400;">Мне нравится сама идея начать разговор об аскетике, потому что, пожалуй,
+                    в нашей современной ситуации, в том числе и церковной, эта тема перестаёт привлекать внимание, люди
+                    перестают об этом думать, и даже создается впечатление, что в основном аскетика – это дело прошлых
+                    времён, а сегодня есть вещи гораздо более важные, чем эти старые предписания.</span>
+
+                <span style="font-weight: 400;">Я бы хотела сказать, что – как всякий церковный человек – первое, что я
+                    думаю об аскетике, – это собственно об аскетической традиции, церковной огромной традиции, которая
+                    изучена, описана и которая, конечно, богаче всего в восточной ветви христианства, в православии, и
+                    преимущественно вырабатывалась она в монашеской среде.&nbsp;</span>
+
+                <span style="font-weight: 400;">Старорусское слово для аскезы – это подвиг, а человек, который
+                    осуществляет аскетическую практику, называется подвижником. В обычном обиходе думают прежде всего о
+                    таких вещах, как умерщвление плоти, лишение себя каких-то плотских удовольствий, прежде всего пост,
+                    воздержание. На самом деле это наука гораздо более сложная и тонкая, и в монашеской традиции она по
+                    преимуществу касается именно духовной работы. Оттуда к нам пришли знаменитые словесные обозначения
+                    таких особых практик, как внимание к себе, «бережение сердца», невидимая брань, очищение и другие
+                    названия внутренней работы.</span>
+
+                <span style="font-weight: 400;">В любом случае аскеза, аскетическая позиция связана с умом, с волей, с
+                    пониманием человеком и различением в самом себе того, с чем он хотел бы каким-то образом справиться.
+                    Это не непосредственная, так сказать, жизнь. И поскольку наша современная культура видит огромную
+                    ценность в непосредственности, в живости, в искренности, уже по одному этому она не должна любить
+                    аскезу, потому что аскеза в каком-то смысле лишает человека такой непосредственности.&nbsp;</span>
+
+                <b>Где нет аскезы, там нет культуры</b>
+
+                <span style="font-weight: 400;">Если посмотреть шире, то, конечно, аскеза – это не чисто религиозная
+                    дисциплина или&nbsp; практика. Вся человеческая культура построена на определённых аскетических
+                    принципах. Где нет определённой аскезы, изначально часто не осознаваемой, там мы не можем говорить о
+                    человеческой культуре.&nbsp;</span>
+
+                [quote]<span style="font-weight: 400;">То, что навязано, те ограничения или какие-то правила, которые
+                    приняты просто по подчинению, нельзя назвать аскетическими. Аскеза – это только свободное
+                    действие</span>[/quote]
+
+                <span style="font-weight: 400;">Очень важная черта любого аскетического действия – это добровольность.
+                    То, что навязано, те ограничения или какие-то правила, которые приняты просто по подчинению, нельзя
+                    назвать аскетическими. Аскеза – это только свободное действие. Человек сам принимает, что какие-то
+                    вещи для него возможны, а какие невозможны.&nbsp;</span>
+
+                <span style="font-weight: 400;">Тому представлению о человеке, которое вырабатывается уже со второй
+                    половины XX века, идея об аскезе и дисциплине противоречит. Это всегда воспринимается как нечто
+                    чуждое, навязанное извне, нечто, что искажает реальную природу человека.&nbsp;</span>
+
+                <span style="font-weight: 400;">Аскеза, как и следует из её названия подвига и подвижничества, совсем не
+                    только негативная практика, не просто отказ и воздержание от каких-то вещей, хотя, скорее всего,
+                    большая часть упражнений относится именно к этому типу: запрещение себе что-то делать или по крайней
+                    мере после того, как это сделано, к определённой оценке этих действий и чувств.&nbsp;</span>
+
+                <b>Аскеза </b><span style="font-weight: 400;">–</span><b> это жертва</b>
+
+                <span style="font-weight: 400;">Но не только, конечно. Потому что сущность в том, можно ли принять
+                    собственную данность как последнюю реальность или есть ещё что-то. Ещё что-то, чего нужно достичь
+                    путём упражнений, потому что </span><span style="font-weight: 400;">ἄσκησις </span><span
+                    style="font-weight: 400;">–&nbsp; по-гречески это «упражнение». К чему-то ещё себя как бы
+                    приподнять. Понятно, что для церковного человека это очищение души, а не согласие на то, какова она
+                    сейчас в данном положении. Это жертва. Аскеза может восприниматься как жертва, приноситься как
+                    жертва.&nbsp;</span>
+
+                <span style="font-weight: 400;">Светская аскеза может исходить из того, как представляется идеальный
+                    образ человека, образцовый человек, которому должен как-то соответствовать член общества. Здесь
+                    интересно то, какие черты при этом тот, кто совершает аскезу, выбирает, с чем он, собственно говоря,
+                    собирается бороться, вести свою невидимую брань.&nbsp;</span>
+
+                <span style="font-weight: 400;">У Честертона я где-то читала, что практики голодания, лишение себя
+                    всяческого комфорта, сна и так далее, которые нам известны с самого начала монашества, возникли как
+                    ответ на культ наслаждения, удовольствия, которыми была пропитана поздняя античность. Современность
+                    не этим больше всего поражает человека – не любовью к удовольствиям, а чем-то ещё. И вот чем ещё –
+                    об этом стоит думать. Я думаю, что первое, что приходит в голову, – это рассеянием, отсутствием
+                    внимания, развлечением, то, что всем окружением культурным человеку внушается. Очень мало
+                    сосредоточенности, очень мало способности остановиться на чём-то. В общем, можно думать о том, с
+                    какими чертами должен работать человек, который выбирает такой путь. Не оставаться таким, как он
+                    есть, а куда-то ещё идти.&nbsp;</span>
+
+                <b>Франциск и Иоанн Павел II</b>
+
+                <span style="font-weight: 400;">Например, Франциск Ассизский ещё в XIII веке предложил своей общине
+                    такое правило – не выходить к людям с мрачным и нелюбезным видом. Он говорил: «Пусть твой грех
+                    останется между тобой и Богом». Если человек не может выйти к людям в приветливом и радостном
+                    настроении, пусть не выходит, сидит в одиночку. Мне очень нравится такая форма аскезы, потому что
+                    действительно тяжело видеть людей, которые переносят на других своё раздражение и какие-то другие
+                    тяжёлые состояния.</span>
+
+                <div class="stol-article-content-image-wrap">
+                    <img src="https://s-t-o-l.com/wp-content/uploads/2021/09/Vincenzo_Foppa_004.jpg">
+                    <address> Фрагмент картины Винченцо Фоппа "Франциск Ассизский". Фото: Pinacoteca di Brera /
+                        Wikimedia</address>
+                </div>
+
+                [quote]<span style="font-weight: 400;">Папа Иоанн Павел II дал обет никогда не вкушать пищу в
+                    одиночестве</span>[/quote]
+
+                <span style="font-weight: 400;">Ещё мне очень нравится такая форма аскезы, которую практиковал папа
+                    Иоанн Павел II. Его пост заключался не в том, что он отказывался от каких-то видов еды, а он дал
+                    обет никогда не вкушать пищу в одиночестве. Он всегда делил все трапезы. От завтрака до ужина за его
+                    трапезами были гости. Если задуматься, это довольно трудное задание. Человек никогда не остаётся
+                    почти наедине.&nbsp;</span>
+
+                <span style="font-weight: 400;">Я думаю о том, какие могут быть практики. Мне кажется, что это должно
+                    быть добровольным, это должно быть осознано человеком как некоторая черта, с которой нужно
+                    постараться справиться. Вот это, собственно, задача новой аскетики, я так думаю.&nbsp;</span>
+
+                <b>Творчество </b><span style="font-weight: 400;">–</span><b> это аскеза?</b>
+
+                <span style="font-weight: 400;">Люди, не занимающиеся творчеством, питающиеся легендами о великих
+                    художниках, в искусстве видят стихийную природу. Но не меньшее значение, а может быть, гораздо
+                    большее для того, чтобы получилось какое-то произведение, играет особого рода аскетика, часто
+                    неосознанная. Вряд ли Гёте или Шекспир рассказали бы нам о том, чего они себя лишали или что они
+                    считали для себя обязательным делать. Это очень интуитивный опыт: ты просто чувствуешь, что от
+                    такого поворота событий или от такого восприятия у тебя что-то пропадает. Монашеское хранение сердца
+                    очень важно для художника. Это действительно наблюдение за тем, чтобы в порядке было то, что мы
+                    называем сердцем. А чем это достигается – я думаю, что у каждого по-своему.&nbsp;</span>
+
+                <span style="font-weight: 400;">Великий подвижник и богослов XX века Дитрих Бонхёффер писал, что то, что
+                    называется грехом, неоднородно. То, что будет грехом для крестьянина, не будет грехом для, допустим,
+                    Гёте. Но у Гёте будут свои грехи, которые он не может совершить, – они совсем другие. И, конечно,
+                    расплатой за такие вещи, за нарушение таких трудно систематизируемых запретов (или, наоборот,
+                    обязательств) будет то, что у тебя пропадает дар. Но это не формализуемая школа, которую, видимо,
+                    каждый проходит сам по себе вместе с вручённым ему даром.</span>
+
+                <div class="stol-article-content-image-wrap">
+                    <img
+                        src="https://s-t-o-l.com/wp-content/uploads/2021/09/Bundesarchiv_Bild_183-R0211-316_Dietrich_Bonhoeffer_mit_Schulern.jpg">
+                    <address> Дитрих Бонхёффер с конфирмандами. Фото: Bundesarchiv</address>
+                </div>
+            </section>
+          </article>
+
+          <!-- SECTION: SPECIAL -->
+          <section class="stol-section stol-section-projects stol-section__feature" x-data="{swiper: null}"
+                x-init="swiper = new Swiper($refs.container, {
+                loop: true,
+                slidesPerView: 2,
+                spaceBetween: 20,
+                });"
+            >
+            <div class="stol-section-wrapper">
+              <h6 class="stol-section-title stol-section-title__lonely">Спецпроекты</h6>
+              <div class="swiper-container" x-ref="container">
+                <div class="swiper-wrapper">
+                  <!-- START: S L I D E S -->
+                  <div class="swiper-slide">
+                    <!-- START: T E A S E R -->
+                    <div class="stol-teaser">
+                      <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-reds.jpg)">
+                        <span class="stol-tag-label">
+                          культура
+                        </span>
+                      </a>
+                      <div class="stol-teaser-content">
+                        <a href="#article1" class="stol-teaser-title">главный материал,<br>если заголовок будет<br>в три строки</a>
+                        <a href="#article1" class="stol-teaser-text">«Стол» — это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </a>
+                        <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
+                        <div class="stol-tags-block js-collapsible-tags">
+                          <a href="#" class="stol-tag">тег статьи длинный</a>
+                          <a href="#" class="stol-tag">тег статьи</a>
+                          <a href="#" class="stol-tag">культурный шок</a>
+                          <a href="#" class="stol-tag">деградация</a>
+                          <a href="#" class="stol-tag">нравы</a>
+                          <a href="#" class="stol-tag">регионы</a>
+                          <a href="#" class="stol-tag">сточилка</a>
+                          <a href="#" class="stol-tag">деньги и власть</a>
+                          <a href="#" class="stol-tag">люди</a>
+                          <a href="#" class="stol-tag">лица</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                  <!-- NEXT SLIDE -->
+                  <div class="swiper-slide">
+                    <!-- START: T E A S E R -->
+                    <div class="stol-teaser">
+                      <a href="#article2" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                        <span class="stol-tag-label">церковь</span>
+                      </a>
+                      <div class="stol-teaser-content">
+                        <a href="#article2" class="stol-teaser-title">еще один материал в фичере, строк на глаз как получится</a>
+                        <a href="#article2" class="stol-teaser-text">One caveat to the multiple-backgrounds technique is that the opacities will multiply rather than add together.  </a>
+                        <p class="stol-teaser-date">выбор редакции 12.03.2021</p>
+                        <div class="stol-tags-block js-collapsible-tags">
+                          <a href="#" class="stol-tag">тег статьи длинный</a>
+                          <a href="#" class="stol-tag">тег статьи</a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                  <!-- NEXT SLIDE -->
+                  <div class="swiper-slide">
+                    <!-- START: T E A S E R -->
+                    <div class="stol-teaser">
+                        <a href="#article3" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                          <span class="stol-tag-label">общество</span>
+                        </a>
+                        <div class="stol-teaser-content">
+                          <a href="#article3" class="stol-teaser-title">третий материал в фичере и все, хватит</a>
+                          <a href="#article3" class="stol-teaser-text">Материал развития и побуждающее начало его реализации даются извне, но это побуждающее начало может действовать, очевидно, лишь сообразно с собственною природой организма. </a>
+                          <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
+                          <div class="stol-tags-block js-collapsible-tags">
+                            <a href="#" class="stol-tag">тег статьи длинный</a>
+                            <a href="#" class="stol-tag">тег статьи</a>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div x-ref="controls" class="stol-controls">
+              <a href="#all-specials" class="stol-controls-title">ВСЕ СПЕЦПРОЕКТЫ <i class="icon-arrow-right-long"></i></a>
+              <div class="stol-controls-divider"></div>
+              <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
+            </div>
+          </section>
+
+
+          <!-- SECTION - MORE ARTICLES -->
+          <section class="stol-section stol-section-articles stol-section__noborder">
+            <div class="stol-section-title">Читайте также</div>
+            <div class="stol-article-list">
+              <!-- START: T E A S E R -->
+              <div class="stol-teaser">
+                <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-8.jpg)">
+                  <span class="stol-tag-label">культура</span>
+                </a>
+                <div class="stol-teaser-content">
+                  <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                  <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                  <p class="stol-teaser-date">10.02.2021</p>
+                  <div class="stol-tags-block js-collapsible-tags">
+                    <a href="#" class="stol-tag">спецматериал</a>
+                    <a href="#" class="stol-tag">тег статьи</a>
+                    <a href="#" class="stol-tag">мегатег статьи</a>
+                    <a href="#" class="stol-tag">бомба-тег статьи</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END: T E A S E R -->
+              <!-- START: T E A S E R -->
+              <div class="stol-teaser">
+                <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-2.jpg)">
+                  <span class="stol-tag-label">культура</span>
+                </a>
+                <div class="stol-teaser-content">
+                  <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                  <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                  <p class="stol-teaser-date">10.02.2021</p>
+                  <div class="stol-tags-block js-collapsible-tags">
+                    <a href="#" class="stol-tag stol-tag__special">тег-тема</a>
+                    <a href="#" class="stol-tag">тег статьи</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END: T E A S E R -->
+
+              <!-- START: TELEGRAM -->
+              <div class="stol-promo-wrapper">
+                <a href="telegram" class="stol-promo stol-promo__telegram">
+                    <div href="#telegram" class="stol-promo-logo" style="background-image:url(images/logos_telegram.png)"></div>
+                    <div class="stol-promo-content">
+                        <div href="article.html" class="stol-promo-title">подписывайтесь на наш telegram-канал</div>
+                        <div href="article.html" class="stol-promo-text">Может еще какой-то подзаголовок в две строки</div>
+                    </div>
+                </a>
+              </div>
+              <!-- END: TELEGRAM -->
+
+              <!-- START: T E A S E R -->
+              <div class="stol-teaser stol-xl-hide">
+                <a href="#article1" class="stol-teaser-image" style="background-image:url(images/image-bw-1.jpg)">
+                  <span class="stol-tag-label">культура</span>
+                </a>
+                <div class="stol-teaser-content">
+                  <a href="#article1" class="stol-teaser-title">материал заголовок</a>
+                  <a href="#article1" class="stol-teaser-text">Описание новости примерно в пять строк, хотя зачем пять, в две</a>
+                  <p class="stol-teaser-date">10.02.2021</p>
+                  <div class="stol-tags-block js-collapsible-tags">
+                    <a href="#" class="stol-tag">тег статьи</a>
+                    <a href="#" class="stol-tag">тег статьи</a>
+                  </div>
+                </div>
+              </div>
+              <!-- END: T E A S E R -->
+
+            </div>
+            <a href="#all-articles" class="stol-button-more">ЗАГРУЗИТЬ ЕЩЕ</a>  
+          </section>
+
+
+          <!-- SECTION: DONATION -->
+          <section class="stol-section stol-section-donation">
+            <div class="stol-section-block">
+              <h6 class="stol-section-title"><span class="stol-vivid">поддержать</span><br/>стол</h6>
+              <p class="stol-section-text">«Стол» – это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </p>
+            </div>
+            <div class="stol-section-block" x-data="{price:''}">
+              <div class="stol-donation-input-wrapper">
+                <input class="stol-donation-input" placeholder="сумма" x-model="price" />
+              </div>
+              <div class="stol-tags-block">
+                <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="100">100 ₽</a>
+                <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="200">200 ₽</a>
+                <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="500">500 ₽</a>
+                <a @click.prevent="{price=$event.target.dataset['value']}" href="#" class="stol-donation-sum" data-value="1000">1000 ₽</a>
+              </div>
+              <div class="stol-donation-plan" x-data="{toggleActive:false}">
+                <span class="stol-donation-plan-label-l">Ежемесячно</span>
+                <div @click="toggleActive = !toggleActive" 
+                    class="stol-donation-plan-switch" 
+                    :class="{'bg-orange-600': toggleActive}">
+                  <div class="stol-donation-plan-switch-pin" 
+                      :class="{'translate-x-4': toggleActive}"></div>
+                </div>
+                <span class="stol-donation-plan-label-r">Разово</span>
+              </div>
+              <a href="#all-articles" class="stol-donation-button">Продолжить</a>     
+            </div>
+          </section>
+        </main>
+
+        <!-- RIGHT COLUMN -->
+        <aside class="stol-right-column stol-xl-show-block" id="right-column">
+          <div class="stol-right-wrapper" id="right-wrapper">
+            
+            <!-- START: PROMO -->
+            <div class="stol-promo-wrapper">
+              <a href="#promo" class="stol-promo stol-promo__white">
+                <span class="stol-promo-title">ПРОМО</span>
+              </a>
+            </div>
+            <!-- END: PROMO -->
+
+          <!-- SECTION - NEWS-REVIEW -->
+          <section class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
+            x-init="swiper = new Swiper($refs.container, {
+              loop: true,
+              slidesPerView: 1,
+              spaceBetween: 0,
+              breakpoints: {
+                768: { slidesPerView: 2, spaceBetween: 0},
+                1280:{ slidesPerView: 3, spaceBetween: 0, direction: 'vertical' },
+              },
+            });"
+          >
+            <!-- SECTION TITLE -->
+            <h6 class="stol-section-title">Актуальные новости</h6>
+            <div class="swiper-container" x-ref="container">
+              <div class="swiper-wrapper">
+                <a href="#news-review1" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                    <p class="stol-teaser-news-date">10.02.2021</p>
+                  </div>
+                </a>
+                <a href="#news-review2" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">ДЛИННЫЙ ЗАГОЛОВОК<br>МАТЕРИАЛА В ДВЕ СТРОКИ</p>
+                    <p class="stol-teaser-news-date">20.03.2021</p>
+                  </div>
+                </a>
+                <a href="#news-review" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">Описание новости примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                    <p class="stol-teaser-news-date">01.04.2021</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div x-ref="controls" class="stol-controls">
+              <a href="#all-reviews" class="stol-controls-title">ВСЕ ОБЗОРЫ <i class="icon-arrow-right-long"></i></a>
+              <div class="stol-controls-divider"></div>
+              <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
+            </div>
+          </section>
+
+          <!-- SECTION - NEWS-REVIEW -->
+          <section class="stol-section stol-section-news stol-section__right-column" x-data="{swiper: null}"
+            x-init="swiper = new Swiper($refs.container, {
+              loop: true,
+              slidesPerView: 1,
+              spaceBetween: 0,
+              breakpoints: {
+                768: { slidesPerView: 2, spaceBetween: 0},
+                1280:{ slidesPerView: 3, spaceBetween: 0, direction: 'vertical'},
+              },
+            });"
+          >
+            <!-- SECTION TITLE -->
+            <h6 class="stol-section-title">События</h6>
+            <div class="swiper-container" x-ref="container">
+              <div class="swiper-wrapper">
+                <a href="#event1" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">Описание события #1 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                    <p class="stol-teaser-news-date">10.02.2021</p>
+                  </div>
+                </a>
+                <a href="#event2" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">ДЛИННЫЙ ЗАГОЛОВОК<br>СОБЫТИЯ В ДВЕ СТРОКИ</p>
+                    <p class="stol-teaser-news-date">20.03.2021</p>
+                  </div>
+                </a>
+                <a href="#event3" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">Описание события #2 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                    <p class="stol-teaser-news-date">01.04.2021</p>
+                  </div>
+                </a>
+                <a href="#event4" class="stol-teaser-news swiper-slide">
+                  <div class="stol-teaser-news-content">
+                    <p class="stol-teaser-news-title">Описание события #3 примерно в пять строк, хотя зачем пять, можно в две или три</p>
+                    <p class="stol-teaser-news-date">01.04.2021</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div x-ref="controls" class="stol-controls">
+              <a href="#all-events" class="stol-controls-title">ВСЕ СОБЫТИЯ <i class="icon-arrow-right-long"></i></a>
+              <div class="stol-controls-divider"></div>
+              <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
+            </div>
+          </section>
+
+          </div>
+        </aside>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="stol-footer">
+        <div class="stol-footer-wrapper">
+          <div data-moveto="#right-wrapper" class="stol-section-subscribe">
+            <h5 class="stol-section-subscribe-title">Рассылка</h5>
+            <h6 class="stol-section-subscribe-subtitle">
+                Преимущество подписки на рассылку. Например, в две строки.
+            </h6>
+            <div class="stol-donation-input-wrapper">
+                <input class="stol-section-subscribe-input" placeholder="e-mail" />
+            </div>
+            <button type="submit" href="#all-articles" class="stol-section-subscribe-button">Подписаться</button>  
+            <p class="stol-section-subscribe-text">
+                нажимая кнопку вы даете свое согласие на обработку персональных данных
+            </p>
+          </div>
+          <div class="stol-footer-content">
+            <div class="stol-footer-block-wrapper-1">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">Рубрики</span>
+                <ul>
+                  <li><a href="#church">Церковь</a></li>
+                  <li><a href="#russian">Русская жизнь</a></li>
+                  <li><a href="#culture">Культура</a></li>
+                  <li><a href="#rememberance">Трудная память</a></li>
+                  <li><a href="#society">Общество и ценности</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="stol-footer-block-wrapper-2">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">мы в соцсетях</span>
+                <ul>
+                  <li><a href="#telegram">telegram</a></li>
+                  <li><a href="#facebook">facebook</a></li>
+                  <li><a href="#vkontakte">vkontakte</a></li>
+                  <li><a href="#instagram">instagram</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="stol-footer-block-wrapper-3">
+              <div class="stol-footer-block">
+                <span class="stol-footer-block-title">контакты редакции</span>
+                <ul>
+                  <li><a class="stol-nowrap" href="mailto:hello@s-t-o-l.com">hello@s-t-o-l.com</a></li>
+                  <li><a class="stol-nowrap" href="tel:+74992673190">8 (499) 267-31-90</a></li>
+                  <li>Учредитель и главный редактор — <span class="stol-nowrap">А.А. Васенёв</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="stol-footer-block-wrapper-4">
+              <div class="stol-footer-block">
+                <a href="#conditions" x-data @click.prevent="window.dispatchEvent(new CustomEvent('textpopup'));"  class="block">Использования материалов издания <span class="stol-nowrap">s-t-o-l.com</span> разрешено только с предварительного согласия правообладателей. 
+                  Все права на картинки и тексты принадлежат их авторам.</a>
+              </div>
+            </div>
+          </div>
+          <div class="stol-footer-credits">
+            <div class="stol-footer-credits-content">
+              <div class="stol-footer-credits-block-1">
+                <p>2014-2021 © s-t-o-l.com</p>
+                <p>16+</p>
+              </div>
+              <div class="stol-footer-credits-block-2">Свидетельство о регистрации ЭЛ № ФС 77 — 63013 от 10.09.2015 выдано Роскомнадзором.</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+
+    <!-- T E X T  P O P U P -->
+    <div x-data="{textPopup: false}" class="stol-popup stol-popup__huge stol-popup__text" 
+        :class="{'stol-popup__active': textPopup}"
+        data-activeclass="stol-popup__active" 
+        x-on:textpopup.window="textPopup=true;">
+      <a @click="textPopup=false" class="stol-popup-close" href="#"><i class="icon-close"></i></a>
+      <div class="stol-popup-content">
+        <h1>Политика обработки персональных данных</h1>
+        <h2>1. Общие положения</h2>
+        <ol>
+          <li>Настоящая Политика (далее — «Политика») разработана Благотворительным фондом помощи социально-незащищенным гражданам «Нужна помощь», юридический адрес: 119270, г. Москва, Лужнецкая набережная, д. 2/4, стр. 16, помещение 405 (далее — «Фонд») с целью детального описания подхода Фонда к обработке персональных данных пользователей сайта, сервисов, проектов Фонда, которые он собирает, хранит и обрабатывает, а также обеспечению безопасности персональных данных.</li>
+          <li>Настоящая Политика (далее — «Политика») разработана Благотворительным фондом помощи социально-незащищенным гражданам «Нужна помощь», юридический адрес: 119270, г. Москва, Лужнецкая набережная, д. 2/4, стр. 16, помещение 405 (далее — «Фонд») с целью детального описания подхода Фонда к обработке данных пользователей сайта, сервисов, проектов Фонда, которые он собирает, хранит и обрабатывает, а также обеспечению безопасности персональных данных.</li>
+        </ol>
+        <h2>2. Общие положения</h2>
+        <ol>
+          <li>Настоящая Политика (далее — «Политика») разработана Благотворительным фондом помощи социально-незащищенным гражданам «Нужна помощь», юридический адрес: 119270, г. Москва, Лужнецкая набережная, д. 2/4, стр. 16, помещение 405 (далее — «Фонд») с целью детального описания подхода Фонда к обработке персональных данных пользователей сайта, сервисов, проектов Фонда, которые он собирает, хранит и обрабатывает, а также обеспечению безопасности персональных данных.</li>
+          <li>Настоящая Политика (далее — «Политика») разработана Благотворительным фондом помощи социально-незащищенным гражданам «Нужна помощь», юридический адрес: 119270, г. Москва, Лужнецкая набережная, д. 2/4, стр. 16, помещение 405 (далее — «Фонд») с целью детального описания подхода Фонда к обработке персональных данных пользователей сайта, сервисов, проектов Фонда, которые он собирает, хранит и обрабатывает, а также обеспечению безопасности персональных данных.</li>
+          <li>В Политике используются следующие термины:
+            <ul>
+              <li>автоматизированная обработка персональных данных — обработка персональных данных с помощью средств вычислительной техники;</li>
+              <li>база персональных данных — упорядоченный массив персональных данных, независимый от вида материального носителя информации и используемых средств его обработки (архивы, картотеки, электронные базы данных);</li>
+              <li>биометрические персональные данные — сведения, которые характеризуют физиологические и биологические особенности человека, на основании которых можно установить его личность и которые используются для установления личности субъекта персональных данных;</li>
+            </ul>
+          </li>
+        </ol>
+        <h2>3. Общие положения</h2>
+        <ol>
+          <li>Настоящая Политика (далее — «Политика») разработана Благотворительным фондом помощи социально-незащищенным гражданам «Нужна помощь», юридический адрес: 119270, г. Москва, Лужнецкая набережная, д. 2/4, стр. 16, помещение 405 (далее — «Фонд») с целью детального описания подхода Фонда к обработке персональных данных пользователей сайта, сервисов, проектов Фонда, которые он собирает, хранит и обрабатывает, а также обеспечению безопасности персональных данных.</li>
+          <li>Для целей указанных в п. 2.3. Политики Фонд осуществляет обработку следующих данных:</li>
+        </ol>
+        <table>
+          <tr>
+            <th>вид данных</th>
+            <th>цели обработки</th>
+          </tr>
+          <tr>
+            <td>имя, фамилия, отчество, e-mail, телефон, данные банковской карты, IP (местонахождение), пол, адрес, возраст</td>
+            <td>совершение пожертвований на сайте (сервисах) Фонда</td>
+          </tr>
+          <tr>
+            <td>имя, фамилия, отчество, e-mail, телефон, данные банковской карты, IP (местонахождение), пол, адрес, возраст</td>
+            <td>совершение пожертвований на сайте (сервисах) Фонда</td>
+          </tr>
+          <tr>
+            <td>имя, фамилия, отчество, e-mail, телефон, данные банковской карты, IP (местонахождение), пол, адрес, возраст</td>
+            <td>совершение пожертвований на сайте (сервисах) Фонда</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+  </body>
+  <script src="assets/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/hc-sticky.js"></script>
+  <script src="js/alpine.min.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+  <script src="js/main.js"></script>
+</html>

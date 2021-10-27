@@ -267,7 +267,8 @@ module.exports = {
         mgal:           '214px',
         tgal:           '487px',
         dgal:           '676px',
-
+        'max-content':  'max-content',
+        'fit-content':  'fit-content',
       },
       flex: {
         full: '2 1 100%',

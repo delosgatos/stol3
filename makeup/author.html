@@ -282,11 +282,13 @@
                     <h1>Ольга Сергеевна Парамонова</h1>
                     <p>«Стол» – это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы.</p>
                     <ul class="stol-subtext">
-                        <li><a href="#telegram">telegram</a></li>
-                        <li><a href="#facebook">facebook</a></li>
+                      <li><a href="#telegram">telegram</a></li>
+                      <li><a href="#facebook">facebook</a></li>
                     </ul>
-                    <a x-data @click.prevent="window.dispatchEvent(new CustomEvent('subscribe'));"  href="#subscribe" class="stol-button">Подписаться</a>
-                    <a href="authors.html" class="stol-section-author-link">Все авторы <i class="icon-arrow-right-long"></i></a>
+                    <div class="stol-section-author-controls">
+                      <a x-data @click.prevent="window.dispatchEvent(new CustomEvent('subscribe'));"  href="#subscribe" class="stol-button">Подписаться</a>
+                      <a href="authors.html" class="stol-section-author-link">Все авторы <i class="icon-arrow-right-long"></i></a>
+                    </div>
                 </div>
               </section>
             

@@ -2,7 +2,7 @@
 &-opinion {
   @apply flex flex-row flex-wrap w-full pt-1;
   &-image {
-    @apply relative flex-initial inline-block mr-5 w-16 md:w-18 xl:w-19;
+    @apply relative flex-initial inline-block mr-5 rounded-full overflow-hidden w-16 h-16 md:w-18 md:h-18 xl:w-19 xl:h-19;
     img {
       @apply w-full rounded-full object-cover;
     }
@@ -22,9 +22,9 @@
 &-author {
   @apply flex flex-row flex-wrap w-full pt-1;
   &-image {
-    @apply relative flex-initial inline-block mr-5 w-16 md:w-18 xl:w-19;
+    @apply bg-cover relative flex-initial inline-block mr-5 w-16 md:w-18 xl:w-19;
     img {
-      @apply w-full rounded-full object-cover;
+      @apply bg-cover w-full rounded-full object-cover;
     }
   }
   &-content {

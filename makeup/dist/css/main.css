@@ -947,20 +947,20 @@ a{
   }
 }
 
-.text, .stol-article-content p {
+.text, .stol-article-content p, .stol-article-content > span {
   font-size:16px;
   line-height:154%;
 }
 
 @media (min-width: 768px){
-  .text, .stol-article-content p{
+  .text, .stol-article-content p, .stol-article-content > span{
     font-size:16px;
     line-height:154%
   }
 }
 
 @media (min-width: 1280px){
-  .text, .stol-article-content p{
+  .text, .stol-article-content p, .stol-article-content > span{
     font-size:18px;
     line-height:154%
   }
@@ -1950,6 +1950,7 @@ a{
 }
 
 .stol-section-author-image {
+  background-size:cover;
   border-radius:9999px;
   height:148px;
   width:148px;
@@ -1971,6 +1972,9 @@ a{
 
 @media (min-width: 768px){
   .stol-section > .stol-section-author-content:not([hidden]){
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
     margin-top:0px
   }
 }
@@ -2000,6 +2004,9 @@ a{
 }
 
 .stol-section > .stol-section-author-content:not([hidden]) .stol-button:not([hidden]), .stol-section > .stol-section-author-content:not([hidden]) .stol-button-more:not([hidden]), .stol-section > .stol-section-author-content:not([hidden]) .stol-popup-button:not([hidden]) {
+  height:-webkit-max-content;
+  height:-moz-max-content;
+  height:max-content;
   margin-bottom:1.75rem;
   margin-top:2.25rem;
 }
@@ -2027,6 +2034,13 @@ a{
 
 .stol-section > .stol-section-author-content:not([hidden]) > ul{
   display:flex
+}
+
+@media (min-width: 1280px){
+  .stol-section-author-controls{
+    display:flex;
+    justify-content:space-between
+  }
 }
 
 .stol-section-author-link {
@@ -3023,21 +3037,26 @@ a{
 }
 
 .stol-opinion-image {
+  border-radius:9999px;
   display:inline-block;
   flex:0 1 auto;
+  height:4rem;
   margin-right:1.25rem;
+  overflow:hidden;
   position:relative;
   width:4rem;
 }
 
 @media (min-width: 768px){
   .stol-opinion-image{
+    height:4.5rem;
     width:4.5rem
   }
 }
 
 @media (min-width: 1280px){
   .stol-opinion-image{
+    height:4.75rem;
     width:4.75rem
   }
 }
@@ -3098,6 +3117,7 @@ a{
 }
 
 .stol-author-image {
+  background-size:cover;
   display:inline-block;
   flex:0 1 auto;
   margin-right:1.25rem;
@@ -3118,6 +3138,7 @@ a{
 }
 
 .stol-author-image img {
+  background-size:cover;
   border-radius:9999px;
   -o-object-fit:cover;
      object-fit:cover;
@@ -4591,13 +4612,13 @@ a{
 }
 
 @media (min-width: 768px){
-  .stol-article-text, .stol-article-content p, .stol-article-content blockquote{
+  .stol-article-text, .stol-article-content p, .stol-article-content > span, .stol-article-content blockquote{
     width:80%
   }
 }
 
 @media (min-width: 1280px){
-  .stol-article-text, .stol-article-content p, .stol-article-content blockquote{
+  .stol-article-text, .stol-article-content p, .stol-article-content > span, .stol-article-content blockquote{
     width:75%
   }
 }
@@ -4620,14 +4641,15 @@ a{
   text-transform:uppercase;
 }
 
-.stol-article-content p {
+.stol-article-content p, .stol-article-content > span {
   font-family: Inter, Helvetica, Arial, sans-serif;
+  display:block;
   margin-top:0.625rem;
   margin-bottom:0.625rem;
 }
 
 @media (min-width: 1280px){
-  .stol-article-content p{
+  .stol-article-content p, .stol-article-content > span{
     margin-top:0.75rem;
     margin-bottom:0.75rem
   }

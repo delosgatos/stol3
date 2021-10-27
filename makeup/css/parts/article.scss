@@ -164,11 +164,11 @@
             @extend .h3;
             @apply my-4 uppercase;
         }
-        p {
+        p, &>span {
             @extend .text;
             @extend .stol-article-text;
             font-family: Inter, Helvetica, Arial, sans-serif;
-            @apply my-2.5 xl:my-3;
+            @apply block my-2.5 xl:my-3;
         }
         & > ul, & > ol {
             @extend .simpletext;
