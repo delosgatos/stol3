@@ -113,7 +113,7 @@ var toggleModal = function (el) {
     var rect = el.getBoundingClientRect();
     var activeClass = el.dataset['activeclass'] || 'showed';
     if (el.classList.contains(activeClass)) {
-      stopScroll(rect.bottom);
+      stopScroll(rect.height + el.offsetTop);
     } else {
       resumeScroll();
     }
@@ -131,6 +131,12 @@ showClickElements.forEach(function (el) {
     toggleModal(dropdown);
   });
 });
+
+var updateSearchSize = function() {
+  var search = document.getElementById('searchbar');
+  resumeScroll();
+  toggleModal(search);
+}
 
 var movingElements = {
   isLastXl: false,

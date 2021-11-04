@@ -228,7 +228,7 @@
             img, .stol-article-video {
                 @apply md:max-w-full md:max-h-tgal md:mx-0 xl:max-h-dgal;
                 & + address {
-                    @apply pt-4 w-full text-center;
+                    @apply pt-4 text-center w-min inline-block min-w-full;
                 }
             }
         }

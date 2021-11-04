@@ -4790,9 +4790,13 @@ a{
 }
 
 .stol-article-content-image-wrap img + address, .stol-article-content-image-wrap .stol-article-video + address {
+  display:inline-block;
+  min-width:100%;
   padding-top:1rem;
   text-align:center;
-  width:100%;
+  width:-webkit-min-content;
+  width:-moz-min-content;
+  width:min-content;
 }
 
 .stol-article-content blockquote {
