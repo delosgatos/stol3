@@ -76,6 +76,11 @@
     // SECTIONS DECORATORS
     .stol-section-articles & {
       @apply md:h-full hover:bg-gray-100;
+      &:hover {
+        .stol-teaser-title, .stol-teaser-text, .stol-teaser-date {
+          @apply text-orange-900;
+        }
+      }
     }
     .stol-section-projects & {
       @apply pb-0;
@@ -114,6 +119,12 @@
       }
       &-content {
         @apply md:w-1/2 md:h-auto md:pb-16 md:pt-13 md:px-5;
+      }
+
+      picture {
+          img {
+              @apply h-56 md:h-full;
+          }
       }
     }
 }
