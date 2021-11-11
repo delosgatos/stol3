@@ -1,6 +1,6 @@
 &-section {
     @extend .x-pad;
-    @apply relative w-full pt-11 relative border-b border-gray-900 border-solid space-y-6;
+    @apply relative block w-full pt-11 relative border-b border-gray-900 border-solid space-y-6;
     @apply xl:border-r xl:flex-initial xl:pt-17.5;
     .stol-tags-block:not([hidden]) {
         @apply mt-6 pb-3.5;
@@ -34,7 +34,7 @@
         .stol-section-wrapper {
             @apply px-3 w-screen-3/2 md:px-0 md:w-full;
             .swiper-container {
-                @apply px-5 md:px-0;
+                @apply px-5 -ml-5 md:ml-0 md:px-0;
             }
         }
     }
@@ -75,7 +75,7 @@
             @apply text-mh0 md:flex-full md:text-th0 md:mb-4 xl:text-dh0;
         }
         .stol-section-text {
-            @apply md:flex-auto;
+            @apply md:w-1/2 md:flex-auto;
         }
     }
 
@@ -131,11 +131,13 @@
         }
         &-subtitle {
             @extend .p;
+            @extend .simpletext;
             @apply leading-tight;
         }
         &-input {
             @extend .cap;
-            @apply w-full px-2 pt-1 italic leading-6 bg-gray-700 h-11;
+            @extend .simpletext;
+            @apply w-full px-2 italic leading-6 bg-gray-700 h-11;
             @apply xl:bg-gray-200 xl:text-gray-900;
             &:focus {
                 @apply outline-none not-italic;
@@ -148,6 +150,7 @@
         }
         &-text {
             @extend .cap;
+            @extend .simpletext;
             @apply pb-10 italic leading-tight white-opacity; 
             @apply xl:text-gray-500 xl:pb-0;
         }

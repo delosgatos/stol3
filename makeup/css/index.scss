@@ -1,11 +1,12 @@
-@import url("//hello.myfonts.net/count/3d739f");
+/* @import url("//hello.myfonts.net/count/3d739f"); */
 @import '../assets/swiper/swiper-bundle.min.css'; /*url('https://unpkg.com/swiper/swiper-bundle.min.css');*/
 @import '../assets/fontello/stolicon-embedded';
 @font-face {
   font-family: "HelveticaMonospacedW1G-Rg";
   src: url('../assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff2') format('woff2'), url('../assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff') format('woff');
 }
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
 
 /*@import 'tailwind';*/
 @import 'common';

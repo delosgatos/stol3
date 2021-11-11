@@ -14,7 +14,7 @@
       @apply flex-initial w-full text-base text-center text-white;
     }
     &-wrapper {
-      @extend .x-pad;
+      @extend .x-pad__m0;
       @apply md:px-0 xl:px-0;
     }
     &__white {

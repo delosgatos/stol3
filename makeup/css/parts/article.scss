@@ -89,6 +89,9 @@
                 }
                 &-teaser {
                     @apply bg-gray-900 xl:flex-row;
+                    &-image {
+                        @apply bg-no-repeat bg-contain;
+                    }
                     &-content:not([hidden]) {
                         @apply flex mt-16;
                         @apply xl:px-10 xl:py-0 xl:m-0 xl:mt-28 xl:flex-growonly xl:w-galtext;
@@ -167,7 +170,7 @@
         p, &>span {
             @extend .text;
             @extend .stol-article-text;
-            font-family: Inter, Helvetica, Arial, sans-serif;
+            @extend .simpletext;
             @apply block my-2.5 xl:my-3;
         }
         & > ul, & > ol {
@@ -222,13 +225,16 @@
         &-image-wrap { 
             @extend .stol-subtext;
             @extend .-x-pad;
-            @apply md:mx-0 md:w-auto xl:mx-0 xl:w-auto; // clear -x-pad on md, xl
+            @apply md:mx-0 md:w-auto xl:mx-0 xl:w-auto;
             @apply mb-4 mt-10 text-center max-w-none table;
             @apply md:max-w-full;
             img, .stol-article-video {
                 @apply md:max-w-full md:max-h-tgal md:mx-0 xl:max-h-dgal;
                 & + address {
-                    @apply pt-4 text-center w-min inline-block min-w-full;
+                    // apply pt-4 text-center w-min inline-block min-w-full; // centered inside picture
+                    
+                    @extend .stol-article-text;
+                    @apply pt-4 text-left;
                 }
             }
         }

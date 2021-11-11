@@ -17,12 +17,14 @@
       @apply text-m md:text-t xl:text-d;
     }
     &-date {
+      @extend .simpletext;
       @extend .stol-subtext;
     }
     &-news {
       @apply flex flex-row flex-wrap w-full md:pr-1/7 xl:pr-0 xl:h-28; 
       &-title {
         @extend .p;
+        @extend .headtext;
         @apply uppercase;
       }
       &-text {

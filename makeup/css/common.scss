@@ -11,11 +11,12 @@ a {
   @apply transition-all duration-300 hover:text-orange-900;
 }
 .simpletext { font-family: Inter, Arial, Helvetica, sans-serif; }
+.headtext { font-family: HelveticaMonospacedW1G-Rg, sans-serif; }
 .h0{ @apply text-mh0 md:text-th0 xl:text-dh0; }
 .h1{ @apply text-mh1 md:text-th1 xl:text-dh1; }
 .h2{ @apply text-mh2 md:text-th2 xl:text-dh2; }
 .h3{ @apply text-mh3 md:text-th3 xl:text-dh3; }
-.p{ @apply text-m md:text-t xl:text-d; }
+.p{ @extend .simpletext; @apply text-m md:text-t xl:text-d; }
 .tag{ @apply text-mtag md:text-ttag xl:text-dtag; }
 .text{ @apply text-mtext md:text-ttext xl:text-dtext; }
 .cap{ @apply text-mcap md:text-tcap xl:text-dcap; }
@@ -95,7 +96,8 @@ a {
   }
 
   &-input {
-    @apply w-full px-2 italic leading-6 text-gray-900 bg-gray-200 h-11 pt-1 focus:outline-none;
+    @extend .simpletext;
+    @apply w-full px-2 italic leading-6 text-gray-900 bg-gray-200 h-11 pt-1 pb-1 focus:outline-none;
   }
 
   &-button {

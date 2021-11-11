@@ -38,7 +38,7 @@
       }
     }
     &-gallery {
-      @apply absolute z-50 flex flex-col -top-21 right-3 space-y-3;
+      @apply absolute z-50 flex flex-col bottom-17 right-3 space-y-2;
     }
     &-info, &-fullscreen {
       @apply flex items-center justify-center text-white bg-gray-700 border border-white rounded-full bg-opacity-60 w-7 h-7;
@@ -53,7 +53,7 @@
       }
     }
     &-info {
-      @apply text-xs;
+      @apply hidden text-xs md:flex;
     }
 
 

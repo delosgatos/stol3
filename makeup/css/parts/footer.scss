@@ -12,6 +12,7 @@
       }
     }
     &-content {
+      @extend .simpletext;
       @apply flex flex-wrap xl:grid xl:grid-cols-4 xl:gap-13;
     }
     &-block {
@@ -24,6 +25,7 @@
         &-4 { @apply w-full xl:order-1; }
       }
       &-title {
+        @extend .headtext;
         @extend .h3;
         @apply nowrap block mb-5 text-white uppercase text-opacity-60;
         li {
@@ -64,13 +66,15 @@
       }
       &-block{
         &-1 {
-          @apply pb-6 white-opacity uppercase;
+          @extend .white-opacity;
+          @apply pb-6 uppercase;
           p {
             @apply py-1;
           }
         }
         &-2 {
-
+          @extend .p;
+          @extend .white-opacity;
         }
       }
     }

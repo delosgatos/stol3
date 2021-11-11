@@ -8,7 +8,7 @@
     }
   }
   &-content {
-    @apply flex-1 flex-grow flex space-y-2 items-center flex-wrap;
+    @apply flex-1 flex-grow flex space-y-2 items-center flex-wrap md:pr-5;
     & > :not([hidden]) ~ :not([hidden]) {
       flex-basis: 100%;
       margin: 0;
@@ -22,9 +22,9 @@
 &-author {
   @apply flex flex-row flex-wrap w-full pt-1;
   &-image {
-    @apply bg-cover relative flex-initial inline-block mr-5 w-16 md:w-18 xl:w-19;
+    @apply bg-cover relative flex-initial inline-block mr-5 w-16 h-16 md:w-18 md:h-18 xl:w-19 xl:h-19;
     img {
-      @apply bg-cover w-full rounded-full object-cover;
+      @apply bg-cover w-full h-full rounded-full object-cover;
     }
   }
   &-content {
