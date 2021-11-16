@@ -219,23 +219,33 @@
             @apply mb-4 mt-10 max-w-none;
             @apply md:max-w-full md:max-h-tgal md:mx-0 xl:max-h-dgal;
             & + address {
-                @apply pt-0 w-full text-center;
+                @extend .stol-article-text;
+                @apply pt-0 w-full;
             }
         }
         &-image-wrap { 
             @extend .stol-subtext;
             @extend .-x-pad;
             @apply md:mx-0 md:w-auto xl:mx-0 xl:w-auto;
-            @apply mb-4 mt-10 text-center max-w-none table;
+            @apply mb-4 mt-10 text-center max-w-none; 
             @apply md:max-w-full;
+            // apply table; // centered inside picture
             img, .stol-article-video {
                 @apply md:max-w-full md:max-h-tgal md:mx-0 xl:max-h-dgal;
+                // если строгий формат шаблона внутри блока article-content-image-wrap
                 & + address {
                     // apply pt-4 text-center w-min inline-block min-w-full; // centered inside picture
-                    
                     @extend .stol-article-text;
                     @apply pt-4 text-left;
                 }
+            }
+            p {
+                width: auto;
+            }
+            address {
+                // apply pt-4 text-center w-min inline-block min-w-full; // centered inside picture
+                @extend .stol-article-text;
+                @apply pt-4 text-left;
             }
         }
         blockquote {
@@ -289,13 +299,13 @@
         }
     }
     &-video {
-        @apply pt-3 flex items-center justify-center md:justify-start xl:pt-6;
+        @apply pt-3 block items-center xl:pt-6;
         iframe {
             @apply h-mvideo md:h-tvideo xl:h-dvideo;
         }
     }
     &-embed {
-        @apply pt-3 flex items-center justify-center md:justify-start xl:pt-6;
+        @apply pt-3 block items-center xl:pt-6;
         iframe {
         }
     }

@@ -1,6 +1,21 @@
 var isXl = function(){
   return window.innerWidth > 1280;
 };
+function isHidden(el) {
+  var style = window.getComputedStyle(el);
+  return (style.display === 'none')
+}
+function onVisible(element, callback) {
+  var options = {
+    root: document.documentElement,
+  };
+  var observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      callback(entry.intersectionRatio > 0, element);
+    });
+  }, options);
+  observer.observe(element);
+}
 HTMLElement.prototype.getFullWidth = function(){
   var element = this;
   var style = element.currentStyle || window.getComputedStyle(element),
@@ -223,7 +238,7 @@ collapsibleTags.prototype = {
   },
   collapseTags: function(container){
     var w = container.clientWidth;
-    // console.log('COLLAPSE', container, w);
+    console.log('COLLAPSIBLE', container, w);
     var wTags = 0;
     var hiddenCount = 0;
     for(var i = 0; i < container.children.length; i++) {
@@ -232,7 +247,7 @@ collapsibleTags.prototype = {
         continue;
       }
       wTags += el.getFullWidth();
-      // console.log('TAG', el, el.offsetWidth, el.getFullWidth(), wTags);
+      console.log('TAG', el, el.offsetWidth, el.getFullWidth(), wTags, w, ' - ', this.countTagWidth);
       if (wTags >= w - this.countTagWidth) {
         el.classList.add(this.hiddenTagClass);
         hiddenCount++;
@@ -263,8 +278,18 @@ collapsibleTags.prototype = {
     return hiddenCount;
   },
   updateTagsBlocks: function(){
+    var z = this, block;
     for(var i = 0; i < this.tagsBlocks.length; i++){
-      this.collapseTags(this.tagsBlocks[i]);
+      block = this.tagsBlocks[i];
+      /* if(isHidden(block)) {
+        console.log('COLLAPSIBLE ELEMENT IS NOT VISIBLE', block);
+        onVisible(block, function(visibility, element){
+          console.log('COLLAPSIBLE ELEMENT IS VISIBLE NOW', visibility, element, block);
+          z.collapseTags(element);
+        })
+        continue;
+      } */
+      this.collapseTags(block);
     } 
   },
   init: function() {
