@@ -1,14 +1,28 @@
 .stol {
-  &-xl-show {
-    @apply hidden xl:flex;
-    &-block{
-      @apply hidden xl:block;
+  .stol {
+    &-md-show {
+      @apply hidden md:flex xl:hidden;
+      &-block{
+        @apply hidden md:block xl:hidden;
+      }
     }
-  }
-  &-xl-hide {
-    @apply flex xl:hidden;
-    &-block{
-      @apply block xl:hidden;
+    &-md-hide {
+      @apply flex md:hidden xl:flex;
+      &-block{
+        @apply block md:hidden xl:block;
+      }
+    }
+    &-xl-show {
+      @apply hidden xl:flex;
+      &-block{
+        @apply hidden xl:block;
+      }
+    }
+    &-xl-hide {
+      @apply flex xl:hidden;
+      &-block{
+        @apply block xl:hidden;
+      }
     }
   }
 }

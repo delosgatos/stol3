@@ -38,7 +38,7 @@
         }
     }
     &-gallery {
-        @apply relative -mx-3 w-full+6 relative pb-4 md:mx-0 md:w-full;
+        @apply relative -mx-3 w-full+6 pb-4 md:mx-0 md:w-full;
         &-close {
             @apply absolute right-2 top-2 hidden;
         }
@@ -68,12 +68,15 @@
             a.address{
                 @extend .stol-subtext;
             }
+            .stol-subtext {
+                @apply flex-grow;
+            }
         }
         &__full {
             @apply absolute top-0 left-0 right-0 bottom-0 m-0 p-0 pt-0 w-auto bg-gray-900 z-50;
             @apply xl:flex xl:flex-col justify-center xl:m-0;
             [x-ref=box]{
-                @apply pt-10;
+                
             }
             .stol {
                 &-article-gallery {
@@ -88,13 +91,18 @@
                     }
                 }
                 &-teaser {
-                    @apply bg-gray-900 xl:flex-row;
+                    @apply bg-gray-900 pt-21 md:pt-0 xl:flex-row xl:pt-4;
                     &-image {
-                        @apply bg-no-repeat bg-contain;
+                        @apply bg-no-repeat bg-contain h-auto min-h-mtop md:h-tgal xl:h-dgal;
+                        picture {
+                            img {
+                                @apply object-contain;
+                            }
+                        }
                     }
                     &-content:not([hidden]) {
-                        @apply flex mt-16;
-                        @apply xl:px-10 xl:py-0 xl:m-0 xl:mt-28 xl:flex-growonly xl:w-galtext;
+                        @apply flex mt-4 md:mt-16;
+                        @apply xl:px-10 xl:py-0 xl:m-0 xl:mt-12 xl:flex-growonly xl:w-galtext;
                     }
                     &-text:not([hidden]) {
                         @apply text-white
@@ -104,12 +112,15 @@
                     }
                 }
                 &-controls:not([hidden]) {
-                    @apply absolute z-50 mt-10 top-mgal md:top-tgal;
-                    @apply xl:top-36 xl:relative xl:p-0 xl:m-0 xl:flex-initial xl:w-galctrl-w xl:ml-galctrl-off;
+                    @apply absolute z-50 mt-0 top-7 pr-1 md:pr-0 md:top-tgal;
+                    @apply xl:top-16 xl:relative xl:p-0 xl:m-0 xl:flex-initial xl:w-galctrl-w xl:ml-galctrl-off;
                     [class^="icon-"], [class*=" icon-"] {
                         @apply text-white border-white;
                     } 
                     .stol-controls{
+                        &-arrows {
+                            @apply ml-auto md:mr-0;
+                        }
                         &-gallery {
                             @apply hidden;
                         }
@@ -171,7 +182,13 @@
             @extend .text;
             @extend .stol-article-text;
             @extend .simpletext;
-            @apply block my-2.5 xl:my-3;
+            @apply my-2.5 xl:my-3;
+        }
+        a {
+            @apply underline;
+            &[alt] {
+                @apply bg-gray-200 pb-0.5 px-1;
+            }
         }
         & > ul, & > ol {
             @extend .simpletext;
@@ -211,15 +228,17 @@
         }
         address{
             @extend .stol-subtext;
+            @extend .x-pad__m;
             @apply py-4;
         }
-        & > img, .stol-article-video {
+        & > img, & > picture > img, & > p > picture > img, .stol-article-video {
             @extend .-x-pad;
             @apply md:mx-0 md:w-auto xl:mx-0 xl:w-auto; // clear -x-pad on md, xl
             @apply mb-4 mt-10 max-w-none;
-            @apply md:max-w-full md:max-h-tgal md:mx-0 xl:max-h-dgal;
+            @apply md:max-w-full md:max-h-none md:mx-0 xl:max-h-none;
             & + address {
                 @extend .stol-article-text;
+                @extend .x-pad__m;
                 @apply pt-0 w-full;
             }
         }
@@ -231,11 +250,12 @@
             @apply md:max-w-full;
             // apply table; // centered inside picture
             img, .stol-article-video {
-                @apply md:max-w-full md:max-h-tgal md:mx-0 xl:max-h-dgal;
+                @apply md:max-w-full md:max-h-none md:mx-0 xl:max-h-none; // md:max-h-tgal xl:max-h-dgal
                 // если строгий формат шаблона внутри блока article-content-image-wrap
                 & + address {
                     // apply pt-4 text-center w-min inline-block min-w-full; // centered inside picture
                     @extend .stol-article-text;
+                    @extend .x-pad__m;
                     @apply pt-4 text-left;
                 }
             }
@@ -245,6 +265,7 @@
             address {
                 // apply pt-4 text-center w-min inline-block min-w-full; // centered inside picture
                 @extend .stol-article-text;
+                @extend .x-pad__m;
                 @apply pt-4 text-left;
             }
         }
@@ -255,6 +276,8 @@
             & + address {
                 @apply pt-0;
             }
+        }
+        img {
         }
     }
     &-block {

@@ -399,9 +399,9 @@ IntersectionObserver.prototype._computeTargetAndRootIntersection =
       atRoot = true;
       parentRect = rootRect;
     } else {
-      // If the element has a non-visible overflow, and it's not the <body>
+      // If the element has a non-visible overflow, and it's not the <body class="stol">
       // or <html> element, update the intersection rect.
-      // Note: <body> and <html> cannot be clipped to a rect that's not also
+      // Note: <body class="stol"> and <html> cannot be clipped to a rect that's not also
       // the document rect, so no need to compute a new intersection.
       if (parent != document.body &&
           parent != document.documentElement &&
@@ -433,7 +433,7 @@ IntersectionObserver.prototype._getRootRect = function() {
   if (this.root) {
     rootRect = getBoundingClientRect(this.root);
   } else {
-    // Use <html>/<body> instead of window since scroll bars affect size.
+    // Use <html>/<body class="stol"> instead of window since scroll bars affect size.
     var html = document.documentElement;
     var body = document.body;
     rootRect = {

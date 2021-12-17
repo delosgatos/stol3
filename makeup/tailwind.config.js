@@ -222,6 +222,7 @@ module.exports = {
         'full+6':       'calc(100% + 1.5rem)',
         'full+10':      'calc(100% + 2.5rem)',
         'full+18':      'calc(100% + 4.5rem)',
+        'fit-content':  'fit-content',
       },
       maxWidth: {
         '8xl':          '90rem'   /* 1440px */,

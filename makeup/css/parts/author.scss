@@ -39,7 +39,7 @@
   .stol-section-authors__big & {
     @apply flex-col;
     &-image {
-      @apply mb-6 w-32.5 xl:w-35;
+      @apply mb-6 h-32.5 w-32.5 xl:w-35 xl:h-35;
     }
     &-content {
       @apply space-y-3;

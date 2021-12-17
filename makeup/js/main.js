@@ -2,10 +2,18 @@ var isXl = function(){
   return window.innerWidth > 1280;
 };
 function isHidden(el) {
-  var style = window.getComputedStyle(el);
-  return (style.display === 'none')
+  // console.log('RECT', el.getBoundingClientRect());
+  return !el.offsetWidth && !el.offsetHeight;
 }
 function onVisible(element, callback) {
+  var observer = new MutationObserver(function(mutations) {
+    callback(mutations, element);
+  });
+  observer.observe(element, {
+    attributes: true
+  });
+}
+function inViewport(element, callback) {
   var options = {
     root: document.documentElement,
   };
@@ -238,7 +246,7 @@ collapsibleTags.prototype = {
   },
   collapseTags: function(container){
     var w = container.clientWidth;
-    console.log('COLLAPSIBLE', container, w);
+  //  console.log('COLLAPSIBLE', container, w);
     var wTags = 0;
     var hiddenCount = 0;
     for(var i = 0; i < container.children.length; i++) {
@@ -247,7 +255,7 @@ collapsibleTags.prototype = {
         continue;
       }
       wTags += el.getFullWidth();
-      console.log('TAG', el, el.offsetWidth, el.getFullWidth(), wTags, w, ' - ', this.countTagWidth);
+    //  console.log('TAG', el, el.offsetWidth, el.getFullWidth(), wTags, w, ' - ', this.countTagWidth);
       if (wTags >= w - this.countTagWidth) {
         el.classList.add(this.hiddenTagClass);
         hiddenCount++;
@@ -281,15 +289,18 @@ collapsibleTags.prototype = {
     var z = this, block;
     for(var i = 0; i < this.tagsBlocks.length; i++){
       block = this.tagsBlocks[i];
-      /* if(isHidden(block)) {
+      if(isHidden(block)) {
         console.log('COLLAPSIBLE ELEMENT IS NOT VISIBLE', block);
-        onVisible(block, function(visibility, element){
-          console.log('COLLAPSIBLE ELEMENT IS VISIBLE NOW', visibility, element, block);
+        onVisible(block, function(mutation, element){
+          console.log('COLLAPSIBLE ELEMENT IS VISIBLE NOW', mutation, element, block);
+          if(!mutation){
+            return;
+          }
           z.collapseTags(element);
         })
-        continue;
-      } */
-      this.collapseTags(block);
+      } else {
+        this.collapseTags(block);
+      }
     } 
   },
   init: function() {
