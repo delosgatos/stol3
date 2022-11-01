@@ -1,0 +1,24 @@
+.swiper-wrapper {
+  @apply transition-all;
+}
+
+.swiper-wrapper .swiper-slide {
+  @apply bg-white;
+}
+
+.swiper-wrapper a.swiper-slide {
+  @apply transition-colors;
+}
+
+body.stop-scrolling {
+  @apply overflow-hidden;
+}
+
+body.stop-scrolling .stol-content {
+  @apply filter grayscale-md blur-1 opacity-50;
+}
+
+body.stop-scrolling .stol-content * {
+  @apply pointer-events-none;
+}
+/*# sourceMappingURL=addons.css.map */
