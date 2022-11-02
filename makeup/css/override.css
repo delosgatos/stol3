@@ -1,0 +1,32 @@
+.stol .stol-md-show {
+  @apply hidden md:flex xl:hidden;
+}
+
+.stol .stol-md-show-block {
+  @apply hidden md:block xl:hidden;
+}
+
+.stol .stol-md-hide {
+  @apply flex md:hidden xl:flex;
+}
+
+.stol .stol-md-hide-block {
+  @apply block md:hidden xl:block;
+}
+
+.stol .stol-xl-show {
+  @apply hidden xl:flex;
+}
+
+.stol .stol-xl-show-block {
+  @apply hidden xl:block;
+}
+
+.stol .stol-xl-hide {
+  @apply flex xl:hidden;
+}
+
+.stol .stol-xl-hide-block {
+  @apply block xl:hidden;
+}
+/*# sourceMappingURL=override.css.map */

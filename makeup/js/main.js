@@ -155,6 +155,60 @@ showClickElements.forEach(function (el) {
   });
 });
 
+// COMMENTS POPUP
+var popupClass = 'stol-popup';
+var popupActivePrefix = '__active';
+var popupClosePrefix = '-close';
+var popupContentPrefix = '-content';
+var commentPopupPrefix = '__comment';
+var commentsElements = document.querySelectorAll('a[href="#tooltip"]');
+var commentsHandler = function (link) {
+  var comment = link.getAttribute('alt') || link.getAttribute('data-comment');
+  var text = link.querySelector('.'+popupClass+commentPopupPrefix+'>.'+popupClass+popupContentPrefix);
+  if (text) {
+    text.innerHTML = comment;
+    return;
+  }
+  var el = document.createElement('div');
+  el.classList.add(popupClass);
+  el.classList.add(popupClass+commentPopupPrefix);
+  el.setAttribute('data-activeclass', popupClass+popupActivePrefix);
+  el.innerHTML = '<div class="'+popupClass+popupClosePrefix+' '+popupClass+commentPopupPrefix+popupClosePrefix+'"><i class="icon-close"></i></div>'
+  + '<div class="'+popupClass+popupContentPrefix+'">'+comment+'</div>';
+  link.appendChild(el);
+  var close = el.getElementsByClassName("icon-close")[0];
+  if (close) {
+    close.addEventListener('click', function(e){
+      console.log('CLOSE', e.currentTarget);
+      var popup = e.currentTarget.parentNode.parentNode;
+      var bg = e.currentTarget.parentNode.parentNode.nextSibling;
+      setTimeout(function() {
+        popup.remove();
+        bg.remove();
+      }, 0);
+    }); 
+  }
+  var bg = document.createElement('div');
+  bg.classList.add(popupClass+'-bg');
+  link.appendChild(bg);
+  return el;
+}
+commentsElements.forEach(function (el) {
+  el.addEventListener('click', function (e) {
+    e.preventDefault();
+    var dropdown = commentsHandler(e.currentTarget);
+    if (!dropdown) {
+      return;
+    }
+    var activeClass = dropdown.dataset['activeclass'] || 'showed';
+    if (dropdown.classList.contains(activeClass)) {
+      dropdown.classList.remove(activeClass);
+    } else {
+      dropdown.classList.add(activeClass);
+    }
+  });
+});
+
 var updateSearchSize = function() {
   var search = document.getElementById('searchbar');
   resumeScroll();
