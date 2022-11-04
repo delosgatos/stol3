@@ -117,10 +117,10 @@
         @apply text-mh1 md:text-th1 xl:text-dh1;
       }
       &-image {
-        @apply h-auto min-h-mtop md:w-3/5 md:min-h-ttop xl:min-h-dtop;
+        @apply h-auto min-h-mtop md:w-31/50 md:min-h-ttop xl:min-h-dtop;
       }
       &-content {
-        @apply md:w-2/5 md:h-auto md:pb-16 md:pt-13 md:px-5;
+        @apply md:w-19/50 md:h-auto md:pb-20 md:pt-13 md:px-5;
       }
 
       picture {

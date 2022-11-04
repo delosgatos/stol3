@@ -89,7 +89,7 @@
           </button>
           <!-- MAIN MENU -->
           <div id="main-menu" class="stol-menu" data-activeclass="stol-menu__active">
-            <div class="stol-menu-rubrics-wrapper" x-data={show:false}>
+            <div class="stol-menu-rubrics-wrapper" x-data={show:true}>
               <a href="#" class="stol-menu-rubrics-title" 
                   @click.prevent="show=!show;">Рубрики 
                     <i :class="{ 'icon-arrow-down__rotate': show }" 
@@ -524,7 +524,7 @@
             <div x-ref="controls" class="stol-controls">
               <p class="stol-controls-counter"><span x-ref="counter">1</span> / 3</p>
               <div class="stol-controls-divider"></div>
-              <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left-sm"></i><div class="stol-controls-pagination"></div><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right-sm"></i></div>
+              <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><div class="stol-controls-pagination"></div><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
             </div>
           </section>
 
@@ -1606,7 +1606,6 @@
 
   </body>
   <script src="assets/swiper/swiper-bundle.min.js"></script>
-  
   <script src="assets/hc-sticky.js"></script>
   <script src="js/alpine.min.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>

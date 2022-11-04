@@ -3116,24 +3116,24 @@ a{
 @media (min-width: 768px){
   .stol-section-top .stol-teaser-image{
     min-height:460px;
-    width:60%
+    width:62%
   }
 }
 
 @media (min-width: 1280px){
   .stol-section-top .stol-teaser-image{
-    min-height:567px
+    min-height:499px
   }
 }
 
 @media (min-width: 768px){
   .stol-section-top .stol-teaser-content{
     height:auto;
-    width:40%;
+    width:38%;
     padding-left:1.25rem;
     padding-right:1.25rem;
     padding-top:3.25rem;
-    padding-bottom:4rem
+    padding-bottom:5rem
   }
 }
 
@@ -3787,9 +3787,10 @@ a{
     float:right;
     margin-top:-4rem;
     display:flex;
-    width:40%;
+    width:38%;
     justify-content:space-between;
-    padding:1.25rem
+    padding:1.25rem;
+    padding-bottom:1rem
   }
 }
 
@@ -3846,6 +3847,14 @@ a{
 @media (min-width: 768px){
   .stol-section-top .stol-controls-pagination{
     display:none
+  }
+}
+
+@media (min-width: 768px){
+  .stol-section-opinions .stol-controls{
+    flex:0 1 0%;
+    padding:0px;
+    text-align:right
   }
 }
 
@@ -6609,6 +6618,96 @@ a{
 .stol-popup__comment-close {
   top:0.5rem;
   right:0.5rem;
+}
+
+.stol-popup__center {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20000000;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.8);
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stol-popup-wrapper {
+  background-color: var(--whiteColor);
+  position: relative;
+  max-width: 760px;
+  padding: 60px;
+  width: 100%;
+}
+
+.stol-popup-closeButton {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.stol-popup-closeButton:after, .stol-popup-closeButton:before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--darkColor);
+  transition: background-color 0.3s ease;
+  will-change: background-color;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -1px;
+  margin-left: -12px;
+}
+
+.stol-popup-closeButton:before {
+  transform: rotate(45deg);
+}
+
+.stol-popup-closeButton:after {
+  transform: rotate(-45deg);
+}
+
+.stol-popup-title {
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+.stol-popup-content {
+  font-family: var(--sansSerif);
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.stol-popup-formContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: 15px;
+}
+
+.stol-popup-sendButton {
+  float: right;
+  width: 170px;
+  height: 50px;
+  border-radius: 3px;
+  color: var(--whiteColor);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 52px;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  background-color: var(--darkColor);
 }
 
 .stol-popup-bg {

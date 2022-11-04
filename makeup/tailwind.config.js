@@ -134,6 +134,12 @@ module.exports = {
         'w1/50':'2vw',
         'w1/100':'1vw',
 
+        '7/20':'35%',
+        '13/20':'65%',
+
+        '19/50':'38%',
+        '31/50':'62%',
+
         'h1':   '100vh',
         'h9/10':'90vh',
         'h8/9': '88.88vh',
@@ -236,10 +242,10 @@ module.exports = {
         'none':         'none',
       },
       minHeight: {
-        'promo':         '500px',
+        promo:          '500px',
         mtop:           '223px',
         ttop:           '460px',
-        dtop:           '567px',
+        dtop:           '499px',
         dtop1:          '568px',
       },
       height: {
@@ -272,6 +278,12 @@ module.exports = {
         dgal:           '676px',
         'max-content':  'max-content',
         'fit-content':  'fit-content',
+      },
+      content: {
+        'arrleft': '\e800',
+        'arrright': '\e801',
+        'arrleftsm': '\e807',
+        'arrrightsm': '\e808',
       },
       flex: {
         full: '2 1 100%',
