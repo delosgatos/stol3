@@ -33,6 +33,15 @@ HTMLElement.prototype.getFullWidth = function(){
     border = parseFloat(style.borderLeftWidth) + parseFloat(style.borderRightWidth);
   return width + margin + border;
 };
+var addScript = function(src, callback){
+	var node = document.createElement('script');
+	node.type = 'text/javascript';
+	node.src = src;
+	node.onload = function() {
+		if(callback) callback();
+	};
+	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(node);
+};
 (function() {
   var throttle = function(type, name, obj) {
       obj = obj || window;
@@ -159,7 +168,9 @@ showClickElements.forEach(function (el) {
 var popupClass = 'stol-popup';
 var popupActivePrefix = '__active';
 var popupClosePrefix = '-close';
+var popupTitlePrefix = '-title';
 var popupContentPrefix = '-content';
+var popupWrapperPrefix = '-wrapper';
 var commentPopupPrefix = '__comment';
 var commentsElements = document.querySelectorAll('a[href="#tooltip"]');
 var commentsHandler = function (link) {
@@ -344,9 +355,9 @@ collapsibleTags.prototype = {
     for(var i = 0; i < this.tagsBlocks.length; i++){
       block = this.tagsBlocks[i];
       if(isHidden(block)) {
-        console.log('COLLAPSIBLE ELEMENT IS NOT VISIBLE', block);
+        // console.log('COLLAPSIBLE ELEMENT IS NOT VISIBLE', block);
         onVisible(block, function(mutation, element){
-          console.log('COLLAPSIBLE ELEMENT IS VISIBLE NOW', mutation, element, block);
+          // console.log('COLLAPSIBLE ELEMENT IS VISIBLE NOW', mutation, element, block);
           if(!mutation){
             return;
           }
@@ -363,7 +374,106 @@ collapsibleTags.prototype = {
   }
 }
 
-var addListeners = function(){
+var showModal = function(message, title, type, timeout, parent) {
+  parent = parent || document.body;
+  var el, popups = document.getElementsByClassName(popupClass+'_'+type);
+  if (popups.length) {
+    el = popups[0];
+    var elTitle = el.getElementsByClassName(popupClass+popupTitlePrefix)[0];
+    var elContent = el.getElementsByClassName(popupClass+popupContentPrefix)[0];
+    if (elTitle) {
+      elTitle.innerHTML = title;
+    }
+    if (elContent) {
+      elContent.innerHTML = message;
+    }
+  } else {
+    el = document.createElement('div');
+    el.classList.add(popupClass);
+    el.classList.add(popupClass+'__'+type);
+    el.setAttribute('data-activeclass', popupClass+popupActivePrefix);
+    var html = '<div class="'+popupClass+popupWrapperPrefix+'">';
+    html += '<div class="'+popupClass+popupClosePrefix+'"><i class="icon-close"></i></div>';
+    if(title) html += '<div class="'+popupClass+popupTitlePrefix+'">'+title+'</div>';
+    html += '<div class="'+popupClass+popupContentPrefix+'">'+message+'</div>';
+    html += '</div>';
+    el.innerHTML = html;
+    parent.appendChild(el);
+    var close = el.getElementsByClassName("icon-close")[0];
+    if (close) {
+      close.addEventListener('click', function(e){
+        console.log('CLOSE', e.currentTarget);
+        var popup = e.currentTarget.parentNode.parentNode;
+        var bg = e.currentTarget.parentNode.parentNode.nextSibling;
+        setTimeout(function() {
+          popup.remove();
+          bg.remove();
+        }, 0);
+      }); 
+    }
+    var bg = document.createElement('div');
+    bg.classList.add(popupClass+'-bg');
+    parent.appendChild(bg);
+  }
+  if (timeout) {
+    setTimeout (function(){
+      if (el && el.nextSibling) {
+        el.nextSibling.remove();
+      }
+      if (el) {
+        el.remove();
+      }
+    }, timeout);
+  }
+  return el;
+}
+
+var showSendErrorModal = function (text, formId) {
+  var content = '<form id="'+formId+'ErrorForm" action="#" method="POST">';
+  content += '<p class="stol-popup-content"><span></span><strong>'+text+'</strong><span></span></p>';
+  content += '<input type="hidden" name="body" value="'+text+'">';
+  content += '<input type="hidden" name="code" value="/">';
+  content += '<div class="stol-popup-formContent">';
+  content += '    <input type="text" name="comment" class="_3_wJk" maxlength="140" placeholder="Ваш комментарий (необязательно)" value="">';
+  content += '    <span>0/140</span>';
+  content += '</div>';
+  content += '<button type="submit" class="stol-popup-sendButton">Отправить</button>';
+  content += '</form>';
+  showModal(content, 'Нашли ошибку?', 'center');
+  var errorForm = document.getElementById(formId+'ErrorForm');
+  if (errorForm) {
+    errorForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      sendEmail(text, 'text-error');
+    });
+  }
+
+}
+
+
+var sendEmail = function(message, type, options){
+  if(!emailjs) {
+    console.error('NO EMAIL LIBRAY FOUND');
+    return;
+  }
+  type = type || 'text-error';
+  var sendObject = options || {};
+  sendObject['message_html'] = message;
+  sendObject['date'] = Date.now();
+  sendObject['url'] = document.location.href;
+  emailjs.send("service_aszzsdb", "stol-" + type, sendObject)
+    .then(function(){
+        showModal(message, 'Сообщение успешно отправлено!', 'center', 3000);
+      }, function(err) {
+        showModal(JSON.stringify(err), 'ОШИБКА! Сообщение не отправлено!', 'center', 3000);
+      }
+    );
+};
+
+
+
+
+var addLinkListeners = function(){
   var links = document.querySelectorAll('[data-href]');
   [].forEach.call(links, function(link) {
     link.addEventListener('click', function(e){
@@ -377,7 +487,7 @@ var addListeners = function(){
     });
   });
 }
-addListeners();
+addLinkListeners();
 
 window.addEventListener('optimizedResize', function(e) {
   console.log('RESIZE', window.innerWidth+' x '+window.innerHeight);
@@ -432,6 +542,25 @@ document.addEventListener('slideChangeEnd', function(e){
   }
   var container = e.target.querySelector('[x-ref=box]') || e.target;
   var rect = container.getBoundingClientRect();
-  console.log('CHANGE RECT', rect);
   stopScroll(rect.height);
+});
+function getSelectionText() {
+  var text = "";
+  if (window.getSelection) {
+      text = window.getSelection().toString();
+  } else if (document.selection && document.selection.type != "Control") {
+      text = document.selection.createRange().text;
+  }
+  return text;
+}
+document.addEventListener('keydown', function(e){
+  var text = getSelectionText();
+  if ((e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey) {
+    debugger;
+    addScript('https://cdn.emailjs.com/dist/email.min.js', function(){
+      debugger;
+      showSendErrorModal(text, 'textErrorPopup');
+    })
+
+  }
 });
