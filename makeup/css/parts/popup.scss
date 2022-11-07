@@ -163,11 +163,20 @@
         height: 100%;
         overflow-x: hidden;
         overflow-y: scroll;
-        background-color: rgba(0,0,0,.8);
         min-height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
+        transform: none;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.8);
+        }
     }
     &-wrapper { 
         background-color: var(--whiteColor);
@@ -175,6 +184,7 @@
         max-width: 760px;
         padding: 60px;
         width: 100%;
+        z-index: 1;
     }
     &-closeButton {
         width: 18px;
@@ -219,6 +229,12 @@
         align-items: flex-end;
         margin-bottom: 15px;
     }
+    &-textarea {
+        width: 100%;
+        height: 4rem;
+        padding: 0.25rem 0.5rem;
+        border: 1px solid rgba(0,0,0,.3);
+    }
     &-sendButton {
         float: right;
         width: 170px;
@@ -233,10 +249,5 @@
         text-transform: uppercase;
         white-space: nowrap;
         background-color: var(--darkColor);
-    }
-    &-bg {
-        @apply absolute bg-gray-300 opacity-50 top-0 left-0 right-0 bottom-0;
-        @apply md:hidden;
-        z-index: 49;
     }
 }

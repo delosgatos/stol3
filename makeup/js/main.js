@@ -299,14 +299,37 @@ collapsibleTags.prototype = {
   countTagWidth: 50,
   tagsBlocks: [],
   showTagClass: 'js-show-tag',
+  hideTagClass: 'js-hide-tag',
   showTags: function(container){
     var hidden = container.getElementsByClassName(this.hiddenTagClass);
     for(var i = hidden.length-1; i >= 0 ; i--) {
+      hidden[i].setAttribute('data-hidden', true);
       hidden[i].classList.remove(this.hiddenTagClass);
     }
     var showArr = container.getElementsByClassName(this.showTagClass);
     if (showArr.length) {
       showArr[0].classList.add(this.hiddenTagClass);
+    }
+    var hideArr = container.getElementsByClassName(this.hideTagClass);
+    if (hideArr.length) {
+      hideArr[0].classList.remove(this.hiddenTagClass);
+    }
+  },
+  hideTags: function(container){
+    var toHide = container.querySelectorAll('[data-hidden]');
+    if (!toHide.length) {
+      return;
+    }
+    for(var i = 0; i < toHide.length ; i++) {
+      toHide[i].classList.add(this.hiddenTagClass);
+    }
+    var showArr = container.getElementsByClassName(this.showTagClass);
+    if (showArr.length) {
+      showArr[0].classList.remove(this.hiddenTagClass);
+    }
+    var hideArr = container.getElementsByClassName(this.hideTagClass);
+    if (hideArr.length) {
+      hideArr[0].classList.add(this.hiddenTagClass);
     }
   },
   collapseTags: function(container){
@@ -316,7 +339,7 @@ collapsibleTags.prototype = {
     var hiddenCount = 0;
     for(var i = 0; i < container.children.length; i++) {
       var el = container.children[i];
-      if (el.classList.contains(this.showTagClass)) {
+      if (el.classList.contains(this.showTagClass) || el.classList.contains(this.hideTagClass)) {
         continue;
       }
       wTags += el.getFullWidth();
@@ -326,12 +349,14 @@ collapsibleTags.prototype = {
         hiddenCount++;
       }
     }
+    container.hiddenCount = hiddenCount;
     if (hiddenCount) {
-      var countTag, countTagArr = container.getElementsByClassName(this.showTagClass);
+      var hideTag, countTag, countTagArr = container.getElementsByClassName(this.showTagClass);
       if (countTagArr.length) {
         countTag = countTagArr[0];
         countTag.classList.remove(this.hiddenTagClass);
       } else {
+
         countTag = document.createElement('a');
         countTag.setAttribute('href', '#showtags');
         countTag.classList.add(this.tagClass, this.showTagClass);
@@ -345,6 +370,23 @@ collapsibleTags.prototype = {
           }
           this.showTags(container);
         }.bind(this));
+
+        hideTag = document.createElement('a');
+        hideTag.setAttribute('href', '#hidetags');
+        hideTag.classList.add(this.tagClass, this.hideTagClass, this.hiddenTagClass);
+
+        hideTag.innerHTML = '<i class="icon-close"></i>';
+        container.appendChild(hideTag);
+        hideTag.addEventListener('click', function(e){
+          e.preventDefault();
+          var container = e.currentTarget.closest('.'+this.containerClass);
+          if (!container) {
+            console.error('NO CONTAINER', e.currentTarget, this.containerClass);
+            return;
+          }
+          this.hideTags(container);
+        }.bind(this));
+
       }
       countTag.innerHTML = '+' + hiddenCount;
     }
@@ -371,6 +413,20 @@ collapsibleTags.prototype = {
   init: function() {
     this.tagsBlocks = document.getElementsByClassName(this.containerClass);
     this.updateTagsBlocks();
+  }
+}
+
+var closeModal = function(type) {
+  if(type) {
+    var popup = document.getElementsByClassName(popupClass+'__'+type);
+    if(popup.length) {
+      popup[0].remove();
+    }
+  } else {
+    var popups = document.getElementsByClassName(popupClass+'__'+type);
+    for(var i = popups.length-1; i--; i >= 0) {
+      popups[i].remove();
+    }
   }
 }
 
@@ -404,16 +460,11 @@ var showModal = function(message, title, type, timeout, parent) {
       close.addEventListener('click', function(e){
         console.log('CLOSE', e.currentTarget);
         var popup = e.currentTarget.parentNode.parentNode;
-        var bg = e.currentTarget.parentNode.parentNode.nextSibling;
         setTimeout(function() {
           popup.remove();
-          bg.remove();
         }, 0);
       }); 
     }
-    var bg = document.createElement('div');
-    bg.classList.add(popupClass+'-bg');
-    parent.appendChild(bg);
   }
   if (timeout) {
     setTimeout (function(){
@@ -434,17 +485,23 @@ var showSendErrorModal = function (text, formId) {
   content += '<input type="hidden" name="body" value="'+text+'">';
   content += '<input type="hidden" name="code" value="/">';
   content += '<div class="stol-popup-formContent">';
-  content += '    <input type="text" name="comment" class="_3_wJk" maxlength="140" placeholder="Ваш комментарий (необязательно)" value="">';
-  content += '    <span>0/140</span>';
+  content += '    <textarea type="text" name="comment" class="stol-popup-textarea" maxlength="140" placeholder="Ваш комментарий (необязательно)" value=""></textarea>';
+  content += '    <span><span id="'+formId+'ErrorFormCount">0</span>/140</span>';
   content += '</div>';
   content += '<button type="submit" class="stol-popup-sendButton">Отправить</button>';
   content += '</form>';
   showModal(content, 'Нашли ошибку?', 'center');
   var errorForm = document.getElementById(formId+'ErrorForm');
   if (errorForm) {
+    var elCount = document.getElementById(formId+'ErrorFormCount');
+    var elText = errorForm.getElementsByTagName('textarea')[0];
+    elText.addEventListener('keyup', function(e){
+      elCount.innerText = elText.value.length;
+    });
     errorForm.addEventListener('submit', function(e){
       e.preventDefault();
-      sendEmail(text, 'text-error');
+      sendEmail(text, 'text-error', {comment: elText.value});
+      closeModal('center');
     });
   }
 
@@ -452,7 +509,7 @@ var showSendErrorModal = function (text, formId) {
 
 
 var sendEmail = function(message, type, options){
-  if(!emailjs) {
+  if(!window.hasOwnProperty('emailjs')) {
     console.error('NO EMAIL LIBRAY FOUND');
     return;
   }
@@ -461,13 +518,16 @@ var sendEmail = function(message, type, options){
   sendObject['message_html'] = message;
   sendObject['date'] = Date.now();
   sendObject['url'] = document.location.href;
+  console.log('send error', sendObject);
+  setTimeout(function(){
   emailjs.send("service_aszzsdb", "stol-" + type, sendObject)
     .then(function(){
-        showModal(message, 'Сообщение успешно отправлено!', 'center', 3000);
+        showModal('<b>Ошибка в тексте:</b> ' + message, 'Сообщение успешно отправлено!', 'center', 4000);
       }, function(err) {
-        showModal(JSON.stringify(err), 'ОШИБКА! Сообщение не отправлено!', 'center', 3000);
+        showModal(JSON.stringify(err), 'ОШИБКА! Сообщение не отправлено!', 'center', 5000);
       }
     );
+  }, 0);
 };
 
 
@@ -556,9 +616,7 @@ function getSelectionText() {
 document.addEventListener('keydown', function(e){
   var text = getSelectionText();
   if ((e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey) {
-    debugger;
     addScript('https://cdn.emailjs.com/dist/email.min.js', function(){
-      debugger;
       showSendErrorModal(text, 'textErrorPopup');
     })
 

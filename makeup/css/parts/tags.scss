@@ -20,6 +20,13 @@
     &:hover {
         @apply transform scale-105 text-white bg-gray-900;
     }
+    &[href="#hidetags"] {
+        @apply border-0 pl-1;
+        i {
+            font-size: 9px;
+            padding-top: 1px;
+        }
+    }
 }
 &-tags-block{
     &:not([hidden]) {

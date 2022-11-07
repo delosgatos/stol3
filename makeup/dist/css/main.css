@@ -983,12 +983,17 @@ button.swiper-pagination-bullet{
 @font-face {
   font-family: "HelveticaMonospacedW1G-Rg";
 
-  src: url(file:///Users/delosgatos/sites/stol3/makeup/node_modules/css-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[1]!/Users/delosgatos/sites/stol3/makeup/node_modules/postcss-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[2]!/Users/delosgatos/sites/stol3/makeup/node_modules/sass-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[3]!/Users/delosgatos/sites/stol3/41d763711be0b9a1442d.woff2) format("woff2"), url(file:///Users/delosgatos/sites/stol3/makeup/node_modules/css-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[1]!/Users/delosgatos/sites/stol3/makeup/node_modules/postcss-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[2]!/Users/delosgatos/sites/stol3/makeup/node_modules/sass-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[3]!/Users/delosgatos/sites/stol3/cdf26a9630d2206e61a7.woff) format("woff");
+  src: url(file:///Users/macbook/Sites/stol3/makeup/node_modules/css-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[1]!/Users/macbook/Sites/stol3/makeup/node_modules/postcss-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[2]!/Users/macbook/Sites/stol3/makeup/node_modules/sass-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[3]!/Users/macbook/Sites/stol3/41d763711be0b9a1442d.woff2) format("woff2"), url(file:///Users/macbook/Sites/stol3/makeup/node_modules/css-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[1]!/Users/macbook/Sites/stol3/makeup/node_modules/postcss-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[2]!/Users/macbook/Sites/stol3/makeup/node_modules/sass-loader/dist/cjs.js%3F%3FruleSet[1].rules[1].use[3]!/Users/macbook/Sites/stol3/cdf26a9630d2206e61a7.woff) format("woff");
 }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
 
 /*@import 'tailwind';*/
+
+*, *:before, *:after {
+  --whiteColor: #fff;
+  --darkColor: #333;
+}
 
 html, body {
   overflow-x: hidden;
@@ -2622,6 +2627,16 @@ a{
   background-color:rgba(31, 31, 31, var(--tw-bg-opacity));
   --tw-text-opacity:1;
   color:rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.stol-tag[href="#hidetags"], .stol-section-donation [href="#hidetags"].stol-donation-sum {
+  border-width:0px;
+  padding-left:0.25rem;
+}
+
+.stol-tag[href="#hidetags"] i, .stol-section-donation [href="#hidetags"].stol-donation-sum i {
+  font-size: 9px;
+  padding-top: 1px;
 }
 
 .stol-tags-block:not([hidden]) {
@@ -6629,11 +6644,21 @@ a{
   height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
-  background-color: rgba(0, 0, 0, 0.8);
   min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: none;
+}
+
+.stol-popup__center:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .stol-popup-wrapper {
@@ -6642,6 +6667,7 @@ a{
   max-width: 760px;
   padding: 60px;
   width: 100%;
+  z-index: 1;
 }
 
 .stol-popup-closeButton {
@@ -6694,6 +6720,13 @@ a{
   margin-bottom: 15px;
 }
 
+.stol-popup-textarea {
+  width: 100%;
+  height: 4rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
 .stol-popup-sendButton {
   float: right;
   width: 170px;
@@ -6708,27 +6741,6 @@ a{
   text-transform: uppercase;
   white-space: nowrap;
   background-color: var(--darkColor);
-}
-
-.stol-popup-bg {
-  position:absolute;
-  top:0px;
-  right:0px;
-  bottom:0px;
-  left:0px;
-  --tw-bg-opacity:1;
-  background-color:rgba(209, 213, 219, var(--tw-bg-opacity));
-  opacity:0.5;
-}
-
-@media (min-width: 768px){
-  .stol-popup-bg{
-    display:none
-  }
-}
-
-.stol-popup-bg{
-  z-index: 49
 }
 
 .swiper-wrapper {
