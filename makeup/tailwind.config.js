@@ -28,7 +28,8 @@ module.exports = {
       colors: {
         gray: {
           900: '#1f1f1f',
-          200: '#ebebeb'
+          200: '#ebebeb',
+          70: 'rgba(0,0,0,0.7)',
         },
         orange: {
           900: '#FF4b00',
@@ -278,12 +279,14 @@ module.exports = {
         dgal:           '676px',
         'max-content':  'max-content',
         'fit-content':  'fit-content',
+        'unset':        'unset',
       },
       content: {
         'arrleft': '\e800',
         'arrright': '\e801',
         'arrleftsm': '\e807',
         'arrrightsm': '\e808',
+        'set': '',
       },
       flex: {
         full: '2 1 100%',

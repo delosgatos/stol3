@@ -1,3 +1,18 @@
+// START MAIN.JS
+
+var sysmsg = "%c 🚭 S-T-O-L.COM \nVERSION: 2022-11-18 23:15:29.422"; 
+var sysmsgstyl= [ 
+    'font-size: 16px;', 
+    'font-family: monospace;', 
+    'background: white;', 
+    'display: inline-block;', 
+    'color: black;', 
+    'padding: 8px 19px;', 
+    'border: 1px dashed;',
+].join(';'); 
+console.log(sysmsg, sysmsgstyl);
+
+
 var isXl = function(){
   return window.innerWidth > 1280;
 };
@@ -172,41 +187,61 @@ var popupTitlePrefix = '-title';
 var popupContentPrefix = '-content';
 var popupWrapperPrefix = '-wrapper';
 var commentPopupPrefix = '__comment';
+var initPopupPrefix = '__init';
 var commentsElements = document.querySelectorAll('a[href="#tooltip"]');
+var removePopups = function() {
+  var popups = document.getElementsByClassName(popupClass+commentPopupPrefix);
+  if (!popups.length) {
+    return false;
+  }
+  for(var i=popups.length-1; i >= 0; i--) {
+    popups[i].classList.add(popupClass+initPopupPrefix);
+    setTimeout(function() {
+      this.remove();
+    }.bind(popups[i]), 250);
+  }
+  return true;
+}
 var commentsHandler = function (link) {
   var comment = link.getAttribute('alt') || link.getAttribute('data-comment');
-  var text = link.querySelector('.'+popupClass+commentPopupPrefix+'>.'+popupClass+popupContentPrefix);
-  if (text) {
-    text.innerHTML = comment;
-    return;
-  }
+  removePopups();
   var el = document.createElement('div');
   el.classList.add(popupClass);
   el.classList.add(popupClass+commentPopupPrefix);
+  el.classList.add(popupClass+initPopupPrefix);
   el.setAttribute('data-activeclass', popupClass+popupActivePrefix);
-  el.innerHTML = '<div class="'+popupClass+popupClosePrefix+' '+popupClass+commentPopupPrefix+popupClosePrefix+'"><i class="icon-close"></i></div>'
-  + '<div class="'+popupClass+popupContentPrefix+'">'+comment+'</div>';
+  var inner = '<div class="'+popupClass+commentPopupPrefix+popupWrapperPrefix+'">';
+  inner +=        '<a href="#" class="'+popupClass+popupClosePrefix+' '+popupClass+commentPopupPrefix+popupClosePrefix+'"><i class="icon-close"></i></a>';
+  inner +=        '<div class="'+popupClass+popupContentPrefix+'">'+comment+'</div>';
+  inner +=    '</div>';
+  el.innerHTML = inner;
   link.appendChild(el);
   var close = el.getElementsByClassName("icon-close")[0];
   if (close) {
     close.addEventListener('click', function(e){
-      console.log('CLOSE', e.currentTarget);
-      var popup = e.currentTarget.parentNode.parentNode;
-      var bg = e.currentTarget.parentNode.parentNode.nextSibling;
-      setTimeout(function() {
-        popup.remove();
-        bg.remove();
-      }, 0);
-    }); 
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      removePopups();
+    });
   }
-  var bg = document.createElement('div');
-  bg.classList.add(popupClass+'-bg');
-  link.appendChild(bg);
+  var wrapper = el.getElementsByClassName(popupClass+commentPopupPrefix+popupWrapperPrefix)[0];
+  wrapper.addEventListener('click', function(e){
+    e.stopPropagation();
+  });
+  setTimeout(function(){
+    el.classList.remove(popupClass + initPopupPrefix);
+  }, 0);
   return el;
 }
+
 commentsElements.forEach(function (el) {
   el.addEventListener('click', function (e) {
     e.preventDefault();
+    if (e.target.classList && !e.target.classList.contains(popupClass+commentPopupPrefix)) {
+      e.stopPropagation();
+    } else {
+      return false;
+    }
     var dropdown = commentsHandler(e.currentTarget);
     if (!dropdown) {
       return;
@@ -219,6 +254,29 @@ commentsElements.forEach(function (el) {
     }
   });
 });
+
+// LOADER
+var loader = {
+  class: 'stol-loader',
+  show: function() {
+    var loaders = document.getElementsByClassName(this.class);
+    if (loaders.length) {
+      return false;
+    }
+    var el = document.createElement('div');
+    el.classList.add(this.class);
+    el.innerHTML = '<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>';
+    document.body.appendChild(el);
+    return true;
+  },
+  hide: function() {
+    var loaders = document.getElementsByClassName(this.class);
+    if (!loaders.length) {
+      return false;
+    }
+    loaders[0].remove();
+  },
+}
 
 var updateSearchSize = function() {
   var search = document.getElementById('searchbar');
@@ -450,7 +508,7 @@ var showModal = function(message, title, type, timeout, parent) {
     el.setAttribute('data-activeclass', popupClass+popupActivePrefix);
     var html = '<div class="'+popupClass+popupWrapperPrefix+'">';
     html += '<div class="'+popupClass+popupClosePrefix+'"><i class="icon-close"></i></div>';
-    if(title) html += '<div class="'+popupClass+popupTitlePrefix+'">'+title+'</div>';
+    if(title) html += '<h2 class="'+popupClass+popupTitlePrefix+'">'+title+'</h2>';
     html += '<div class="'+popupClass+popupContentPrefix+'">'+message+'</div>';
     html += '</div>';
     el.innerHTML = html;
@@ -458,8 +516,7 @@ var showModal = function(message, title, type, timeout, parent) {
     var close = el.getElementsByClassName("icon-close")[0];
     if (close) {
       close.addEventListener('click', function(e){
-        console.log('CLOSE', e.currentTarget);
-        var popup = e.currentTarget.parentNode.parentNode;
+        var popup = e.currentTarget.closest('.' + popupClass);
         setTimeout(function() {
           popup.remove();
         }, 0);
@@ -481,14 +538,14 @@ var showModal = function(message, title, type, timeout, parent) {
 
 var showSendErrorModal = function (text, formId) {
   var content = '<form id="'+formId+'ErrorForm" action="#" method="POST">';
-  content += '<p class="stol-popup-content"><span></span><strong>'+text+'</strong><span></span></p>';
+  content += '<p class="'+popupClass+'-content"><span></span><strong>'+text+'</strong><span></span></p>';
   content += '<input type="hidden" name="body" value="'+text+'">';
   content += '<input type="hidden" name="code" value="/">';
-  content += '<div class="stol-popup-formContent">';
-  content += '    <textarea type="text" name="comment" class="stol-popup-textarea" maxlength="140" placeholder="Ваш комментарий (необязательно)" value=""></textarea>';
+  content += '<div class="'+popupClass+'-formContent">';
+  content += '    <textarea type="text" name="comment" class="'+popupClass+'-textarea" maxlength="140" placeholder="Ваш комментарий (необязательно)" value=""></textarea>';
   content += '    <span><span id="'+formId+'ErrorFormCount">0</span>/140</span>';
   content += '</div>';
-  content += '<button type="submit" class="stol-popup-sendButton">Отправить</button>';
+  content += '<button type="submit" class="'+popupClass+'-sendButton">Отправить</button>';
   content += '</form>';
   showModal(content, 'Нашли ошибку?', 'center');
   var errorForm = document.getElementById(formId+'ErrorForm');
@@ -515,18 +572,22 @@ var sendEmail = function(message, type, options){
   }
   type = type || 'text-error';
   var sendObject = options || {};
-  sendObject['message_html'] = message;
-  sendObject['date'] = Date.now();
+  sendObject['message'] = message;
+  sendObject['date'] = (new Date()).toLocaleString("ru-RU");
   sendObject['url'] = document.location.href;
-  console.log('send error', sendObject);
+  sendObject['key'] = Math.floor(Math.random() * 1000000000);
+  console.log('send text error', sendObject);
   setTimeout(function(){
-  emailjs.send("service_aszzsdb", "stol-" + type, sendObject)
-    .then(function(){
-        showModal('<b>Ошибка в тексте:</b> ' + message, 'Сообщение успешно отправлено!', 'center', 4000);
-      }, function(err) {
-        showModal(JSON.stringify(err), 'ОШИБКА! Сообщение не отправлено!', 'center', 5000);
-      }
-    );
+    loader.show();
+    emailjs.send("service_aszzsdb", "stol-" + type, sendObject)
+      .then(function(){
+          loader.hide();
+          showModal('<b>Вы нашли ошибку в тексте:</b> ' + message, 'Сообщение успешно отправлено!', 'center', 4000);
+        }, function(err) {
+          loader.hide();
+          showModal(JSON.stringify(err), 'ОШИБКА! Сообщение не отправлено!', 'center', 5000);
+        }
+      );
   }, 0);
 };
 
@@ -572,6 +633,10 @@ var ct = new collapsibleTags('js-collapsible-tags', 'stol-tag', 'stol-tag-hidden
 window.onload = function(){
   ct.init();
 };
+document.addEventListener('click', function(e){
+  console.log('DOCUMENT CLICK');
+  removePopups();
+});
 document.addEventListener('changeFullscreen', function(e){
   if(!e.detail || !e.detail.hasOwnProperty('full')) {
     return false;
@@ -616,9 +681,15 @@ function getSelectionText() {
 document.addEventListener('keydown', function(e){
   var text = getSelectionText();
   if ((e.keyCode == 10 || e.keyCode == 13) && e.ctrlKey) {
-    addScript('https://cdn.emailjs.com/dist/email.min.js', function(){
+    if(!window.hasOwnProperty('emailjs')) {
+      loader.show();
+      addScript('https://cdn.emailjs.com/dist/email.min.js', function(){
+        emailjs.init("0RmzGvyMD7Fd_es0G");
+        loader.hide();
+        showSendErrorModal(text, 'textErrorPopup');
+      })
+    } else {
       showSendErrorModal(text, 'textErrorPopup');
-    })
-
+    }
   }
 });

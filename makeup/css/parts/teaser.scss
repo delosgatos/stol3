@@ -117,12 +117,11 @@
         @apply text-mh1 md:text-th1 xl:text-dh1;
       }
       &-image {
-        @apply h-auto min-h-mtop md:w-31/50 md:min-h-ttop xl:min-h-dtop;
+        @apply h-auto min-h-mtop md:w-31/50 md:h-unset md:min-h-ttop xl:min-h-dtop;
       }
       &-content {
         @apply md:w-19/50 md:h-auto md:pb-20 md:pt-13 md:px-5;
       }
-
       picture {
           img {
               @apply h-56 md:h-full;

@@ -124,7 +124,7 @@
     }
 
     &-subscribe {
-        @apply flex flex-col w-full space-y-6 xl:p-9 xl:pt-11;
+        @apply flex flex-col w-full space-y-6 pb-10 xl:p-9 xl:pt-11;
         &-title {
             @extend .h1;
             @apply leading-7 uppercase;
@@ -151,7 +151,7 @@
         &-text {
             @extend .cap;
             @extend .simpletext;
-            @apply pb-10 italic leading-tight white-opacity; 
+            @apply italic leading-tight white-opacity; 
             @apply xl:text-gray-500 xl:pb-0;
         }
     }

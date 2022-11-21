@@ -428,6 +428,20 @@
                     clickable: true,
                   },
                   on: {
+                    'init' : function (sw){
+                      if(sw.slides.length < 4) {
+                        var ctrls = sw.el.parentNode.parentNode.getElementsByClassName('stol-controls-counter');
+                        if(ctrls && ctrls.length) {
+                          ctrls[0].remove();
+                        }
+                        ctrls = sw.el.parentNode.parentNode.getElementsByClassName('stol-controls-arrows');
+                        if(ctrls && ctrls.length) {
+                          ctrls[0].remove();
+                        }
+                        sw.disable();
+                      }
+                      return false;
+                    },
                     'slideChange' : function (sw){
                         this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
                         $dispatch('slideChange', { slide: sw.realIndex+1 });
@@ -679,6 +693,11 @@
                           (max-width: 768px) 768px, 
                           (max-width: 1200px) 1200px,
                           1482px" />
+
+
+                <p>12321 12312312 213123 выделяемый текст eqweqweqw qweqwe&nbsp;<a href="#tooltip" alt="<p>Тут какой-то текст</p>">Иностранный Агент</a> что-то еще&nbsp;Иностранный Агент и что то еще <a href="#tooltip" alt="<p>Какое-то описание</p>">Облако данных</a> и какой-то текст про Облако данных и <a href="#tooltip" alt="фвафвафва">еще</a> текст</p>
+
+
                 <span style="font-weight: 400;">Я бы хотела сказать, что – как всякий церковный человек – первое, что я
                     думаю об аскетике, – это собственно об аскетической традиции, церковной огромной традиции, которая
                     изучена, описана и которая, конечно, богаче всего в восточной ветви христианства, в православии, и

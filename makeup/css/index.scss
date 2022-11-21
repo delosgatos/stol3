@@ -4,7 +4,13 @@
 @import '../assets/fontello/stolicon-embedded';
 @font-face {
   font-family: "HelveticaMonospacedW1G-Rg";
-  src: url('../assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff2') format('woff2'), url('../assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff') format('woff');
+  src: url('/dist/font/font.woff2') format('woff2'), 
+       url('/dist/font/font.woff') format('woff');
+}
+@font-face {
+  font-family: "HelveticaMonospacedW1G-Rg";
+  src: url('https://s-t-o-l.com/local/templates/stol3/assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff2') format('woff2'), 
+       url('https://s-t-o-l.com/local/templates/stol3/assets/MyFontsWebfontsKit/webFonts/HelveticaMonospacedW1GRg/font.woff') format('woff');
 }
 
 /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */

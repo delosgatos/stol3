@@ -85,7 +85,14 @@ module.exports = {
                             publicPath: '../../'
                         }
                     },
-                    { loader: 'css-loader', options: { sourceMap: devMode, importLoaders: 2 } },                    
+                    { 
+                        loader: 'css-loader', 
+                        options: { 
+                            url: false,
+                            sourceMap: devMode, 
+                            importLoaders: 2 
+                        } 
+                    },                    
                     {
                         loader: 'postcss-loader',
                         options: { sourceMap: devMode}     

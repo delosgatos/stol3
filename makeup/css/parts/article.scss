@@ -190,7 +190,7 @@
                 @apply bg-gray-100 pb-0.5 px-1 border border-gray-200 rounded-full hover:border-red-200;
             }
             &[href='#tooltip'] {
-                @apply bg-gray-200 px-1 pb-0.5 no-underline border-gray-500;
+                @apply bg-gray-200 px-1 pb-0.5 no-underline border-gray-500 whitespace-nowrap;
                 @apply hover:bg-white hover:border-orange-900 text-gray-900;
             }
         }

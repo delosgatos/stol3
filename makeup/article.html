@@ -547,7 +547,7 @@
                   </div>
                   <div class="stol-controls-gallery">
                     <a @mouseenter="info=true" @mouseleave="info=false" @click.prevent="infoclick=!infoclick" href="#info" class="stol-controls-info" :class="{'stol-controls-info__active':info,'stol-controls-info__click':infoclick,}"><i class="icon-i"></i></a>
-                    <a @click.prevent="full=true" href="#fullscreen" class="stol-controls-fullscreen"><i class="icon-fullscreen"></i></a>
+                    <a @click.prevent="full=true;infoclick=false;" href="#fullscreen" class="stol-controls-fullscreen"><i class="icon-fullscreen"></i></a>
                   </div>
                 </div>
             </section>
