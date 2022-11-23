@@ -54,6 +54,11 @@
                 @apply transition-all hidden;
             }
         }
+        &-text-slides {
+            .stol-teaser-content {
+                @apply relative;
+            }
+        }
         // C O N T R O L S
         .stol-controls {
             &:not([hidden]) {
@@ -89,6 +94,9 @@
                     &-content {
                         @apply xl:m-0;
                     }
+                    &-text-slides {
+                        @apply hidden;
+                    }
                 }
                 &-teaser {
                     @apply bg-gray-900 pt-21 md:pt-0 xl:flex-row xl:pt-4;
@@ -105,7 +113,7 @@
                         @apply xl:px-10 xl:py-0 xl:m-0 xl:mt-12 xl:flex-growonly xl:w-galtext;
                     }
                     &-text:not([hidden]) {
-                        @apply text-white
+                        @apply text-white;
                     }
                     &-date {
                         @extend .graytext;
