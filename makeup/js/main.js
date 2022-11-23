@@ -1,6 +1,6 @@
 // START MAIN.JS
 
-var sysmsg = "%c 🚭 S-T-O-L.COM \nVERSION: 2022-11-18 23:15:29.422"; 
+var sysmsg = "%c 🚭 S-T-O-L.COM \nVERSION: 2022-11-24 01:33:49.814"; 
 var sysmsgstyl= [ 
     'font-size: 16px;', 
     'font-family: monospace;', 
@@ -178,6 +178,84 @@ showClickElements.forEach(function (el) {
     toggleModal(dropdown);
   });
 });
+
+// FIX TOP TEASER HEIGHT
+var teaserClass = 'stol-teaser';
+var teaserImageClass = 'stol-teaser-image';
+var fixTeaserImageHeight = function(teaser, image){
+  if(teaser.offsetHeight != image.offsetHeight) {
+    image.style.maxHeight = 'none';
+  } else {
+    // image.style.maxHeight = null;
+  }
+}
+var onTopSlideChange = function(container){
+  if(document.body.offsetWidth < 768) {
+    return false;
+  }
+  var slides = container.getElementsByClassName('swiper-slide');
+  var activeSlide = Array.prototype.filter.call(slides, function(el){
+    return el.classList.contains('swiper-slide-active');
+  })[0];
+  var teaser = activeSlide.getElementsByClassName(teaserClass)[0];
+  var teaserImage = activeSlide.getElementsByClassName(teaserImageClass)[0];
+  var teaserImageImg = teaserImage.getElementsByTagName('img')[0];
+  if(teaserImageImg.complete) {
+    fixTeaserImageHeight(teaser, teaserImage);
+  } else {
+    teaserImageImg.addEventListener('load', function(e){
+      fixTeaserImageHeight(teaser, teaserImage);
+    });
+  }
+};
+var initTopSlider = true;
+document.addEventListener('topSlideChange', function(e){
+  setTimeout(function(){
+    if (initTopSlider) {
+      var tags = e.target.getElementsByClassName('js-collapsible-tags')[0];
+      tags.addEventListener('collapse', function () {
+        onTopSlideChange(e.target);
+      });
+    } else {
+      onTopSlideChange(e.target);
+    }
+    initTopSlider = false;
+  }, 0);
+});
+
+
+// GALLERY
+var galleryClass = 'stol-article-gallery';
+var textSlidesPostfix = '-text-slides';
+var teaserContentClass = 'stol-teaser-content';
+var modifyGallery = function() {
+  var txtSlides, gals = document.getElementsByClassName(galleryClass);
+  Array.prototype.forEach.call(gals, function(gal){
+    txtSlides = document.createElement('div');
+    txtSlides.classList.add(galleryClass+textSlidesPostfix);
+    var txts = gal.getElementsByClassName(teaserContentClass);
+    Array.prototype.forEach.call(txts, function(txt){
+      txtSlides.appendChild(txt.cloneNode(true));
+    });
+    gal.appendChild(txtSlides);
+  });
+}
+modifyGallery();
+
+var onGallerySlideChange = function(sw){
+  var txtSlides = sw.$wrapperEl.parents('[x-init]').find('.'+galleryClass+textSlidesPostfix);
+  if(!txtSlides.length) {
+    return;
+  }
+  txtSlides = txtSlides[0];
+  Array.prototype.forEach.call(txtSlides.children, function(el, i){ el.style.display = i === sw.realIndex ? 'flex' : 'none';});
+};
+document.addEventListener('slideChange', function(e){
+  setTimeout(function(){
+    onGallerySlideChange(e.detail.sw);
+  }, 0);
+});
+
 
 // COMMENTS POPUP
 var popupClass = 'stol-popup';
@@ -392,7 +470,6 @@ collapsibleTags.prototype = {
   },
   collapseTags: function(container){
     var w = container.clientWidth;
-  //  console.log('COLLAPSIBLE', container, w);
     var wTags = 0;
     var hiddenCount = 0;
     for(var i = 0; i < container.children.length; i++) {
@@ -401,7 +478,6 @@ collapsibleTags.prototype = {
         continue;
       }
       wTags += el.getFullWidth();
-    //  console.log('TAG', el, el.offsetWidth, el.getFullWidth(), wTags, w, ' - ', this.countTagWidth);
       if (wTags >= w - this.countTagWidth) {
         el.classList.add(this.hiddenTagClass);
         hiddenCount++;
@@ -444,7 +520,11 @@ collapsibleTags.prototype = {
           }
           this.hideTags(container);
         }.bind(this));
-
+        setTimeout (function(){
+          container.dispatchEvent(new CustomEvent("collapse", {
+            detail: { }
+          }));
+        }, 0)
       }
       countTag.innerHTML = '+' + hiddenCount;
     }
@@ -634,7 +714,6 @@ window.onload = function(){
   ct.init();
 };
 document.addEventListener('click', function(e){
-  console.log('DOCUMENT CLICK');
   removePopups();
 });
 document.addEventListener('changeFullscreen', function(e){

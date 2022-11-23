@@ -410,11 +410,15 @@
                         ctrls[0].remove();
                       }
                       sw.disable();
+                      return false;
                     }
-                    return false;
                   },
                   'slideChange' : function (sw){
                     this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
+                    $dispatch('topSlideChange', { sw: sw, slide: sw.realIndex+1 });
+                  },
+                  'slideChangeTransitionEnd' : function (sw){
+                      $dispatch('topSlideChangeEnd', { sw: sw, slide: sw.realIndex+1 });
                   }
                 },
               });"
@@ -430,18 +434,18 @@
                       window.dispatchEvent(new CustomEvent('eresize'));
                     });">
                       <a href="article.html" class="stol-teaser-image">
-                        <span class="stol-tag-label">культура</span>
-                        <picture>
-                          <source type="image/webp" media="(min-width: 1280px)" srcset="https://loremflickr.com/777/567?11">
-                          <source type="image/png"  media="(min-width: 1280px)" srcset="https://placekitten.com/777/567?11">
-                          <source type="image/webp" media="(min-width: 768px)"  srcset="https://loremflickr.com/640/460?11">
-                          <source type="image/png"  media="(min-width: 768px)"  srcset="https://placekitten.com/640/460?11">
-                          <source type="image/webp" media="(min-width: 425px)"  srcset="https://loremflickr.com/767/224?11">
-                          <source type="image/png"  media="(min-width: 425px)"  srcset="https://placekitten.com/767/224?11">
-                          <source type="image/webp" media="(min-width: 0)"      srcset="https://loremflickr.com/425/224?11">
-                          <source type="image/png"  media="(min-width: 0)"      srcset="https://placekitten.com/425/224?11">
-                          <img src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8gAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
-                        </picture>
+                          <span class="stol-tag-label">культура</span>
+                          <picture>
+                            <source type="image/webp" media="(min-width: 1280px)" srcset="https://loremflickr.com/777/567?11">
+                            <source type="image/png"  media="(min-width: 1280px)" srcset="https://placekitten.com/777/567?11">
+                            <source type="image/webp" media="(min-width: 768px)"  srcset="https://loremflickr.com/640/460?11">
+                            <source type="image/png"  media="(min-width: 768px)"  srcset="https://placekitten.com/640/460?11">
+                            <source type="image/webp" media="(min-width: 425px)"  srcset="https://loremflickr.com/767/224?11">
+                            <source type="image/png"  media="(min-width: 425px)"  srcset="https://placekitten.com/767/224?11">
+                            <source type="image/webp" media="(min-width: 0)"      srcset="https://loremflickr.com/425/224?11">
+                            <source type="image/png"  media="(min-width: 0)"      srcset="https://placekitten.com/425/224?11">
+                            <img src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8gAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
+                          </picture>
                       </a>
                       <div class="stol-teaser-content">
                         <a href="article.html" class="stol-teaser-title">главный материал,<br>если заголовок будет<br>в три строки</a>

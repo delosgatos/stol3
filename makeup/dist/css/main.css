@@ -3140,6 +3140,7 @@ a{
 @media (min-width: 768px){
   .stol-section-top .stol-teaser-image{
     height:unset;
+    max-height:460px;
     min-height:460px;
     width:62%
   }
@@ -3147,6 +3148,7 @@ a{
 
 @media (min-width: 1280px){
   .stol-section-top .stol-teaser-image{
+    max-height:499px;
     min-height:499px
   }
 }
@@ -3605,6 +3607,7 @@ a{
 .stol-controls-counter {
   width:5rem;
   flex:none;
+  white-space:nowrap;
   font-size:0.875rem;
   line-height:1.25rem;
   text-transform:uppercase;
@@ -3714,7 +3717,7 @@ a{
 .stol-controls-gallery {
   position:absolute;
   right:0.75rem;
-  bottom:4rem;
+  bottom:4.25rem;
   z-index:50;
   display:flex;
   flex-direction:column;
@@ -3907,6 +3910,10 @@ a{
   .stol-article-gallery .stol-controls-arrows{
     margin-right:-1rem
   }
+}
+
+.stol-article-gallery .stol-controls-info {
+  display:none;
 }
 
 .stol-article-gallery .stol-controls .stol-subtext, .stol-article-gallery .stol-controls .stol-article-inset-title, .stol-article-gallery .stol-controls .stol-article-content-image-wrap, .stol-article-gallery .stol-controls .stol-article-content address, .stol-article-content .stol-article-gallery .stol-controls address, .stol-article-gallery .stol-controls a.address, .stol-article-gallery .stol-controls .stol-breadcrumb, .stol-article-gallery .stol-controls .stol-section-relative-title, .stol-article-gallery .stol-controls .stol-teaser-date, .stol-article-gallery .stol-controls .stol-teaser-news-date {
@@ -4814,6 +4821,10 @@ a{
   transition-duration:150ms;
 }
 
+.stol-article-gallery-text-slides .stol-teaser-content {
+  position:relative;
+}
+
 .stol-article-gallery .stol-controls:not([hidden]) {
   position:relative;
   padding-left:0.75rem;
@@ -4873,6 +4884,10 @@ a{
   .stol-article-gallery__full .stol-article-gallery-content{
     margin:0px
   }
+}
+
+.stol-article-gallery__full .stol-article-gallery-text-slides {
+  display:none;
 }
 
 .stol-article-gallery__full .stol-teaser {

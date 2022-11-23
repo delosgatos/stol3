@@ -412,34 +412,36 @@
                 x-bind:full="$dispatch('changeFullscreen', { full: full })" 
                 class="stol-article-gallery" 
                 :class="{'stol-article-gallery__full':full, 'stol-article-gallery__info': info, 'stol-article-gallery__click': infoclick}"
-                x-data="{swiper: null, full:false, info:false, infoclick: false}"
+                x-data="{swiper: null, full:false, info:false, infoclick: false, slide: 0}"
                 x-init="swiper = new Swiper($refs.container, {
-                    observer: true,
+                    observer:       true,
                     observeParents: true,
-                    loop: true,
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    effect: 'slide',
-                    grabCursor: true,
-                    autoHeight: true,
+                    loop:           true,
+                    slidesPerView:  1,
+                    spaceBetween:   0,
+                    effect:         'slide',
+                    grabCursor:     true,
+                    autoHeight:     true,
                     pagination: {
-                    el: '.stol-controls-pagination',
-                    clickable: true,
-                  },
-                  on: {
-                    'slideChange' : function (sw){
-                        this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
-                        $dispatch('slideChange', { slide: sw.realIndex+1 });
+                      el:           '.stol-controls-pagination',
+                      clickable:    true,
                     },
-                    'slideChangeTransitionEnd' : function (sw){
-                        $dispatch('slideChangeEnd', { slide: sw.realIndex+1 });
-                    }
-                  },
-                  breakpoints: {
-                    768:  {effect: 'flip'},
-                    1280: {effect: 'fade'},
-                  },
-                });"
+                    on: {
+                      'slideChange' : function (sw){
+                          this.slide = sw.realIndex+1;
+                          this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(this.slide);
+                          $dispatch('slideChange', { sw: sw, slide: this.slide });
+                      },
+                      'slideChangeTransitionEnd' : function (sw){
+                          $dispatch('slideChangeEnd', { sw: sw, slide: sw.realIndex+1 });
+                      }
+                    },
+                    breakpoints: {
+                      768:  {effect: 'flip'},
+                      1280: {effect: 'fade'},
+                    },
+                  }
+                );"
             >
                 <a @click.prevent="full=false" class="stol-article-gallery-close" href="#close"><i class="icon-close"></i></a>
                 <div @click.prevent="full=true" class="stol-article-gallery-content" x-ref="box">
@@ -451,7 +453,7 @@
                           <div class="stol-teaser">
                             <div href="#article1" class="stol-teaser-image" style="background-image:url(images/v147_364.png)"></div>
                             <div class="stol-teaser-content">
-                                <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                                <p class="stol-teaser-text">1 На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                                 <p class="stol-teaser-date">Фото: источник</p>
                             </div>
                           </div>
@@ -462,7 +464,7 @@
                           <div class="stol-teaser">
                             <div href="#article2" class="stol-teaser-image" style="background-image:url(images/v147_205.png)"></div>
                             <div class="stol-teaser-content">
-                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">2 На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-date">Фото: источник</p>
                             </div>
@@ -474,7 +476,7 @@
                           <div class="stol-teaser">
                             <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v147_173.png)"></div>
                             <div class="stol-teaser-content">
-                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">3 На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
@@ -489,7 +491,7 @@
                           <div class="stol-teaser">
                             <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v147_371.png)"></div>
                             <div class="stol-teaser-content">
-                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">4 На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
@@ -503,7 +505,7 @@
                           <div class="stol-teaser">
                             <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v147_373.png)"></div>
                             <div class="stol-teaser-content">
-                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">5 На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-date">Фото: источник</p>
@@ -516,7 +518,7 @@
                           <div class="stol-teaser">
                             <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v147_374.png)"></div>
                             <div class="stol-teaser-content">
-                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">6 На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-date">Фото: источник</p>
                             </div>
@@ -528,7 +530,7 @@
                           <div class="stol-teaser">
                             <div href="#article3" class="stol-teaser-image" style="background-image:url(images/v311_345.png)"></div>
                             <div class="stol-teaser-content">
-                              <p class="stol-teaser-text">На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
+                              <p class="stol-teaser-text">7 На выставке, открывшейся сразу после карантинных ограничений, можно проследить весь творческий путь одного из создателей объединения «Бубновый валет»: если в начале ХХ века Роберт Фальк был.</p>
                               <p class="stol-teaser-date">Фото: источник</p>
                             </div>
                           </div>
