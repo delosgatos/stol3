@@ -1,6 +1,6 @@
 // START MAIN.JS
 
-var sysmsg = "%c 🚭 S-T-O-L.COM \nVERSION: 2022-11-24 01:33:49.814"; 
+var sysmsg = "%c 🚭 S-T-O-L.COM \nVERSION: 2022-11-24 02:45:38.647"; 
 var sysmsgstyl= [ 
     'font-size: 16px;', 
     'font-family: monospace;', 
