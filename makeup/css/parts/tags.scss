@@ -21,7 +21,7 @@
         @apply transform scale-105 text-white bg-gray-900;
     }
     &[href="#hidetags"] {
-        @apply border-0 pl-1;
+        @apply border-0 px-2;
         i {
             font-size: 9px;
             padding-top: 1px;

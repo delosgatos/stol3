@@ -2640,7 +2640,8 @@ a{
 
 .stol-tag[href="#hidetags"], .stol-section-donation [href="#hidetags"].stol-donation-sum {
   border-width:0px;
-  padding-left:0.25rem;
+  padding-left:0.5rem;
+  padding-right:0.5rem;
 }
 
 .stol-tag[href="#hidetags"] i, .stol-section-donation [href="#hidetags"].stol-donation-sum i {
@@ -3139,18 +3140,26 @@ a{
 
 @media (min-width: 768px){
   .stol-section-top .stol-teaser-image{
-    height:unset;
-    max-height:460px;
-    min-height:460px;
+    height:410px;
+    min-height:410px;
     width:62%
   }
 }
 
 @media (min-width: 1280px){
   .stol-section-top .stol-teaser-image{
-    max-height:499px;
-    min-height:499px
+    height:498px;
+    min-height:498px
   }
+}
+
+.stol-section-top .stol-teaser-image{
+  transition-duration: 150ms
+}
+
+.stol-section-top .stol-teaser-content {
+  --tw-bg-opacity:1;
+  background-color:rgba(255, 255, 255, var(--tw-bg-opacity));
 }
 
 @media (min-width: 768px){
@@ -6918,7 +6927,7 @@ a{
 }
 
 .swiper-wrapper {
-  transition-property:all;
+  transition-property:transform;
   transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration:150ms;
 }

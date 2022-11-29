@@ -242,22 +242,23 @@ module.exports = {
       maxHeight: {
         'none':         'none',
         mtop:           '223px',
-        ttop:           '460px',
-        dtop:           '499px',
+        ttop:           '410px',
+        dtop:           '498px',
         dtop1:          '568px',
       },
       minHeight: {
+        'none':         'none',
         promo:          '500px',
         mtop:           '223px',
-        ttop:           '460px',
-        dtop:           '499px',
+        ttop:           '410px',
+        dtop:           '498px',
         dtop1:          '568px',
       },
       height: {
         
         mtop:           '223px',
-        ttop:           '460px',
-        dtop:           '567px',
+        ttop:           '410px',
+        dtop:           '498px',
         dtop1:          '568px',
 
         mteas:          '294px',

@@ -1,5 +1,5 @@
 .swiper-wrapper{
-  @apply transition-all;
+  @apply transition-transform;
   .swiper-slide {
     @apply bg-white;
   }

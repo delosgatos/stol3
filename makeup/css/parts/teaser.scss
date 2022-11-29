@@ -117,10 +117,11 @@
         @apply text-mh1 md:text-th1 xl:text-dh1;
       }
       &-image {
-        @apply h-auto min-h-mtop md:w-31/50 md:h-unset md:min-h-ttop xl:min-h-dtop md:max-h-ttop xl:max-h-dtop;
+        @apply h-auto min-h-mtop md:w-31/50 md:min-h-ttop xl:min-h-dtop md:h-ttop xl:h-dtop;
+        transition-duration: 150ms;
       }
       &-content {
-        @apply md:w-19/50 md:h-auto md:pb-20 md:pt-13 md:px-5;
+        @apply md:w-19/50 md:h-auto md:pb-20 md:pt-13 md:px-5 bg-white;
       }
       picture {
           img {

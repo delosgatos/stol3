@@ -60,6 +60,12 @@
     <title>S-T-O-L.COM - ARTICLE</title>
   </head>
   <body class="stol">
+    <script>
+      var errorLog = function (err) {
+        console.log('ERROR', err);
+      };
+      window.addEventListener("error", errorLog);
+    </script>
     <div class="stol-wrapper" id="stol">
       <!-- HEADER -->
       <header class="stol-head">
@@ -368,6 +374,7 @@
         </div>
       </header>
 
+      
 
       <!-- MAIN CONTENT -->
 
@@ -444,7 +451,7 @@
                     },
                     'slideChange' : function (sw){
                         this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(sw.realIndex+1);
-                        $dispatch('slideChange', { slide: sw.realIndex+1 });
+                        $dispatch('slideChange', { sw: sw, slide: sw.realIndex+1 });
                     },
                     'slideChangeTransitionEnd' : function (sw){
                         $dispatch('slideChangeEnd', { slide: sw.realIndex+1 });

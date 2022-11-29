@@ -412,7 +412,7 @@
                 x-bind:full="$dispatch('changeFullscreen', { full: full })" 
                 class="stol-article-gallery" 
                 :class="{'stol-article-gallery__full':full, 'stol-article-gallery__info': info, 'stol-article-gallery__click': infoclick}"
-                x-data="{swiper: null, full:false, info:false, infoclick: false, slide: 0}"
+                x-data="{swiper: null, full:false, info:false, infoclick: false}"
                 x-init="swiper = new Swiper($refs.container, {
                     observer:       true,
                     observeParents: true,
@@ -428,9 +428,9 @@
                     },
                     on: {
                       'slideChange' : function (sw){
-                          this.slide = sw.realIndex+1;
-                          this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(this.slide);
-                          $dispatch('slideChange', { sw: sw, slide: this.slide });
+                          var slide = sw.realIndex+1;
+                          this.$wrapperEl.parents('[x-init]').find('[x-ref=counter]').html(slide);
+                          $dispatch('slideChange', { sw: sw, slide: slide });
                       },
                       'slideChangeTransitionEnd' : function (sw){
                           $dispatch('slideChangeEnd', { sw: sw, slide: sw.realIndex+1 });
