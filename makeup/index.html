@@ -430,7 +430,7 @@
                   <!-- START: S L I D E S -->
                   <div class="swiper-slide">
                     <!-- START: T E A S E R -->
-                    <div class="stol-teaser" x-data x-init="resizeListener($el, function(){
+                    <div class="stol-teaser loading" x-data x-init="resizeListener($el, function(){
                       window.dispatchEvent(new CustomEvent('eresize'));
                     });">
                       <a href="article.html" class="stol-teaser-image">
@@ -451,16 +451,18 @@
                         <a href="article.html" class="stol-teaser-title">главный материал,<br>если заголовок будет<br>в три строки</a>
                         <a href="article.html" class="stol-teaser-text">«Стол» — это пространство для встреч, творчества, размышления и сотрудничества всех, кто хочет искать и находить смыслы. </a>
                         <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
-                        <div class="stol-tags-block js-collapsible-tags">
-                          <a href="#" class="stol-tag">тег статьи</a>
-                          <a href="#" class="stol-tag">стол</a>
-                          <a href="#" class="stol-tag">пространство для встреч</a>
-                          <a href="#" class="stol-tag">главный материал</a>
-                          <a href="#" class="stol-tag">смыслы</a>
-                          <a href="#" class="stol-tag">приветствие</a>
-                          <a href="#" class="stol-tag">материал</a>
-                          <a href="#" class="stol-tag">размышления</a>
-                          <a href="#" class="stol-tag">главред</a>
+                        <div class="stol-tags-wrapper">
+                          <div class="stol-tags-block js-collapsible-tags">
+                            <a href="#" class="stol-tag">тег статьи</a>
+                            <a href="#" class="stol-tag">стол</a>
+                            <a href="#" class="stol-tag">пространство для встреч</a>
+                            <a href="#" class="stol-tag">главный материал</a>
+                            <a href="#" class="stol-tag">смыслы</a>
+                            <a href="#" class="stol-tag">приветствие</a>
+                            <a href="#" class="stol-tag">материал</a>
+                            <a href="#" class="stol-tag">размышления</a>
+                            <a href="#" class="stol-tag">главред</a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -468,7 +470,7 @@
                   </div>
                   <div class="swiper-slide">
                     <!-- START: T E A S E R -->
-                    <div class="stol-teaser" x-data x-init="resizeListener($el, function(){
+                    <div class="stol-teaser loading" x-data x-init="resizeListener($el, function(){
                       window.dispatchEvent(new CustomEvent('eresize'));
                     });">
                       <a href="article.html" class="stol-teaser-image">
@@ -489,10 +491,47 @@
                         <a href="article.html" class="stol-teaser-title">еще один материал в фичере, строк на глаз как получится</a>
                         <a href="article.html" class="stol-teaser-text">One caveat to the multiple-backgrounds technique is that the opacities will multiply rather than add together.  </a>
                         <p class="stol-teaser-date">выбор редакции 12.03.2021</p>
-                        <div class="stol-tags-block js-collapsible-tags">
-                          <a href="#" class="stol-tag">еще один материал</a>
-                          <a href="#" class="stol-tag">фичер</a>
-                          <a href="#" class="stol-tag">бэкграунд</a>
+                        <div class="stol-tags-wrapper">
+                          <div class="stol-tags-block js-collapsible-tags">
+                            <a href="#" class="stol-tag">еще один материал</a>
+                            <a href="#" class="stol-tag">фичер</a>
+                            <a href="#" class="stol-tag">бэкграунд</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END: T E A S E R -->
+                  </div>
+
+                  <div class="swiper-slide">
+                    <!-- START: T E A S E R -->
+                    <div class="stol-teaser loading" x-data x-init="resizeListener($el, function(){
+                      window.dispatchEvent(new CustomEvent('eresize'));
+                    });">
+                      <a href="article.html" class="stol-teaser-image">
+                        <span class="stol-tag-label">церковь</span>
+                        <picture>
+                          <source type="image/webp" media="(min-width: 1280px)" srcset="https://loremflickr.com/777/567?12">
+                          <source type="image/png"  media="(min-width: 1280px)" srcset="https://placekitten.com/777/567?12">
+                          <source type="image/webp" media="(min-width: 768px)"  srcset="https://loremflickr.com/640/460?12">
+                          <source type="image/png"  media="(min-width: 768px)"  srcset="https://placekitten.com/640/460?12">
+                          <source type="image/webp" media="(min-width: 425px)"  srcset="https://loremflickr.com/767/224?12">
+                          <source type="image/png"  media="(min-width: 425px)"  srcset="https://placekitten.com/767/224?12">
+                          <source type="image/webp" media="(min-width: 0)"      srcset="https://loremflickr.com/425/224?12">
+                          <source type="image/png"  media="(min-width: 0)"      srcset="https://placekitten.com/425/224?12">
+                          <img src="data:image/gif;base64,R0lGODlhAQABAPAAAPLy8gAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="">
+                        </picture>
+                      </a>
+                      <div class="stol-teaser-content">
+                        <a href="https://s-t-o-l.com/material/34392-protesty-v-irane-pri-shakhe-my-pili-prilyudno-a-molilis-v-uedinenii-a-teper-molimsya-publichno-a-pye/" class="stol-teaser-title">Протесты в Иране. «При шахе мы пили прилюдно, а молились в уединении, а теперь молимся публично, а пьём в уединении»</a>
+                        <a href="https://s-t-o-l.com/material/34392-protesty-v-irane-pri-shakhe-my-pili-prilyudno-a-molilis-v-uedinenii-a-teper-molimsya-publichno-a-pye/" class="stol-teaser-text">Будет ли новая Иранская революция</a>
+                        <p class="stol-teaser-date">выбор редакции 12.03.2021</p>
+                        <div class="stol-tags-wrapper">
+                          <div class="stol-tags-block js-collapsible-tags">
+                            <a href="#" class="stol-tag">еще один материал</a>
+                            <a href="#" class="stol-tag">фичер</a>
+                            <a href="#" class="stol-tag">бэкграунд</a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -500,7 +539,7 @@
                   </div>
                   <div class="swiper-slide">
                     <!-- START: T E A S E R -->
-                    <div class="stol-teaser" x-data x-init="resizeListener($el, function(){
+                    <div class="stol-teaser loading" x-data x-init="resizeListener($el, function(){
                       window.dispatchEvent(new CustomEvent('eresize'));
                     });">
                       <a href="article.html" class="stol-teaser-image">
@@ -521,12 +560,14 @@
                         <a href="article.html" class="stol-teaser-title">третий материал в фичере и все, хватит</a>
                         <a href="article.html" class="stol-teaser-text">Материал развития и побуждающее начало его реализации даются извне, но это побуждающее начало может действовать, очевидно, лишь сообразно с собственною природой организма. </a>
                         <p class="stol-teaser-date">выбор редакции 10.02.2021</p>
-                        <div class="stol-tags-block js-collapsible-tags">
-                          <a href="#" class="stol-tag">третий материал</a>
-                          <a href="#" class="stol-tag">тег статьи длинный</a>
-                          <a href="#" class="stol-tag">тег статьи</a>
-                          <a href="#" class="stol-tag">общество</a>
-                          <a href="#" class="stol-tag">развитие</a>
+                        <div class="stol-tags-wrapper">
+                          <div class="stol-tags-block js-collapsible-tags">
+                            <a href="#" class="stol-tag">третий материал</a>
+                            <a href="#" class="stol-tag">тег статьи длинный</a>
+                            <a href="#" class="stol-tag">тег статьи</a>
+                            <a href="#" class="stol-tag">общество</a>
+                            <a href="#" class="stol-tag">развитие</a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -536,7 +577,7 @@
               </div>
             </div>
             <div x-ref="controls" class="stol-controls">
-              <p class="stol-controls-counter"><span x-ref="counter">1</span> / 3</p>
+              <p class="stol-controls-counter"><span x-ref="counter">1</span> / 4</p>
               <div class="stol-controls-divider"></div>
               <div class="stol-controls-arrows"><i @click="swiper.slidePrev()" class="stol-controls-arrow icon-arrow-left"></i><div class="stol-controls-pagination"></div><i @click="swiper.slideNext()" class="stol-controls-arrow icon-arrow-right"></i></div>
             </div>

@@ -1,6 +1,6 @@
 // START MAIN.JS
 
-var sysmsg = "%c 🚭 S-T-O-L.COM \nVERSION: 2022-11-29 04:03:16.300"; 
+var sysmsg = "%c 🚭 S-T-O-L.COM \nVERSION: 2022-12-04 02:49:44.127"; 
 var sysmsgstyl= [ 
     'font-size: 16px;', 
     'font-family: monospace;', 
@@ -14,8 +14,9 @@ console.log(sysmsg, sysmsgstyl);
 
 var _backLog = console.log;
 console.log = function (a,b,c) {
-  // TODO: IN PRODUCTION
-  return false;
+  if(localStorage.getItem('logit') !== 'true') {
+    return false;
+  }
   var d = new Date();
   var args = Array.prototype.unshift.call(arguments, '%c ' + d.toLocaleTimeString() + '.' + d.getMilliseconds() + ' ', 'background: #ccc; color: #fff; line-height:20px;height:20px;display:inline-block;');
   _backLog.apply(this, arguments);
@@ -211,12 +212,18 @@ showClickElements.forEach(function (el) {
 });
 
 // FIX TOP TEASER HEIGHT
+var loadingClass = 'loading';
 var initTopSlider = true;
 var startTopSlider = true;
 var sectionTopClass = 'stol-section-top';
+var tagsWrapperClass = 'stol-tags-wrapper';
+var tagsBlockClass = 'js-collapsible-tags';
 var teaserClass = 'stol-teaser';
-var teaserImageClass = 'stol-teaser-image';
+var teaserImageClass = teaserClass+'-image';
+var teaserTitleClass = teaserClass+'-title';
+var teaserTextClass = teaserClass+'-text';
 var activeTeaser, activeSlideWrapper, activeSwiper;
+
 if(!isMobile) {
   var topTeaserImage = document.querySelector('.'+sectionTopClass+' .'+teaserImageClass);
   if(topTeaserImage) {
@@ -224,32 +231,41 @@ if(!isMobile) {
     topTeaserImage.children[1].style.display = 'none';
   }
 }
+var topTeasers = document.querySelectorAll('.'+sectionTopClass+' .'+teaserClass);
+topTeasers.forEach(function(teaser){
+  var block = teaser.querySelector('.'+tagsBlockClass);
+  block.addEventListener('collapse', function() {
+    teaser.classList.remove(loadingClass);
+  });
+});
 var changeImageHeight = function (activeTeaserImage){
-
   setTimeout(function(){
     var teaserH = activeTeaser.offsetHeight;
     activeSlideWrapper.style.height = teaserH + 'px';
     activeTeaserImage.style.transitionProperty = 'none';
     activeTeaserImage.children[1].style.display = 'inline';
+    console.log('changeImageHeight', teaserH)
     setTimeout(function(){
       console.log('DIFF AFTER TIMEOUT', teaserH, ' vs ', activeTeaserImage.offsetHeight)
       activeTeaserImage.style.height = teaserH + 'px';
       if(activeSwiper) {
         activeSwiper.updateAutoHeight(0);
       }
+      activeTeaser.dispatchEvent(new CustomEvent("loaded", {
+        detail: { }
+      }));
     }, 0);
     setTimeout(function(){
       activeTeaserImage.style.transitionProperty = 'all';
     }, 300);
     resizeSlideObserver.disconnect();
-  }, activeTeaser.offsetHeight == activeTeaserImage.offsetHeight ? 0 : 0);
+  }, activeTeaser.offsetHeight == activeTeaserImage.offsetHeight ? 100 : 0);
 
 };
 
 var resizeSlideObserver = new ResizeObserver(function(entries) {
   const lastEntry = entries.pop();
   if(activeSwiper) {
-    debugger;
     activeSwiper.updateAutoHeight(0);
   }
   changeImageHeight(lastEntry.target);
@@ -270,14 +286,88 @@ var fixTeaserImageHeight = function (teaser, image, wrapper, wait) {
     changeImageHeight(image);
   }
 }
+function countLines(el) {
+  var divHeight = el.offsetHeight
+  var comp = getComputedStyle(el);
+  var lineHeight = parseInt(comp.getPropertyValue('line-height'));
+  console.log(divHeight, '/', lineHeight);
+  var lines = Math.round(divHeight / lineHeight);
+  comp.lines = lines;
+  return comp;
+}
+var teaserTextBlockHeight = function(lines) {
+  var sum;
+  lines.reduce((l, c) => {sum = c.lines * parseFloat(c['line-height']) + l; return sum;}, 0);
+  console.log('SUM', sum);
+  return sum;
+}
+var fixTeaserTexts = function (teaser, wrapper){
+  var teaserTitle = teaser.getElementsByClassName(teaserTitleClass)[0];
+  var teaserText = teaser.getElementsByClassName(teaserTextClass)[0];
+  var removeWord = function(els) {
+    var lines = els.map(el => countLines(el));
+    console.log('LINES', lines.map(l=>l.lines));
+    var txt, blockHeight = teaserTextBlockHeight(lines);
+    // var maxTextBlockHeight = lines.reduce((l, c) => parseFloat(c['line-height']) * 3 + l, 0);
+    console.log('LINE HEIGHTS', lines.map(l=>l['line-height']));
+    var maxTextBlockHeight = parseFloat(lines[0]['line-height']) * 2 + parseFloat(lines[1]['line-height']) * 4;
+    console.log('REMOVE WORD', blockHeight, '<=', maxTextBlockHeight, ' : ', els[0].textContent, ' text: ', els[1].textContent)
+    if(blockHeight <= maxTextBlockHeight) {
+      return;
+    }
+    if(lines[0].lines > 2){
+      txt = els[0].textContent;
+      els[0].textContent = txt.substring(0, txt.lastIndexOf(" ")) + '...';
+      removeWord(els);
+      return;
+    }
+    if(lines[1].lines > 4){
+      txt = els[1].textContent;
+      els[1].textContent = txt.substring(0, txt.lastIndexOf(" ")) + '...';
+      removeWord(els);
+      return;
+    }
+    if(lines[0].lines > 1){
+      txt = els[0].textContent;
+      els[0].textContent = txt.substring(0, txt.lastIndexOf(" ")) + '...';
+      removeWord(els);
+      return;
+    }
+    if(lines[1].lines > 1){
+      txt = els[1].textContent;
+      els[1].textContent = txt.substring(0, txt.lastIndexOf(" ")) + '...';
+      removeWord(els);
+      return;
+    }
+  }
+  removeWord([teaserText, teaserTitle]);
+}
 
 var onTopSlideChange = function (activeSlide, wrapper, hideImage){
   if(!activeSlide) {
     return false;
   }
+  console.log('onTopSlideChange');
   var teaser = activeSlide.getElementsByClassName(teaserClass)[0];
   var teaserImage = activeSlide.getElementsByClassName(teaserImageClass)[0];
   var teaserImageImg = teaserImage.getElementsByTagName('img')[0];
+  if (startTopSlider) {
+    var slides = wrapper.getElementsByClassName('swiper-slide');
+    console.log('SLIDES', slides);
+    Array.prototype.forEach.call(slides, function(slide, i){
+      console.log('SLIDE HEIGHT', i, slide.offsetHeight);
+      var teaser = slide.querySelector('.'+teaserClass);
+      teaser.addEventListener('loaded', function(){
+        // TODO with teasers after swiper diplicate slides 
+        teaser.classList.remove(loadingClass);
+        console.log('-!!!- Teaser loaded', teaser);
+        // var tags = slide.querySelector('.'+tagsBlockClass);  
+      });
+    });
+  } else {
+    teaser.classList.remove(loadingClass);
+    fixTeaserTexts(teaser, wrapper);
+  }
   if(hideImage) {
     teaserImage.children[1].style.display = 'none';
   }
@@ -300,6 +390,7 @@ document.addEventListener('topSlideChange', function(e){
     var activeSlide = Array.prototype.filter.call(slides, function(el){
       return el.classList.contains('swiper-slide-active');
     })[0];
+    var teaser = activeSlide.querySelector('.'+teaserClass);
 
     console.log('DATA COLLAPSE TAGS', activeSlide.getAttribute('data-collapse-events'), activeSlide);
 
@@ -309,15 +400,12 @@ document.addEventListener('topSlideChange', function(e){
       console.log('INIT TAGS EVENTS', tags);
       
       tags.addEventListener('uncollapse', function () {
-
         console.log('======> UNcollapse event');
-        
         onTopSlideChange(activeSlide, wrapper, true);
       });
       tags.addEventListener('collapse', function () {
-
         console.log('======> COLLAPSE event');
-        
+        teaser.classList.remove(loadingClass);
         onTopSlideChange(activeSlide, wrapper, true);
       });
       activeSlide.setAttribute('data-collapse-events', true);

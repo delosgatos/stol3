@@ -2649,6 +2649,19 @@ a{
   padding-top: 1px;
 }
 
+.stol-tags-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.stol-tags-block {
+  position:relative;
+  opacity:1;
+  transition-property:all;
+  transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration:150ms;
+}
+
 .stol-tags-block:not([hidden]) {
   margin-bottom:-0.625rem;
   display:flex;
@@ -3181,6 +3194,11 @@ a{
   .stol-section-top .stol-teaser picture img{
     height:100%
   }
+}
+
+.stol-section-top .stol-teaser.loading .stol-tags-block {
+  position:absolute;
+  opacity:0;
 }
 
 .stol-promo {

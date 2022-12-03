@@ -128,5 +128,10 @@
               @apply h-56 md:h-full;
           }
       }
+      &.loading {
+        .stol-tags-block {
+          @apply absolute opacity-0;
+        }
+      }
     }
 }
